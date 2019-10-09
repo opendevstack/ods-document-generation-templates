@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Software Development Testing Plan for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>Software Development Testing Plan for '{{metadata.name}}'</h1>
+
+        <h2>Table of Contents</h2>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">Introduction</a></li>
+            <li><a href="#section_2">Responsibilities</a></li>
+            <li><a href="#section_3">Test Strategy and Environment</a>
+                <ol>
+                    <li><a href="#section_3_1">Test Environment</a></li>
+                    <li><a href="#section_3_2">Modules (Unit) Tested</a></li>
+                    <li><a href="#section_3_3">Excluded Modules</a></li>
+                    <li><a href="#section_3_4">Integration Level Tests</a></li>
+                    <li><a href="#section_3_5">System Level Tests</a></li>
+                    <li><a href="#section_3_6">Test Dependencies and Relationships</a></li>
+                    <li><a href="#section_3_7">Error Handling and Corrective Actions</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_4">Test Cases</a></li>
+            <li><a href="#section_5">Definitions and Abbreviations</a>
+                <ol>
+                    <li><a href="#section_5_1">Definitions</a></li>
+                    <li><a href="#section_5_2">Abbreviations</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_6">Reference Documents</a></li>
+            <li><a href="#section_7">Document History</a></li>
+        </ol>
+    </div>
+
+    <div class="page">
+        <h2 id="section_1"><span>1</span>Introduction</h2>
+        <p>The purpose of the Software Development Testing Plan is to document the structural and/or functional testing of {{metadata.buildParameter.configItem}} that will be conducted to verify the implementation of the design for each unit/module of the Computer System, and the system functions as specified in the Software Design / Functional Specifications.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_2"><span>2</span>Responsibilities</h2>
+        Tests are executed by the platform / Jenkins build engine and are written by developers during the development phase.
+        <table>
+            <tr>
+                <th>Role</td>
+                <th>Responsibilities</td>
+            </tr>
+            <tr>
+                <td>Developer</td>
+                <td>Writes tests</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h2 id="section_3"><span>3</span>Test Strategy and Environment</h2>
+        <p>Tests are located within each repository, co-located to binaries or source code. Those tests are linked to test cases in <em>JIRA</em>, and their results are reported within the Software Development Testing Report (<em>DTR</em>). Jenkins executes those tests during the build, and potentially after the installation phase of each component, and uses <b>xUnit</b> to report them for later usage. The report is generated automatically from the xUnit results, linked to <em>JIRA</em> testcases.</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_1"><span>3.1</span>Test Environment</h3>
+        <p>The tests are executed on qualified infrastructure (<em>BI-IT-DEVSTACK</em>, <em>BI-IT-CONTAINER-PAAS</em>). If a testcase requires further infrastructure (e.g. AWS), this is described as part of the Software Design Specification (<em>SDS</em>), and its location will be recorded as part of the <em>DTR</em>.</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_2"><span>3.2</span>Modules (Unit) Tested</h3>
+        <p>The list of repositories that will be scanned for automated tests:</p>
+
+        <table>
+   			<tr>
+	   			<th class="lean">ID</th>
+	   			<th class="lean">Description</th>
+	   			<th class="lean">URL</th>
+   			</tr>
+            {{#each data.project.repositories}}
+            <tr>
+                <td>{{id}}</td>
+                <td class="content-wrappable">{{description}}</td>
+                <td>{{url}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_3"><span>3.3</span>Excluded Modules</h3>
+        <p><em>N/A</em>. The <em>DTR</em> will contain code/test coverage information, which includes any configured exclusions.</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_4"><span>3.4</span>Integration Level Tests</h3>
+        <p>Integration tests are executed after all components were installed successfully. They are contained in a separate project, and if applicable, will be executed during <em>Installation Verification (IQ)</em>.</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_5"><span>3.5</span>System Level Tests</h3>
+        <p><em>N/A</em>. In case they exist, they will be executed after the installation of the component / system, and if applicable, will be executed during Operational Qualification (<em>OQ</em>) / <em>FT</em>.</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_6"><span>3.6</span>Test Dependencies and Relationships</h3>
+        <p>{{{data.sections.sec3s6.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3_7"><span>3.7</span>Error Handling and Corrective Actions</h3>
+        <p>{{{data.sections.sec3s7.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_4"><span>4</span>Test Cases</h2>
+        <table>
+            <tr>
+                <th class="lean">UR-ID from Jira</th>
+                <th class="lean">ID from Jira</th>
+                <th class="content-wrappable">Reference to Software Design Spec</th>
+                <th class="content-wrappable">Assigned Risk Level per Risk Assessment</th>
+                <th class="content-wrappable">Description</th>
+                <th class="lean">Passed (Y/N)</th>
+                <th class="lean">Remark</th>
+            </tr>
+            {{#each data.tests}}
+            <tr>
+                <td class="lean">{{isRelatedTo}}</td>
+                <td class="lean">{{key}}</td>
+                <td class="content-wrappable">SDS4711</td>
+                <td class="content-wrappable">HIGH</td>
+                <td class="content-wrappable">{{{description}}}</td>
+                <td class="lean">&nbsp;</td>
+                <td class="lean">&nbsp;</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+
+    <div class="page">
+        <h2 id="section_5"><span>5</span>Definitions and Abbreviations</h2>
+
+        <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
+        <p>{{{data.sections.sec5s1.content}}}</p>
+
+        <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
+        <p>{{{data.sections.sec5s2.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_6"><span>6</span>Reference Documents</h2>
+        <p>{{{data.sections.sec6.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_7"><span>7</span>Document History</h2>
+        <p>{{{data.sections.sec7.content}}}</p>
+    </div>
+</body>
+</html>

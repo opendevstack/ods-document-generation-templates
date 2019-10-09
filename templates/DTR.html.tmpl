@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Software Development Testing Report for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>Software Development Testing Report for '{{metadata.name}}'</h1>
+
+        <h2>Table of Contents</h2>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">Introduction</a></li>
+            <li><a href="#section_2">Responsibilities</a></li>
+            <li><a href="#section_3">Development Testing Results</a>
+                <ol>
+                    <li><a href="#section_3_1">Overview of Unit Tested Modules</a></li>
+                    <li><a href="#section_3_2">Overview of Integration Tests</a></li>
+                    <li><a href="#section_3_3">Overview of System Tests</a></li>
+                    <li><a href="#section_3_4">Overview of Test Case Discrepancies</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_4">Conclusion Statement</a></li>
+            <li><a href="#section_5">Definitions and Abbreviations</a>
+            <ol>
+                <li><a href="#section_5_1">Definitions</a></li>
+                <li><a href="#section_5_2">Abbreviations</a></li>
+            </ol>
+            </li>
+            <li><a href="#section_6">Reference Documents</a></li>
+            <li><a href="#section_7">Document History</a></li>
+        </ol>
+    </div>
+
+    <div class="page">
+        <h2 id="section_1"><span>1</span>Introduction</h2>
+        <p>The purpose of the Development Test Summary Report is to document the structural and/or functional testing of {{metadata.buildParameter.configItem}} that was conducted from to verify the implementation of the design for each unit/module of the computer system, and the system functions as specified in the Software Design / Functional Specifications.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_2"><span>2</span>Responsibilities</h2>
+        <p>The Development Testing has been executed according to the roles and responsibilities defined in the Development Test Plan (<em>DTP</em>).</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_3"><span>3</span>Development Testing Results</h2>
+
+        <h3>XUnit generated test results:</h3>
+        <p><pre>{{data.testsuites}}</pre></p>
+
+        <p>These results are based on the following test result files:</p>
+
+        <table>
+            <tr>
+                <th class="lean">Name</td>
+                <th class="content-wrappable">Path</td>
+            </tr>
+            {{#each data.testfiles}}
+            <tr>
+                <td class="lean">{{name}}</td>
+                <td class="content-wrappable">{{path}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <p>These were executed against the following repository (and commit)</p>
+        {{#data.repo}}
+        <table>
+            <tr>
+                <th class="lean">ID</td>
+                <th class="content-wrappable">URL</td>
+                <th class="content-wrappable">Git Info</td>
+            </tr>
+            <tr>
+                <td class="lean">{{id}}</td>
+                <td class="content-wrappable">{{url}}</td>
+                <td class="content-wrappable">{{gitData}}</td>
+            </tr>
+        </table>
+        {{/data.repo}}
+
+        <h2 id="section_3_1"><span>3.1</span>Overview of Unit Tested Modules</h2>
+        <p>The following table shows only those tests for which there exists a corresponding test case definition in Jira.</p>
+
+        <table>
+            <tr>
+                <th class="lean">UR-ID from Jira</th>
+                <th class="lean">ID from Jira</th>
+                <th class="content-wrappable">Reference to Software Design Spec</th>
+                <th class="content-wrappable">Assigned Risk Level per Risk Assessment</th>
+                <th class="content-wrappable">Description</th>
+                <th class="lean">Passed (Y/N)</th>
+                <th class="lean">Remark</th>
+            </tr>
+            {{#each data.tests}}
+            <tr>
+                <td class="lean">{{isRelatedTo}}</td>
+                <td class="lean">{{key}}</td>
+                <td class="lean">SDS4711</td>
+                <td class="lean">High</td>
+                <td class="content-wrappable">{{{description}}}</td>
+                <td class="lean">{{success}}</td>
+                <td class="lean">{{remarks}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h2 id="section_3_2"><span>3.2</span>Overview of Integration Tests</h2>
+        <p><em>N/A</em></p>
+
+        <h2 id="section_3_3"><span>3.3</span>Overview of System Tests</h2>
+        <p><em>N/A</em></p>
+
+        <h2 id="section_3_4"><span>3.4</span>Overview of Test Case Discrepancies</h2>
+        <p>{{data.discrepancies}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_4"><span>4</span>Conclusion Statement</h2>
+        <p>Having completed the execution of the Development Tests for <em>{{metadata.buildParameter.configItem}}</em> and assessed the activities and respective outcomes, which are documented above, the conclusion drawn is as follows:</p>
+
+        <table>
+        <tr>
+            <td>{{data.conclusion.summary}}</td>
+            <td class="content-wrappable">{{data.conclusion.statement}}</td>
+        </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h1 id="section_5"><span>5</span>Definitions and Abbreviations</h1>
+        <p>{{{data.sections.sec5.content}}}</p>
+
+        <h2 id="section_5_1"><span>5.1</span>Definitions</h2>
+        <p>{{{data.sections.sec5s1.content}}}</p>
+
+        <h2 id="section_5_2"><span>5.2</span>Abbreviations</h2>
+        <p>{{{data.sections.sec5s2.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_6"><span>6</span>Reference Documents</h2>
+        <ul>
+            <li>Software Development Testing Plan (version {{metadata.jenkins.buildNumber}}), generated by the Jenkins pipeline build at <a href="{{metadata.jenkins.buildUrl}}">{{metadata.jenkins.buildUrl}}</a>.</li>
+        </ul>
+        <p>{{{data.sections.sec6.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_7"><span>7</span>Document History</h2>
+        <p>{{{data.sections.sec7.content}}}</p>
+    </div>
+</body>
+</html>

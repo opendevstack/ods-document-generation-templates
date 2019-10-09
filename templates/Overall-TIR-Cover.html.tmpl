@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>(Overall) Technical Installation Report for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>(Overall) Installation Report for '{{metadata.name}}'</h1>
+
+        <h2>Table of Contents</h2>
+        <ol class="table-of-contents">
+        {{#each data.sections}}
+            <li>{{heading}}</li>
+        {{/each}}
+        </ol>
+    </div>
+
+    <div class="page">
+        <h2>Jenkins build log</h2>
+        <p><pre>{{data.jenkinsData.log}}</pre></p>
+    </div>
+</body>
+</html>

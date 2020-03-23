@@ -38,8 +38,16 @@
                             <td class="content-wrappable">{{metadata.git.commit}}</td>
                         </tr>
                         <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
                             <td class="lean">Git URL:</td>
                             <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Created by Jenkins Job Name:</td>
@@ -88,7 +96,7 @@
 
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction</h2>
-        <p>The purpose of the Software Development Testing Plan is to document the structural and/or functional testing of {{metadata.buildParameter.configItem}} that will be conducted to verify the implementation of the design for each unit/module of the Computer System, and the system functions as specified in the Software Design / Functional Specifications.</p>
+        <p>The purpose of the Software Development Testing Plan is to document the structural and/or functional testing of {{metadata.name}} that will be conducted to verify the implementation of the design for each unit/module of the Computer System, and the system functions as specified in the System and Software Design / Functional Specifications.</p>
     </div>
 
     <div class="page">
@@ -96,8 +104,8 @@
         Tests are executed by the platform / Jenkins build engine and are written by developers during the development phase.
         <table>
             <tr>
-                <th>Role</td>
-                <th>Responsibilities</td>
+                <th>Role</th>
+                <th>Responsibilities</th>
             </tr>
             <tr>
                 <td>Developer</td>
@@ -108,29 +116,29 @@
 
     <div class="page">
         <h2 id="section_3"><span>3</span>Test Strategy and Environment</h2>
-        <p>Tests are located within each repository, co-located to binaries or source code. Those tests are linked to test cases in <em>JIRA</em>, and their results are reported within the Software Development Testing Report (<em>DTR</em>). Jenkins executes those tests during the build, and potentially after the installation phase of each component, and uses <b>xUnit</b> to report them for later usage. The report is generated automatically from the xUnit results, linked to <em>JIRA</em> testcases.</p>
+        <p>Tests are located within each repository, co-located to binaries or source code. Those tests are linked to test cases in <em>JIRA</em>, and their results are reported within the Software Development Testing Report. Jenkins executes those tests during the build, and potentially after the installation phase of each component, and uses <b>xUnit</b> to report them for later usage. The report is generated automatically from the xUnit results, linked to <em>JIRA</em> testcases.</p>
     </div>
 
     <div class="page">
         <h3 id="section_3_1"><span>3.1</span>Test Environment</h3>
-        <p>The tests are executed on qualified infrastructure (<em>BI-IT-DEVSTACK</em>, <em>BI-IT-CONTAINER-PAAS</em>). If a testcase requires further infrastructure (e.g. AWS), this is described as part of the Software Design Specification (<em>SDS</em>), and its location will be recorded as part of the <em>DTR</em>.</p>
+        <p>The tests are executed on qualified infrastructure (<em>BI-IT-DEVSTACK</em>, <em>BI-IT-CONTAINER-PAAS</em>). If a testcase requires further infrastructure (e.g. AWS), this is described as part of the System and Software Design Specification, and its location will be recorded as part of the Software Development Testing Report.</p>
     </div>
 
     <div class="page">
         <h3 id="section_3_2"><span>3.2</span>Modules (Unit) Tested</h3>
-        <p>The list of repositories that will be scanned for automated tests:</p>
+        <p>The following table contains the list of repositories that will be scanned for unit tests. For the unit tests defined in JIRA, the ones considered rellevant for GxP functionailities, the test ID is shown. More information about them can be found in <a href="#section_4">section 4</a>.</p>
 
         <table>
    			<tr>
-	   			<th class="lean">ID</th>
+	   			<th class="lean">Module Name</th>
 	   			<th class="lean">Description</th>
-	   			<th class="lean">URL</th>
+	   			<th class="lean">Test IDs</th>
    			</tr>
-            {{#each data.project.repositories}}
+            {{#each data.modules}}
             <tr>
-                <td>{{id}}</td>
+                <td class="lean">{{id}}</td>
                 <td class="content-wrappable">{{description}}</td>
-                <td>{{url}}</td>
+                <td class="content-wrappable">{{tests}}</td>
             </tr>
             {{/each}}
         </table>
@@ -138,47 +146,48 @@
 
     <div class="page">
         <h3 id="section_3_3"><span>3.3</span>Excluded Modules</h3>
-        <p><em>N/A</em>. The <em>DTR</em> will contain code/test coverage information, which includes any configured exclusions.</p>
+        <p><em>N/A</em>. The Software Development Testing Report will contain code/test coverage information, which includes any configured exclusions.</p>
     </div>
 
     <div class="page">
         <h3 id="section_3_4"><span>3.4</span>Integration Level Tests</h3>
-        <p>Integration tests are executed after all components were installed successfully. They are contained in a separate project, and if applicable, will be executed during <em>Installation Verification (IQ)</em>.</p>
+        <p>Integration tests are executed in the CFTP/CFTR after all components were installed successfully. They are contained in a separate project, and if applicable, will be executed during <em>Installation Verification</em>.</p>
     </div>
 
     <div class="page">
         <h3 id="section_3_5"><span>3.5</span>System Level Tests</h3>
-        <p><em>N/A</em>. In case they exist, they will be executed after the installation of the component / system, and if applicable, will be executed during Operational Qualification (<em>OQ</em>) / <em>FT</em>.</p>
+        <p><em>N/A</em>. In case they exist, they will be executed after the installation of the component / system, and if applicable in case the project management considers it necessary, will be managed on the CFTP/CFTR.</p>
     </div>
 
     <div class="page">
         <h3 id="section_3_6"><span>3.6</span>Test Dependencies and Relationships</h3>
-        <p>{{{data.sections.sec3s6.content}}}</p>
+        <p>N/A. All unit tests are contained within each component's repository. Integration and system tests are contained within an end-to-end test repository and, if applicable, are executed only after all components were installed and unit tested successfully.</p>
     </div>
 
     <div class="page">
         <h3 id="section_3_7"><span>3.7</span>Error Handling and Corrective Actions</h3>
-        <p>{{{data.sections.sec3s7.content}}}</p>
+        <p>Failing automated tests, at the unit, integration, and system level will cause the build process to abort. Detailed reporting of failed test cases will be reported as part of the Software Development Test Report, Installation Qualification Report, and Operational Qualification Report, respectively.</p>
     </div>
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Test Cases</h2>
+        <p>The following table shows only the Unit test cases which mitigate or cover the corresponding Risks or System Requirements and are defined in Jira by the project team. They can be found in the detailed Unit Test Report searching by the ID from Jira.</p>
         <table>
             <tr>
-                <th class="lean">UR-ID from Jira</th>
-                <th class="lean">ID from Jira</th>
-                <th class="content-wrappable">Reference to Software Design Spec</th>
+                <th class="lean">CSD ID</th>
+                <th class="lean">Test ID</th>
+                <th class="content-wrappable">Reference to System and Software Design Spec</th>
                 <th class="content-wrappable">Assigned Risk Level per Risk Assessment</th>
                 <th class="content-wrappable">Description</th>
                 <th class="lean">Passed (Y/N)</th>
-                <th class="lean">Remark</th>
+                <th class="lean">Comments</th>
             </tr>
             {{#each data.tests}}
             <tr>
-                <td class="lean">{{isRelatedTo}}</td>
-                <td class="lean">{{key}}</td>
-                <td class="content-wrappable">SDS4711</td>
-                <td class="content-wrappable">HIGH</td>
+                <td class="lean">{{systemRequirement}}</td>
+                <td class="lean">{{testKey}}</td>
+                <td class="lean">{{softwareDesignSpec}}</td>
+                <td class="lean">{{riskLevel}}</td>
                 <td class="content-wrappable">{{{description}}}</td>
                 <td class="lean">&nbsp;</td>
                 <td class="lean">&nbsp;</td>
@@ -199,6 +208,9 @@
 
     <div class="page">
         <h2 id="section_6"><span>6</span>Reference Documents</h2>
+        <ul>
+            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} System and Software Design Specification including Source Code Review Plan</li>
+        </ul>
         <p>{{{data.sections.sec6.content}}}</p>
     </div>
 

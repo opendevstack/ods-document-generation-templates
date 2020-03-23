@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Combined Functional and Requirements Testing Report for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Target environment:</td>
+                            <td class="content-wrappable">{{metadata.buildParameter.targetEnvironment}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>Combined Functional and Requirements Testing Report for '{{metadata.name}}'</h1>
+
+        <h2>Table of Contents</h2>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">Purpose</a></li>
+            <li><a href="#section_2">Testing Environment</a></li>
+            <li><a href="#section_3">Testing Activities and Deliverables</a>
+                <ol>
+                    <li><a href="#section_3_1">Training</a></li>
+                    <li><a href="#section_3_2">Responsibilities and Signature Resource Log</a></li>
+                    <li><a href="#section_3_3">Discrepancy Log</a></li>
+                    <li><a href="#section_3_4">Integration Testing Results</a></li>
+                    <li><a href="#section_3_5">Acceptance Testing Results</a></li>
+                    <li><a href="#section_3_6">Traceability Matrix</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_4">Risk Assessment</a></li>
+            <li><a href="#section_5">Conclusion Statement</a></li>
+            <li><a href="#section_6">Definitions and Abbreviations</a>
+                <ol>
+                    <li><a href="#section_6_1">Definitions</a></li>
+                    <li><a href="#section_6_2">Abbreviations</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_7">Reference Documents</a></li>
+            <li><a href="#section_8">Document History</a></li>
+            <li><a href="#section_9">Appendix 1: Risk Assessment</a>
+                <ol>
+                    <li><a href="#section_9_1">Risk Assessment Table Description</a></li>
+                    <li><a href="#section_9_2">Integration Testing: Failed Test Cases / Exclusions from Testing</a></li>
+                    <li><a href="#section_9_3">Acceptance Testing: Failed Test Cases / Exclusions from Testing</a></li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <div class="page">
+        <h2 id="section_1"><span>1</span>Purpose</h2>
+        <p>{{{data.sections.sec1.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_2"><span>2</span>Testing Environment</h2>
+        <p>{{{data.sections.sec2.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h3 id="section_3"><span>3</span>Testing Activities and Deliverables</h3>
+        <p>This chapter summarizes the testing activities and deliverables that were created during the testing process according to the combined functional  / requirements  testing plan of the {{metadata.name}}.</p>
+
+        <h3 id="section_3_1"><span>3.1</span>Training</h3>
+        <p>{{{data.sections.sec3s1.content}}}</p>
+
+        <h3 id="section_3_2"><span>3.2</span>Responsibilities and Signature Resource Log</h3>
+        <p>{{{data.sections.sec3s2.content}}}</p>
+
+        <h3 id="section_3_3"><span>3.3</span>Discrepancy Log</h3>
+        <p>{{{data.sections.sec3s3.content}}}</p>
+
+        <h3 id="section_3_4"><span>3.4</span>Integration Testing Results</h3>
+		{{#if data.integrationTests}}
+        <p>The table below lists all Integration tests as defined during the risk assessment and additional optional tests created and executed during development. Not all of those tests are necessarily GxP relevant. To identify GxP-relevant tests please refer to the Risk Assessment or Traceability Matrix.</p>
+
+		<table>
+			<tr>
+				<th class="lean">ID from Jira</th>
+				<th class="lean">Description</th>
+				<th class="lean">Passed (Y/N)</th>
+				<!-- <th class="lean">Remark</th> -->
+				<th class="lean">Execution time</th>
+				<th class="lean">Run #</th>
+			</tr>
+			{{#each data.integrationTests}}
+			<tr>
+				<td class="lean">{{key}}</td>
+				<td class="content-wrappable">{{{description}}}</td>
+				<td class="lean">{{success}}</td>
+				<!-- <td class="lean">{{remarks}}</td> -->
+				<td class="lean">{{{datetime}}}</td>
+				<td class="lean">{{metadata.jenkins.buildNumber}}</td>
+			</tr>
+			{{/each}}
+		</table>
+		{{else}}
+			<p>No GxP relevant development tests are identified for this module.</p>
+        {{/if}}
+
+        <p>Additional Integration Tests not defined in Jira and executed: {{data.numAdditionalIntegrationTests}}</p>
+
+        <h3 id="section_3_5"><span>3.5</span>Acceptance Testing Results</h3>
+            <h4 id="section_3_5_1"><span>3.5.1 </span>Functional Testing Results</h4>
+            <p>The table below lists all Functional tests as defined during the risk assessment and additional optional tests created and executed during development. Not all of those tests are necessarily GxP relevant. To identify GxP-relevant tests please refer to the Risk Assessment or Traceability Matrix.</p>
+				{{#if data.acceptanceTests}}
+				<table>
+					<tr>
+						<th class="lean">ID from Jira</th>
+						<th class="lean">Description</th>
+						<th class="lean">Passed (Y/N)</th>
+						<!-- <th class="lean">Remark</th> -->
+						<th class="lean">Execution time</th>
+						<th class="lean">Run #</th>
+					</tr>
+					{{#each data.acceptanceTests}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{{description}}}</td>
+						<td class="lean">{{success}}</td>
+						<!-- <td class="lean">{{remarks}}</td> -->
+						<td class="lean">{{{datetime}}}</td>
+						<td class="lean">{{metadata.jenkins.buildNumber}}</td>
+					</tr>
+					{{/each}}
+				</table>
+				{{else}}
+					<p><em>N/A</em></p>
+				{{/if}}
+                <p>Additional Functional Tests not defined in Jira and executed: {{data.numAdditionalAcceptanceTests}}</p>
+
+            <h4 id="section_3_5_2"><span>3.5.2 </span>Non-Functional Testing Results</h4>
+                <p>{{{data.sections.sec3s5s2.content}}}</p>
+
+        <h2 id="section_3_6"><span>3.6</span>Traceability Matrix</h2>
+            <p>{{{data.sections.sec3s6.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_4"><span>4</span>Risk Assessment</h2>
+        <p>This section provides an assessment of all discrepancies and excluded test cases. All risks within these categories have been compiled and assessed in Appendix 1.</p>
+        <p>{{{data.sections.sec4.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h1 id="section_5"><span>5</span>Conclusion Statement</h1>
+        <p>Having completed the execution of the Integration and Acceptance Tests, as part of the Functional and Requirements Tests for <em>{{metadata.name}}</em> and assessed the activities and respective outcomes, which are documented above, the conclusion drawn is as follows:</p>
+
+        <table>
+        <tr>
+            <td>{{data.conclusion.summary}}</td>
+            <td class="content-wrappable">{{data.conclusion.statement}}</td>
+        </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h2 id="section_6"><span>6</span>Definitions and Abbreviations</h2>
+        <h3 id="section_6_1"><span>6.1</span>Definitions</h3>
+        <p>{{{data.sections.sec6s1.content}}}</p>
+
+        <h3 id="section_6_2"><span>6.2</span>Abbreviations</h3>
+        <p>{{{data.sections.sec6s2.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_7"><span>7</span>Reference Documents</h2>
+        <ul>
+            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Combined Functional and Requirements Testing Plan</li>
+            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Risk Assessment</li>
+            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Traceability Matrix</li>
+        </ul>
+        <p>{{{data.sections.sec7.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_8"><span>8</span>Document History</h2>
+        <p>{{{data.sections.sec8.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_9"><span>9</span>Appendix 1: Risk Assessment</h2>
+        <h3 id="section_9_1"><span>9.1</span>Risk Assessment Table Description</h3>
+        <table>
+            <tr>
+                <th class="lean">Column</th>
+                <th class="content-wrappable">Description</th>
+                <th class="lean">Completion by</th>
+            </tr>
+            <tr>
+                <td class="lean">Issue No.</td>
+                <td class="content-wrappable">Concurrent numbering of observations</td>
+                <td class="lean">Validation Manager</td>
+            </tr>
+            <tr>
+                <td class="lean">Test Case No.</td>
+                <td class="content-wrappable">Reference to the failed or skipped test case</td>
+                <td class="lean">Validation Manager</td>
+            </tr>
+
+            <tr>
+                <td class="lean">Description of Failure or Discrepancy</td>
+                <td class="content-wrappable">Description of unmet acceptance criteria, of failed function or test case criteria and reason for this</td>
+                <td class="lean">Validation Manager</td>
+            </tr>
+
+            <tr>
+                <td class="lean">Remediation Action</td>
+                <td class="content-wrappable">Description of the proposed measures to eliminate or mitigate the risk</td>
+                <td class="lean">Validation Manager and CSV&C Function</td>
+            </tr>
+
+            <tr>
+                <td class="lean"><p>Responsible</p>
+                <p>Due date</p></td>
+                <td class="content-wrappable"><p>Responsible role / person to track the defined measures</p>
+                <p>Due date for the defined measures</p></td>
+                <td class="lean">Validation Manager and CSV&C Function</td>
+            </tr>
+
+            <tr>
+                <td class="lean">Analysed Risk</td>
+                <td class="content-wrappable">Description of the analysed risk associated with the observed issue</td>
+                <td class="lean">Validation Manager and CSV&C Function</td>
+            </tr>
+
+            <tr>
+                <td class="lean">Risk Acceptability *</td>
+                <td class="content-wrappable">Identification in which degree the proposed resolution is tolerable</td>
+                <td class="lean">Validation Manager and CSV&C Function</td>
+            </tr>
+        </table>
+        <p>* The risk acceptability is identified as follows:</p>
+        <p>A = Acceptable with no follow up required</p>
+        <p>B = Acceptable with risk eliminating / mitigating measures (e.g. workaround, final resolution)</p>
+        <p>C = Unacceptable</p>
+
+
+        <h3 id="section_9_2"><span>9.2</span>Integration Testing: Failed Test Cases / Exclusions from Testing</h3>
+        <p>As the approach is 100% executed and 100% tests passed, the sections "Description of Issue and Analysed Risk, Identification of Risk and Proposed Resolution" and "Exclusions from Testing" sections doesn't apply.</p>
+
+        <!-- <h4 id="section_9_2_1"><span>9.2.1</span>Description of Issue and Analysed Risk, Identification of Risk and Proposed Resolution</h4>
+          <table>
+            <tr>
+                <th class="lean">Issue No.</th>
+                <th class="lean">Test Case No.</th>
+                <th class="content-wrappable">Description of Failure or Discrepancy</th>
+                <th class="content-wrappable">Remediation Action</th>
+                <th class="content-wrappable"><p>Responsible</p>
+                <p>Due Date</p></th>
+                <th class="lean">Analysed Risk</th>
+                <th class="lean">Risk Accept-ability</th>
+            </tr>
+            {{#each data.tests}}
+            <tr>
+                <td class="lean"></td>
+                <td class="lean"></td>
+                <td class="lean"></td>
+                <td class="lean">fixed in dev</td>
+                <td class="lean">Developer</td>
+                <td class="lean"></td>
+                <td class="lean">N/A</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h4 id="section_9_2_2"><span>9.2.2</span>Exclusions from Testing</h4>
+		N/A - all test cases without the status "Ready to Test" have been excluded from the execution.
+        <p>{{{data.sections.sec9s2s2.content}}}</p>
+        -->
+
+        <h3 id="section_9_3"><span>9.3</span>Acceptance Testing: Failed Test Cases / Exclusions from Testing</h3>
+        <p>As the approach is 100% executed and 100% tests passed, the sections "Description of Issue and Analysed Risk, Identification of Risk and Proposed Resolution" and "Exclusions from Testing" sections doesn't apply.</p>
+
+        <!--
+        <h4 id="section_9_3_1"><span>9.3.1</span>Description of Issue and Analysed Risk, Identification of Risk and Proposed Resolution</h4>
+        <table>
+            <tr>
+                <th class="lean">Issue No.</th>
+                <th class="lean">Test Case No.</th>
+                <th class="content-wrappable">Description of Failure or Discrepancy</th>
+                <th class="content-wrappable">Remediation Action</th>
+                <th class="content-wrappable">Responsible</th>
+                <th class="lean">Analysed Risk</th>
+                <th class="lean">Risk Accept-ability</th>
+            </tr>
+            {{#each data.tests}}
+            <tr>
+                <td class="lean"></td>
+                <td class="lean"></td>
+                <td class="lean"></td>
+                <td class="lean">fixed in dev</td>
+                <td class="lean">Developer</td>
+                <td class="lean"></td>
+                <td class="lean">N/A</td>
+            </tr>
+            {{/each}}
+        </table>
+
+		<h4 id="section_9_3_2"><span>9.3.2</span>Exclusions from Testing</h4>
+        N/A - all test cases without the status "Ready to Test" have been excluded from the execution.
+        <p>{{{data.sections.sec9s3s2.content}}}</p>
+        -->
+    </div>
+</body>
+</html>

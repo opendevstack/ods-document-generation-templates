@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head><title>Configuration and Installation Testing Plan for '{{data.metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="page">
+    <table id="heading">
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <th colspan="2">Stack Information</th>
+                    </tr>
+                    <tr>
+                        <td class="lean" style="vertical-align: top;">Name:</td>
+                        <td class="content-wrappable">{{metadata.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean" style="vertical-align: top;">Description:</td>
+                        <td class="content-wrappable">{{metadata.description}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean" style="vertical-align: top;">Version:</td>
+                        <td class="content-wrappable">{{metadata.version}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">Date Created:</td>
+                        <td class="content-wrappable">{{metadata.date_created}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">Git Commit:</td>
+                        <td class="content-wrappable">{{metadata.git.commit}}</td>
+                    </tr>
+					<tr>
+						<td class="lean">Git Tag:</td>
+						<td class="content-wrappable">{{metdata.git.targetTag}}</td>
+					</tr>
+                    <tr>
+                        <td class="lean">Git URL:</td>
+                        <td class="content-wrappable">{{metadata.git.url}}</td>
+                    </tr>
+					<tr>
+						<td class="lean">OpenShift Cluster API URL:</td>
+						<td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+					</tr>
+                    <tr>
+                        <td class="lean">Created by Jenkins Job Name:</td>
+                        <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">Created by Jenkins Build Number:</td>
+                        <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td id="logo" class="lean"><!--<img src="../img/bi_logo_155x43.gif" />--></td>
+        </tr>
+    </table>
+    <div id="blueband">&nbsp;</div>
+    <h1>Configuration and Installation Testing Plan for '{{metadata.name}}'</h1>
+    <h2>Table of Contents</h2>
+    <ol class="table-of-contents">
+        <li><a href="#section_1">PURPOSE</a></li>
+        <li><a href="#section_2">SCOPE</a></li>
+        <li><a href="#section_3">ROLES AND RESPONSIBILITIES</a></li>
+        <li><a href="#section_4">OVERVIEW OF TECHNICAL ARCHITECTURE</a></li>
+        <li><a href="#section_5">TEST CASES</a></li>
+        <li><a href="#section_6">CIT DISCREPANCY REPORT</a></li>
+        <li><a href="#section_7">CONCLUSION</a></li>
+        <li><a href="#section_8">DEFINITIONS AND ABBREVIATIONS</a>
+            <ol>
+                <li><a href="#section_8_1">DEFINITIONS</a></li>
+                <li><a href="#section_8_2">ABBREVIATIONS</a></li>
+            </ol>
+        </li>
+        <li><a href="#section_9">REFERENCE DOCUMENTS</a></li>
+        <li><a href="#section_10">DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING PLAN)</a></li>
+        <li><a href="#section_11">DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING REPORT)</a></li>
+        <li><a href="#section_12">TEST CASES TEST GROUP 01 COMPONENTS</a></li>
+        <ol>
+            <li><a href="#section_12_1">SERVER</a></li>
+            <li><a href="#section_12_2">VERIFICATION OF COMPUTER ROOM CONDITIONS</a></li>
+            <li><a href="#section_12_3">REPOSITORY TYPE</a></li>
+        </ol>
+        <li><a href="#section_13">TEST CASES TEST GROUP 02 SYSTEM LEVEL</a>
+            <ol>
+                <li><a href="#section_13_1">OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</a></li>
+                <li><a href="#section_13_2">CONFIGURATION DATABASE CMDB</a></li>
+            </ol>
+        </li>
+    </ol>
+</div>
+<div class="page"><h2 id="section_1"><span>1</span>PURPOSE</h2>
+    <p>The purpose of the Configuration and Installation Testing Plan (hereafter referred to as CIT for Installation Qualification) is to check the performance of installation activities, demonstrating that the installation performed for all system hardware, network components, system software, application software, client desktop, and associated peripherals was performed according to the System and Software Design Specifications taking into account the manufacturer and software supplier specifications.
+    	Furthermore the existence of all needed documents for the operation of the system will be checked.</p>
+        For details, please see System and Software Design Specification including Source Code Review Report, referenced in the 'Reference Documents' section.
+</div>
+<div class="page"><h2 id="section_2"><span>2</span>SCOPE</h2>
+    <p>Configuration and Installation Testing for software components will be performed, based on the below components: <br>
+
+		<table class="no-page-break">
+            <tr>
+                <th class="lean">Component Name</th>
+                <th class="lean">Repository Type</th>
+            </tr>
+            {{#each data.repositories}}
+            <tr>
+                <td class="content-wrappable"><em>{{id}}</em></td>
+                <td class="content-wrappable">{{type}}</td>
+            </tr>
+            {{/each}}
+		</table>
+    </p>
+    <p>
+    Attention: Chapters 12 and 13 of the original LeVA template do not apply, since they are not relevant if documentation is generated in an automated way.
+    </p>
+    {{{data.sections.sec2.content}}}
+</div>
+<div class="page"><h2 id="section_3"><span>3</span>ROLES AND RESPONSIBILITIES</h2>
+    <table>
+        <tr>
+            <th>Role</th>
+            <th>Responsibility</th>
+        </tr>
+        <tr>
+            <td class="lean">Jenkins (Technical Role)</td>
+            <td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
+        </tr>
+        <tr>
+            <td class="lean">Test Administrator</td>
+            <td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
+        </tr>
+        <tr>
+            <td class="lean">Tester</td>
+            <td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
+        </tr>
+    </table>
+</div>
+<div class="page"><h2 id="section_4"><span>4</span>OVERVIEW OF TECHNICAL ARCHITECTURE</h2>
+	<p>This Plan considers correctly all relevant content of the System and Software Design Specification including Source Code Review Report - see section <i>Reference Documents</i>. The referenced System and Software Design Specification including Source Code Review Report is generated within the same Jenkins Build Run as this IVP/R - so consistency, and traceability is always given. The report will provide the actually referenced version.</p>
+</div>
+<div class="page"><h2 id="section_5"><span>5</span>TEST CASES</h2>
+<p>Automated test cases contained within the application components mentioned in the scope section were executed at this point.</p>
+
+Other test cases:
+
+	<!-- render test case ID / description from zephyr with tagged with IVP -->
+
+	<table class="no-page-break">
+        <tr>
+            <th class="lean">Test case</th>
+            <th class="lean">SSDS Ref.</th>
+            <th class="lean">Passed (Y/N)</th>
+        </tr>
+        {{#each data.tests}}
+        <tr>
+            <td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
+            <td class="content-wrappable"><em>{{techSpec}}</em></td>
+            <td class="content-wrappable"></td>
+        </tr>
+        {{/each}}
+	</table>
+
+</div>
+
+<div class="page"><h2 id="section_6"><span>6</span>CIT DISCREPANCY REPORT</h2>
+
+    All discrepancies that occur during the CIT execution will be recorded in the respective Jenkins Build Run XML logfile. The Build Run will stop.
+
+</div>
+
+<div class="page"><h2 id="section_7"><span>7</span>CONCLUSION</h2>
+	Having completed the execution of the CIT Plan of '{{metadata.name}}' and assessed the activities and respective outcomes, the conclusion drawn is as follows:<br>
+
+	<table>
+		<tr>
+			<td class="content-wrappable">Complete Success - no unresolved discrepencies</td>
+			<td class="content-wrappable">It is determined that all steps of the CIT Plan have been successfully executed and signature of this report verifies that the tests have been performed according to the plan. Either no discrepancies occurred or have been directly solved.</td>
+		</tr>
+    </table>
+
+</div>
+<div class="page"><h2 id="section_8"><span>8</span>DEFINITIONS AND ABBREVIATIONS</h2>
+    <h3 id="section_8_1"><span>8.1</span>DEFINITIONS</h3>
+    {{{data.sections.sec8s1.content}}}
+    <h3 id="section_8_2"><span>8.2</span>ABBREVIATIONS</h3>
+    {{{data.sections.sec8s2.content}}}
+</div>
+<div class="page"><h2 id="section_9"><span>9</span>REFERENCE DOCUMENTS</h2>
+	<ul>
+        <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} System and Software Design Specification including Source Code Review Report</li>
+        <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Overall Development Test Report</li>
+        <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Overall Technical Installation Report</li>
+	</ul>
+	{{{data.sections.sec9.content}}}
+</div>
+<div class="page"><h2 id="section_10"><span>10</span>DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING PLAN)</h2>
+    {{{data.sections.sec10.content}}}
+</div>
+<div class="page"><h2 id="section_11"><span>11</span>DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING REPORT)</h2>
+	N/A - As the report is based on the most up to date version of the plan, there is no need for a separate History
+</div>
+
+<div class="page"><h2 id="section_12"><span>12</span>TEST CASES TEST GROUP 01 COMPONENTS</h2>
+	<!-- render test case fields from zephyr with IVP -->
+    <h3 id="section_12_1"><span>12.1</span>SERVER</h3>
+    Containers are volatile, that means the underlying platform decides depending on resource usage and consumption - where (on which server(s)) and how a container is run.<br>
+    Only the TIR (that is created as part of the installation) contains the information where a pod was located at that point in time - hence we leave this information out of the CIT, which is generated at a later point in time.<br>
+
+    <h3 id="section_12_2"><span>12.2</span>VERIFICATION OF COMPUTER ROOM CONDITIONS</h3>
+    Containers are volatile, that means the underlying platform decides depending on resource usage and consumption - where (on which server(s)) and how a container is run.<br>
+    Only the TIR (that is created as part of the installation) contains the information where a pod was located at that point in time - hence we leave this information out of the CIT, which is generated at a later point in time.<br>
+
+    <h3 id="section_12_3"><span>12.3</span>REPOSITORY TYPE</h3>
+
+    <h4 id="section_12_3_1"><span>12.3.1 </span>ODS</h4>
+	{{#if data.testsOdsCode}}
+    <table class="no-page-break">
+        <tr>
+            <th class="lean">Repository Type</th>
+            <th class="lean">Test case</th>
+            <th class="lean">Test steps</th>
+        </tr>
+        {{#each data.testsOdsCode}}
+        <tr>
+            <td class="content-wrappable">ods</td>
+            <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+            <td class="content-wrappable">
+	            <ol>
+            {{#each steps}}
+			        <li>{{step}}</li>
+            {{/each}}
+			    </ol>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+	{{else}}
+		<p><em>N/A</em></p>
+	{{/if}}
+
+    <h4 id="section_12_3_2"><span>12.3.2 </span>ODS-SERVICE</h4>
+	{{#if data.testsOdsService}}
+    <table class="no-page-break">
+        <tr>
+            <th class="lean">Repository Type</th>
+            <th class="lean">Test case</th>
+            <th class="lean">Test steps</th>
+        </tr>
+        {{#each data.testsOdsService}}
+        <tr>
+            <td class="content-wrappable">ods-service</td>
+            <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+            <td class="content-wrappable">
+	            <ol>
+            {{#each test.details}}
+			        <li>{{step}}</li>
+            {{/each}}
+			    </ol>
+            </td>
+        </tr>
+        {{/each}}
+	</table>
+	{{else}}
+	<p><em>N/A</em></p>
+	{{/if}}
+
+	<!-- report: results / executions -->
+</div>
+
+<div class="page"><h2 id="section_13"><span>13</span>TEST CASES TEST GROUP 02 SYSTEM LEVEL</h2>
+	<ul>
+		<li>
+			<div class="page"><h3 id="section_13_1"><span>13.1</span>OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</h3>
+				<!-- backup and monitoring plan for qualified infrastructure -->
+                {{{data.sections.sec13s1.content}}}
+                <!-- <p><b>System level monitoring:</b></p>
+                <table class="System level monitoring">
+                    <tr>
+                        <th class="lean">Config. Item</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Items Doc Id (Plan/Report)</th>
+                        <th class="lean">Applicable Version</th>
+                    </tr>
+                    <tr>
+                        <td class="content-wrappable">BI-IT-Container-PAAS</td>
+                        <td class="content-wrappable">The platform that runs ODS based applications</td>
+                        <td class="content-wrappable">
+                            <ol>
+                                <li>Plan ID: To be defined and implemented </li>
+                                <li>Release Date:To be defined and implemented </li>
+                                <li>Report ID:To be defined and implemented</li>
+                                <li>Release Date: To be defined and implemented</li>
+                            </ol>
+                        </td>
+                        <td class="content-wrappable">1.0</td>
+                    </tr>
+                </table>
+
+                <p><b>System level backup:</b></p>
+                <table class="System level backup">
+                    <tr>
+                        <th class="lean">Config. Item</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Items Doc Id (Plan/Report)</th>
+                        <th class="lean">Applicable Version</th>
+                    </tr>
+                    <tr>
+                        <td class="content-wrappable">BI-IT-Container-PAAS</td>
+                        <td class="content-wrappable">The platform that runs ODS based applications</td>
+                        <td class="content-wrappable">
+                            <ol>
+                                <li>Plan ID: To be defined and implemented </li>
+                                <li>Release Date: To be defined and implemented </li>
+                                <li>Report ID:To be defined and implemented </li>
+                                <li>Release Date: To be defined and implemented</li>
+                            </ol>
+                        </td>
+                        <td class="content-wrappable">1.0</td>
+                    </tr>
+                </table>
+
+                <p><b>System level restore/recovery:</b></p>
+                <table class="System level restore/recovery">
+                    <tr>
+                        <th class="lean">Config. Item</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Items Doc Id (Plan/Report)</th>
+                        <th class="lean">Applicable Version</th>
+                    </tr>
+                    <tr>
+                        <td class="content-wrappable">BI-IT-Container-PAAS</td>
+                        <td class="content-wrappable">The platform that runs ODS based applications</td>
+                        <td class="content-wrappable">
+                            <ol>
+                                <li>Plan ID:  To be defined and implemented</li>
+                                <li>Release Date: To be defined and implemented</li>
+                                <li>Report ID: To be defined and implemented</li>
+                                <li>Release Date:To be defined and implemented</li>
+                            </ol>
+                        </td>
+                        <td class="content-wrappable">1.0</td>
+                    </tr>
+                </table>
+
+                <p><b>System Operational instructions:</b></p>
+                <table class="System Operational instructions">
+                    <tr>
+                        <th class="lean">Config. Item</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Items Doc Id (Plan/Report)</th>
+                        <th class="lean">Applicable Version</th>
+                    </tr>
+                    <tr>
+                        <td class="content-wrappable">BI-IT-Container-PAAS</td>
+                        <td class="content-wrappable">The platform that runs ODS based applications</td>
+                        <td class="content-wrappable">
+                            <ol>
+                                <li>Plan ID:  To be defined and implemented</li>
+                                <li>Release Date:</li>
+                                <li>Report ID: To be defined and implemented</li>
+                                <li>Release Date: To be defined and implemented </li>
+                            </ol>
+                        </td>
+                        <td class="content-wrappable">1.0</td>
+                    </tr>
+                </table>
+
+                <p><b>Service Agreement:</b></p>
+                <table class="Service Agreement">
+                    <tr>
+                        <th class="lean">Config. Item</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Items Doc Id (Plan/Report)</th>
+                        <th class="lean">Applicable Version</th>
+                    </tr>
+                    <tr>
+                        <td class="content-wrappable"></td>
+                        <td class="content-wrappable"></td>
+                        <td class="content-wrappable">
+                            <ol>
+                                <li>Document ID: To be defined and implemented </li>
+                                <li>Release Date:To be defined and implemented</li>
+                            </ol>
+                        </td>
+                        <td class="content-wrappable">1.0</td>
+                    </tr>
+                </table>
+
+                <p><b>AAP/IAP/TAP:</b></p>
+                <table class="AAP/IAP/TAP">
+                    <tr>
+                        <th class="lean">Config. Item</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Items Doc Id (Plan/Report)</th>
+                        <th class="lean">Applicable Version</th>
+                    </tr>
+                    <tr>
+                        <td class="content-wrappable"></td>
+                        <td class="content-wrappable"></td>
+                        <td class="content-wrappable">
+                            <ol>
+                                <li>Document ID: To be defined and implemented</li>
+                                <li>Release Date:To be defined and implemented</li>
+                            </ol>
+                        </td>
+                        <td class="content-wrappable">1.0</td>
+                    </tr>
+                </table> -->
+			</div>
+		</li>
+		<li>
+			<div class="page"><h3 id="section_13_2"><span>13.2</span>CONFIGURATION DATABASE CMDB</h3>
+				Configuration Data of Config Item '{{metadata.name}}' is correct and verified
+				<table style="border: 0px; padding: 0px; margin: 0px">
+					<tr>
+						<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec13s2.content}}}</td>
+					</tr>
+				</table>
+			</div>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

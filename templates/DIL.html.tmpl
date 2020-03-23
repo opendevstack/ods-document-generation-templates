@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Discrepancy Log for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>Functional / Requirements Testing Discrepancy Log</h1>
+
+        <p>This Discrepancy Log is to be used for documentation of any discrepancies (e.g. failed test cases, test case errors, testing execution errors) found during testing. These should include all test cases where the result has been set to failed.</p>
+        <p><em>Clarification: Discrepancies detected during a test run will be documented in the Discrepancy Log (DIL) version associated with the test run. The DIL will be created during each test run. Any updated version of the DIL showing no discrepancies serves as evidence for the successful correction of the error(s) causing the discrepancies.</em></p>
+
+        <h2>Integration Testing Discrepancy Log</h2>
+        <p>The following table shows the discrepancies found during the execution of the Integration tests:</p>
+
+        {{#if data.integrationTests}}
+
+
+		<table style="border: 0px; padding: 0px; margin: 0px">
+			<tr>
+				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">
+					<table>
+						<tr>
+							<th style="white-space: nowrap">Discrepancy ID</th>
+							<th style="white-space: nowrap">Test Case No.</th>
+							<th class="content-wrappable">Level of Test Case</th>
+							<th class="content-wrappable">Description of Failure or Discrepancy</th>
+							<th class="content-wrappable">Remediation Action</th>
+							<th class="content-wrappable">Responsible / Due Date</th>
+							<th class="content-wrappable">Outcome of the Resolution</th>
+							<th class="content-wrappable">Resolved Yes/No</th>
+						</tr>
+						{{#each data.integrationTests}}
+							<tr>
+								<td style="white-space: nowrap">{{discrepancyID}}</td>
+								<td style="white-space: nowrap">{{testcaseID}}</td>
+								<td class="content-wrappable">Integration</td>
+								<td class="hyphenate">{{{description}}}</td>
+								<td class="content-wrappable">{{{remediation}}}</td>
+								<td class="content-wrappable">{{responsibleAndDueDate}}</td>
+								<td class="content-wrappable">{{{outcomeResolution}}}</td>
+								<td class="content-wrappable">{{resolved}}</td>
+							</tr>
+						{{/each}}
+					</table>
+				</td>
+			</tr>
+		</table>
+	{{else}}
+		<p><em>N/A</em></p>
+    {{/if}}
+
+        <h2>Acceptance Testing Discrepancy Log</h2>
+	<p>The following table shows the discrepancies found during the execution of the Acceptance tests:</p>
+
+	{{#if data.acceptanceTests}}
+		<table style="border: 0px; padding: 0px; margin: 0px">
+			<tr>
+				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">
+					<table>
+							<tr>
+							    <th style="white-space: nowrap">Discrepancy ID</th>
+							    <th style="white-space: nowrap">Test Case No.</th>
+								<th class="content-wrappable">Level of Test Case</th>
+								<th class="content-wrappable">Description of Failure or Discrepancy</th>
+								<th class="content-wrappable">Remediation Action</th>
+								<th class="content-wrappable">Responsible / Due Date</th>
+								<th class="content-wrappable">Outcome of the Resolution</th>
+								<th class="content-wrappable">Resolved Yes/No</th>
+							</tr>
+							{{#each data.acceptanceTests}}
+								<tr>
+									<td style="white-space: nowrap">{{discrepancyID}}</td>
+									<td style="white-space: nowrap">{{testcaseID}}</td>
+									<td class="content-wrappable">Acceptance</td>
+									<td class="hyphenate">{{{description}}}</td>
+									<td class="content-wrappable">{{{remediation}}}</td>
+									<td class="content-wrappable">{{responsibleAndDueDate}}</td>
+									<td class="content-wrappable">{{{outcomeResolution}}}</td>
+									<td class="content-wrappable">{{resolved}}</td>
+								</tr>
+							{{/each}}
+					  </table>
+				</td>
+			</tr>
+		</table>
+	{{else}}
+		<p><em>N/A</em></p>
+    {{/if}}
+    </div>
+</body>
+</html>

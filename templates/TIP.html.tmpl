@@ -38,8 +38,16 @@
                             <td class="content-wrappable">{{metadata.git.commit}}</td>
                         </tr>
                         <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
                             <td class="lean">Git URL:</td>
                             <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Created by Jenkins Job Name:</td>
@@ -61,67 +69,31 @@
 
         <h2>Table of Contents</h2>
         <ol class="table-of-contents">
-            <li>
-                <a href="#section_1">Introduction</a>
-            </li>
-            <li>
-                <a href="#section_2">Documentation Instructions</a>
-            </li>
-            <li>
-                <a href="#section_3">Installation Prerequisites</a>
+            <li><a href="#section_1">Introduction</a></li>
+            <li><a href="#section_2">Documentation Instructions</a></li>
+            <li><a href="#section_3">Installation Prerequisites</a>
                 <ol>
-                    <li>
-                        <a href="#section_3_1">Components Specifications</a>
-                    </li>
-                    <li>
-                        <a href="#section_3_2">Verification of Delivery</a>
-                    </li>
-                    <li>
-                        <a href="#section_3_3">Installation Specification</a>
-                    </li>
-                    <li>
-                        <a href="#section_3_4">Communication and Organization Tasks</a>
-                    </li>
-                    <li>
-                        <a href="#section_3_5">Back Out Plan</a>
-                    </li>
+                    <li><a href="#section_3_1">Components Specifications</a></li>
+                    <li><a href="#section_3_2">Verification of Delivery</a></li>
+                    <li><a href="#section_3_3">Installation Specification</a></li>
+                    <li><a href="#section_3_4">Communication and Organization Tasks</a></li>
+                    <li><a href="#section_3_5">Back Out Plan</a></li>
                 </ol>
             </li>
-            <li>
-                <a href="#section_4">Environmental Conditions</a>
-            </li>
-            <li>
-                <a href="#section_5">Installation Instructions</a>
-            </li>
-            <li>
-                <a href="#section_6">Diagnostics and Testing</a>
-            </li>
-            <li>
-                <a href="#section_7">Post Installation Tasks</a>
-            </li>
-            <li>
-                <a href="#section_8">Deviations and/or Failures</a>
-            </li>
-            <li>
-                <a href="#section_9">Conclusion Statement</a>
-            </li>
-            <li>
-                <a href="#section_10">Definitions and Abbreviations</a>
+            <li><a href="#section_4">Environmental Conditions</a></li>
+            <li><a href="#section_5">Installation Instructions</a></li>
+            <li><a href="#section_6">Diagnostics and Testing</a></li>
+            <li><a href="#section_7">Post Installation Tasks</a></li>
+            <li><a href="#section_8">Deviations and/or Failures</a></li>
+            <li><a href="#section_9">Conclusion Statement</a></li>
+            <li><a href="#section_10">Definitions and Abbreviations</a>
                 <ol>
-                    <li>
-                        <a href="#section_10_1">Definitions</a>
-                    </li>
-                    <li>
-                        <a href="#section_10_2">Abbreviations</a>
-                    </li>
+                    <li><a href="#section_10_1">Definitions</a></li>
+                    <li><a href="#section_10_2">Abbreviations</a></li>
                 </ol>
             </li>
-            <li>
-                <a href="#section_11">Reference Documents</a>
-            </li>
-            <li>
-                <a href="#section_12">Document History</a>
-            </li>
+            <li><a href="#section_11">Reference Documents</a></li>
+            <li><a href="#section_12">Document History</a></li>
         </ol>
     </div>
 
@@ -129,7 +101,7 @@
         <h2 id="section_1"><span>1</span>Introduction</h2>
         <p>This document describes the installation of the software-defined component <em>{{metadata.buildParameter.configItem}}</em>. The installation is based on the documented installation process for applications/components running on <em>BI-IT-DEVSTACK</em>.</p>
 
-        <table
+        <table>
         <tr>
             <th class="center content-wrappable" colspan="2">Printed Name of Installer(s)</th>
         </tr>
@@ -165,7 +137,7 @@
     <div class="page">
         <h2 id="section_2"><span>2</span>Documentation Instructions</h2>
         <p>The following instructions are generated based on components configured to be deployed for the application (Project: {{metadata.name}}) - Config Item: {{metadata.buildParameter.configItem}}).</p>
-        <p>The configuration of this component list is stored version controlled within the BitBucket (<em>BI-AS-ATLASSIAN</em>) project named <b>{{data.project.id}}</b>.</p>
+        <p>The configuration of this component list is stored version controlled within the BitBucket (<em>BI-AS-ATLASSIAN</em>) project named <b>{{data.project_key}}</b>.</p>
     </div>
 
     <div class="page">
@@ -191,7 +163,7 @@
             </li>
         </ol>
 
-        <h3 id="section_3_1"><span>3.1</span>Components Specification</h2>
+        <h3 id="section_3_1"><span>3.1</span>Components Specification</h3>
         <p>The installation comprises the following software-defined components:</p>
 
         <table>
@@ -200,21 +172,22 @@
                 <th class="content-wrappable">Manufacturer</th>
                 <th class="content-wrappable">Software Version / Language</th>
                 <th class="content-wrappable">ID of Component to be installed </th>
-                <th class="content-wrappable">Reference to System Design Specifications</th>
+                <th class="content-wrappable">Reference to System and Software design Specifications</th>
             </tr>
-            {{#each data.project.repositories}}
+            {{#each data.repositories}}
             <tr>
                 <td class="lean">{{id}}</td>
                 <td class="content-wrappable">N/A</td>
                 <td class="content-wrappable">{{branch}}, the version and link is specified as parameter</td>
                 <td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
-                <td class="lean">&nbsp;</td>
+		{{!-- Need to be reviewed}--}}
+                <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{../metadata.version}}-{{../metadata.jenkins.buildNumber}} System and Software Design Specification</td>
             </tr>
             {{/each}}
         </table>
 
-        <h3 id="section_3_2"><span>3.2</span>Verifiation of Delivery</h3>
-        <p><em>N/A</em>. There is no shipment of hardware or software. The proper functionality of installed components is verified during verification phase of this installation.
+        <h3 id="section_3_2"><span>3.2</span>Verification of Delivery</h3>
+        <p><em>N/A</em>. There is no shipment of hardware or software. The proper functionality of installed components is verified during verification phase of this installation.</p>
         <p>In order for the entire installation to proceed, the mentioned pre-requisites are mandatory, and if not met, the installation will fail. E.g., in case Jenkins is NOT available, the automated installation will not start.</p>
 
         <h3 id="section_3_3"><span>3.3</span>Installation Specification</h3>
@@ -237,10 +210,6 @@
                 <td class="content-wrappable">{{data.git.url}}</td>
             </tr>
             {{/each}}
-            <tr>
-                <td class="content-wrappable">Target environment</td>
-                <td class="content-wrappable">{{metadata.buildParameter.targetEnvironment}}</td>
-            </tr>
             <tr>
                 <td class="content-wrappable">Change id/number</td>
                 <td class="content-wrappable">{{metadata.buildParameter.changeId}}</td>
@@ -273,8 +242,9 @@
 
     <div class="page">
         <h2 id="section_5"><span>5</span>Installation Instructions</h2>
-        <p>The installation instructions are contained within the <em>GIT</em> repository's Jenkinsfile(s), which are version controlled. These files are called from Jenkins (<em>BI-IT-DEVSTACK</em>) to build the entire application, including all its components. Each Jenkinsfile contains all required steps to perform the installation of a given component.</p>
-        <p>The location of the running Jenkins instance depends on the environment the application is built on and deployed to, and will be mentioned in the Technical Installation Report (<em>TIR</em>).</p>
+        <p>The installation instructions are contained within the <em>GIT</em> repository's Jenkinsfile(s), whose are version controlled. These files are called from Jenkins (<em>BI-IT-DEVSTACK</em>) to build the entire application, including all its components. Each Jenkinsfile contains all required steps to perform the installation of a given component.</p>
+        <p>On the development environment(s) - the Jenkinsfile is used to build, install and test the applications, comprised of multiple components. For the installation of the application on the Quality / Production environment, there is NO build phase. Instead, the images that were built on the development environment as well as surrounding configuration, are imported into the target Q&P environments, to ensure no contamination with intermediate changes to the codebase.</p>
+        <p>The location of the running Jenkins instance depends on the environment the application is built on or only deployed to, and will be mentioned in the Technical Installation Report (<em>TIR</em>).</p>
     </div>
 
     <div class="page">
@@ -316,12 +286,12 @@
 
     <div class="page">
         <h2 id="section_8"><span>8</span>Deviations and Failures</h2>
-        <p>In case of installation failures, no Technical Installation Report (<em>TIR</em>) will be generated, as the Jenkins run will fail!<p>
+        <p>In case of installation failures, no Technical Installation Report (<em>TIR</em>) will be generated, as the Jenkins run will fail!</p>
     </div>
 
     <div class="page">
         <h2 id="section_9"><span>9</span>Conclusion Statement</h2>
-        <p>Will be created based on the actual installation results, and noted in the corresponding Technical Installation Report (<em>TIR</em>).<p>
+        <p>Will be created based on the actual installation results, and noted in the corresponding Technical Installation Report (<em>TIR</em>).</p>
     </div>
 
     <div class="page">
@@ -336,6 +306,9 @@
 
     <div class="page">
         <h2 id="section_11"><span>11</span>Reference Documents</h2>
+        <ul>
+            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} System and Software Design Specification</li>
+        </ul>
         <p>{{{data.sections.sec11.content}}}</p>
     </div>
 

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{metadata.type}} for '{{metadata.name}}'</title>
+    <title>Traceability Matrix for '{{metadata.name}}'</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -65,19 +65,72 @@
 
         <div id="blueband">&nbsp;</div>
 
-        <h1>{{metadata.type}} for '{{metadata.name}}'</h1>
+        <h1>Traceability Matrix for '{{metadata.name}}'</h1>
 
         <h2>Table of Contents</h2>
         <ol class="table-of-contents">
-        {{#each data.sections}}
-            <li>{{heading}}</li>
-        {{/each}}
+            <li><a href="#section_1">Purpose</a></li>
+            <li><a href="#section_2">Reference Documents</a></li>
+            <li><a href="#section_3">Document History</a></li>
+            <li><a href="#section_4">Traceability Matrix</a></li>
         </ol>
     </div>
 
     <div class="page">
-        <h2><span>0</span>Jenkins build log</h2>
-        <p><pre>{{data.jenkinsData.log}}</pre></p>
+        <h2 id="section_1"><span>1</span>Purpose</h2>
+        <p>This document provides the traceability for {{metadata.name}} between the references documents listed in section 2.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_2"><span>2</span>Reference Documents</h2>
+        <p>Traceability matrix in section 4 is based on the following documents:</p>
+        <table>
+            <tr>
+                <th class="lean">Document Title</th>
+                <th class="lean">Version</th>
+            </tr>
+            <tr>
+                <td class="content-wrappable">Combined Specifications Document</td>
+                <td class="lean">{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}}</td>
+            </tr>
+            <tr>
+                <td class="content-wrappable">Risk Assessment</td>
+                <td class="lean">{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}}</td>
+            </tr>
+             <tr>
+                <td class="content-wrappable">Combined Functional and Requirements Testing Plan</td>
+                <td class="lean">{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}}</td>
+            </tr>
+            <tr>
+                <td class="content-wrappable">Combined Functional and Requirements Testing Report</td>
+                <td class="lean">{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h2 id="section_3"><span>3</span>Document History</h2>
+        <p>{{{data.sections.sec3.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_4"><span>4</span>Traceability Matrix</h2>
+        <table>
+            <tr>
+                <th class="lean">User Req., FS and CS Ref.</th>
+                <th>Description</th>
+                <th class="lean">Risk Assessment Ref.</th>
+                <th class="lean">Test Case Ref.</th>
+            </tr>
+            {{#each data.sections.sec4.systemRequirements}}
+            <tr>
+                <td class="lean">{{key}}</td>
+                <td class="content-wrappable">{{{name}}}</td>
+                <td class="lean">{{#if risks}} {{risks}} {{else}} <em>N/A</em> {{/if}}</td>
+                <td class="lean">{{#if tests}} {{tests}} {{else}} <em>N/A</em> {{/if}}</td>
+            </tr>
+            {{/each}}
+        </table>
     </div>
 </body>
 </html>

@@ -69,11 +69,16 @@ ol > li:before {
   content:counters(item, ".") " "; /* print counter */
   position: absolute;
   margin-right: 100%;
-  right: 20px;
+  right: 10px;
 }
 
 p {
   margin: 1em 0;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 table {
@@ -135,6 +140,10 @@ table.long-results tr:first-child td {
 }
 
 th.content-wrappable, td.content-wrappable {
+  white-space: normal;
+}
+
+td.content-wrappable table th, td.content-wrappable table td {
   white-space: normal;
 }
 
@@ -242,4 +251,14 @@ th.content-wrappable, td.content-wrappable {
   display: block;
   float: right;
   text-align: right;
+}
+
+table td.hyphenate {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }

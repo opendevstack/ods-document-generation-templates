@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>(Overall) Technical Installation Report for '{{metadata.name}}'</title>
+    <title>{{metadata.type}} for '{{metadata.name}}'</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -38,8 +38,16 @@
                             <td class="content-wrappable">{{metadata.git.commit}}</td>
                         </tr>
                         <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
                             <td class="lean">Git URL:</td>
                             <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Created by Jenkins Job Name:</td>
@@ -57,7 +65,7 @@
 
         <div id="blueband">&nbsp;</div>
 
-        <h1>(Overall) Installation Report for '{{metadata.name}}'</h1>
+        <h1>{{metadata.type}} for '{{metadata.name}}'</h1>
 
         <h2>Table of Contents</h2>
         <ol class="table-of-contents">
@@ -68,7 +76,7 @@
     </div>
 
     <div class="page">
-        <h2>Jenkins build log</h2>
+        <h2><span>0</span>Jenkins build log</h2>
         <p><pre>{{data.jenkinsData.log}}</pre></p>
     </div>
 </body>

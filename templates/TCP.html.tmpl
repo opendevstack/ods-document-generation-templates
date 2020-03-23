@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Cases Plan for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>Test Cases Plan for '{{metadata.name}}'</h1>
+
+        <h2>Table of Contents</h2>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">Document History</a></li>
+            <li><a href="#section_2">Review, Scope and Instructions of Test Execution</a></li>
+            <!--<li><a href="#section_3">Scope of Test Execution</a></li>
+            <li><a href="#section_4">Test Execution Instructions</a></li>-->
+            <li><a href="#section_3">Test Cases</a>
+                <ol>
+                    <li><a href="#section_3_1">Integration Test Cases</a></li>
+                    <li><a href="#section_3_2">Acceptance Test Cases</a></li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <div class="page">
+        <h2 id="section_1"><span>1</span>Document History</h2>
+        <p>The following table provides the history of the document.</p>
+        <p>{{{data.sections.sec1.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_2"><span>2</span>Review, Scope and Instructions of Test Execution</h2>
+        <p>The test will be executed as automated tests. The completeness and correctness of the scripts for the automated testing will be verified by code reviews during the development phase.</p>
+        <p>The test case plan will be approved for execution by the workflow / approvals in the electronic Document Management System (eDMS).</p>
+        <p>No manual tests will be managed by this document, therefore manual approvals / signatures on the test case plan / test case report are obsolete.</p>
+        <p>Successfully performed automated test do not require a formal test review. The executed test will be confirmed and approved by the workflow / approvals in the electronic Document Management System (eDMS).</p>
+        <p>As the test execution is fully automated, Jenkins (Technical Role) shall:</p>
+        <ul>
+            <li>Execute the code base test cases</li>
+            <li>Record the test results and evidence after the execution and include them in the XUnit file</li>
+            <li>Following Good Documentation Practices</li>
+            <li>Mark the test cases as a "Fail" or a "Pass"</li>
+            <li>Stop the test execution if one of the test cases has failed</li>
+            <li>Report back the test execution results to the Test Management Tool</li>
+        </ul>
+    </div>
+
+    <!--
+    <div class="page">
+        <h2 id="section_3"><span>3</span>Scope of Test Execution</h2>
+        <p>This section will be manually filled before test execution. Please describe the scope of Test case execution in case not all test cases in this document will be executed.</p>
+		<table style="border: 0px; padding: 0px; margin: 0px">
+			<tr>
+				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec3.content}}}</td>
+			</tr>
+		</table>
+    </div>
+
+    <div class="page">
+        <h2 id="section_4"><span>4</span>Test Execution Instructions</h2>
+        <p>In the case that the test execution is fully automated, Jenkins (Technical Role) shall:</p>
+        <ul>
+            <li>Execute the code base test cases</li>
+            <li>Record the test results and evidence after the execution and include them in the XUnit file</li>
+            <li>Following Good Documentation Practices</li>
+            <li>Mark the test cases as a "Fail" or a "Pass"</li>
+            <li>Stop the test execution if one of the test cases has failed</li>
+            <li>Report back the test execution results to the Test Management Tool</li>
+        </ul>
+
+        <p>Preparation of the test document for execution:</p>
+        <ul>
+            <li>Test results must be documented on a paper copy or a printout of the approved test case document.</li>
+            <li>The copy or printout must include the approval signatures (handwritten or electronic signature page) for the test cases</li>
+            <li>Pages of test cases that will not be executed may be removed prior to start of test execution. This must be documented in section 3.</li>
+            <li>No pages of the copy or printout must be removed or replaced during test execution.</li>
+            <li>Pages may be added during execution, e.g. if test cases need to be re-executed. Reason for the addition must be documented on these additional pages.</li>
+        </ul>
+        <p>For the documentation of test results the following rules of good documentation practice need to be fulfilled:</p>
+        <ul>
+            <li>Results and other entries have to be recorded handwritten.</li>
+            <li>Initials, signatures and dates provided by the tester have to be documented handwritten.</li>
+            <li>Handwritten entries must be made in clear, legible, indelible way.</li>
+            <li>Records must be made or completed at the time each action is taken and in such a way that all significant activities are traceable.</li>
+            <li>Any alteration made to an entry must be signed and dated; the alteration should permit the reading of the original information. Where appropriate, the reason for the alteration should be recorded.</li>
+        </ul>
+        <p>Creation of supporting evidence:</p>
+        <ul>
+            <li>Supporting evidence must be printed, dated and signed by the Tester, and labelled with test case # and step # on the day of test execution.</li>
+            <li>Screen shots or other objective evidence made by one tester may be collected e.g. in a MS Word document, but must be printed and dated/signed by the Tester on the day of test execution. Alternatively, these can be signed in IDEAforCON directly, as long as the Tester signs the Word document with the screenshots on the day of test execution in IDEAforCON.</li>
+            <li>In case of electronically recorded evidence (e.g. video files), the test results must be unambiguously linked to the objective evidence, summarized on a printout and signed on the day of test execution.</li>
+        </ul>
+        <p>The column "Initials / Date" only needs to be filled if</p>
+        <ul>
+            <li>Test steps in a test case are executed by more than one tester: Each tester writes initials/dates for all steps executed into the column.</li>
+            <li>Test steps in a test case are executed on more than one day: the tester writes the date of execution for every step into the column.</li>
+        </ul>
+    </div>
+    -->
+
+    <div class="page">
+        <h2 id="section_3"><span>3</span>Test Cases</h2>
+            <h3 id="section_3_1"><span>3.1</span>Integration Test Cases</h3>
+	    {{#if data.integrationTests}}
+                {{#each data.integrationTests}}
+                <table>
+                    <tr>
+                        <th class="lean">Test Case Number:</th>
+                        <td>{{key}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Test Objective:</th>
+                        <td>{{description}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Requirement / Specification:</th>
+                        <td>{{requirements}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Target Environment:</th>
+                        <td>{{../metadata.buildParameter.targetEnvironmentToken}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Prerequisites:</th>
+                        <td>N/A</td>
+                    </tr>
+                </table>
+                <div class="page">
+                    <table>
+                    <tr>
+                        <th>Step</th>
+                        <th>Instructions</th>
+                        <th>Expected result</th>
+                        <th>Actual result</th>
+                        <th>Initials / Date</th>
+                    </tr>
+                    {{#each steps}}
+                    <tr>
+                        <td>{{index}}</td>
+                        <td class="content-wrappable">{{step}}</td>
+                        <td class="content-wrappable">{{expectedResult}}</td>
+                        <td>{{actualResult}}</td>
+                        <td></td>
+                    </tr>
+                    {{/each}} <!-- end test steps -->
+                    </table>
+
+                    <table>
+                    <tr>
+                        <th><b>Test Case result by Tester</b></th>
+                        <th><b>Date:</b></th>
+                        <th><b>Signature:</b></th>
+                    </tr>
+                    <tr>
+                       <td class="content-wrappable" style="border: 0px;">
+                            <p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed">Pass	<input type="checkbox" name="PassedNo" value="NotPassed"> Fail</p>
+                            <p>Comment (mandatory if failed):</p>
+                            <p>{{commentIfFailed}}</p>
+			</td>
+                        <td class="content-wrappable" style="border: 0px;" />
+                        <td class="content-wrappable" style="border: 0px;" />
+                    </tr>
+                    </table>
+
+                </div>
+		{{/each}} <!-- end integration tests block -->
+            {{else}}
+	        <p><em>N/A</em></p>
+	    {{/if}}
+            <h3 id="section_3_2"><span>3.2</span>Acceptance Test Cases</h3>
+                {{#if data.acceptanceTests}}
+		{{#each data.acceptanceTests}}
+                <table>
+                    <tr>
+                        <th class="lean">Test Case Number:</th>
+                        <td>{{key}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Test Objective:</th>
+                        <td>{{description}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Requirement / Specification:</th>
+                        <td>{{requirements}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Target Environment:</th>
+                        <td>{{../metadata.buildParameter.targetEnvironmentToken}}</td>
+                    </tr>
+                    <tr>
+                        <th class="lean">Prerequisites:</th>
+                        <td>N/A</td>
+                    </tr>
+                </table>
+
+                <div class="page">
+                    <table>
+                    <tr>
+                        <th>Step</th>
+                        <th>Instructions</th>
+                        <th>Expected result / Evidence</th>
+                        <th>Actual result</th>
+                        <th>Initials / Date</th>
+                    </tr>
+                    {{#each steps}}
+                    <tr>
+                        <td>{{index}}</td>
+                        <td class="content-wrappable">{{step}}</td>
+                        <td class="content-wrappable">{{expectedResult}}</td>
+                        <td>{{../actualResult}}</td>
+                        <td></td>
+                    </tr>
+                    {{/each}} <!-- end test steps block -->
+                    </table>
+
+                    <table>
+                    <tr>
+                        <th><b>Test Case result by Tester</b></th>
+                        <th><b>Date:</b></th>
+                        <th><b>Signature:</b></th>
+                    </tr>
+                    <tr>
+                       <td class="content-wrappable" style="border: 0px;">
+                            <p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed">Pass	<input type="checkbox" name="PassedNo" value="NotPassed"> Fail</p>
+                            <p>Comment (mandatory if failed):</p>
+                            <p>{{commentIfFailed}}</p>
+			</td>
+                        <td class="content-wrappable" style="border: 0px;" />
+                        <td class="content-wrappable" style="border: 0px;" />
+                    </tr>
+                    </table>
+
+                </div>
+		{{/each}} <!-- end acceptance test block -->
+		{{else}}
+		<p><em>N/A</em></p>
+		{{/if}}
+    </div>
+</body>
+</html>

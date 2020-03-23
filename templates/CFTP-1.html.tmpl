@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Combined Functional and Requirements Testing Plan for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+    <div class="page">
+        <table id="heading">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                Information
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td class="content-wrappable">{{metadata.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Description:</td>
+                            <td class="content-wrappable">{{metadata.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean" style="vertical-align: top;">Version:</td>
+                            <td class="content-wrappable">{{metadata.version}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Date Created:</td>
+                            <td class="content-wrappable">{{metadata.date_created}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Commit:</td>
+                            <td class="content-wrappable">{{metadata.git.commit}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        </table>
+
+        <div id="blueband">&nbsp;</div>
+
+        <h1>Combined Functional and Requirements Testing Plan for '{{metadata.name}}'</h1>
+
+        <h2>Table of Contents</h2>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">Purpose</a></li>
+            <li><a href="#section_2">Scope</a></li>
+            <li><a href="#section_3">Roles and Responsibilities</a></li>
+            <li><a href="#section_4">Levels of Testing</a>
+                <ol>
+                    <li><a href="#section_4_1">Integration Testing</a></li>
+                    <li><a href="#section_4_2">Acceptance Testing</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_5">Operational Qualification Activities and Training</a>
+                <ol>
+                    <li><a href="#section_5_1">Test Procedure 1: Verification of Operational Documentation</a></li>
+                    <li><a href="#section_5_2">Test Procedure 2: Verification of Training Documentation</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_6">Integration Testing</a>
+                <ol>
+                    <li><a href="#section_6_1">Purpose of Integration Testing</a></li>
+                    <li><a href="#section_6_2">Scope of Integration Testing</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_7">Acceptance Testing</a>
+                <ol>
+                    <li><a href="#section_7_1">Functional Testing</a></li>
+                    <li><a href="#section_7_2">Non-Functional Testing</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_8">Test Structure and Execution</a>
+                <ol>
+                    <li><a href="#section_8_1">Test Cases</a></li>
+                    <li><a href="#section_8_2">Test Execution</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_9">Traceability Matrix</a></li>
+            <li><a href="#section_10">Validation Environment</a></li>
+            <li><a href="#section_11">Test Case Failure and Problem Resolution</a></li>
+            <li><a href="#section_12">Integration / Acceptance Testing Documentation</a></li>
+            <li><a href="#section_13">Definitions and Abbreviations</a>
+                <ol>
+                    <li><a href="#section_13_1">Definitions</a></li>
+                    <li><a href="#section_13_2">Abbreviations</a></li>
+                </ol>
+            </li>
+            <li><a href="#section_14">Reference Documents</a></li>
+            <li><a href="#section_15">Document History</a></li>
+        </ol>
+    </div>
+
+    <div class="page">
+        <h2 id="section_1"><span>1</span>Purpose</h2>
+        <p>This document contains the integration and acceptance test as part of functional and requirements testing plan for {{metadata.name}}. Details on the testing strategy and test coverage are defined. Integration testing is based on the functional and configuration specification when applicable, whereas Acceptance testing is based on the user requirements (functional and/or non-functional) of the system. The testing processes, details of test execution, review of test results, and resolution of failures are defined as well.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_2"><span>2</span>Scope</h2>
+        <p>{{{data.sections.sec2.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_3"><span>3</span>Roles and Responsibilities</h2>
+        <table>
+        <tr>
+            <th>Role</th>
+            <th>Responsibility</th>
+        </tr>
+        <tr>
+            <td class="content-wrappable">Jenkins (Technical Role)</td>
+            <td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
+        </tr>
+        <tr>
+            <td class="lean">Test Administrator</td>
+            <td class="content-wrappable">In case of full automation (and no further testcases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
+        </tr>
+        <tr>
+            <td class="lean">Tester</td>
+            <td class="content-wrappable">In case of full automation (and no further testcases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
+        </tr>
+        <tr>
+            <td class="lean">Developer</td>
+            <td class="content-wrappable">Writes tests.</td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="page">
+        <h2 id="section_4"><span>4</span>Levels of Testing</h2>
+        <p>The Testing Approach and Strategy is adapted to the Agile Development Methodologies applied in Platforms.  This means that the former LeVA Development, Functional and Requirements Testing will be also covered but grouped in a different classification: Unit Testing, Installation Testing, Integration Testing and Acceptance Testing. Unit testing is performed during development by the development engineers and documented in the Development Test Plan (C-DTP) and Report (C-DTR).</p>
+        <p>Installation Testing is aimed at checking the successful installation and configuration, as well as updating or uninstalling the software. This level of testing is usually executed automatically and in Platforms it is part of the Installation Test Plan (C-IVP) and Report (C-IVR).</p>
+
+        <h3 id="section_4_1"><span>4.1</span>Integration Testing</h3>
+        <p>The objective of the Integration Testing level is to verify whether the combined Units work well together as a group. Integration testing is aimed at detecting the flaws in the interactions between the Units within a module, micro-services and/or systems.</p>
+        <p>In Platforms Integration Testing is part of the Combined Functional/Requirements Test Plan (C-CFTP) and Report (C-CFTR).</p>
+
+        <h3 id="section_4_2"><span>4.2</span>Acceptance Testing</h3>
+        <p>This is the last stage of the testing process, where the product is verified against the end user requirements (can be functional or non-functional ones) and for accuracy. Successfully performed acceptance testing is a prerequisite for the product release. This testing level focuses on overall system quality, for example, from content and UI (functional) to performance or security issues (non-functional).</p>
+        <p>Within an agile approach the Acceptance Criteria are well-defined upfront.</p>
+        <p>In Platforms Acceptance Testing is part of the Combined Functional/Requirements Test Plan (C-CFTP) and Report (C-CFTR).</p>
+        <p>As enunciated before, requirements and acceptant criteria can be functional and/or non-functional so Acceptance Testing can be split in two main groups: Functional Testing and Non-Functional Testing.</p>
+
+            <h4 id="section_4_2_1"><span>4.2.1 </span>Functional Testing</h4>
+            <p>Functional testing is a type of software testing in which the system is tested against the functional (user) requirements and specifications. Functional testing ensures that the (user) requirements or specifications are properly satisfied by the application. This type of testing is particularly concerned with the result of processing. It focuses on simulation of actual system usage but does not develop any system structure assumptions.</p>
+            <p>It is basically defined as a type of testing which verifies that each function of the software application works in conformance with the requirement and specification. This testing is not concerned about the source code of the application. Each functionality of the software application is tested by providing appropriate test input, expecting the output and comparing the actual output with the expected output.</p>
+            <p>Some examples of functional testing types are: Unit Testing, Smoke Testing, Integration Testing, System Testing, Exploratory Testing, etc.</p>
+
+            <h4 id="section_4_2_2"><span>4.2.2 </span>Non-Functional Testing</h4>
+            <p>Non-functional testing is a type of software testing that is performed to verify the Non-Functional requirements of the application or system. It verifies whether the behavior of the system is as per the requirement or not. It tests all the aspects which are not tested in Functional testing.</p>
+            <p>Non-functional testing is defined as a type of software testing to check non-functional aspects of a software application. It is designed to test the readiness of a system as per non-functional parameters which are never addressed by Functional testing. Non-functional testing is as important as Functional testing.</p>
+            <p>Some examples of functional testing types are: Performance Testing, Load Testing Stress Testing, Security Testing, Scalability Testing, Compatibility Testing, Usability Testing, etc.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_5"><span>5</span>Operational Qualification Activities and Training</h2>
+        <p>{{{data.sections.sec5.content}}}</p>
+
+        <h3 id="section_5_1"><span>5.1</span>Test Procedure 1: Verification of Operational Documentation</h3>
+        <p>As part of the Integration Testing the following documentation will be verified for all relevant subjects listed in the Qualification Plan.</p>
+
+            <h4 id="section_5_1_1"><span>5.5.1 </span>Test Procedure 1.1: SOPs and Working Instructions</h4>
+            <p>Verify that approved SOPs and Working Instructions addressing and regarding the production environment, are in place. They must be approved and effective prior to release for production use.</p>
+
+            <h4 id="section_5_1_2"><span>5.5.2 </span>Test Procedure 1.2: Manuals and other System Documentation</h4>
+            <p>Verify that appropriate manuals and other system documentation exist for use in operating, maintaining, configuring, and/or troubleshooting of the system.</p>
+            
+        <h3 id="section_5_2"><span>5.2</span>Test Procedure 2: Verification of Training Documentation</h3>
+        <p>List the applicable procedures in which the Integration Testing participants must be trained before executing their portions of the Functional Testing Plan. Describe when and how the training will take place.</p>
+        <p>{{{data.sections.sec5s2.content}}}</p>
+        <p>Verify that an approved training plan exists, if justified, for all personnel involved in operating and maintaining the Infrastructure System.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_6"><span>6</span>Integration Testing</h2>
+
+        <h3 id="section_6_1"><span>6.1</span>Purpose of Integration Testing</h3>
+        <p>The purpose of the integration testing is to verify the functional, non-functional and reliability between the modules that are integrated and work within the specifications as defined in the functional and/or configuration specifications.</p>
+
+        <h3 id="section_6_2"><span>6.2</span>Scope of Integration Testing</h3>
+        <p>{{{data.sections.sec6s2.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_7"><span>7</span>Acceptance Testing</h2>
+        <h3 id="section_7_1"><span>7.1</span>Functional Testing</h3>
+
+        <h4 id="section_7_1_1"><span>7.1.1 </span>Purpose of Functional Testing</h4>
+        <p>N/A</p>
+        
+        <h4 id="section_7_1_2"><span>7.1.2 </span>Scope of Functional Testing</h4>
+        <p>N/A</p>
+        
+        <h3 id="section_7_2"><span>7.2</span>Non-Functional Testing</h3>
+
+        <h4 id="section_7_2_1"><span>7.2.1 </span>Purpose of Non-Functional Testing</h4>
+        <p>N/A</p>
+        
+        <h4 id="section_7_2_2"><span>7.2.2 </span>Scope of Non-Functional Testing</h4>
+        <p>N/A</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_8"><span>8</span>Test Structure and Execution</h2>
+        
+        <h3 id="section_8_1"><span>8.1</span>Test Cases</h3>
+        <p>Test cases are based on the user requirements, functional specifications and the business processes which are supported by the system. Test cases shall contain test data and expected outcomes against which observed outcomes may be compared. If test cases must be executed in a specific order this has to be defined.</p>
+        <p>The level of testing for the individual test cases will be defined based on the risk priority as determined in the risk assessment.</p>
+		<table>
+			<tr>
+				<td class="content-wrappable">{{{data.sections.sec8s1.content}}}</td>
+			</tr>
+		</table>
+        
+        <h3 id="section_8_2"><span>8.2</span>Test Execution</h3>
+        <p>Test results shall be recorded in a way that independent reviewer can compare the documented acceptance criteria against the (written or captured) test evidence and determine whether the test results meet these criteria.</p>
+
+        <p>In the case that the test execution is fully automated:</p>
+        <p>Jenkins (Technical Role) shall:</p>
+        <ul>
+            <li>execute the code base test cases</li>
+            <li>record the test results and evidence after the execution and include them in the XUnit file following Good Documentation Practices</li>
+            <li>mark the test cases as a "Fail" or a "Pass"</li>
+            <li>stop the test execution if one of the test cases has failed</li>
+            <li>report back the test execution results to the Test Management Tool</li>
+        </ul>
+        <p>As the execution is fully automated, as included in the section 3 "Roles and Responsibilities" the Tester and Test Administrator does not apply.</p>
+
+        <p>In the case that the test execution is not fully automated:</p>
+        <p>Testers shall:</p>
+        <ul>
+            <li>execute test cases</li>
+            <li>record actual test results (e.g. "as per expected result" is not an actual result) and supporting evidence immediately and accurately following Good Documentation Practices</li>
+            <li>pass or fail all test cases</li>
+            <li>provide comments for all failed test cases</li>
+            <li>sign and date each test in spaces provided after test execution</li>
+            <li>label any test output or evidence (e.g., screenshots, printouts and any additional pages) with test case number and test step number. Sign and date the output. If pages have successive page numbers signing and dating the first or last page is sufficient.</li>
+            <li>if any deviations from the test are encountered, follow the Test Case Failure and Problem Resolution (see section 10)</li>
+        </ul>  
+
+        <p>If a test case is executed by more than one person (tester), it is required that each tester signs (signature or initials and date) each test step for traceability purpose.</p>
+
+        <p>The Test Administrators shall:</p>
+        <ul>
+            <li>review the executed test cases and its attachments for completeness and correctness and sign for the review on the signature page</li>
+            <li>for failed test cases add comments (including a final pass/fail evaluation and problem resolution) and sign and date the test case</li>
+        </ul>
+
+        <p>Test execution and test result review must be independent, i.e. for any individual test case the Tester and the Test Administrator must be different individuals.</p>
+        <p>{{{data.sections.sec8s2.content}}}</p>
+        <p>The training records of all testers should be verified prior to initiating testing.</p>
+    </div>
+
+    
+    <div class="page">
+        <h2 id="section_9"><span>9</span>Traceability Matrix</h2>
+        <p>{{{data.sections.sec9.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_10"><span>10</span>Validation Environment</h2>
+        <p>{{{data.sections.sec10.content}}}</p>
+    </div>
+    
+    <div class="page">
+        <h2 id="section_11"><span>11</span>Test Case Failure and Problem Resolution</h2>
+        <p>A test case shall be failed if the observed outcome of a test differs in any way from the expected outcome identified in the test case data. If any step of a test case fails and cannot be resolved, then the entire test case fails. There may be many reasons for failure, some of which may not mean that the system itself has a flaw. It is, however, the Tester's responsibility to fail the test case and indicate in the comments box the failure or problem that occurred, including the test steps related to this discrepancy.</p>
+
+        <p>Reasons for test case failure may include:</p>
+        <ul>
+            <li>a bug in the system</li>
+            <li>a failure related to the operating environment</li>
+            <li>a mistake in the test case instructions or data</li>
+            <li>a tester's error</li>
+        </ul>  
+
+        <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>
+        <p>The Test Administrator will also record all discrepancies that occur during the test execution in a designated discrepancy log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the discrepancy log.</p>
+        <p>The final evaluation of remaining risks and unresolved critical failures will be assessed in the validation summary report.</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_12"><span>12</span>Integration / Acceptance Testing Documentation</h2>
+        <p>The following documents will be created as a result of the execution of integration and acceptance testing as part of the functional and requirements testing:</p>
+        <ul>
+            <li>Traceability as defined in section 9</li>
+            <li>All executed integration test cases</li>
+            <li>All executed acceptance test cases</li>
+            <li>Discrepancy log</li>
+        </ul>
+		<p>{{{data.sections.sec12.content}}}</p>
+    </div>
+
+    <div class="page">
+        <h2 id="section_13"><span>13</span>Definitions and Abbreviations</h2>
+        
+        <h3 id="section_13_1"><span>13.1</span>Definitions</h3>
+        <p>{{{data.sections.sec13s1.content}}}</p>
+        
+        <h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
+        <p>{{{data.sections.sec13s2.content}}}</p>
+    </div>
+    
+    <div class="page">
+        <h2 id="section_14"><span>14</span>Reference Documents</h2>
+        <ul>
+			<li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Risk Assessment</li>
+		</ul>
+    </div>
+    
+    <div class="page">
+        <h2 id="section_15"><span>15</span>Document History</h2>
+        <p>{{{data.sections.sec15.content}}}</p>
+    </div>
+</body>
+</html>

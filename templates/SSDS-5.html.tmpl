@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</title>
+		<link href="../css/styles.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="page">
+			<table id="heading">
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<th colspan="2">
+									Stack Information
+								</th>
+							</tr>
+							<tr>
+								<td class="lean" style="vertical-align: top;">Name:</td>
+								<td class="content-wrappable">{{metadata.name}}</td>
+							</tr>
+							<tr>
+								<td class="lean" style="vertical-align: top;">Description:</td>
+								<td class="content-wrappable">{{metadata.description}}</td>
+							</tr>
+							<tr>
+								<td class="lean" style="vertical-align: top;">Version:</td>
+								<td class="content-wrappable">{{metadata.version}}</td>
+							</tr>
+							<tr>
+								<td class="lean">Date Created:</td>
+								<td class="content-wrappable">{{metadata.date_created}}</td>
+							</tr>
+							<tr>
+								<td class="lean">Git Commit:</td>
+								<td class="content-wrappable">{{metadata.git.commit}}</td>
+							</tr>
+							<tr>
+								<td class="lean">Git Tag:</td>
+								<td class="content-wrappable">{{metdata.git.targetTag}}</td>
+							</tr>
+							<tr>
+								<td class="lean">Git URL:</td>
+								<td class="content-wrappable">{{metadata.git.url}}</td>
+							</tr>
+							<tr>
+								<td class="lean">OpenShift Cluster API URL:</td>
+								<td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+							</tr>
+							<tr>
+								<td class="lean">Created by Jenkins Job Name:</td>
+								<td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+							</tr>
+							<tr>
+								<td class="lean">Created by Jenkins Build Number:</td>
+								<td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+							</tr>
+						</table>
+					</td>
+					<td id="logo" class="lean"></td>
+				</tr>
+			</table>
+
+			<div id="blueband">&nbsp;</div>
+
+			<h1>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</h1>
+
+			<h2>Table of Contents</h2>
+			<ol class="table-of-contents">
+				<li><a href="#section_1">INTRODUCTION</a></li>
+				<li><a href="#section_2">OVERVIEW</a></li>
+				<ol>
+					<li><a href="#section_2_1">System Design Overview Incl. System Diagram</a></li>
+					<li><a href="#section_2_2">SOFTWARE DESIGN OVERVIEW</a></li>
+					<li><a href="#section_2_3">SOURCE CODE REVIEW OVERVIEW</a></li>
+				</ol>
+				<li><a href="#section_3">SYSTEM DESIGN PROFILE AND SYSTEM DESCRIPTION</a>
+					<ol>
+						<li><a href="#section_3_1">SYSTEM DESIGN PROFILE</a></li>
+						<li><a href="#section_3_2">SYSTEM DESCRIPTION</a></li>
+					</ol>
+				</li>
+				<li><a href="#section_4">ARCHITECTURE OF THE SYSTEM</a></li>
+				<li><a href="#section_5">SYSTEM COMPONENTS</a>
+					<ol>
+						<li><a href="#section_5_1">SYSTEM COMPONENT LIST</a></li>
+						<li><a href="#section_5_2">SYSTEM COMPONENT SPECIFICATIONS</a></li>
+						<li><a href="#section_5_3">UTILISATION OF EXISTING INFRASTRUCTURE SYSTEMS</a></li>
+						<li><a href="#section_5_4">UTILISATION OF EXISTING INFRASTRUCTURE SERVICES</a></li>
+					</ol>
+				</li>
+				<li><a href="#section_6">CONFIGURATION FOR ADDITIONAL ENVIRONMENTS</a></li>
+				<ol>
+					<li><a href="#section_6_1">DEVELOPMENT ENVIRONMENT</a></li>
+					<li><a href="#section_6_2">QA/TEST ENVIRONMENT</a></li>
+					<li><a href="#section_6_3">TRAINING ENVIRONMENT</a></li>
+				</ol>
+				<li><a href="#section_7">ENVIRONMENTAL CONDITIONS</a></li>
+				<li><a href="#section_8">SOFTWARE DESIGN PRINCIPLES</a></li>
+				<li><a href="#section_9">SYSTEM DATA</a></li>
+				<li><a href="#section_10">MODULE DESCRIPTION</a></li>
+				<li><a href="#section_11">MODULES TO BE REVIEWED</a></li>
+				<li><a href="#section_12">CODING REVIEW RESULTS</a></li>
+				<li><a href="#section_13">DEFINITIONS AND ABBREVIATIONS</a></li>
+				<ol>
+					<li><a href="#section_13_1">DEFINITIONS</a></li>
+					<li><a href="#section_13_2">ABBREVIATIONS</a></li>
+				</ol>
+				<li><a href="#section_14">REFERENCE DOCUMENTS</a></li>
+				<li><a href="#section_15">DOCUMENT HISTORY</a></li>
+			</ol>
+		</div>
+
+		<div class="page">
+			<h2 id="section_1"><span>1</span>Introduction</h2>
+			{{{data.sections.sec1.content}}}
+		</div>
+
+		<div class="page">
+			<h2 id="section_2"><span>2</span>Overview</h2>
+
+			<h3 id="section_2_1"><span>2.1</span>System Design Overview incl. System Diagram</h3>
+			<p>{{{data.sections.sec2s1.content}}}</p>
+
+			<h3 id="section_2_2"><span>2.2</span>Software Design Overview</h3>
+			<p>{{{data.sections.sec2s2.content}}}</p>
+
+			<h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
+            <p>The scope of the automated review, performed by SonarQube, during the build process, is all modules listed below, based on defined quality rule sets (Quality Profiles).<br>The installation of SonarQube is part of OpenDevStack (<em>BI-IT-DEVSTACK</em>) and hence qualified.</p>
+
+            <p>The review is automated. In case the review passes, based on quality gates, the pipeline will continue. Otherwise it will fail and stop further processes.</p>
+
+            <p>SonarQube identifies at least three types of code issues:</p>
+            <ul>
+                <li>Bug - A coding error that will break your code and needs to be fixed.</li>
+                <li>Vulnerability - A point in your code that's open to attack.</li>
+                <li>Code Smell - A maintainability issue that makes your code confusing and difficult to maintain.</li>
+            </ul>
+            <p>Each issue has one of five severities:</p>
+            <ul>
+                <li>BLOCKER - Bug with a high probability to impact the behavior of the application in production: memory leak, unclosed JDBC connection, .... The code should be immediately fixed.</li>
+                <li>CRITICAL - Either a bug with a low probability to impact the behavior of the application in production or an issue which represents a security flaw: empty catch block, SQL injection, ... The code must be immediately reviewed.</li>
+                <li>MAJOR - Quality flaw which can highly impact the developer productivity: uncovered piece of code, duplicated blocks, unused parameters, ...</li>
+                <li>MINOR - Quality flaw which can slightly impact the developer productivity: lines should not be too long, "switch" statements should have at least 3 cases, ...</li>
+                <li>INFO - Neither a bug nor a quality flaw, just a finding.</li>
+            </ul>
+
+        <p>{{{data.sections.sec2s3.content}}}</p>
+
+		</div>
+
+		<div class="page">
+			<h2 id="section_3"><span>3</span>System Design Profile and System Description</h2>
+
+			<h3 id="section_3_1"><span>3.1</span>System Design Profile</h3>
+
+			{{#if data.sections.sec3s1.specifications}}
+            <p>The system thas the following system design specifications:</p>
+			<table>
+				<tr>
+					<th>SSDS #</th>
+					<th class="content-wrappable">Detailed Technical/Functional Specification</th>
+					<th>Traces To:</th>
+				</tr>
+				{{#each data.sections.sec3s1.specifications}}
+				<tr>
+					<td class="lean">{{key}}</td>
+					<td class="content-wrappable">{{{description}}}</td>
+					<td class="content-wrappable">{{req_key}}</td>
+				</tr>
+				{{/each}}
+			</table>
+			{{else}}
+			<p><em>N/A</em></p>
+			{{/if}}
+
+			<p>{{{data.sections.sec3s1.content}}}</p>
+
+			<h3 id="section_3_2"><span>3.2</span>System Description</h3>
+			<p>{{{data.sections.sec3s2.content}}}</p>
+			<h4><span>3.2.1</span> Modules to be developed</h4>
+			<!-- all data for sec10 is contained in sec5s1 already -->
+			{{#if data.sections.sec10.modules}}
+			<p>The following modules (components) will be developed.</p>
+			<table>
+				<tr>
+					<th class="content-wrappable">Name of module</th>
+					<th class="content-wrappable">Purpose </th>
+				</tr>
+				{{#each data.sections.sec10.modules}}
+				<tr>
+					<td class="content-wrappable">{{nameOfSoftware}}</td>
+					<td class="content-wrappable">{{description}}</td>
+				</tr>
+				{{/each}}
+			</table>
+			{{else}}
+			<p><em>N/A</em></p>
+			{{/if}}
+
+			<h4><span>3.2.2</span> Interfaces between Modules</h4>
+			<p>{{{data.sections.sec3s2s2.content}}}</p>
+			<h4><span>3.2.3</span> Interfaces to External Systems</h4>
+			<p>{{{data.sections.sec3s2s3.content}}}</p>
+			<h4><span>3.2.4</span> System Diagram</h4>
+			{{{data.sections.sec3s2s4.content}}}
+		</div>
+
+		<div class="page">
+			<h2 id="section_4"><span>4</span>Architecture of the System</h2>
+			{{{data.sections.sec4.content}}}
+		</div>
+
+		<div class="page">
+			<h2 id="section_5"><span>5</span>System Components</h2>
+
+			<h3 id="section_5_1"><span>5.1</span>System Components List</h3>
+			{{#if data.sections.sec5s1.components}}
+			<p>This system is composed of the following components: </p>
+			<table>
+				<tr>
+					<th>SSDS #</th>
+					<th class="content-wrappable">Type of Component</th>
+					<th class="content-wrappable">Identification (Config. Item)</th>
+					<th class="content-wrappable">Functionality/Purpose</th>
+					<th class="content-wrappable">Components Specifications (Section/Doc ID)</th>
+				</tr>
+				{{#each data.sections.sec5s1.components}}
+				<tr>
+					<td class="lean">{{key}}</td>
+					<td class="content-wrappable">{{componentType}}</td>
+					<td class="content-wrappable">{{componentId}}</td>
+					<td class="content-wrappable">{{{description}}}</td>
+					<td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
+				</tr>
+				{{/each}}
+			</table>
+			{{else}}
+			<p><em>N/A</em></p>
+			{{/if}}
+
+			<h3 id="section_5_2"><span>5.2</span>System Components Specifications</h3>
+			<!-- all data for sec5s2 is contained in sec5s1 already -->
+			<p>The installation comprises the following software-defined components:</p>
+            {{#if data.sections.sec5s1.components}}
+			<table>
+				<tr>
+					<th>SSDS #</th>
+					<th class="content-wrappable">Name of Software</th>
+					<th>Supplier</th>
+					<th>Version</th>
+					<th class="content-wrappable">Description of Functionality</th>
+					<th>References</th>
+				</tr>
+				{{#each data.sections.sec5s1.components}}
+				<tr>
+					<td class="lean">{{key}}</td>
+					<td class="content-wrappable">{{nameOfSoftware}}</td>
+					<td class="content-wrappable">{{supplier}}</td>
+					<td class="lean">{{version}}</td>
+					<td class="content-wrappable">{{description}}</td>
+					<td class="content-wrappable">{{references}}</td>
+				</tr>
+				{{/each}}
+			</table>
+			{{else}}
+			<p><em>N/A</em></p>
+			{{/if}}
+
+			<h3 id="section_5_3"><span>5.3</span>Utilisation of Existing Infrastructure Systems</h3>
+			<p>{{{data.sections.sec5s3.content}}}</p>
+
+			<h3 id="section_5_4"><span>5.4</span>Utilisation of Existing Infrastructure Services</h3>
+			<p>{{{data.sections.sec5s4.content}}}</p>
+		</div>
+
+		<div class="page">
+			<h2 id="section_6"><span>6</span>Configurations for Additional Environments</h2>
+
+			<h3 id="section_6_1"><span>6.1</span>Development Environment</h3>
+			<p>{{{data.sections.sec6s1.content}}}</p>
+
+			<h3 id="section_6_2"><span>6.2</span>QA/Test Environment</h3>
+			<p>{{{data.sections.sec6s2.content}}}</p>
+
+			<h3 id="section_6_3"><span>6.3</span>Training Environment</h3>
+			<p>{{{data.sections.sec6s3.content}}}</p>
+		</div>
+
+		<div class="page">
+			<h2 id="section_7"><span>7</span>Environmental Conditions</h2>
+			<p>{{{data.sections.sec7.content}}}</p>
+		</div>
+
+		<div class="page">
+			<h2 id="section_8"><span>8</span>Software Design Principles</h2>
+			<p>{{{data.sections.sec8.content}}}</p>
+		</div>
+
+		<div class="page">
+			<h2 id="section_9"><span>9</span>System Data</h2>
+			<p>{{{data.sections.sec9.content}}}</p>
+		</div>
+
+		<div class="page">
+			<h2 id="section_10"><span>10</span>Module Description</h2>
+			This system contains the following modules (components) that are going to be developed.
+			{{#if data.sections.sec10.modules}}
+			{{#each data.sections.sec10.modules}}
+			<h3 id="section_10_{{@index}}">{{nameOfSoftware}}</h3>
+			<table>
+				<tr>
+					<th>Component Name</th>
+					<th>Type of Module</th>
+					<th class="content-wrappable">Source code location</th>
+					<th>Version</th>
+				</tr>
+				<tr>
+					<td class="content-wrappable">{{nameOfSoftware}}</td>
+					<td>{{componentType}}</td>
+					<td class="content-wrappable">{{supplier}}</td>
+					<td class="lean">{{version}}</td>
+				</tr>
+			</table>
+			<p>{{description}}</p>
+                {{#if softwareDesignSpec}}
+                	<p>This module has the following software design specifitations:</p>
+					<table>
+					<tr>
+						<th>SSDS #</th>
+						<th class="content-wrappable">Description</th>
+					</tr>
+					{{#each softwareDesignSpec}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{{softwareDesignSpec}}}</td>
+					</tr>
+					{{/each}}
+					</table>
+				{{/if}}
+
+				{{#if requirements}}
+				{{#each requirements}}
+					<p>For the GAMP topic <i>{{gampTopic}}</i>, the following requirements are covered by the SSDS above:</p>
+					<table>
+					<tr>
+						<th>Req #</th>
+						<th class="content-wrappable">Requirement</th>
+					</tr>
+					{{#each requirementsofTopic}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{name}}</td>
+					</tr>
+					{{/each}}
+					</table>
+				{{/each}}
+				{{/if}}
+
+			{{/each}}
+			{{/if}}
+		</div>
+
+		<div class="page">
+			<h2 id="section_11"><span>11</span>Modules To Be Reviewed</h2>
+			<!-- all data for sec11 is contained in sec10 already -->
+			{{#if data.sections.sec10.modules}}
+			<p>The following modules will be reviewed.</p>
+			<table>
+				<tr>
+					<th class="content-wrappable">Name of module</th>
+					<th class="content-wrappable">Functionality</th>
+					<th class="content-wrappable">References to SSDS</th>
+				</tr>
+				{{#each data.sections.sec10.modules}}
+				<tr>
+					<td class="content-wrappable">{{nameOfSoftware}}</td>
+					<td class="content-wrappable">{{description}}</td>
+					<td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
+				</tr>
+				{{/each}}
+			</table>
+			{{else}}
+			<p><em>N/A</em></p>
+			{{/if}}
+
+		</div>
+
+		<div class="page">
+			<h2 id="section_12"><span>12</span>Coding Review Results</h2>
+            <p>The results of the (automated) coding review can be seen in the appended Code Analysis generated by SonarQube for:</p>
+
+            {{#if data.sections.sec10.modules}}
+            <ul>
+            {{#each data.sections.sec10.modules}}
+                <li>{{nameOfSoftware}}</li>
+            {{/each}}
+            </ul>
+            {{/if}}
+
+			<p>{{{data.sections.sec12.content}}}</p>
+
+		</div>
+
+		<div class="page">
+			<h2 id="section_13"><span>13</span>Definitions And Abbreviations</h2>
+			<h3 id="section_13_1"><span>13.1</span>Definitions</h3>
+			<p>{{{data.sections.sec13s1.content}}}</p>
+			<h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
+			<p>{{{data.sections.sec13s2.content}}}</p>
+		</div>
+
+		<div class="page">
+			<h2 id="section_14"><span>14</span>Reference Documents</h2>
+			<ul>
+                <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Combined Specification Document </li>
+			    {{#if data.sections.sec14.referencedocs}}
+				{{#each data.sections.sec14.referencedocs}}
+				<li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} {{name}}</li>
+				{{/each}}
+			    {{/if}}
+			</ul>
+            <p>{{{data.sections.sec14.content}}}</p>
+		</div>
+		<div class="page">
+			<h2 id="section_15"><span>15</span>Document History</h2>
+			<p>{{{data.sections.sec15.content}}}</p>
+		</div>
+
+	</body>
+</html>

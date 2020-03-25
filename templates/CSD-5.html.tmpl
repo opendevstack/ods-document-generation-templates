@@ -115,7 +115,7 @@
 
         <h3 id="section_3_1"><span>3.1</span>Related Business / GxP Process</h3>
         <p>{{{data.sections.sec3s1.content}}}</p>
-        
+
         <h3 id="section_3_2"><span>3.2</span>Operational Requirements</h3>
         <p>{{{data.sections.sec3s2.content}}}</p>
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
@@ -377,7 +377,7 @@
              <p><em>N/A</em></p>
              {{/if}}
 
-        
+
         <h3 id="section_3_4"><span>3.4</span>Overarching Requirements</h3>
         {{#if data.requirements.overarchingrequirements}}
 			<table>
@@ -487,17 +487,17 @@
                 <tr>
                     <td class="lean" rowspan="3">{{key}}</td>
                     <td class="lean">URS</td>
-                    <td class="content-wrappable">{{{ursName}}}</td>
+                    <td class="content-wrappable">{{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
                     <td class="lean">{{applicability}}</td>
                 </tr>
                 <tr>
                     <td class="lean">FS</td>
-                    <td class="content-wrappable">{{{fsName}}}</td>
+                    <td class="content-wrappable">{{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
                     <td class="lean">{{applicability}}</td>
                 </tr>
                 <tr>
                     <td class="lean">CS</td>
-                    <td class="content-wrappable">{{{csName}}}</td>
+                    <td class="content-wrappable">{{{csName}}}{{#if }}<br>{{{csDescription}}}{{/if}}</td>
                     <td class="lean">{{applicability}}</td>
                 </tr>
                 {{/each}}
@@ -509,7 +509,7 @@
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Constraints</h2>
-        
+
         <h3 id="section_4_1"><span>4.1</span>Compatibility</h3>
         {{#if data.requirements.compatibility}}
 			<table>

@@ -200,14 +200,14 @@
                 <th class="lean">Parameter</th>
                 <th class="lean">Value</th>
             </tr>
-            {{#each data.repos}}
+            {{#each data.repositories}}
             <tr>
                 <td class="content-wrappable">Git Commit Component <em>{{id}}</em></td>
-                <td class="content-wrappable">{{data.git.commit}}</td>
+                <td class="content-wrappable">{{git.commit}}</td>
             </tr>
             <tr>
                 <td class="content-wrappable">Git Repo Component <em>{{id}}</em></td>
-                <td class="content-wrappable">{{data.git.url}}</td>
+                <td class="content-wrappable">{{git.url}}</td>
             </tr>
             {{/each}}
             <tr>
@@ -250,7 +250,7 @@
     <div class="page">
         <h2 id="section_6"><span>6</span>Diagnostics and Testing</h2>
 
-        {{#each data.repos}}
+        {{#each data.repositories}}
         <h3>Component {{id}}</h3>
 
         <table class="no-page-break">

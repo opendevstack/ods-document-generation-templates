@@ -172,6 +172,7 @@
     <div class="page">
         <h2 id="section_4"><span>4</span>Test Cases</h2>
         <p>The following table shows only the Unit test cases which mitigate or cover the corresponding Risks or System Requirements and are defined in Jira by the project team. They can be found in the detailed Unit Test Report searching by the ID from Jira.</p>
+        {{#if data.tests}}
         <table>
             <tr>
                 <th class="lean">CSD ID</th>
@@ -194,6 +195,7 @@
             </tr>
             {{/each}}
         </table>
+        {{/if}}
     </div>
 
     <div class="page">

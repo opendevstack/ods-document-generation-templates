@@ -406,13 +406,13 @@
                 <th class="lean">Mit. No</th>
                 <th class="lean">Type</th>
                 <th>Mitigation description</th>
-                <th>Risk No.</th>
+                <th class="lean">Risk No.</th>
             </tr>
             {{#each data.sections.sec5.proposedMeasures}}
             <tr>
                 <td class="lean">{{key}}</td>
                 <td class="lean">{{type}}</td>
-                <td class="content-wrappable">{{{name}}}</td>
+                <td class="content-wrappable">{{{name}}}</br>{{{description}}}</td>
                 <td class="lean">{{referencesRisk}}</td>
             </tr>
             {{/each}}

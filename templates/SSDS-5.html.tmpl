@@ -192,7 +192,7 @@
 				{{#each data.sections.sec10.modules}}
 				<tr>
 					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td class="content-wrappable">{{description}}</td>
+					<td class="content-wrappable">{{{description}}}</td>
 				</tr>
 				{{/each}}
 			</table>
@@ -324,7 +324,7 @@
 					<td class="lean">{{version}}</td>
 				</tr>
 			</table>
-			<p>{{description}}</p>
+			<p>{{{description}}}</p>
                 {{#if softwareDesignSpec}}
                 	<p>This module has the following software design specifitations:</p>
 					<table>
@@ -352,7 +352,7 @@
 					{{#each requirementsofTopic}}
 					<tr>
 						<td class="lean">{{key}}</td>
-						<td class="content-wrappable">{{name}}</td>
+						<td class="content-wrappable">{{{name}}}</br>{{{reqDescription}}}</td>
 					</tr>
 					{{/each}}
 					</table>

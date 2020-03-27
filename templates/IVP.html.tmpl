@@ -156,7 +156,7 @@ Other test cases:
         {{#each data.tests}}
         <tr>
             <td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
-            <td class="content-wrappable"><em>{{techSpec}}</em></td>
+            <td class="content-wrappable"><em>{{#if techSpec}} {{techSpec}} {{else}} N/A {{/if}}</em></td>
             <td class="content-wrappable"></td>
         </tr>
         {{/each}}

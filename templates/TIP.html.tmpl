@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <td class="lean">Git Tag:</td>
-                            <td class="content-wrappable">{{metdata.git.targetTag}}</td>
+                            <td class="content-wrappable">{{metadata.git.targetTag}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Git URL:</td>
@@ -178,7 +178,7 @@
             <tr>
                 <td class="lean">{{id}}</td>
                 <td class="content-wrappable">N/A</td>
-                <td class="content-wrappable">{{branch}}, the version and link is specified as parameter</td>
+                <td class="content-wrappable">{{data.git.branch}}, the actual commit is specified as parameter during installation</td>
                 <td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
 		{{!-- Need to be reviewed}--}}
                 <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{../metadata.version}}-{{../metadata.jenkins.buildNumber}} System and Software Design Specification</td>

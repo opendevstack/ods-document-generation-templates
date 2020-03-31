@@ -57,6 +57,10 @@
                             <td class="lean">Created by Jenkins Build Number:</td>
                             <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
                         </tr>
+                        <tr>
+                            <td class="lean">Target environment:</td>
+                            <td class="content-wrappable">{{metadata.buildParameter.targetEnvironment}}</td>
+                        </tr>
                     </table>
                 </td>
                 <td id="logo" class="lean"></td>
@@ -76,7 +80,7 @@
     </div>
 
     <div class="page">
-        <h2><span>0</span>Jenkins build log</h2>
+        <h2><span>1</span>Jenkins build log</h2>
         <p><pre>{{data.jenkinsData.log}}</pre></p>
     </div>
 </body>

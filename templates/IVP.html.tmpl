@@ -146,7 +146,7 @@
 Other test cases:
 
 	<!-- render test case ID / description from zephyr with tagged with IVP -->
-
+    {{#if data.tests}}
 	<table class="no-page-break">
         <tr>
             <th class="lean">Test case</th>
@@ -156,11 +156,14 @@ Other test cases:
         {{#each data.tests}}
         <tr>
             <td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
-            <td class="content-wrappable"><em>{{techSpec}}</em></td>
+            <td class="content-wrappable"><em>{{#if techSpec}} {{techSpec}} {{else}} N/A {{/if}}</em></td>
             <td class="content-wrappable"></td>
         </tr>
         {{/each}}
 	</table>
+    {{else}}
+        <p><em>N/A</em></p>
+    {{/if}}
 
 </div>
 

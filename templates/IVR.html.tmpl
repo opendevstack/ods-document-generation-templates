@@ -155,7 +155,7 @@
 Other test cases:
 
 	<!-- render test case ID / description from zephyr with tagged with IVP -->
-
+    {{#if data.tests}}
 	<table class="no-page-break">
         <tr>
             <th class="lean">Test case</th>
@@ -170,7 +170,9 @@ Other test cases:
         </tr>
         {{/each}}
     </table>
-
+    {{else}}
+        <p><em>N/A</em></p>
+    {{/if}}
     <p>Additional Tests implemented and executed: {{data.numAdditionalTests}}</p>
 
 </div>

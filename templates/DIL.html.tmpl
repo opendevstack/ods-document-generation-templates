@@ -71,10 +71,9 @@
         <p><em>Clarification: Discrepancies detected during a test run will be documented in the Discrepancy Log (DIL) version associated with the test run. The DIL will be created during each test run. Any updated version of the DIL showing no discrepancies serves as evidence for the successful correction of the error(s) causing the discrepancies.</em></p>
 
         <h2>Integration Testing Discrepancy Log</h2>
-        <p>The following table shows the discrepancies found during the execution of the Integration tests:</p>
 
         {{#if data.integrationTests}}
-
+		<p>The following table shows the discrepancies found during the execution of the Integration tests:</p>
 
 		<table style="border: 0px; padding: 0px; margin: 0px">
 			<tr>
@@ -107,13 +106,13 @@
 			</tr>
 		</table>
 	{{else}}
-		<p><em>N/A</em></p>
+		<p><em>No discrepancies found during the execution of the Integration tests.</em></p>
     {{/if}}
 
         <h2>Acceptance Testing Discrepancy Log</h2>
-	<p>The following table shows the discrepancies found during the execution of the Acceptance tests:</p>
 
 	{{#if data.acceptanceTests}}
+    <p>The following table shows the discrepancies found during the execution of the Acceptance tests:</p>
 		<table style="border: 0px; padding: 0px; margin: 0px">
 			<tr>
 				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">
@@ -145,7 +144,7 @@
 			</tr>
 		</table>
 	{{else}}
-		<p><em>N/A</em></p>
+		<p><em>No discrepancies found during the execution of the Acceptance tests.</em></p>
     {{/if}}
     </div>
 </body>

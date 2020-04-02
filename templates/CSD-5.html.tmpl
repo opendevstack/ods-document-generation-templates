@@ -80,6 +80,7 @@
                     <li><a href="#section_3_5">Roles</a></li>
                     <li><a href="#section_3_6">Interfaces</a></li>
                     <li><a href="#section_3_7">Operational Environment</a></li>
+					<li><a href="#section_3_8">Uncategorized Requirements</a></li>
                 </ol>
             </li>
             <li><a href="#section_4">Constraints</a>
@@ -377,38 +378,6 @@
              <p><em>N/A</em></p>
              {{/if}}
 
-            <h4 id="section_3_3_5"><span>3.3.5</span> Uncategorized Requirements</h4>
-            {{#if data.requirements.uncategorized}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.uncategorized}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                {{/each}}
-             </table>
-			 {{else}}
-             <p><em>N/A</em></p>
-             {{/if}}
-
         <h3 id="section_3_4"><span>3.4</span>Overarching Requirements</h3>
         {{#if data.requirements.overarchingrequirements}}
 			<table>
@@ -515,6 +484,38 @@
                     <th>Applicability</th>
                 </tr>
                 {{#each data.requirements.environmentrequirements}}
+                <tr>
+                    <td class="lean" rowspan="3">{{key}}</td>
+                    <td class="lean">URS</td>
+                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">FS</td>
+                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">CS</td>
+                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                {{/each}}
+             </table>
+			 {{else}}
+             <p><em>N/A</em></p>
+             {{/if}}
+		
+		<h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
+            {{#if data.requirements.uncategorized}}
+			<table>
+                <tr>
+                    <th>No.</th>
+                    <th>Document</th>
+                    <th>Requirement</th>
+                    <th>Applicability</th>
+                </tr>
+                {{#each data.requirements.uncategorized}}
                 <tr>
                     <td class="lean" rowspan="3">{{key}}</td>
                     <td class="lean">URS</td>

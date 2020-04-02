@@ -203,6 +203,38 @@
             <h4 id="section_3_3_4"><span>3.3.4</span> Regulatory Requirements</h4>
             <p>N/A</p>
 
+            <h4 id="section_3_3_5"><span>3.3.5</span> Uncategorized Requirements</h4>
+            {{#if data.requirements.uncategorized}}
+			<table>
+                <tr>
+                    <th>No.</th>
+                    <th>Document</th>
+                    <th>Requirement</th>
+                    <th>Applicability</th>
+                </tr>
+                {{#each data.requirements.uncategorized}}
+                <tr>
+                    <td class="lean" rowspan="3">{{key}}</td>
+                    <td class="lean">URS</td>
+                    <td class="content-wrappable">{{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">FS</td>
+                    <td class="content-wrappable">{{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">CS</td>
+                    <td class="content-wrappable">N/A</td>
+                    <td class="lean">N/A</td>
+                </tr>
+                {{/each}}
+             </table>
+			 {{else}}
+             <p><em>N/A</em></p>
+             {{/if}}
+
         <h3 id="section_3_4"><span>3.4</span>Overarching Requirements</h3>
         <p>N/A</p>
 

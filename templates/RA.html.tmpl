@@ -387,6 +387,7 @@
 				<th class="lean">RPN</th>
 				<th class="content-wrappable">Risk Prio.</th>
 				<th class="content-wrappable">Proposed Measures</th>
+				<th class="content-wrappable">Comments</th>
             </tr>
             {{#each data.sections.sec5.risks }}
             <tr>
@@ -401,6 +402,7 @@
 				<td class="content-wrappable">{{riskPriorityNumber}}</td>
 				<td class="content-wrappable">{{riskPriority}}</td>
 				<td class="lean">{{{proposedMeasures}}}</td>
+				<td class="content-wrappable">{{{riskComment}}}</td>
             </tr>
             {{/each}}
 		</table>

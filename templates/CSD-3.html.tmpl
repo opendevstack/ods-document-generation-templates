@@ -80,6 +80,7 @@
                     <li><a href="#section_3_5">Roles</a></li>
                     <li><a href="#section_3_6">Interfaces</a></li>
                     <li><a href="#section_3_7">Operational Environment</a></li>
+					<li><a href="#section_3_8">Uncategorized Requirements</a></li>
                 </ol>
             </li>
             <li><a href="#section_4">Constraints</a>
@@ -119,6 +120,36 @@
         <h3 id="section_3_2"><span>3.2</span>Operational Requirements</h3>
         <p>{{{data.sections.sec3s2.content}}}</p>
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
+
+            {{#if data.requirements.operationalrequirements}}
+			<table>
+                <tr>
+                    <th>No.</th>
+                    <th>Document</th>
+                    <th>Requirement</th>
+                    <th>Applicability</th>
+                </tr>
+                {{#each data.requirements.operationalrequirements}}
+                <tr>
+                    <td class="lean" rowspan="3">{{key}}</td>
+                    <td class="lean">URS</td>
+                    <td class="content-wrappable">{{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">FS</td>
+                    <td class="content-wrappable">{{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">CS</td>
+                    <td class="content-wrappable">N/A</td>
+                    <td class="lean">N/A</td>
+                </tr>
+                {{/each}}
+             </table>
+             {{/if}}
+
 
             <h4 id="section_3_2_1"><span>3.2.1</span> Functional Requirements</h4>
             <p>N/A</p>
@@ -210,7 +241,7 @@
         <p>N/A</p>
 
         <h3 id="section_3_6"><span>3.6</span>Interfaces</h3>
-        {{#if data.requirements.interfacesrequirements}}
+        {{#if data.requirements.interfacerequirements}}
 			<table>
                 <tr>
                     <th>No.</th>
@@ -218,7 +249,7 @@
                     <th>Requirement</th>
                     <th>Applicability</th>
                 </tr>
-                {{#each data.requirements.interfacesrequirements}}
+                {{#each data.requirements.interfacerequirements}}
                 <tr>
                     <td class="lean" rowspan="3">{{key}}</td>
                     <td class="lean">URS</td>
@@ -242,7 +273,7 @@
              {{/if}}
 
         <h3 id="section_3_7"><span>3.7</span>Operational Environment</h3>
-        {{#if data.requirements.operationalrequirements}}
+        {{#if data.requirements.environmentrequirements}}
 			<table>
                 <tr>
                     <th>No.</th>
@@ -250,7 +281,7 @@
                     <th>Requirement</th>
                     <th>Applicability</th>
                 </tr>
-                {{#each data.requirements.operationalrequirements}}
+                {{#each data.requirements.environmentrequirements}}
                 <tr>
                     <td class="lean" rowspan="3">{{key}}</td>
                     <td class="lean">URS</td>
@@ -260,6 +291,38 @@
                 <tr>
                     <td class="lean">FS</td>
                     <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">CS</td>
+                    <td class="content-wrappable">N/A</td>
+                    <td class="lean">N/A</td>
+                </tr>
+                {{/each}}
+             </table>
+			 {{else}}
+             <p><em>N/A</em></p>
+             {{/if}}
+
+		<h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
+            {{#if data.requirements.uncategorized}}
+			<table>
+                <tr>
+                    <th>No.</th>
+                    <th>Document</th>
+                    <th>Requirement</th>
+                    <th>Applicability</th>
+                </tr>
+                {{#each data.requirements.uncategorized}}
+                <tr>
+                    <td class="lean" rowspan="3">{{key}}</td>
+                    <td class="lean">URS</td>
+                    <td class="content-wrappable">{{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                    <td class="lean">{{applicability}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">FS</td>
+                    <td class="content-wrappable">{{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
                     <td class="lean">{{applicability}}</td>
                 </tr>
                 <tr>

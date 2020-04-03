@@ -236,11 +236,15 @@ Other test cases:
             <td class="content-wrappable">ods</td>
             <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
             <td class="content-wrappable">
+            {{#if steps}}
 	            <ol>
             {{#each steps}}
 			        <li>{{step}}</li>
             {{/each}}
 			    </ol>
+            {{else}}
+            No test steps defined
+            {{/if}}
             </td>
         </tr>
         {{/each}}

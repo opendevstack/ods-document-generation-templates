@@ -213,14 +213,6 @@
 		            {{#each .}}
 		              <tr>
 		                <td>{{@key}}:</td><td class="content-wrappable">{{this}}</td>
-		                {{#each .}}
-		                <table>
-		                  <tr>
-		                    <td>{{@../key}}-{{@key}}:</td><td class="content-wrappable">{{this}}</td>
-		                  <tr>
-		                </table>
-		                {{/each}}
-		
 		              <tr>
 		            {{/each}}
 		          </table>

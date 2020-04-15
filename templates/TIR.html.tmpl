@@ -171,6 +171,7 @@
         </table>
 
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
+		Note: {{deployNote}}
         <p>The following components have been successfully installed:</p>
 
         {{#data.repo}}
@@ -182,7 +183,7 @@
 		      <table>
 		      {{#each .}}
 		        <tr>
-		          BuildConfig: {{@key}}
+		          <h5>BuildConfig: {{@key}}</h5>
 		          <table>
 		            <tr>
 		                <th>Name</th>
@@ -204,7 +205,7 @@
 		      <table>
 		      {{#each .}}
 		        <tr>
-		          DeploymentConfig: {{@key}}
+		          <h5>DeploymentConfig: {{@key}}</h5>
 		          <table>
 		            <tr>
 		                <th>Name</th>

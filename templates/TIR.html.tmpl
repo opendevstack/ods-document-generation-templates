@@ -172,10 +172,10 @@
 
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
         <p><b>{{{data.deployNote}}}</b></p>
-        <p>The following components have been successfully installed:</p>
-
+        
         {{#data.repo}}
-        <h4>{{id}}</h4>
+        <p>The following components have been successfully installed:<b>{{id}}</b></p>
+
         {{#openShiftData}}
 		<table>
 		  {{#builds}}
@@ -191,7 +191,7 @@
 		            </tr>
 		            {{#each .}}
 		              <tr>
-		                <td>{{@key}}:</td><td>{{.}}</td>
+		                <td>{{@key}}</td><td>{{.}}</td>
 		              <tr>
 		            {{/each}}
 		          </table>
@@ -213,7 +213,7 @@
 		            </tr>		          
 		            {{#each .}}
 		              <tr>
-		                <td>{{@key}}:</td><td class="content-wrappable">{{this}}</td>
+		                <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
 		              <tr>
 		            {{/each}}
 		          </table>

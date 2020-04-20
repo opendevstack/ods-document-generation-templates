@@ -171,48 +171,58 @@
         </table>
 
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
-        <p>The following components have been successfully installed:</p>
-
+        <p><b>Note:</b> {{deployNote}}</p>
+        
         {{#data.repo}}
-        <h4>{{id}}</h4>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th class="content-wrappable">Value</th>
-            </tr>
-            <tr>
-                <td>OCP Build Id</td>
-                <td class="content-wrappable">{{openShiftData.ocpBuildId}}</td>
-            </tr>
-            <tr>
-                <td>Created docker image</td>
-                <td class="content-wrappable">{{openShiftData.ocpDockerImage}}</td>
-            </tr>
-            <tr>
-                <td>OCP Deployment Id</td>
-                <td class="content-wrappable">{{openShiftData.ocpDeploymentId}}</td>
-            </tr>
-            <tr>
-                <td>Pod Name</td>
-                <td class="content-wrappable">{{openShiftData.podName}}</td>
-            </tr>
-            <tr>
-                <td>Namespace</td>
-                <td class="content-wrappable">{{openShiftData.podNamespace}}</td>
-            </tr>
-            <tr>
-                <td>Pod Creation Timestamp</td>
-                <td class="content-wrappable">{{openShiftData.podCreationTimestamp}}</td>
-            </tr>
-            <tr>
-                <td>Pod Node</td>
-                <td class="content-wrappable">{{openShiftData.podNode}}</td>
-            </tr>
-            <tr>
-                <td>Pod Status</td>
-                <td class="content-wrappable">{{openShiftData.podStatus}}</td>
-            </tr>
-        </table>
+        <p>The following components have been successfully installed:<b>{{id}}</b></p>
+        {{#openShiftData}}
+		<table>
+		  {{#builds}}
+		    <tr>
+		      <table>
+		      {{#each .}}
+		        <tr>
+		          BuildConfig: <b>{{@key}}</b>
+		          <table>
+		            <tr>
+		                <th>Name</th>
+		                <th class="content-wrappable">Value</th>
+		            </tr>
+		            {{#each .}}
+		              <tr>
+		                <td>{{@key}}</td><td class="content-wrappable">{{.}}</td>
+		              <tr>
+		            {{/each}}
+		          </table>
+		        </tr>
+		      {{/each}}
+		      </table
+		    </tr>
+		  {{/builds}}
+		  {{#deployments}}
+		    <tr>
+		      <table>
+		      {{#each .}}
+		        <tr>
+		          DeploymentConfig: <b>{{@key}}</b>
+		          <table>
+		            <tr>
+		                <th>Name</th>
+		                <th class="content-wrappable">Value</th>
+		            </tr>		          
+		            {{#each .}}
+		              <tr>
+		                <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
+		              <tr>
+		            {{/each}}
+		          </table>
+		        </tr>
+		      {{/each}}
+		      </table
+		    </tr>
+		  {{/deployments}}
+		</table>
+        {{/openShiftData}}
         {{/data.repo}}
     </div>
 

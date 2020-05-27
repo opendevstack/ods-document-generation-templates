@@ -80,8 +80,34 @@
     </div>
 
     <div class="page">
-        <h2><span>1</span>Jenkins build log</h2>
+        <h2><span>1</span>Installed Component Summary</h2>
+        <p><pre></pre></p>
+        <table>
+            <tr>
+                <th class="content-wrappable">Component id</th>
+                <th class="content-wrappable">type</th>
+                <th class="content-wrappable">branch</th>
+                <th class="content-wrappable">build commit</th>
+                <th class="content-wrappable">configuration export commit</th>
+                <th class="content-wrappable">git tag created (optional)</th>
+            </tr>
+            {{#each data.repositories}}
+            <tr>
+                <td class="lean">{{id}}</td>
+                <td class="content-wrappable">{{type}}</td>
+                <td class="content-wrappable">{{data.git.branch}}</td>
+                <td class="content-wrappable">{{data.git.commit}}</td>
+                <td class="content-wrappable">{{data.git.createdExecutionCommit}}</td>
+                <td class="content-wrappable">{{data.git.targetTag}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+
+    <div class="page">
+        <h2><span>2</span>Jenkins build log</h2>
         <p><pre>{{data.jenkinsData.log}}</pre></p>
     </div>
+
 </body>
 </html>

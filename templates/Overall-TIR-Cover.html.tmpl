@@ -89,6 +89,7 @@
                 <th class="content-wrappable">branch</th>
                 <th class="content-wrappable">build commit</th>
                 <th class="content-wrappable">configuration export commit</th>
+                <th class="content-wrappable">git tag used (optional)</th>
                 <th class="content-wrappable">git tag created (optional)</th>
             </tr>
             {{#each data.repositories}}
@@ -98,6 +99,7 @@
                 <td class="content-wrappable">{{data.git.branch}}</td>
                 <td class="content-wrappable">{{data.git.commit}}</td>
                 <td class="content-wrappable">{{data.git.createdExecutionCommit}}</td>
+                <td class="content-wrappable">{{data.git.baseTag}}</td>
                 <td class="content-wrappable">{{data.git.targetTag}}</td>
             </tr>
             {{/each}}

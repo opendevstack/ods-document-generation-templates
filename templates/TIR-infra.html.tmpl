@@ -243,6 +243,16 @@
 
         <h3>Diagnostic Result</h3>
 
+        
+        <p>XXX TEST 1 {{data.repo.data.tests.installation.testResults.testsuites.failures}}</p>
+
+        {{#data.repo.data.tests.installation.testResults}}
+        <p>XXX TEST 2 {{testsuites.failures}}</p>
+        {{/data.repo.data.tests.installation.testResults}}
+
+
+        
+        
         {{#data.repo}}
         <h4>Component {{id}}</h4>
         <table class="no-page-break">

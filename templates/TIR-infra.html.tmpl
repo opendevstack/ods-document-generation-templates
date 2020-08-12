@@ -242,11 +242,8 @@
         </table>
 
         <h3>Diagnostic Result</h3>
-
-        <h4>Component {{data.repo.id}}</h4>
-        
+                
         {{#data.repo.data.tests.installation.testResults.testsuites}}
-        <p>XXX TEST 2 </p>
         <p>Test suite "{{name}}" ran {{tests}} tests of which {{failed}} tests have failed.</p>
         {{/data.repo.data.tests.installation.testResults.testsuites}}
         
@@ -268,36 +265,8 @@
         {{else}}
             <p><em>N/A</em></p>
         {{/if}}
+          
 
-
-               
-        
-        {{#data.repo}}
-        <h4>Component {{id}}</h4>
-        <table class="no-page-break">
-            <tr>
-                <th class="lean">Step</th>
-                <th class="content-wrappable">Instruction for Testing</th>
-                <th class="content-wrappable">Expected Result</th>
-                <th class="content-wrappable">Actual Result</th>
-                <th class="lean">Pass / Fail</th>
-            </tr>
-            <tr>
-                <td class="lean">1</td>
-                <td class="content-wrappable">POD is running for 5 min</td>
-                <td class="content-wrappable">POD is the same as directly after deployment</td>
-                <td class="content-wrappable">POD is the same as directly after deployment</td>
-                <td class="lean">pass</td>
-            </tr>
-            <tr>
-                <td class="lean">2</td>
-                <td class="content-wrappable">Route is accessible via HTTP</td>
-                <td class="content-wrappable">HTTP call is successful</td>
-                <td class="content-wrappable">HTTP call is successful</td>
-                <td class="lean">pass</td>
-            </tr>
-        </table>
-        {{/data.repo }}
     </div>
 
     <div class="page">

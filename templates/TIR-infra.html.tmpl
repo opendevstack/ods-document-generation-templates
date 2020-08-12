@@ -244,11 +244,12 @@
         <h3>Diagnostic Result</h3>
 
         
-        <p>XXX TEST 1 {{data.repo.data.tests.installation.testResults.testcases}}</p>
+        <p>XXX TEST 1 {{data.repo.data.tests.installation.testResults.testsuites}}</p>
 
-        {{#data.repo.data.tests.installation.testResults}}
-        <p>XXX TEST 2 {{testcases}}</p>
-        {{/data.repo.data.tests.installation.testResults}}
+        {{#data.repo.data.tests.installation.testResults.testsuites}}
+        <p>XXX TEST 2 </p>
+        <p> For test suite {{name}}, we have {{tests}} tests and {{failed}} have failed.</p>
+        {{/data.repo.data.tests.installation.testResults.testsuites}}
 
 
         

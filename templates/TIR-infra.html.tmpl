@@ -251,18 +251,20 @@
         {{/data.repo.data.tests.installation.testResults.testsuites}}
         
         {{#if data.repo.data.tests.installation.testResults.testsuites}}
+        {{#data.repo.data.tests.installation.testResults.testsuites}}
         <table>
             <tr>
                 <th class="lean">Test Description</th>
                 <th class="lean">Execution time</th>
             </tr>
-            {{#each data.repo.data.tests.installation.testResults.testsuites.testcases}}
+            {{#each testcases}}
             <tr>
-                <td class="lean">{{{name}}}</td>
-                <td class="lean">{{{time}}}</td>
+                <td class="lean">{{name}}</td>
+                <td class="lean">{{time}}</td>
             </tr>
             {{/each}}
         </table>
+        {{/data.repo.data.tests.installation.testResults.testsuites}}
         {{else}}
             <p><em>N/A</em></p>
         {{/if}}

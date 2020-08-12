@@ -243,16 +243,32 @@
 
         <h3>Diagnostic Result</h3>
 
+        <h4>Component {{data.repo.id}}</h4>
         
-        <p>XXX TEST 1 {{data.repo.data.tests.installation.testResults.testsuites}}</p>
-
         {{#data.repo.data.tests.installation.testResults.testsuites}}
         <p>XXX TEST 2 </p>
-        <p> For test suite {{name}}, we have {{tests}} tests and {{failed}} have failed.</p>
+        <p>Test suite "{{name}}" ran {{tests}} tests of which {{failed}} tests have failed.</p>
         {{/data.repo.data.tests.installation.testResults.testsuites}}
-
-
         
+        {{#if repo.data.tests.installation.testResults.testsuites}}
+        <table>
+            <tr>
+                <th class="lean">Test Description</th>
+                <th class="lean">Execution time</th>
+            </tr>
+            {{#each repo.data.tests.installation.testResults.testsuites.testcases}}
+            <tr>
+                <td class="lean">{{name}}</td>
+                <td class="lean">{{time}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        {{else}}
+            <p><em>N/A</em></p>
+        {{/if}}
+
+
+               
         
         {{#data.repo}}
         <h4>Component {{id}}</h4>

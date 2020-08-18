@@ -176,6 +176,12 @@
         
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
+
+        {{#data.repo.data}}
+        <p>Our Logs "{{logs}}".</p>
+        {{/data.repo.data}}
+
+
         {{#openShiftData}}
 		<table>
 		  {{#builds}}

@@ -174,13 +174,12 @@
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
         <p><b>Note:</b> {{deployNote}}</p>
         
+        {{#data.repo.data.tests}}
+        <p>Our Logs "{{logs}}".</p>
+        {{/data.repo.data.tests}}
+
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
-
-        {{#data.repo.data}}
-        <p>Our Logs "{{logs}}".</p>
-        {{/data.repo.data}}
-
 
         {{#openShiftData}}
 		<table>

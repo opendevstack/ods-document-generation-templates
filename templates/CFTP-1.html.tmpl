@@ -191,7 +191,7 @@
 
             <h4 id="section_5_1_2"><span>5.5.2 </span>Test Procedure 1.2: Manuals and other System Documentation</h4>
             <p>Verify that appropriate manuals and other system documentation exist for use in operating, maintaining, configuring, and/or troubleshooting of the system.</p>
-            
+
         <h3 id="section_5_2"><span>5.2</span>Test Procedure 2: Verification of Training Documentation</h3>
         <p>List the applicable procedures in which the Integration Testing participants must be trained before executing their portions of the Functional Testing Plan. Describe when and how the training will take place.</p>
         <p>{{{data.sections.sec5s2.content}}}</p>
@@ -214,22 +214,22 @@
 
         <h4 id="section_7_1_1"><span>7.1.1 </span>Purpose of Functional Testing</h4>
         <p>N/A</p>
-        
+
         <h4 id="section_7_1_2"><span>7.1.2 </span>Scope of Functional Testing</h4>
         <p>N/A</p>
-        
+
         <h3 id="section_7_2"><span>7.2</span>Non-Functional Testing</h3>
 
         <h4 id="section_7_2_1"><span>7.2.1 </span>Purpose of Non-Functional Testing</h4>
         <p>N/A</p>
-        
+
         <h4 id="section_7_2_2"><span>7.2.2 </span>Scope of Non-Functional Testing</h4>
         <p>N/A</p>
     </div>
 
     <div class="page">
         <h2 id="section_8"><span>8</span>Test Structure and Execution</h2>
-        
+
         <h3 id="section_8_1"><span>8.1</span>Test Cases</h3>
         <p>Test cases are based on the user requirements, functional specifications and the business processes which are supported by the system. Test cases shall contain test data and expected outcomes against which observed outcomes may be compared. If test cases must be executed in a specific order this has to be defined.</p>
         <p>The level of testing for the individual test cases will be defined based on the risk priority as determined in the risk assessment.</p>
@@ -238,7 +238,7 @@
 				<td class="content-wrappable">{{{data.sections.sec8s1.content}}}</td>
 			</tr>
 		</table>
-        
+
         <h3 id="section_8_2"><span>8.2</span>Test Execution</h3>
         <p>Test results shall be recorded in a way that independent reviewer can compare the documented acceptance criteria against the (written or captured) test evidence and determine whether the test results meet these criteria.</p>
 
@@ -263,7 +263,7 @@
             <li>sign and date each test in spaces provided after test execution</li>
             <li>label any test output or evidence (e.g., screenshots, printouts and any additional pages) with test case number and test step number. Sign and date the output. If pages have successive page numbers signing and dating the first or last page is sufficient.</li>
             <li>if any deviations from the test are encountered, follow the Test Case Failure and Problem Resolution (see section 10)</li>
-        </ul>  
+        </ul>
 
         <p>If a test case is executed by more than one person (tester), it is required that each tester signs (signature or initials and date) each test step for traceability purpose.</p>
 
@@ -278,7 +278,7 @@
         <p>The training records of all testers should be verified prior to initiating testing.</p>
     </div>
 
-    
+
     <div class="page">
         <h2 id="section_9"><span>9</span>Traceability Matrix</h2>
         <p>{{{data.sections.sec9.content}}}</p>
@@ -288,7 +288,7 @@
         <h2 id="section_10"><span>10</span>Validation Environment</h2>
         <p>{{{data.sections.sec10.content}}}</p>
     </div>
-    
+
     <div class="page">
         <h2 id="section_11"><span>11</span>Test Case Failure and Problem Resolution</h2>
         <p>A test case shall be failed if the observed outcome of a test differs in any way from the expected outcome identified in the test case data. If any step of a test case fails and cannot be resolved, then the entire test case fails. There may be many reasons for failure, some of which may not mean that the system itself has a flaw. It is, however, the Tester's responsibility to fail the test case and indicate in the comments box the failure or problem that occurred, including the test steps related to this discrepancy.</p>
@@ -299,7 +299,7 @@
             <li>a failure related to the operating environment</li>
             <li>a mistake in the test case instructions or data</li>
             <li>a tester's error</li>
-        </ul>  
+        </ul>
 
         <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>
         <p>The Test Administrator will also record all discrepancies that occur during the test execution in a designated discrepancy log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the discrepancy log.</p>
@@ -320,23 +320,70 @@
 
     <div class="page">
         <h2 id="section_13"><span>13</span>Definitions and Abbreviations</h2>
-        
+
         <h3 id="section_13_1"><span>13.1</span>Definitions</h3>
         <p>{{{data.sections.sec13s1.content}}}</p>
-        
+
         <h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
         <p>{{{data.sections.sec13s2.content}}}</p>
     </div>
-    
+
     <div class="page">
         <h2 id="section_14"><span>14</span>Reference Documents</h2>
         <ul>
-			<li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Risk Assessment</li>
+			<li>Risk Assessment (version {{metadata.referencedDocs.RA}})</li>
 		</ul>
     </div>
-    
+
     <div class="page">
         <h2 id="section_15"><span>15</span>Document History</h2>
+        {{#if data.documentHistory}}
+        <table>
+            <tr>
+                <th class="lean">Version</th>
+                <th class="lean">Date</th>
+                <th class="lean">Author</th>
+                <th>Change Reference</th>
+            </tr>
+            {{#each data.documentHistory}}
+            <tr>
+                <td class="lean">{{{entryId}}}</td>
+                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                <td class="content-wrappable">
+                    {{{rational}}}
+                    <br>
+                    {{#each issueType}}
+                    {{#if added}}
+                    The following {{type}} were added:
+                    <ul>
+                        {{#each added}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if deleted}}
+                    The following {{type}} were removed:
+                    <ul>
+                        {{#each deleted}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if changed}}
+                    The following {{type}} were changed:
+                    <ul>
+                        {{#each changed}}
+                        <li>{{key}} was previously {{predecessors}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <br>
+                    {{/each}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        {{/if}}
         <p>{{{data.sections.sec15.content}}}</p>
     </div>
 </body>

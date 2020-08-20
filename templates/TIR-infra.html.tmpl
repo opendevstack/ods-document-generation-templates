@@ -183,7 +183,9 @@
             <p>OMG - no logs today</p>
         {{/if}}
 
-       
+        {{#data.repo.data}}
+        <p>Our Logs "{{logs.created.content}}".</p>
+        {{/data.repo.data}}
 
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>

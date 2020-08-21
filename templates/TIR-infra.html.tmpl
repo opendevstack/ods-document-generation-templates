@@ -174,14 +174,14 @@
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
         <p><b>Note:</b> {{deployNote}}</p>
         
-
-        {{#if data.repo.data.logs.created.content}}
         {{#data.repo.data}}
+        {{#if logs.created.content}}
             <p>Our Logs "{{logs.created.content}}".</p>
-        {{/data.repo.data}}
         {{else}}
             <p>OMG - no logs today</p>
         {{/if}}
+        {{/data.repo.data}}
+
 
         {{#data.repo.data}}
         <p>Our Logs "{{logs.created.content}}".</p>

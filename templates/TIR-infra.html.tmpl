@@ -176,15 +176,10 @@
         
         {{#data.repo.data}}
         {{#if logs.created.content}}
-            <p>Our Logs "{{logs.created.content}}".</p>
+            <p>The following resources have been created "{{logs.created.content}}".</p>
         {{else}}
-            <p>OMG - no logs today</p>
+            <p>No resources have been created.</p>
         {{/if}}
-        {{/data.repo.data}}
-
-
-        {{#data.repo.data}}
-        <p>Our Logs "{{logs.created.content}}".</p>
         {{/data.repo.data}}
 
         {{#data.repo}}

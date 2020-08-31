@@ -91,7 +91,7 @@
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction</h2>
 
-        <p>This document describes the installation of the XXXXX super infrastructure component <em>{{metadata.buildParameter.configItem}}</em>. The installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item: {{metadata.buildParameter.configItem}}.</p>
+        <p>This document describes the installation of the infrastructure component <em>{{metadata.buildParameter.configItem}}</em>. The installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item: {{metadata.buildParameter.configItem}}.</p>
 
         <p>The plan outlines additional chapters, namely <em>Installation Prerequisites (3)</em> and <em>Environmental Conditions (4)</em>.</p>
 
@@ -184,55 +184,6 @@
 
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
-
-        {{#openShiftData}}
-		<table>
-		  {{#builds}}
-		    <tr>
-		      <table>
-		      {{#each .}}
-		        <tr>
-		          BuildConfig: <b>{{@key}}</b>
-		          <table>
-		            <tr>
-		                <th>Name</th>
-		                <th class="content-wrappable">Value</th>
-		            </tr>
-		            {{#each .}}
-		              <tr>
-		                <td>{{@key}}</td><td class="content-wrappable">{{.}}</td>
-		              <tr>
-		            {{/each}}
-		          </table>
-		        </tr>
-		      {{/each}}
-		      </table
-		    </tr>
-		  {{/builds}}
-		  {{#deployments}}
-		    <tr>
-		      <table>
-		      {{#each .}}
-		        <tr>
-		          DeploymentConfig: <b>{{@key}}</b>
-		          <table>
-		            <tr>
-		                <th>Name</th>
-		                <th class="content-wrappable">Value</th>
-		            </tr>		          
-		            {{#each .}}
-		              <tr>
-		                <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
-		              <tr>
-		            {{/each}}
-		          </table>
-		        </tr>
-		      {{/each}}
-		      </table
-		    </tr>
-		  {{/deployments}}
-		</table>
-        {{/openShiftData}}
         {{/data.repo}}
     </div>
 

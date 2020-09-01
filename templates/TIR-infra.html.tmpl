@@ -172,23 +172,31 @@
 
         
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
-                
-        {{#data.repo.data}}
-        {{#if logs.created.content}}
-            <p>The following resources have been created "{{logs.created.content}}".</p>
-        {{else}}
-            <p>No resources have been created.</p>
-        {{/if}}
-
-            <p>We deployed into this account: "{{logs.target.content}}".</p>
-
-            <p>This is the state: "{{logs.state.content}}".</p>
-
-        {{/data.repo.data}}
-
+        
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
         {{/data.repo}}
+
+        <h4>Target Deployment Environment</h4>
+        <p>The following identifier gives information about the target deployment environment, eg. AWS Account, Azure Subscription.</p>
+        <p>Target identifier: "{{logs.target.content}}".</p>
+
+        <h4>Created Resources</h4>
+        <p>The following resources have been created to reach the desired state within the target deployment environment.</p>
+
+        {{#data.repo.data}}
+        {{#if logs.created.content}}
+            <p>"{{logs.created.content}}"</p>
+        {{else}}
+            <p>No resources have been created. The target is already in the desired state.</p>
+        {{/if}}
+        
+        <h4>State</h4>
+        <p>The following paragraph describes the desired state of the target environment.</p>
+        <p>"{{logs.state.content}}".</p>
+
+        {{/data.repo.data}}
+
     </div>
 
     <div class="page">

@@ -178,22 +178,24 @@
         {{/data.repo}}
 
         {{#data.repo.data}}
-        <h4>Target Deployment Environment</h4>
-        <p>The following identifier gives information about the target deployment environment, eg. AWS Account, Azure Subscription.</p>
-        <p>Target identifier: "{{logs.target.content}}".</p>
-
-        <h4>Created Resources</h4>
-        <p>The following resources have been created to reach the desired state within the target deployment environment.</p>
-
         
+        <h4>Target Deployment Environment</h4>
+        <p>The following identifier gives information about the target deployment environment, eg. AWS Account, Azure Subscription:</p>
+        <p>"{{logs.target.content}}".</p>
+        <br>
+        
+        <h4>Created Resources</h4>
+        <p>The following resources have been created to reach the desired state within the target deployment environment:</p>
+       
         {{#if logs.created.content}}
             <p>"{{logs.created.content}}"</p>
         {{else}}
             <p><b>No resources have been created. The target is already in the desired state.</b></p>
         {{/if}}
-        
+        <br>
+
         <h4>State</h4>
-        <p>The following paragraph describes the desired state of the target environment.</p>
+        <p>The following paragraph describes the desired state of the target environment:</p>
         <p>"{{logs.state.content}}".</p>
 
         {{/data.repo.data}}

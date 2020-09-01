@@ -171,7 +171,15 @@
             </tr>
             {{#each data.sections.sec4.systemRequirements}}
             <tr>
-                <td class="lean">{{key}}</td>
+                <td class="lean">{{key}}
+                    {{#if predecessors}}
+                    <br>Previously was:<br>
+                    <ul>
+                    {{#each predecessors}}
+                        <li>{{key}} since {{versions}}</li>
+                    {{/each}}
+                    </ul>
+                    {{/if}}</td>
                 <td class="content-wrappable">{{{name}}}</td>
                 <td class="content-wrappable">{{#if risks}} {{{risks}}} {{else}} <em>N/A</em> {{/if}}</td>
                 <td class="content-wrappable">{{#if tests}} {{{tests}}} {{else}} <em>N/A</em> {{/if}}</td>

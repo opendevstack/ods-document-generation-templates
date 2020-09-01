@@ -177,6 +177,7 @@
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
         {{/data.repo}}
 
+        {{#data.repo.data}}
         <h4>Target Deployment Environment</h4>
         <p>The following identifier gives information about the target deployment environment, eg. AWS Account, Azure Subscription.</p>
         <p>Target identifier: "{{logs.target.content}}".</p>
@@ -184,11 +185,11 @@
         <h4>Created Resources</h4>
         <p>The following resources have been created to reach the desired state within the target deployment environment.</p>
 
-        {{#data.repo.data}}
+        
         {{#if logs.created.content}}
             <p>"{{logs.created.content}}"</p>
         {{else}}
-            <p>No resources have been created. The target is already in the desired state.</p>
+            <p><b>No resources have been created. The target is already in the desired state.</b></p>
         {{/if}}
         
         <h4>State</h4>

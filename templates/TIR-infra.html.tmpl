@@ -181,6 +181,24 @@
         {{/if}}
         {{/data.repo.data}}
 
+        {{#data.repo.data.logs.created}}
+
+        <table>
+            <tr>
+                <th class="lean">XXX Deployed Resources</th>
+            </tr>
+            {{#each content}}
+            <tr>
+                <td class="content-wrappable">{{name}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+
+        {{/data.repo.data.logs.created}}
+
+
+
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
         {{/data.repo}}

@@ -106,16 +106,13 @@
             </tr>
             <tr>
                 <td class="content-wrappable">Combined Specification Document</td>
-                <td class="content-wrappable">{{#if data.csdversion}} {{data.csdversion}} {{else}}
-                    {{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}}
+                <td class="content-wrappable">{{metadata.referencedDocs.CSD}}
                     {{/if}}</td>
                 <td class="content-wrappable" rowspan="2">N/A All Ref. Numbers are unique</td>
             </tr>
             <tr>
                 <td class="content-wrappable">System and Software Design Specification</td>
-                <td class="content-wrappable">{{#if data.ssdsversion}} {{data.ssdsversion}} {{else}}
-                    {{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}}
-                    {{/if}}</td>
+                <td class="content-wrappable">{{metadata.referencedDocs.SSDS}}</td>
             </tr>
         </table>
     </div>

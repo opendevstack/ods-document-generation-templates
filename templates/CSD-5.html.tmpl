@@ -121,7 +121,7 @@
         <p>{{{data.sections.sec3s2.content}}}</p>
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
 
-            {{#if data.requirements.operationalrequirements}}
+            {{#if data.requirements.operationalrequirements.noepics}}
 			<table>
                 <tr>
                     <th>No.</th>
@@ -129,7 +129,7 @@
                     <th>Requirement</th>
                     <th>Applicability</th>
                 </tr>
-                {{#each data.requirements.operationalrequirements}}
+                {{#each data.requirements.operationalrequirements.noepics}}
                 <tr>
                     <td class="lean" rowspan="3">{{key}}</td>
                     <td class="lean">URS</td>
@@ -149,491 +149,1032 @@
                 {{/each}}
              </table>
              {{/if}}
+             {{#each data.requirements.operationalrequirements.epics}}
+                 <h5><span>{{epicName}}</span></h5>
+                 <span>Content for the epic: </span>
+                 <table>
+                     <tr>
+                         <th>No.</th>
+                         <th>Document</th>
+                         <th>Requirement</th>
+                         <th>Applicability</th>
+                     </tr>
+                     {{#each stories}}
+                     <tr>
+                         <td class="lean" rowspan="3">{{key}}</td>
+                         <td class="lean">URS</td>
+                         <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                         <td class="lean">{{applicability}}</td>
+                     </tr>
+                     <tr>
+                         <td class="lean">FS</td>
+                         <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                         <td class="lean">{{applicability}}</td>
+                     </tr>
+                     <tr>
+                         <td class="lean">CS</td>
+                         <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                         <td class="lean">{{applicability}}</td>
+                     </tr>
+                     {{/each}}
+                 </table>
+             {{/each}}
 
             <h4 id="section_3_2_1"><span>3.2.1</span> Functional Requirements</h4>
             {{#if data.requirements.functionalrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.functionalrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.functionalrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.functionalrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}
+           
+                {{#each data.requirements.functionalrequirements.epics}}
+                    <h5 id="section_3_2_1_{{epicIndex}}"><span>3.2.1.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
 			 {{else}}
              <p><em>N/A</em></p>
              {{/if}}
+
+
 
             <h4 id="section_3_2_2"><span>3.2.2</span> Data Requirements</h4>
             {{#if data.requirements.datarequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.datarequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.datarequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.datarequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.datarequirements.epics}}
+                    <h5 id="section_3_2_2_{{epicIndex}}"><span>3.2.2.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}                
+
+
+
+
+
 
             <h4 id="section_3_2_3"><span>3.2.3</span> Technical Requirements</h4>
             {{#if data.requirements.technicalrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.technicalrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.technicalrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.technicalrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.technicalrequirements.epics}}
+                    <h5 id="section_3_2_3_{{epicIndex}}"><span>3.2.3.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
 
             <h4 id="section_3_2_4"><span>3.2.4</span> Maintenance Requirements</h4>
             {{#if data.requirements.maintenancerequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.maintenancerequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.maintenancerequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.maintenancerequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.maintenancerequirements.epics}}
+                    <h5 id="section_3_2_4_{{epicIndex}}"><span>3.2.4.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
         <h3 id="section_3_3"><span>3.3</span>Non-Operational Requirements</h3>
             <h4 id="section_3_3_1"><span>3.3.1</span> Performance Requirements</h4>
             {{#if data.requirements.performancerequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.performancerequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.performancerequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.performancerequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.performancerequirements.epics}}
+                    <h5 id="section_3_3_1_{{epicIndex}}"><span>3.3.1.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
+
 
             <h4 id="section_3_3_2"><span>3.3.2</span> Availability Requirements</h4>
             {{#if data.requirements.availabilityrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.availabilityrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.availabilityrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.availabilityrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.availabilityrequirements.epics}}
+                    <h5 id="section_3_3_2_{{epicIndex}}"><span>3.3.2.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
             <h4 id="section_3_3_3"><span>3.3.3</span> Security Requirements</h4>
             {{#if data.requirements.securityrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.securityrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.securityrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.securityrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.securityrequirements.epics}}
+                    <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
             <h4 id="section_3_3_4"><span>3.3.4</span> Regulatory Requirements</h4>
             {{#if data.requirements.regulatoryrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.regulatoryrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.regulatoryrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.regulatoryrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.regulatoryrequirements.epics}}
+                    <h5 id="section_3_3_4_{{epicIndex}}"><span>3.3.4.{{epicIndex}}</span>{{epicName}}</h5>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
         <h3 id="section_3_4"><span>3.4</span>Overarching Requirements</h3>
-        {{#if data.requirements.overarchingrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.overarchingrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+            {{#if data.requirements.overarchingrequirements}}
+                {{#if data.requirements.overarchingrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.overarchingrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.overarchingrequirements.epics}}
+                    <h4 id="section_3_4_{{epicIndex}}"><span>3.4.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
         <h3 id="section_3_5"><span>3.5</span>Roles</h3>
-        {{#if data.requirements.roles}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.roles}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+            {{#if data.requirements.roles}}
+                {{#if data.requirements.roles.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.roles.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.roles.epics}}
+                    <h4 id="section_3_5_{{epicIndex}}"><span>3.5.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
 
         <h3 id="section_3_6"><span>3.6</span>Interfaces</h3>
-        {{#if data.requirements.interfacerequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.interfacerequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+            {{#if data.requirements.interfacerequirements}}
+                {{#if data.requirements.interfacerequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.interfacerequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.interfacerequirements.epics}}
+                    <h4 id="section_3_6_{{epicIndex}}"><span>3.6.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
         <h3 id="section_3_7"><span>3.7</span>Operational Environment</h3>
-        {{#if data.requirements.environmentrequirements}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.environmentrequirements}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+            {{#if data.requirements.environmentrequirements}}
+                {{#if data.requirements.environmentrequirements.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.environmentrequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.environmentrequirements.epics}}
+                    <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
+
 
 		<h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
             {{#if data.requirements.uncategorized}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.uncategorized}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+                {{#if data.requirements.uncategorized.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.uncategorized.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.uncategorized.epics}}
+                    <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
     </div>
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Constraints</h2>
 
         <h3 id="section_4_1"><span>4.1</span>Compatibility</h3>
-        {{#if data.requirements.compatibility}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.compatibility}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+            {{#if data.requirements.compatibility}}
+                {{#if data.requirements.compatibility.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.compatibility.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.compatibility.epics}}
+                    <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
-        {{#if data.requirements.proceduralconstraints}}
-			<table>
-                <tr>
-                    <th>No.</th>
-                    <th>Document</th>
-                    <th>Requirement</th>
-                    <th>Applicability</th>
-                </tr>
-                {{#each data.requirements.proceduralconstraints}}
-                <tr>
-                    <td class="lean" rowspan="3">{{key}}</td>
-                    <td class="lean">URS</td>
-                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">CS</td>
-                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                    <td class="lean">{{applicability}}</td>
-                </tr>
+            {{#if data.requirements.proceduralconstraints}}
+                {{#if data.requirements.proceduralconstraints.noepics}}
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.proceduralconstraints.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}      
+
+                {{#each data.requirements.proceduralconstraints.epics}}
+                    <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{epicName}}</h4>
+                    <span>Content for the epic: </span>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each stories}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/each}}
-             </table>
-			 {{else}}
+			{{else}}
              <p><em>N/A</em></p>
-             {{/if}}
+            {{/if}}  
     </div>
 
     <div class="page">

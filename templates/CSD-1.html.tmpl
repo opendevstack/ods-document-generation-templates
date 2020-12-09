@@ -152,8 +152,8 @@
                 {{/if}}
            
                 {{#each data.requirements.functionalrequirements.epics}}
-                    <h5 id="section_3_2_1_{{epicIndex}}"><span>3.2.1.{{epicIndex}}</span>{{epicName}}</h5>
-                    <span>Content for the epic: </span>
+                    <h5 id="section_3_2_1_{{epicIndex}}"><span>3.2.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
+                    <span>{{{epicDescription}}}</span>
                 <table>
                     <tr>
                         <th>No.</th>
@@ -161,7 +161,7 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </tr>
-                    {{#each data.requirements.functionalrequirements.epics}}
+                    {{#each stories}}
                     <tr>
                         <td class="lean" rowspan="3">{{key}}</td>
                         <td class="lean">URS</td>
@@ -218,8 +218,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.datarequirements.epics}}
-                    <h5 id="section_3_2_2_{{epicIndex}}"><span>3.2.2.{{epicIndex}}</span>{{epicName}}</h5>
-                    <span>Content for the epic: </span>
+                    <h5 id="section_3_2_2_{{epicIndex}}"><span>3.2.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
+                    <span>{{{epicDescription}}}</span>
                     <table>
                         <tr>
                             <th>No.</th>
@@ -227,7 +227,7 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </tr>
-                        {{#each data.requirements.datarequirements.epics}}
+                        {{#each stories}}
                         <tr>
                             <td class="lean" rowspan="3">{{key}}</td>
                             <td class="lean">URS</td>
@@ -297,8 +297,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.securityrequirements.epics}}
-                    <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{epicName}}</h5>
-                    <span>Content for the epic: </span>
+                    <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
+                    <span>{{{epicDescription}}}</span>
                     <table>
                         <tr>
                             <th>No.</th>
@@ -306,7 +306,7 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </tr>
-                        {{#each data.requirements.securityrequirements.epics}}
+                        {{#each stories}}
                         <tr>
                             <td class="lean" rowspan="3">{{key}}</td>
                             <td class="lean">URS</td>
@@ -369,8 +369,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.roles.epics}}
-                    <h4 id="section_3_5_{{epicIndex}}"><span>3.5.{{epicIndex}}</span>{{epicName}}</h4>
-                    <span>Content for the epic: </span>
+                    <h4 id="section_3_5_{{epicIndex}}"><span>3.5.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
+                    <span>{{{epicDescription}}}</span>
                     <table>
                         <tr>
                             <th>No.</th>
@@ -378,7 +378,7 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </tr>
-                        {{#each data.requirements.roles.noepics}}
+                        {{#each stories}}
                         <tr>
                             <td class="lean" rowspan="3">{{key}}</td>
                             <td class="lean">URS</td>
@@ -434,8 +434,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.interfacerequirements.epics}}
-                <h4 id="section_3_6_{{epicIndex}}"><span>3.6.{{epicIndex}}</span>{{epicName}}</h4>
-                <span>Content for the epic: </span>
+                <h4 id="section_3_6_{{epicIndex}}"><span>3.6.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
+                <span>{{{epicDescription}}}</span>
                 <table>
                     <tr>
                         <th>No.</th>
@@ -443,7 +443,7 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </tr>
-                    {{#each data.requirements.interfacerequirements.epics}}
+                    {{#each stories}}
                     <tr>
                         <td class="lean" rowspan="3">{{key}}</td>
                         <td class="lean">URS</td>
@@ -500,8 +500,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.environmentrequirements.epics}}
-                    <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{epicName}}</h4>
-                    <span>Content for the epic: </span>
+                    <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
+                    <span>{{{epicDescription}}}</span>
                     <table>
                         <tr>
                             <th>No.</th>
@@ -509,7 +509,7 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </tr>
-                        {{#each data.requirements.environmentrequirements.epics}}
+                        {{#each stories}}
                         <tr>
                             <td class="lean" rowspan="3">{{key}}</td>
                             <td class="lean">URS</td>
@@ -567,8 +567,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.uncategorized.epics}}
-                <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{epicName}}</h4>
-                <span>Content for the epic: </span>
+                <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
+                <span>{{{epicDescription}}}</span>
                 <table>
                     <tr>
                         <th>No.</th>
@@ -576,7 +576,7 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </tr>
-                    {{#each data.requirements.uncategorized.epics}}
+                    {{#each stories}}
                     <tr>
                         <td class="lean" rowspan="3">{{key}}</td>
                         <td class="lean">URS</td>
@@ -638,8 +638,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.compatibility.epics}}
-                <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{epicName}}</h4>
-                <span>Content for the epic: </span>
+                <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
+                <span>{{{epicDescription}}}</span>
                 <table>
                     <tr>
                         <th>No.</th>
@@ -647,7 +647,7 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </tr>
-                    {{#each data.requirements.compatibility.epics}}
+                    {{#each stories}}
                     <tr>
                         <td class="lean" rowspan="3">{{key}}</td>
                         <td class="lean">URS</td>
@@ -704,8 +704,8 @@
                 {{/if}}      
 
                 {{#each data.requirements.proceduralconstraints.epics}}
-                <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{epicName}}</h4>
-                <span>Content for the epic: </span>
+                <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
+                <span>{{{epicDescription}}}</span>
                 <table>
                     <tr>
                         <th>No.</th>
@@ -713,7 +713,7 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </tr>
-                    {{#each data.requirements.proceduralconstraints.epics}}
+                    {{#each stories}}
                     <tr>
                         <td class="lean" rowspan="3">{{key}}</td>
                         <td class="lean">URS</td>

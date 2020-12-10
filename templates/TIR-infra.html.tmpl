@@ -181,7 +181,7 @@
         
         <h4>Target Deployment Environment</h4>
         <p>The following identifier gives information about the target deployment environment, eg. AWS Account, Azure Subscription:</p>
-        <p>"{{logs.target.content}}".</p>
+        <p>{{logs.target.content}}.</p>
         <br>
         
         <h4>Created Resources</h4>
@@ -196,8 +196,8 @@
 
         <h4>State</h4>
         <p>The following paragraph describes the desired state of the target environment:</p>
-        <p>"{{logs.state.content}}".</p>
-
+        <p><pre>{{logs.state.content}}.</pre></p>
+    
         {{/data.repo.data}}
 
     </div>

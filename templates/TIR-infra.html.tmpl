@@ -188,7 +188,7 @@
         <p>The following resources have been created to reach the desired state within the target deployment environment:</p>
        
         {{#if logs.created.content}}
-            <p>"{{logs.created.content}}"</p>
+            <p><pre>{{logs.created.content}}</pre></p>
         {{else}}
             <p><b>No resources have been created. The target is already in the desired state.</b></p>
         {{/if}}

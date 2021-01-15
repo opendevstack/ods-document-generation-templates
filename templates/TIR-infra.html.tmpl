@@ -211,13 +211,12 @@
         </table>
 
         <h3>Diagnostic Result</h3>
-                
-        {{#data.repo.data.tests.installation.testResults.testsuites}}
+
+        {{#each data.repo.data.tests.installation.testResults.testsuites}}
+        <h4>Test suite "{{name}}"</h4>
         <p>Test suite "{{name}}" ran {{tests}} tests of which {{failed}} tests have failed.</p>
-        {{/data.repo.data.tests.installation.testResults.testsuites}}
         
-        {{#if data.repo.data.tests.installation.testResults.testsuites}}
-        {{#data.repo.data.tests.installation.testResults.testsuites}}
+        {{#if testcases}}
         <table>
             <tr>
                 <th class="lean">Test Description</th>
@@ -230,11 +229,20 @@
             </tr>
             {{/each}}
         </table>
-        {{/data.repo.data.tests.installation.testResults.testsuites}}
-        {{else}}
-            <p><em>N/A</em></p>
+        {{else}}           
+        <table>
+        <tr>
+            <th class="lean">Test Description</th>
+            <th class="lean">Pass / Fail</th>
+        </tr>
+        <tr>
+            <td class="content-wrappable">N/A</td>
+            <td class="lean">N/A</td>
+        </tr>
+        </table>
         {{/if}}
-          
+        {{/each}}
+
 
     </div>
 

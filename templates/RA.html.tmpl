@@ -106,11 +106,12 @@
             </tr>
             <tr>
                 <td class="content-wrappable">Combined Specification Document</td>
-                <td class="content-wrappable" rowspan="2">{{metadata.version}}-{{metadata.jenkins.buildNumber}}</td>
+                <td class="content-wrappable">{{metadata.referencedDocs.CSD}}</td>
                 <td class="content-wrappable" rowspan="2">N/A All Ref. Numbers are unique</td>
             </tr>
             <tr>
                 <td class="content-wrappable">System and Software Design Specification</td>
+                <td class="content-wrappable">{{metadata.referencedDocs.SSDS}}</td>
             </tr>
         </table>
     </div>
@@ -395,7 +396,7 @@
                 <td class="lean">{{{requirementsKey}}}</td>
 				<td class="content-wrappable">{{{requirements}}}</td>
 				<td class="lean">{{gxpRelevance}}</td>
-				<td class="content-wrappable">{{{description}}}</td>
+				<td class="content-wrappable">Summary:{{name}}.<br>{{{description}}}</td>
 				<td class="content-wrappable">{{probabilityOfOccurrence}}</td>
 				<td class="content-wrappable">{{severityOfImpact}}</td>
 				<td class="content-wrappable">{{probabilityOfDetection}}</td>
@@ -407,6 +408,7 @@
             {{/each}}
 		</table>
 
+        {{#if data.sections.sec5.proposedMeasures}}
         <p>The following table contains more information about the proposed mitigations:</p>
         <table id="proposed_mitigations">
             <tr>
@@ -424,6 +426,7 @@
             </tr>
             {{/each}}
         </table>
+        {{/if}}
         {{else}}
         <p>No risks have been defined</p>
         {{/if}}
@@ -442,15 +445,62 @@
     <div class="page">
         <h2 id="section_7"><span>7</span>Reference Documents</h2>
         <ul>
-            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Combined Specification Document</li>
-            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} System and Software Design Specification including Source Code Review Report</li>
-            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Functional and Requirements Testing Plan</li>
+            <li>Combined Specification Document (version {{metadata.referencedDocs.CSD}})</li>
+            <li>System and Software Design Specification including Source Code Review Plan (version {{metadata.referencedDocs.SSDS}})</li>
+            <li>Functional and Requirements Testing Plan (version {{metadata.referencedDocs.CFTP}})</li>
         </ul>
         <p>{{{data.sections.sec7.content}}}</p>
     </div>
 
 	<div class="page">
         <h2 id="section_8"><span>8</span>Document History</h2>
+        {{#if data.documentHistory}}
+        <table>
+            <tr>
+                <th class="lean">Version</th>
+                <th class="lean">Date</th>
+                <th class="lean">Author</th>
+                <th>Change Reference</th>
+            </tr>
+            {{#each data.documentHistory}}
+            <tr>
+                <td class="lean">{{{entryId}}}</td>
+                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                <td class="content-wrappable">
+                    {{{rational}}}
+                    <br>
+                    {{#each issueType}}
+                    {{#if added}}
+                    The following {{type}} were added:
+                    <ul>
+                        {{#each added}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if discontinued}}
+                    The following {{type}} were removed:
+                    <ul>
+                        {{#each discontinued}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if changed}}
+                    The following {{type}} were changed:
+                    <ul>
+                        {{#each changed}}
+                        <li>{{key}} was previously {{predecessors}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <br>
+                    {{/each}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        {{/if}}
         <p>{{{data.sections.sec8.content}}}</p>
     </div>
 </body>

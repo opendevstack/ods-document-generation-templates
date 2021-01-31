@@ -144,7 +144,7 @@
         <h2 id="section_3"><span>3</span>Installation Prerequisites</h2>
         <ol>
             <li>
-                Component repository is a <em>GIT</em> managed repository on qualified <em>BI-AS-ATLASSIAN</em>.
+                Component repository is a <em>GIT</em> managed repository on validated <em>BI-AS-ATLASSIAN</em>.
             </li>
             <li>
                 Component inside a <em>GIT</em> repository is of type <em>ods</em>. The foundation of those components, named <em>Boilerplates</em> are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
@@ -153,13 +153,13 @@
                 Component <em>GIT</em> repository contains a Jenkins file (Jenkinsfile), which is used for building, testing and installation through the OpenDevStack Jenkins build engine.
             </li>
             <li>
-                Jenkins build engine, based on OpenDevStack is available and running.
+                Jenkins build engine, based on OpenDevStack, is qualified, available and running.
             </li>
             <li>
-                Nexus artifact repository, based on OpenDevStack is available and running.
+                Nexus artifact repository, based on OpenDevStack, is qualified, available and running.
             </li>
             <li>
-                Target environment infrastructure, e.g. <em>BI-IT-CONTAINER-PAAS</em>, available.
+                Target environment infrastructure is qualified (for GxP relevant systems) and available.
             </li>
         </ol>
 
@@ -172,16 +172,16 @@
                 <th class="content-wrappable">Manufacturer</th>
                 <th class="content-wrappable">Software Version / Language</th>
                 <th class="content-wrappable">ID of Component to be installed </th>
-                <th class="content-wrappable">Reference to System and Software design Specifications</th>
+                <th class="content-wrappable">Reference to System and Software Design Specifications</th>
             </tr>
             {{#each data.repositories}}
             <tr>
                 <td class="lean">{{id}}</td>
                 <td class="content-wrappable">N/A</td>
-                <td class="content-wrappable">{{data.git.branch}}, the actual commit is specified as parameter during installation</td>
+                <td class="content-wrappable">{{data.git.url}} branch {{data.git.branch}}, the actual commit is specified as parameter during installation</td>
                 <td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
 		{{!-- Need to be reviewed}--}}
-                <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{../metadata.version}}-{{../metadata.jenkins.buildNumber}} System and Software Design Specification</td>
+                <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
             </tr>
             {{/each}}
         </table>
@@ -203,11 +203,11 @@
             {{#each data.repositories}}
             <tr>
                 <td class="content-wrappable">Git Commit Component <em>{{id}}</em></td>
-                <td class="content-wrappable">{{git.commit}}</td>
+                <td class="content-wrappable">{{data.git.commit}}</td>
             </tr>
             <tr>
                 <td class="content-wrappable">Git Repo Component <em>{{id}}</em></td>
-                <td class="content-wrappable">{{git.url}}</td>
+                <td class="content-wrappable">{{data.git.url}}</td>
             </tr>
             {{/each}}
             <tr>
@@ -250,6 +250,7 @@
     <div class="page">
         <h2 id="section_6"><span>6</span>Diagnostics and Testing</h2>
 
+        <p>Each component comes with individual installation tests. For details look in the Technical Installation Report.</p>
         {{#each data.repositories}}
         <h3>Component {{id}}</h3>
 
@@ -263,15 +264,8 @@
             </tr>
             <tr>
                 <td class="lean">1</td>
-                <td class="content-wrappable">OCP POD is running for 5 min</td>
-                <td class="content-wrappable">OCP POD is the same as directly after deployment</td>
-                <td class="content-wrappable">N/A</td>
-                <td class="content-wrappable">N/A</td>
-            </tr>
-            <tr>
-                <td class="lean">2</td>
-                <td class="content-wrappable">Route is accessible via HTTP</td>
-                <td class="content-wrappable">HTTP call is successful</td>
+                <td class="content-wrappable">Component has been deployed and individual installation tests ran.</td>
+                <td class="content-wrappable">Component has been successfully deployed. All installation tests ran successfully.</td>
                 <td class="content-wrappable">N/A</td>
                 <td class="content-wrappable">N/A</td>
             </tr>
@@ -307,13 +301,60 @@
     <div class="page">
         <h2 id="section_11"><span>11</span>Reference Documents</h2>
         <ul>
-            <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} System and Software Design Specification</li>
+            <li>System and Software Design Specification (version {{metadata.referencedDocs.SSDS}})</li>
         </ul>
         <p>{{{data.sections.sec11.content}}}</p>
     </div>
 
     <div class="page">
         <h2 id="section_12"><span>12</span>Document History</h2>
+        {{#if data.documentHistory}}
+        <table>
+            <tr>
+                <th class="lean">Version</th>
+                <th class="lean">Date</th>
+                <th class="lean">Author</th>
+                <th>Change Reference</th>
+            </tr>
+            {{#each data.documentHistory}}
+            <tr>
+                <td class="lean">{{{entryId}}}</td>
+                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                <td class="content-wrappable">
+                    {{{rational}}}
+                    <br>
+                    {{#each issueType}}
+                    {{#if added}}
+                    The following {{type}} were added:
+                    <ul>
+                        {{#each added}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if discontinued}}
+                    The following {{type}} were removed:
+                    <ul>
+                        {{#each discontinued}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if changed}}
+                    The following {{type}} were changed:
+                    <ul>
+                        {{#each changed}}
+                        <li>{{key}} was previously {{predecessors}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <br>
+                    {{/each}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        {{/if}}
         <p>{{{data.sections.sec12.content}}}</p>
     </div>
 </body>

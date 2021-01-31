@@ -36,6 +36,17 @@ h3 span {
   margin-right: 1.5em;
 }
 
+h4 span {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+
+h5 span {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+
+
 input + label {
   margin-left: 0.5em;
 }

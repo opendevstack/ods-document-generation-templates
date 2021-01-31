@@ -192,13 +192,60 @@ Other test cases:
 </div>
 <div class="page"><h2 id="section_9"><span>9</span>REFERENCE DOCUMENTS</h2>
 	<ul>
-        <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} System and Software Design Specification including Source Code Review Report</li>
-        <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Overall Development Test Report</li>
-        <li>{{metadata.buildParameter.configItem}} / {{metadata.version}}-{{metadata.jenkins.buildNumber}} Overall Technical Installation Report</li>
+        <li>System and Software Design Specification including Source Code Review Plan (version {{metadata.referencedDocs.SSDS}})</li>
+        <li>Overall Development Test Report (version {{metadata.referencedDocs.DTR}})</li>
+        <li>Overall Technical Installation Report (version {{metadata.referencedDocs.TIR}})</li>
 	</ul>
 	{{{data.sections.sec9.content}}}
 </div>
 <div class="page"><h2 id="section_10"><span>10</span>DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING PLAN)</h2>
+    {{#if data.documentHistory}}
+    <table>
+        <tr>
+            <th class="lean">Version</th>
+            <th class="lean">Date</th>
+            <th class="lean">Author</th>
+            <th>Change Reference</th>
+        </tr>
+        {{#each data.documentHistory}}
+        <tr>
+            <td class="lean">{{{entryId}}}</td>
+            <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+            <td class="content-wrappable">
+                {{{rational}}}
+                <br>
+                {{#each issueType}}
+                {{#if added}}
+                The following {{type}} were added:
+                <ul>
+                    {{#each added}}
+                    <li>{{key}}</li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+                {{#if discontinued}}
+                The following {{type}} were removed:
+                <ul>
+                    {{#each discontinued}}
+                    <li>{{key}}</li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+                {{#if changed}}
+                The following {{type}} were changed:
+                <ul>
+                    {{#each changed}}
+                    <li>{{key}} was previously {{predecessors}}</li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+                <br>
+                {{/each}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/if}}
     {{{data.sections.sec10.content}}}
 </div>
 <div class="page"><h2 id="section_11"><span>11</span>DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING REPORT)</h2>

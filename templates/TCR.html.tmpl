@@ -93,7 +93,53 @@
 
     <div class="page">
         <h2 id="section_1"><span>1</span>Document History</h2>
-        <p>The following table provides the history of the document.</p>
+        {{#if data.documentHistory}}
+        <table>
+            <tr>
+                <th class="lean">Version</th>
+                <th class="lean">Date</th>
+                <th class="lean">Author</th>
+                <th>Change Reference</th>
+            </tr>
+            {{#each data.documentHistory}}
+            <tr>
+                <td class="lean">{{{entryId}}}</td>
+                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                <td class="content-wrappable">
+                    {{{rational}}}
+                    <br>
+                    {{#each issueType}}
+                    {{#if added}}
+                    The following {{type}} were added:
+                    <ul>
+                        {{#each added}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if discontinued}}
+                    The following {{type}} were removed:
+                    <ul>
+                        {{#each discontinued}}
+                        <li>{{key}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if changed}}
+                    The following {{type}} were changed:
+                    <ul>
+                        {{#each changed}}
+                        <li>{{key}} was previously {{predecessors}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <br>
+                    {{/each}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        {{/if}}
         <p>{{{data.sections.sec1.content}}}</p>
     </div>
 

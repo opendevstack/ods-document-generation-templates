@@ -99,7 +99,7 @@
 
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction</h2>
-        <p>This document describes the installation of the software-defined component <em>{{metadata.buildParameter.configItem}}</em>. The installation is based on the documented installation process for applications/components running on <em>BI-IT-DEVSTACK</em>.</p>
+        <p>This document describes the installation of the software-defined component{{#each data.repositories}}{{#unless @first}}{{#if @last}}s{{/if}}{{/unless}}{{/each}} <em>{{#each data.repositories}}{{#unless @first}}{{#if @last}} and{{else}},{{/if}} {{/unless}}{{id}}{{/each}}</em>. The installation is based on the documented installation process for applications/components running on <em>BI-IT-DEVSTACK</em>.</p>
 
         <table>
         <tr>

@@ -238,7 +238,7 @@
                     </tr>
                     {{/each}}
                 </table>
-            {{/if}}      
+            {{/if}}
 
             {{#each data.requirements.performancerequirements.epics}}
                 <h5 id="section_3_3_1_{{epicIndex}}"><span>3.3.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
@@ -304,7 +304,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.availabilityrequirements.epics}}
                     <h5 id="section_3_3_2_{{epicIndex}}"><span>3.3.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
@@ -338,7 +338,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}} 
+            {{/if}}
 
             <h4 id="section_3_3_3"><span>3.3.3</span> Security Requirements</h4>
             <p>N/A</p>
@@ -382,7 +382,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.interfacerequirements.epics}}
                     <h4 id="section_3_6_{{epicIndex}}"><span>3.6.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -412,11 +412,11 @@
                             <td class="lean">N/A</td>
                         </tr>
                         {{/each}}
-                    </table>                
+                    </table>
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
 
@@ -449,7 +449,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.environmentrequirements.epics}}
                     <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -483,7 +483,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
 
@@ -516,7 +516,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.uncategorized.epics}}
                     <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -550,7 +550,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
     </div>
 
@@ -586,7 +586,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.compatibility.epics}}
                     <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -620,7 +620,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
@@ -652,7 +652,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.proceduralconstraints.epics}}
                     <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -686,7 +686,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
     </div>
 
@@ -739,7 +739,7 @@
                     The following {{type}} were added:
                     <ul>
                         {{#each added}}
-                        <li>{{key}}</li>
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}
@@ -747,7 +747,7 @@
                     The following {{type}} were removed:
                     <ul>
                         {{#each discontinued}}
-                        <li>{{key}}</li>
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}
@@ -755,7 +755,7 @@
                     The following {{type}} were changed:
                     <ul>
                         {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}</li>
+                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}

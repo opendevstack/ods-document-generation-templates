@@ -150,7 +150,7 @@
                     {{/each}}
                 </table>
                 {{/if}}
-           
+
                 {{#each data.requirements.functionalrequirements.epics}}
                     <h5 id="section_3_2_1_{{epicIndex}}"><span>3.2.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
                     <span>{{{epicDescription}}}</span>
@@ -215,7 +215,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.datarequirements.epics}}
                     <h5 id="section_3_2_2_{{epicIndex}}"><span>3.2.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
@@ -249,7 +249,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}} 
+            {{/if}}
 
 
             <h4 id="section_3_2_3"><span>3.2.3</span> Technical Requirements</h4>
@@ -294,7 +294,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.securityrequirements.epics}}
                     <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
@@ -328,7 +328,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
             <h4 id="section_3_3_4"><span>3.3.4</span> Regulatory Requirements</h4>
@@ -366,7 +366,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.roles.epics}}
                     <h4 id="section_3_5_{{epicIndex}}"><span>3.5.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -396,11 +396,11 @@
                             <td class="lean">N/A</td>
                         </tr>
                         {{/each}}
-                    </table>                    
+                    </table>
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
         <h3 id="section_3_6"><span>3.6</span>Interfaces</h3>
             {{#if data.requirements.interfacerequirements}}
@@ -431,7 +431,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.interfacerequirements.epics}}
                 <h4 id="section_3_6_{{epicIndex}}"><span>3.6.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -465,7 +465,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
         <h3 id="section_3_7"><span>3.7</span>Operational Environment</h3>
@@ -497,7 +497,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.environmentrequirements.epics}}
                     <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -531,7 +531,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
 
@@ -564,7 +564,7 @@
                     </tr>
                     {{/each}}
                     </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.uncategorized.epics}}
                 <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -598,7 +598,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
 
     </div>
@@ -635,7 +635,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.compatibility.epics}}
                 <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -669,7 +669,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}} 
+            {{/if}}
 
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
@@ -701,7 +701,7 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{/if}}      
+                {{/if}}
 
                 {{#each data.requirements.proceduralconstraints.epics}}
                 <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
@@ -735,7 +735,7 @@
                 {{/each}}
 			{{else}}
              <p><em>N/A</em></p>
-            {{/if}}  
+            {{/if}}
 
     </div>
 
@@ -776,7 +776,7 @@
                     The following {{type}} were added:
                     <ul>
                         {{#each added}}
-                        <li>{{key}}</li>
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}
@@ -784,7 +784,7 @@
                     The following {{type}} were removed:
                     <ul>
                         {{#each discontinued}}
-                        <li>{{key}}</li>
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}
@@ -792,7 +792,7 @@
                     The following {{type}} were changed:
                     <ul>
                         {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}</li>
+                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}

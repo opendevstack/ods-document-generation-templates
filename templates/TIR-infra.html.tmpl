@@ -91,7 +91,7 @@
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction</h2>
 
-        <p>This document describes the installation of the component <em>{{metadata.buildParameter.configItem}}</em>. The installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item: {{metadata.buildParameter.configItem}}.</p>
+        <p>This document describes the installation of the component <em>{{data.repo.id}}</em>. The installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item: {{metadata.buildParameter.configItem}}.</p>
 
         <p>The plan outlines additional chapters, namely <em>Installation Prerequisites (3)</em> and <em>Environmental Conditions (4)</em>.</p>
 
@@ -170,30 +170,30 @@
             </tr>
         </table>
 
-        
+
         <h3 id="subcomponents"><span>2.2</span>Components</h3>
-        
+
         {{#data.repo}}
         <p>The following components have been successfully installed:<b>{{id}}</b></p>
         {{/data.repo}}
 
         {{#data.repo.data}}
-        
+
         <h4>Target Deployment Environment</h4>
         <p>The following identifier gives information about the target deployment environment, eg. AWS Account, Azure Subscription:</p>
         <p>{{logs.target.content}}.</p>
         <br>
-        
+
         <h4>Created Resources</h4>
         <p>The following resources have been created to reach the desired state within the target deployment environment:</p>
-       
+
         {{#if logs.created.content}}
             <p><pre>{{logs.created.content}}</pre></p>
         {{else}}
             <p><b>No resources have been created. The target is already in the desired state.</b></p>
         {{/if}}
-        <br>  
-    
+        <br>
+
         {{/data.repo.data}}
 
     </div>
@@ -215,7 +215,7 @@
         {{#each data.repo.data.tests.installation.testResults.testsuites}}
         <h4>Test suite "{{name}}"</h4>
         <p>Test suite "{{name}}" ran {{tests}} tests of which {{failures}} tests have failed.</p>
-        
+
         {{#if testcases}}
         <table>
             <tr>
@@ -229,7 +229,7 @@
             </tr>
             {{/each}}
         </table>
-        {{else}}           
+        {{else}}
         <table>
         <tr>
             <th class="lean">Test Description</th>

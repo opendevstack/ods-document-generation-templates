@@ -216,6 +216,12 @@
                 <td class="content-wrappable">Installation by ODS <em>{{id}}</em></td>
                 <td class="content-wrappable">{{doInstall}}</td>
             </tr>
+            {{^doInstall}}
+            <tr>
+                <td class="content-wrappable">Installation Instructions <em>{{id}}</em></td>
+                <td class="content-wrappable">{{installation}}</td>
+            </tr>
+            {{/doInstall}}
             {{/each}}
             <tr>
                 <td class="content-wrappable">Change id/number</td>

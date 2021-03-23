@@ -147,10 +147,10 @@
                 Component repository is a <em>GIT</em> managed repository on validated <em>BI-AS-ATLASSIAN</em>.
             </li>
             <li>
-                Component inside a <em>GIT</em> repository is of type <em>ods</em>. The foundation of those components, named <em>Boilerplates</em> are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
+                Component inside a <em>GIT</em> repository is of type <em>ods</em>, <em>ods-infra</em>, <em>ods-saas-service</em>, or <em>ods-service</em>. Component of type <em>ods-saas-service</em> is installed by the respective manufacturer. The foundation of those components, named <em>Boilerplates</em> are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
             </li>
             <li>
-                Component <em>GIT</em> repository contains a Jenkins file (Jenkinsfile), which is used for building, testing and installation through the OpenDevStack Jenkins build engine.
+                Unless <em>ods-saas-service</em> type, component <em>GIT</em> repository contains a Jenkins file (Jenkinsfile), which is used for building, testing and installation through the OpenDevStack Jenkins build engine.
             </li>
             <li>
                 Jenkins build engine, based on OpenDevStack, is qualified, available and running.
@@ -177,10 +177,9 @@
             {{#each data.repositories}}
             <tr>
                 <td class="lean">{{id}}</td>
-                <td class="content-wrappable">N/A</td>
+                <td class="content-wrappable">{{metadata.supplier}}</td>
                 <td class="content-wrappable">{{data.git.url}} branch {{data.git.branch}}, the actual commit is specified as parameter during installation</td>
                 <td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
-		{{!-- Need to be reviewed}--}}
                 <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
             </tr>
             {{/each}}
@@ -209,6 +208,20 @@
                 <td class="content-wrappable">Git Repo Component <em>{{id}}</em></td>
                 <td class="content-wrappable">{{data.git.url}}</td>
             </tr>
+            <tr>
+                <td class="content-wrappable">ODS Component Type <em>{{id}}</em></td>
+                <td class="content-wrappable">{{type}}</td>
+            </tr>
+            <tr>
+                <td class="content-wrappable">Installation by ODS <em>{{id}}</em></td>
+                <td class="content-wrappable">{{doInstall}}</td>
+            </tr>
+            {{^doInstall}}
+            <tr>
+                <td class="content-wrappable">Installation Instructions <em>{{id}}</em></td>
+                <td class="content-wrappable">{{installation}}</td>
+            </tr>
+            {{/doInstall}}
             {{/each}}
             <tr>
                 <td class="content-wrappable">Change id/number</td>

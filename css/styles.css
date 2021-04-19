@@ -126,6 +126,10 @@ table.no-page-break{
   page-break-inside: avoid;
 }
 
+table.no-border {
+  border: none
+}
+
 table.not-applicable {
   table-layout: fixed;
 }

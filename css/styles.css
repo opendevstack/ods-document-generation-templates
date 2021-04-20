@@ -166,6 +166,10 @@ td.content-wrappable table th, td.content-wrappable table td {
   text-align: right;
 }
 
+.no-border {
+  border: none
+}
+
 .input-tool {
   line-height: 2em;
 }

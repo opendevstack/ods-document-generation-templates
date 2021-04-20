@@ -126,10 +126,6 @@ table.no-page-break{
   page-break-inside: avoid;
 }
 
-table.no-border {
-  border: none
-}
-
 table.not-applicable {
   table-layout: fixed;
 }
@@ -168,6 +164,10 @@ td.content-wrappable table th, td.content-wrappable table td {
 
 .right {
   text-align: right;
+}
+
+.no-border {
+  border: none
 }
 
 .input-tool {

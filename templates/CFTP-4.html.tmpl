@@ -406,7 +406,7 @@
                     The following {{type}} were added:
                     <ul>
                         {{#each added}}
-                        <li>{{key}}</li>
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}
@@ -414,7 +414,7 @@
                     The following {{type}} were removed:
                     <ul>
                         {{#each discontinued}}
-                        <li>{{key}}</li>
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}
@@ -422,7 +422,7 @@
                     The following {{type}} were changed:
                     <ul>
                         {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}</li>
+                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
                         {{/each}}
                     </ul>
                     {{/if}}

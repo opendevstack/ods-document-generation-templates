@@ -1,8 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 
 	<head>
 		<title>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</title>
+        <script>
+        var Hyphenopoly = {
+            require: {
+                "en-gb": "FORCEHYPHENOPOLY",
+                "en-us": "Supercalifragilisticexpialidocious"
+            },
+            fallbacks: {
+                "en": "en-gb",
+                "en-AU": "en-gb",
+                "en-CA": "en-us",
+                "en-IE": "en-gb",
+                "en-NZ": "en-gb"
+            },
+            setup: {
+                defaultLanguage: "en-gb",
+                safeCopy: false,
+                selectors: {
+                    "th.content-wrappable, td.content-wrappable": {},
+                    "td.content-wrappable table th, td.content-wrappable table td": {}
+                }
+            },
+            paths: {
+                "patterndir": "../scripts/patterns/",
+                "maindir": "../scripts/"
+            },
+            "cacheFeatureTests": true
+        };
+        </script>
+        <script src="../scripts/Hyphenopoly_Loader.js"></script>
 		<link href="../css/styles.css" rel="stylesheet" type="text/css" />
 	</head>
 

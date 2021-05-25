@@ -152,10 +152,18 @@ table.long-results tr:first-child td {
 
 th.content-wrappable, td.content-wrappable {
   white-space: normal;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 td.content-wrappable table th, td.content-wrappable table td {
   white-space: normal;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .center {

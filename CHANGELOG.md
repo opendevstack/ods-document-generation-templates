@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-
+- Fix some wording the the RA document, and adjust a table in the chapter 4.2.1 ([49](https://github.com/opendevstack/ods-document-generation-templates/pull/49))
 ### Fixed - 2021-04-22
 - Fix the document history section for IVR still shows the wrong title ([#44](https://github.com/opendevstack/ods-document-generation-templates/pull/44))
 

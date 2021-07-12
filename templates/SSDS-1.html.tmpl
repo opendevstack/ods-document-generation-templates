@@ -132,31 +132,60 @@
 			<p>N/A</p>
 
 			<h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
-            <p>The scope of the automated review, performed by SonarQube, during the build process, is all modules listed below, based on defined quality rule sets (Quality Profiles).<br>The installation of SonarQube is part of OpenDevStack (<em>BI-IT-DEVSTACK</em>) and hence qualified.</p>
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
+                </tr>
+            </table>
 
-            <p>The review is automated. In case the review passes, based on quality gates, the pipeline will continue. Otherwise it will fail and stop further processes.</p>
-
-            <p>SonarQube identifies at least three types of code issues:</p>
-            <ul>
-                <li>Bug - A coding error that will break your code and needs to be fixed.</li>
-                <li>Vulnerability - A point in your code that's open to attack.</li>
-                <li>Code Smell - A maintainability issue that makes your code confusing and difficult to maintain.</li>
-            </ul>
-            <p>Each issue has one of five severities:</p>
-            <ul>
-                <li>BLOCKER - Bug with a high probability to impact the behavior of the application in production: memory leak, unclosed JDBC connection, .... The code should be immediately fixed.</li>
-                <li>CRITICAL - Either a bug with a low probability to impact the behavior of the application in production or an issue which represents a security flaw: empty catch block, SQL injection, ... The code must be immediately reviewed.</li>
-                <li>MAJOR - Quality flaw which can highly impact the developer productivity: uncovered piece of code, duplicated blocks, unused parameters, ...</li>
-                <li>MINOR - Quality flaw which can slightly impact the developer productivity: lines should not be too long, "switch" statements should have at least 3 cases, ...</li>
-                <li>INFO - Neither a bug nor a quality flaw, just a finding.</li>
-            </ul>
-
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
-            </tr>
-        </table>
-
+            {{#if data.sections.sec2s3.bitbucket}}
+                <p>
+                    A Bitbucket Pull Request (PR) is where authors and reviewers meet to discuss and assert
+                    the readiness of a contribution, such as code, tests and configuration, or a combination of these, to a project.
+                    A PR will be approved by a reviewer, if both authors and reviewers come to a positive conclusion,
+                    typically once important feedback has been incorporated.
+                    An approval results in the merging of a contribution provided by its authors in a temporary source
+                    branch into a longer living target branch inside a Bitbucket (Git) repository.
+                    To support a review, feedback on code quality, security, etc. is provided through sophisticated
+                    tooling directly into the PR. The following table lists all PRs which have been approved,
+                    and ultimately got merged into a Bitbucket repository’s long-living integration branch.
+                </p>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Component</th>
+                        <th>Author</th>
+                        <th>Reviewer</th>
+                        <th>Commit SHA and URL</th>
+                    </tr>
+                    {{#each data.sections.sec2s3.bitbucket}}
+                    <tr>
+                        <td class="content-wrappable">{{date}}</td>
+                        <td class="content-wrappable">{{component}}</td>
+                        <td class="content-wrappable">
+                            <ul>
+                                <li>{{authorName}}, {{authorEmail}}</li>
+                            </ul>
+                        </td>
+                        <td class="content-wrappable">
+                            <ul>
+                            {{#each reviewers}}
+                                <li>{{reviewerName}}, {{reviewerEmail}}</li>
+                            {{/each}}
+                            </ul>
+                        </td>
+                        <td class="content-wrappable">
+                            <ul>
+                                <li>SHA: {{commit}}</li>
+                                <li>{{url}}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
 
 		</div>
 

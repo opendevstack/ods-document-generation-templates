@@ -170,6 +170,7 @@
             <tr>
                 <th class="lean">User Req., FS and CS Ref.</th>
                 <th>Description</th>
+                <th class="lean">SSDS Ref.</th>
                 <th class="lean">Risk Assessment Ref.</th>
                 <th class="lean">Test Case Ref.</th>
             </tr>
@@ -185,6 +186,7 @@
                     </ul>
                     {{/if}}</td>
                 <td class="content-wrappable">{{{name}}}</td>
+                <td class="content-wrappable">{{#if techSpecs}} {{{techSpecs}}} {{else}} <em>N/A</em> {{/if}}</td>
                 <td class="content-wrappable">{{#if risks}} {{{risks}}} {{else}} <em>N/A</em> {{/if}}</td>
                 <td class="content-wrappable">{{#if tests}} {{{tests}}} {{else}} <em>N/A</em> {{/if}}</td>
             </tr>

@@ -5,7 +5,7 @@
 - Modified SSDS document to use Pull Request info not SonarQube ([#614](https://github.com/opendevstack/ods-jenkins-shared-library/pull/614))
 - Add missing table in RA document ([#50](https://github.com/opendevstack/ods-document-generation-templates/pull/50))
 - Add missing column in section 4 of TRC document ([#51](https://github.com/opendevstack/ods-document-generation-templates/pull/51))
-- Add missing rows in the table of the section 7 (conclussion) of the IVP document ([#52](https://github.com/opendevstack/ods-document-generation-templates/pull/52))
+- Remove table and add comment in the section 7 (conclusions) of the IVP document ([#52](https://github.com/opendevstack/ods-document-generation-templates/pull/52))
 - TIR and DTR documents are not properly indexed ([#47](https://github.com/opendevstack/ods-document-generation-templates/pull/47))
 
 ### Fixed - 2021-04-22

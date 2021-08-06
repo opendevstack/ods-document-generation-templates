@@ -6,7 +6,7 @@
 - Add missing table in RA document ([#50](https://github.com/opendevstack/ods-document-generation-templates/pull/50))
 - Add missing column in section 4 of TRC document ([#51](https://github.com/opendevstack/ods-document-generation-templates/pull/51))
 - TIR and DTR documents are not properly indexed ([#47](https://github.com/opendevstack/ods-document-generation-templates/pull/47))
-
+- Improve description for SSDS Source Code Review table ([#54](https://github.com/opendevstack/ods-document-generation-templates/pull/54))
 ### Fixed - 2021-04-22
 - Fix the document history section for IVR still shows the wrong title ([#44](https://github.com/opendevstack/ods-document-generation-templates/pull/44))
 - Remove .idea directory ([#45](https://github.com/opendevstack/ods-document-generation-templates/pull/45))

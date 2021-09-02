@@ -95,6 +95,7 @@
             <tr>
                 <th class="content-wrappable">Component id</th>
                 <th class="content-wrappable">type</th>
+                <th class="content-wrappable">to be installed by ODS (yes/no)</th>
                 <th class="content-wrappable">branch</th>
                 <th class="content-wrappable">commit build/installed | exported configuration commit</th>
                 <th class="content-wrappable">git tag used (optional)</th>
@@ -104,6 +105,7 @@
             <tr>
                 <td class="lean">{{id}}</td>
                 <td class="content-wrappable">{{type}}</td>
+                <td class="content-wrappable">{{doInstall}}</td>
                 <td class="content-wrappable">{{data.git.branch}}</td>
                 <td class="content-wrappable">{{data.git.commit}} | {{data.git.createdExecutionCommit}}</td>
                 <td class="content-wrappable">{{data.git.baseTag}}</td>

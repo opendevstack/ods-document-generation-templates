@@ -97,17 +97,19 @@
         For details, please see System and Software Design Specification including Source Code Review Report, referenced in the 'Reference Documents' section.
 </div>
 <div class="page"><h2 id="section_2"><span>2</span>SCOPE</h2>
-    <p>Configuration and Installation Testing for software components will be performed, based on the below components: <br>
+    <p>Configuration and Installation Testing for software components will be performed, based on the below components (and their type): <br>
 
 		<table class="no-page-break">
             <tr>
                 <th class="lean">Component Name</th>
                 <th class="lean">Repository Type</th>
+                <th class="lean">Installed by ODS (yes/no)</th>
             </tr>
             {{#each data.repositories}}
             <tr>
                 <td class="content-wrappable"><em>{{id}}</em></td>
                 <td class="content-wrappable">{{type}}</td>
+                <td class="content-wrappable">{{doInstall}}</td>
             </tr>
             {{/each}}
 		</table>

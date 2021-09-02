@@ -165,6 +165,7 @@
 
         <h3 id="section_3_1"><span>3.1</span>Components Specification</h3>
         <p>The installation comprises the following software-defined components:</p>
+        For components where <em>Installation by ODS</em> is denoted as <em>false</em>, they are either automated tests that are executed, or SAAS components.
 
         <table>
             <tr>
@@ -173,6 +174,7 @@
                 <th class="content-wrappable">Software Version / Language</th>
                 <th class="content-wrappable">ID of Component to be installed </th>
                 <th class="content-wrappable">Reference to System and Software Design Specifications</th>
+                <th class="content-wrappable">Installation by ODS (yes/no)</th>
             </tr>
             {{#each data.repositories}}
             <tr>
@@ -181,6 +183,7 @@
                 <td class="content-wrappable">{{data.git.url}} branch {{data.git.branch}}, the actual commit is specified as parameter during installation</td>
                 <td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
                 <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
+                <td class="content-wrappable">{{doInstall}}</td>
             </tr>
             {{/each}}
         </table>

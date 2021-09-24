@@ -222,7 +222,7 @@
             {{^doInstall}}
             <tr>
                 <td class="content-wrappable">Non-ODS Installation Instructions <em>{{id}}</em></td>
-                <td class="content-wrappable">{{installation}}</td>
+                <td class="content-wrappable">{{#if metadata.installation}} {{metadata.installation}} {{else}} N/A {{/if}}</td>
             </tr>
             {{/doInstall}}
             {{/each}}

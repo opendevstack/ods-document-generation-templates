@@ -32,3 +32,7 @@
 - Fix table overflow within IVP and IVR docs ([#40](https://github.com/opendevstack/ods-document-generation-templates/pull/40))
 
 ## 1.1
+
+### Fixed - 2021-10-01
+- Fix RA table overflow replacing unicode character in jira keys ([#56](https://github.com/opendevstack/ods-document-generation-templates/pull/56))
+

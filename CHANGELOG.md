@@ -8,3 +8,6 @@
 - Remove border from wrapper table (v1.1) ([#39](https://github.com/opendevstack/ods-document-generation-templates/pull/39))
 - Fix table overflow within IVP and IVR docs (v1.1) ([#41](https://github.com/opendevstack/ods-document-generation-templates/pull/41))
 
+### Fixed - 2021-10
+- Fix RA table overflow replacing unicode character in jira keys ([#56](https://github.com/opendevstack/ods-document-generation-templates/pull/56))
+

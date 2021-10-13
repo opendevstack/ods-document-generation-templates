@@ -157,7 +157,11 @@
             {{/each}}
         </table>
         {{/if}}
-        <p>{{{data.sections.sec3.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec3.content}}}</td>
+            </tr>
+        </table>
     </div>
 
     <div class="page">
@@ -166,6 +170,7 @@
             <tr>
                 <th class="lean">User Req., FS and CS Ref.</th>
                 <th>Description</th>
+                <th class="lean">SSDS Ref.</th>
                 <th class="lean">Risk Assessment Ref.</th>
                 <th class="lean">Test Case Ref.</th>
             </tr>
@@ -181,6 +186,7 @@
                     </ul>
                     {{/if}}</td>
                 <td class="content-wrappable">{{{name}}}</td>
+                <td class="content-wrappable">{{#if techSpecs}} {{{techSpecs}}} {{else}} <em>N/A</em> {{/if}}</td>
                 <td class="content-wrappable">{{#if risks}} {{{risks}}} {{else}} <em>N/A</em> {{/if}}</td>
                 <td class="content-wrappable">{{#if tests}} {{{tests}}} {{else}} <em>N/A</em> {{/if}}</td>
             </tr>

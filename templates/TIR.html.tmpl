@@ -148,7 +148,7 @@
             </tr>
         </table>
 
-        <h3 id="section_3"><span>2.1</span>Jenkins</h3>
+        <h3 id="section_2_1"><span>2.1</span>Jenkins</h3>
         <p>Jenkins Job has been successfully executed:</p>
 
         <table>
@@ -170,7 +170,7 @@
             </tr>
         </table>
 
-        <h3 id="subcomponents"><span>2.2</span>Components</h3>
+        <h3 id="section_2_2"><span>2.2</span>Components</h3>
         <p><b>Note:</b> {{deployNote}}</p>
 
         {{#data.repo}}
@@ -227,7 +227,7 @@
     </div>
 
     <div class="page">
-        <h2 id="diagnostics-and-testing"><span>3</span>Diagnostics and Testing</h2>
+        <h2 id="section_3"><span>3</span>Diagnostics and Testing</h2>
         <p>Diagnostic steps have been successfully applied to the requested component.</p>
 
         <h3>Diagnostic Status</h3>
@@ -277,10 +277,18 @@
         <h2 id="section_5"><span>5</span>Definitions and Abbreviations</h2>
 
         <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
-        <p>{{{data.sections.sec5s1.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
+            </tr>
+        </table>
 
         <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
-        <p>{{{data.sections.sec5s2.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+            </tr>
+        </table>
     </div>
 
     <div class="page">
@@ -288,7 +296,11 @@
         <ul>
             <li>Technical Installation Plan(version {{metadata.referencedDocs.TIP}})</li></li>
         </ul>
-        <p>{{{data.sections.sec6.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
+            </tr>
+        </table>
     </div>
 
     <div class="page">
@@ -340,7 +352,11 @@
             {{/each}}
         </table>
         {{/if}}
-        <p>{{{data.sections.sec7.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

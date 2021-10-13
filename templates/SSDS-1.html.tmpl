@@ -122,32 +122,66 @@
 			<h2 id="section_2"><span>2</span>Overview</h2>
 
 			<h3 id="section_2_1"><span>2.1</span>System Design Overview incl. System Diagram</h3>
-			<p>{{{data.sections.sec2s1.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec2s1.content}}}</td>
+			    </tr>
+			</table>
 
 			<h3 id="section_2_2"><span>2.2</span>Software Design Overview</h3>
 			<p>N/A</p>
 
 			<h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
-            <p>The scope of the automated review, performed by SonarQube, during the build process, is all modules listed below, based on defined quality rule sets (Quality Profiles).<br>The installation of SonarQube is part of OpenDevStack (<em>BI-IT-DEVSTACK</em>) and hence qualified.</p>
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
+                </tr>
+            </table>
 
-            <p>The review is automated. In case the review passes, based on quality gates, the pipeline will continue. Otherwise it will fail and stop further processes.</p>
-
-            <p>SonarQube identifies at least three types of code issues:</p>
-            <ul>
-                <li>Bug - A coding error that will break your code and needs to be fixed.</li>
-                <li>Vulnerability - A point in your code that's open to attack.</li>
-                <li>Code Smell - A maintainability issue that makes your code confusing and difficult to maintain.</li>
-            </ul>
-            <p>Each issue has one of five severities:</p>
-            <ul>
-                <li>BLOCKER - Bug with a high probability to impact the behavior of the application in production: memory leak, unclosed JDBC connection, .... The code should be immediately fixed.</li>
-                <li>CRITICAL - Either a bug with a low probability to impact the behavior of the application in production or an issue which represents a security flaw: empty catch block, SQL injection, ... The code must be immediately reviewed.</li>
-                <li>MAJOR - Quality flaw which can highly impact the developer productivity: uncovered piece of code, duplicated blocks, unused parameters, ...</li>
-                <li>MINOR - Quality flaw which can slightly impact the developer productivity: lines should not be too long, "switch" statements should have at least 3 cases, ...</li>
-                <li>INFO - Neither a bug nor a quality flaw, just a finding.</li>
-            </ul>
-
-        <p>{{{data.sections.sec2s3.content}}}</p>
+            {{#if data.sections.sec2s3.bitbucket}}
+                <p>
+                    A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
+                    <br/>
+                    A person who creates a PR gets attributed as its author and nominates at least one reviewer. Once mandatory changes requested by the reviewers have been incorporated by the contributors, reviewers can approve the PR. An approval permits that the approved contribution can be merged from a temporary source branch into a longer living target branch inside the repository. A single person must not assume the roles of contributor and reviewer on the same PR (no self-approvals).<br/>
+                    <br/>
+                    The following table lists all PRs which have been approved and merged into a Bitbucket repository’s integration branch:
+                </p>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Component</th>
+                        <th>Author</th>
+                        <th>Reviewer</th>
+                        <th>Commit SHA and URL</th>
+                    </tr>
+                    {{#each data.sections.sec2s3.bitbucket}}
+                    <tr>
+                        <td class="content-wrappable">{{date}}</td>
+                        <td class="content-wrappable">{{component}}</td>
+                        <td class="content-wrappable">
+                            <ul>
+                                <li>{{authorName}}, {{authorEmail}}</li>
+                            </ul>
+                        </td>
+                        <td class="content-wrappable">
+                            <ul>
+                            {{#each reviewers}}
+                                <li>{{reviewerName}}, {{reviewerEmail}}</li>
+                            {{/each}}
+                            </ul>
+                        </td>
+                        <td class="content-wrappable">
+                            <ul>
+                                <li>SHA: {{commit}}</li>
+                                <li>{{url}}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
 
 		</div>
 
@@ -176,10 +210,20 @@
 			<p><em>N/A</em></p>
 			{{/if}}
 
-			<p>{{{data.sections.sec3s1.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
+			    </tr>
+			</table>
+
 
 			<h3 id="section_3_2"><span>3.2</span>System Description</h3>
-			<p>{{{data.sections.sec3s2.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
+			    </tr>
+			</table>
+
 			<h4><span>3.2.1</span> Modules to be developed</h4>
 			<p>N/A</p>
 
@@ -255,28 +299,53 @@
 			{{/if}}
 
 			<h3 id="section_5_3"><span>5.3</span>Utilisation of Existing Infrastructure Systems</h3>
-			<p>{{{data.sections.sec5s3.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec5s3.content}}}</td>
+			    </tr>
+			</table>
+
 
 			<h3 id="section_5_4"><span>5.4</span>Utilisation of Existing Infrastructure Services</h3>
-			<p>{{{data.sections.sec5s4.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec5s4.content}}}</td>
+			    </tr>
+			</table>
 		</div>
 
 		<div class="page">
 			<h2 id="section_6"><span>6</span>Configurations for Additional Environments</h2>
 
 			<h3 id="section_6_1"><span>6.1</span>Development Environment</h3>
-			<p>{{{data.sections.sec6s1.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
+			    </tr>
+			</table>
 
 			<h3 id="section_6_2"><span>6.2</span>QA/Test Environment</h3>
-			<p>{{{data.sections.sec6s2.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
+			    </tr>
+			</table>
 
 			<h3 id="section_6_3"><span>6.3</span>Training Environment</h3>
-			<p>{{{data.sections.sec6s3.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec6s3.content}}}</td>
+			    </tr>
+			</table>
 		</div>
 
 		<div class="page">
 			<h2 id="section_7"><span>7</span>Environmental Conditions</h2>
-			<p>{{{data.sections.sec7.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+			    </tr>
+			</table>
 		</div>
 
 		<div class="page">
@@ -327,9 +396,17 @@
 		<div class="page">
 			<h2 id="section_13"><span>13</span>Definitions And Abbreviations</h2>
 			<h3 id="section_13_1"><span>13.1</span>Definitions</h3>
-			<p>{{{data.sections.sec13s1.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec13s1.content}}}</td>
+			    </tr>
+			</table>
 			<h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
-			<p>{{{data.sections.sec13s2.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec13s2.content}}}</td>
+			    </tr>
+			</table>
 		</div>
 
 		<div class="page">
@@ -342,7 +419,11 @@
 				{{/each}}
 			    {{/if}}
 			</ul>
-            <p>{{{data.sections.sec14.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
+			    </tr>
+			</table>
 		</div>
 		<div class="page">
 			<h2 id="section_15"><span>15</span>Document History</h2>
@@ -393,7 +474,11 @@
                 {{/each}}
             </table>
             {{/if}}
-			<p>{{{data.sections.sec15.content}}}</p>
+			<table class="no-border">
+			    <tr>
+			        <td class="content-wrappable no-border">{{{data.sections.sec15.content}}}</td>
+			    </tr>
+			</table>
 		</div>
 
 	</body>

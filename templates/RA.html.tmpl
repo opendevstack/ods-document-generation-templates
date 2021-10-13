@@ -118,7 +118,11 @@
 
     <div class="page">
         <h2 id="section_3"><span>3</span>Assumptions</h2>
-        <p>{{{data.sections.sec3.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec3.content}}}</td>
+            </tr>
+        </table>
     </div>
 
     <div class="page">
@@ -150,12 +154,12 @@
             </tr>
 			<tr>
                 <td class="content-wrappable">Description of Risks/Failures (or reason for GxP = No)</td>
-                <td class="content-wrappable">Description of possible risks or failures associated with the requirement or function. More than one risk or failure may be associated with a requirement or function
+                <td class="content-wrappable">Description of possible risks or failures associated with the requirement or function. More than one risk or failure may be associated with a requirement or function.<br/>
 				If non-GxP risks are not evaluated, reason for classification as non-GxP is provided.</td>
             </tr>
 			<tr>
                 <td class="content-wrappable">Prob. of Occurrence</td>
-                <td class="content-wrappable">Relevance of the requirement or function for GxP or non-GxP (e.g. business). See section 4.2.1</td>
+                <td class="content-wrappable">Probability that the failure will occur.</td>
             </tr>
 			<tr>
                 <td class="content-wrappable">Severity of Impact</td>
@@ -190,36 +194,38 @@
             <tr>
                 <th>GxP Relevance</th>
                 <th>Value</th>
-                <th class="content-wrappable">GxP value in <a href="#section_5">section 5</a></th>
 				<th>Option</th>
 				<th>Description</th>
             </tr>
             <tr>
                 <td class="lean">Yes</td>
                 <td class="content-wrappable">2</td>
-                <td class="content-wrappable">R2</td>
 				<td class="content-wrappable">n/a</td>
 				<td class="content-wrappable">The requirement is directly related to GxP regulated activities. Failures could lead to incorrect data, loss of data, deterioration of product quality, or risk exposure for safety of patients or customers.</td>
             </tr>
 			<tr>
                 <td class="lean" rowspan="3">No</td>
-                <td class="content-wrappable">0</td>
-                <td class="content-wrappable">N0</td>
+                <td class="content-wrappable">n/a</td>
 				<td class="content-wrappable">Non-GxP risks are not being evaluated</td>
-				<td class="content-wrappable" rowspan="3">The requirement is directly related to GxP regulated activities. Failures could lead to incorrect data, loss of data, deterioration of product quality, or risk exposure for safety of patients or customers.</td>
+				<td class="content-wrappable" rowspan="3">The requirement has no GxP relevance. However, the requirement may have an impact on business. Failures could lead to e.g. system downtime, delay of submission process, loss of corporate reputation etc.</td>
             </tr>
 			<tr>
                 <td class="content-wrappable">1</td>
-                <td class="content-wrappable">N1</td>
 				<td class="content-wrappable">Non-GxP risks are evaluated lower than GxP risks</td>
             </tr>
 			<tr>
                 <td class="content-wrappable">2</td>
-                <td class="content-wrappable">N2</td>
 				<td class="content-wrappable">Non-GxP risks are evaluated the same as GxP risks</td>
             </tr>
 			</table>
-			<p>Each non-GxP risk can have a different option for evaluation since the RNP is computed automatically. Thus, no project-level evaluation option is used. The selection is done individually in each Risk Assessment task. The value contains the GxP relevance and the number used to compute the RPN.</p>
+
+			<table id="GxP Relevance Selection" class="no-page-break">
+            <tr>
+                <td class="lean">For {{metadata.buildParameter.configItem}}</td>
+                <td class="content-wrappable">{{data.sections.sec4s2s1.nonGxpEvaluation}}</td>
+            </tr>
+			</table>
+
 
 			<h3 id="section_4_2_2"><span>4.2.2</span>Probability of Occurrence</h3>
             {{#if data.sections.sec4s2s2.usesPoo}}
@@ -436,10 +442,18 @@
     <div class="page">
         <h2 id="section_6"><span>6</span>Definitions and Abbreviations</h2>
         <h3 id="section_6_1"><span>6.1</span>Definitions</h3>
-		<p>{{{data.sections.sec6s1.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
+            </tr>
+        </table>
 
-		<h3 id="section_6_2"><span>6.2</span>Abbreviations</h3>
-		<p>{{{data.sections.sec6s2.content}}}</p>
+        <h3 id="section_6_2"><span>6.2</span>Abbreviations</h3>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
+            </tr>
+        </table>
     </div>
 
     <div class="page">
@@ -449,11 +463,16 @@
             <li>System and Software Design Specification including Source Code Review Plan (version {{metadata.referencedDocs.SSDS}})</li>
             <li>Functional and Requirements Testing Plan (version {{metadata.referencedDocs.CFTP}})</li>
         </ul>
-        <p>{{{data.sections.sec7.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+            </tr>
+        </table>
     </div>
 
 	<div class="page">
         <h2 id="section_8"><span>8</span>Document History</h2>
+        <p>The following table provides the history of the document.</p>
         {{#if data.documentHistory}}
         <table>
             <tr>
@@ -501,7 +520,11 @@
             {{/each}}
         </table>
         {{/if}}
-        <p>{{{data.sections.sec8.content}}}</p>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec8.content}}}</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

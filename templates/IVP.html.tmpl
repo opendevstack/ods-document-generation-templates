@@ -75,18 +75,17 @@
             </ol>
         </li>
         <li><a href="#section_9">REFERENCE DOCUMENTS</a></li>
-        <li><a href="#section_10">DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING PLAN)</a></li>
-        <li><a href="#section_11">DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING REPORT)</a></li>
-        <li><a href="#section_12">TEST CASES TEST GROUP 01 COMPONENTS</a></li>
+        <li><a href="#section_10">DOCUMENT HISTORY</a></li>
+        <li><a href="#section_11">TEST CASES TEST GROUP 01 COMPONENTS</a></li>
         <ol>
-            <li><a href="#section_12_1">SERVER</a></li>
-            <li><a href="#section_12_2">VERIFICATION OF COMPUTER ROOM CONDITIONS</a></li>
-            <li><a href="#section_12_3">REPOSITORY TYPE</a></li>
+            <li><a href="#section_11_1">SERVER</a></li>
+            <li><a href="#section_11_2">VERIFICATION OF COMPUTER ROOM CONDITIONS</a></li>
+            <li><a href="#section_11_3">REPOSITORY TYPE</a></li>
         </ol>
-        <li><a href="#section_13">TEST CASES TEST GROUP 02 SYSTEM LEVEL</a>
+        <li><a href="#section_12">TEST CASES TEST GROUP 02 SYSTEM LEVEL</a>
             <ol>
-                <li><a href="#section_13_1">OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</a></li>
-                <li><a href="#section_13_2">CONFIGURATION DATABASE CMDB</a></li>
+                <li><a href="#section_12_1">OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</a></li>
+                <li><a href="#section_12_2">CONFIGURATION DATABASE CMDB</a></li>
             </ol>
         </li>
     </ol>
@@ -117,7 +116,11 @@
     <p>
     Attention: Chapters 12 and 13 of the original LeVA template do not apply, since they are not relevant if documentation is generated in an automated way.
     </p>
-    {{{data.sections.sec2.content}}}
+    <table class="no-border">
+        <tr>
+            <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
+        </tr>
+    </table>
 </div>
 <div class="page"><h2 id="section_3"><span>3</span>ROLES AND RESPONSIBILITIES</h2>
     <table>
@@ -176,21 +179,21 @@ Other test cases:
 </div>
 
 <div class="page"><h2 id="section_7"><span>7</span>CONCLUSION</h2>
-	Having completed the execution of the CIT Plan of '{{metadata.name}}' and assessed the activities and respective outcomes, the conclusion drawn is as follows:<br>
-
-	<table>
-		<tr>
-			<td class="content-wrappable">Complete Success - no unresolved discrepencies</td>
-			<td class="content-wrappable">It is determined that all steps of the CIT Plan have been successfully executed and signature of this report verifies that the tests have been performed according to the plan. Either no discrepancies occurred or have been directly solved.</td>
-		</tr>
-    </table>
-
+     The conclusion will be drawn on basis of the test results and documented in this chapter of the IVR.<br>
 </div>
 <div class="page"><h2 id="section_8"><span>8</span>DEFINITIONS AND ABBREVIATIONS</h2>
     <h3 id="section_8_1"><span>8.1</span>DEFINITIONS</h3>
-    {{{data.sections.sec8s1.content}}}
+    <table class="no-border">
+        <tr>
+            <td class="content-wrappable no-border">{{{data.sections.sec8s1.content}}}</td>
+        </tr>
+    </table>
     <h3 id="section_8_2"><span>8.2</span>ABBREVIATIONS</h3>
-    {{{data.sections.sec8s2.content}}}
+    <table class="no-border">
+        <tr>
+            <td class="content-wrappable no-border">{{{data.sections.sec8s2.content}}}</td>
+        </tr>
+    </table>
 </div>
 <div class="page"><h2 id="section_9"><span>9</span>REFERENCE DOCUMENTS</h2>
 	<ul>
@@ -198,9 +201,13 @@ Other test cases:
         <li>Overall Development Test Report (version {{metadata.referencedDocs.DTR}})</li>
         <li>Overall Technical Installation Report (version {{metadata.referencedDocs.TIR}})</li>
 	</ul>
-	{{{data.sections.sec9.content}}}
+	<table class="no-border">
+	    <tr>
+	        <td class="content-wrappable no-border">{{{data.sections.sec9.content}}}</td>
+	    </tr>
+	</table>
 </div>
-<div class="page"><h2 id="section_10"><span>10</span>DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING PLAN)</h2>
+<div class="page"><h2 id="section_10"><span>10</span>DOCUMENT HISTORY</h2>
     {{#if data.documentHistory}}
     <table>
         <tr>
@@ -248,25 +255,26 @@ Other test cases:
         {{/each}}
     </table>
     {{/if}}
-    {{{data.sections.sec10.content}}}
-</div>
-<div class="page"><h2 id="section_11"><span>11</span>DOCUMENT HISTORY (CONFIGURATION AND INSTALLATION TESTING REPORT)</h2>
-	N/A - As the report is based on the most up to date version of the plan, there is no need for a separate History
+    <table class="no-border">
+        <tr>
+            <td class="content-wrappable no-border">{{{data.sections.sec10.content}}}</td>
+        </tr>
+    </table>
 </div>
 
-<div class="page"><h2 id="section_12"><span>12</span>TEST CASES TEST GROUP 01 COMPONENTS</h2>
+<div class="page"><h2 id="section_11"><span>11</span>TEST CASES TEST GROUP 01 COMPONENTS</h2>
 	<!-- render test case fields from zephyr with IVP -->
-    <h3 id="section_12_1"><span>12.1</span>SERVER</h3>
+    <h3 id="section_11_1"><span>11.1</span>SERVER</h3>
     Containers are volatile, that means the underlying platform decides depending on resource usage and consumption - where (on which server(s)) and how a container is run.<br>
     Only the TIR (that is created as part of the installation) contains the information where a pod was located at that point in time - hence we leave this information out of the CIT, which is generated at a later point in time.<br>
 
-    <h3 id="section_12_2"><span>12.2</span>VERIFICATION OF COMPUTER ROOM CONDITIONS</h3>
+    <h3 id="section_11_2"><span>11.2</span>VERIFICATION OF COMPUTER ROOM CONDITIONS</h3>
     Containers are volatile, that means the underlying platform decides depending on resource usage and consumption - where (on which server(s)) and how a container is run.<br>
     Only the TIR (that is created as part of the installation) contains the information where a pod was located at that point in time - hence we leave this information out of the CIT, which is generated at a later point in time.<br>
 
-    <h3 id="section_12_3"><span>12.3</span>REPOSITORY TYPE</h3>
+    <h3 id="section_11_3"><span>11.3</span>REPOSITORY TYPE</h3>
 
-    <h4 id="section_12_3_1"><span>12.3.1 </span>ODS</h4>
+    <h4 id="section_11_3_1"><span>11.3.1 </span>ODS</h4>
 	{{#if data.testsOdsCode}}
     <table class="no-page-break">
         <tr>
@@ -296,7 +304,7 @@ Other test cases:
 		<p><em>N/A</em></p>
 	{{/if}}
 
-    <h4 id="section_12_3_2"><span>12.3.2 </span>ODS-SERVICE</h4>
+    <h4 id="section_11_3_2"><span>11.3.2 </span>ODS-SERVICE</h4>
 	{{#if data.testsOdsService}}
     <table class="no-page-break">
         <tr>
@@ -325,12 +333,16 @@ Other test cases:
 	<!-- report: results / executions -->
 </div>
 
-<div class="page"><h2 id="section_13"><span>13</span>TEST CASES TEST GROUP 02 SYSTEM LEVEL</h2>
+<div class="page"><h2 id="section_12"><span>12</span>TEST CASES TEST GROUP 02 SYSTEM LEVEL</h2>
 	<ul>
 		<li>
-			<div class="page"><h3 id="section_13_1"><span>13.1</span>OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</h3>
+			<div class="page"><h3 id="section_12_1"><span>12.1</span>OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</h3>
 				<!-- backup and monitoring plan for qualified infrastructure -->
-                {{{data.sections.sec13s1.content}}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec12s1.content}}}</td>
+                    </tr>
+                </table>
                 <!-- <p><b>System level monitoring:</b></p>
                 <table class="System level monitoring">
                     <tr>
@@ -467,11 +479,11 @@ Other test cases:
 			</div>
 		</li>
 		<li>
-			<div class="page"><h3 id="section_13_2"><span>13.2</span>CONFIGURATION DATABASE CMDB</h3>
+			<div class="page"><h3 id="section_12_2"><span>12.2</span>CONFIGURATION DATABASE CMDB</h3>
 				Configuration Data of Config Item '{{metadata.name}}' is correct and verified
 				<table style="border: 0px; padding: 0px; margin: 0px">
 					<tr>
-						<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec13s2.content}}}</td>
+						<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec12s2.content}}}</td>
 					</tr>
 				</table>
 			</div>

@@ -297,7 +297,7 @@
 
 			<h3 id="section_5_2"><span>5.2</span>System Components Specifications</h3>
 			<!-- all data for sec5s2 is contained in sec5s1 already -->
-			<p>The installation comprises the following software-defined components:</p>
+			<p>The installation comprises the following software-defined components, except where denoted otherwise:</p>
             {{#if data.sections.sec5s1.components}}
 			<table>
 				<tr>
@@ -307,6 +307,7 @@
 					<th>Version</th>
 					<th class="content-wrappable">Description of Functionality</th>
 					<th>References</th>
+					<th>Installed by ODS</th>
 				</tr>
 				{{#each data.sections.sec5s1.components}}
 				<tr>
@@ -316,6 +317,7 @@
 					<td class="lean">{{version}}</td>
 					<td class="content-wrappable">{{description}}</td>
 					<td class="content-wrappable">{{references}}</td>
+					<td class="content-wrappable">{{doInstall}}</td>
 				</tr>
 				{{/each}}
 			</table>

@@ -147,16 +147,16 @@
                 Component repository is a <em>GIT</em> managed repository on validated <em>BI-AS-ATLASSIAN</em>.
             </li>
             <li>
-                Component inside a <em>GIT</em> repository is of type <em>ods</em>. The foundation of those components, named <em>Boilerplates</em> are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
+                Component inside a <em>GIT</em> repository is of type <em>ods</em>, <em>ods-infra</em>, <em>ods-saas-service</em>, <em>ods-service</em>, or <em>ods-test</em>. Components of type <em>ods-saas-service</em> are not installed by OpenDevStack, but by their respective manufacturer. Components of type <em>ods-test</em> are not installed, but contain automated end-to-end tests used to exercise the system. The foundation of those components, named <em>Boilerplates</em>, are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
             </li>
             <li>
-                Component <em>GIT</em> repository contains a Jenkins file (Jenkinsfile), which is used for building, testing and installation through the OpenDevStack Jenkins build engine.
+                Except for the <em>ods-saas-service</em> type, a component's <em>GIT</em> repository contains a Jenkins file (named Jenkinsfile), which is used for building, testing, and installation through the OpenDevStack Jenkins build engine.
             </li>
             <li>
-                Jenkins build engine, based on OpenDevStack, is qualified, available and running.
+                Jenkins build engine, based on OpenDevStack, is qualified, available, and running.
             </li>
             <li>
-                Nexus artifact repository, based on OpenDevStack, is qualified, available and running.
+                Nexus artifact repository, based on OpenDevStack, is qualified, available, and running.
             </li>
             <li>
                 Target environment infrastructure is qualified (for GxP relevant systems) and available.
@@ -165,6 +165,7 @@
 
         <h3 id="section_3_1"><span>3.1</span>Components Specification</h3>
         <p>The installation comprises the following software-defined components:</p>
+        Components where <em>Installation by ODS</em> is denoted as <em>false</em> are of type <em>ods-saas-service</em>, or <em>ods-test</em>.</p>
 
         <table>
             <tr>
@@ -173,15 +174,16 @@
                 <th class="content-wrappable">Software Version / Language</th>
                 <th class="content-wrappable">ID of Component to be installed </th>
                 <th class="content-wrappable">Reference to System and Software Design Specifications</th>
+                <th class="content-wrappable">Installation by ODS</th>
             </tr>
             {{#each data.repositories}}
             <tr>
                 <td class="lean">{{id}}</td>
-                <td class="content-wrappable">N/A</td>
+                <td class="content-wrappable">{{metadata.supplier}}</td>
                 <td class="content-wrappable">{{data.git.url}} branch {{data.git.branch}}, the actual commit is specified as parameter during installation</td>
                 <td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
-		{{!-- Need to be reviewed}--}}
                 <td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
+                <td class="content-wrappable">{{doInstall}}</td>
             </tr>
             {{/each}}
         </table>
@@ -209,6 +211,20 @@
                 <td class="content-wrappable">Git Repo Component <em>{{id}}</em></td>
                 <td class="content-wrappable">{{data.git.url}}</td>
             </tr>
+            <tr>
+                <td class="content-wrappable">ODS Component Type <em>{{id}}</em></td>
+                <td class="content-wrappable">{{type}}</td>
+            </tr>
+            <tr>
+                <td class="content-wrappable">Installation by ODS <em>{{id}}</em></td>
+                <td class="content-wrappable">{{doInstall}}</td>
+            </tr>
+            {{^doInstall}}
+            <tr>
+                <td class="content-wrappable">Non-ODS Installation Instructions <em>{{id}}</em></td>
+                <td class="content-wrappable">{{#if metadata.installation}} {{metadata.installation}} {{else}} N/A {{/if}}</td>
+            </tr>
+            {{/doInstall}}
             {{/each}}
             <tr>
                 <td class="content-wrappable">Change id/number</td>

@@ -115,6 +115,10 @@
                 <td class="content-wrappable">{{data.repo.data.git.url}}</td>
             </tr>
             <tr>
+                <td>ODS Component Type <em>{{id}}</em></td>
+                <td class="content-wrappable">{{data.repo.type}}</td>
+            </tr>
+            <tr>
                 <td>Environment</td>
                 <td class="content-wrappable">{{metadata.buildParameter.targetEnvironment}}</td>
             </tr>
@@ -248,16 +252,16 @@
             </tr>
             <tr>
                 <td class="lean">1</td>
-                <td class="content-wrappable">POD is running for 5 min</td>
-                <td class="content-wrappable">POD is the same as directly after deployment</td>
-                <td class="content-wrappable">POD is the same as directly after deployment</td>
+                <td class="content-wrappable">automated configuration appplication (Q/P environment)</td>
+                <td class="content-wrappable">Configuration applied</td>
+                <td class="content-wrappable">Configuration applied</td>
                 <td class="lean">pass</td>
             </tr>
             <tr>
                 <td class="lean">2</td>
-                <td class="content-wrappable">Route is accessible via HTTP</td>
-                <td class="content-wrappable">HTTP call is successful</td>
-                <td class="content-wrappable">HTTP call is successful</td>
+                <td class="content-wrappable">POD is running</td>
+                <td class="content-wrappable">POD is in status running</td>
+                <td class="content-wrappable">POD is in status running</td>
                 <td class="lean">pass</td>
             </tr>
         </table>

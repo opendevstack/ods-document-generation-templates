@@ -85,25 +85,27 @@
 
     <div class="page">
         <h2><span>1</span>Installed Component Summary</h2>
-        <p><pre>The following components were installed, and where applicable:</pre>
+        <p><pre>Based on the component type, as mentioned in the TIP, the following components were installed, and where applicable:</pre>
             <ul>
-                <li>Tags for promotion were generated (<i>git tag created</i>)</li>
-                <li>Configuration was exported, and stored (<i>exported configuration commit</i>)</li>
+                <li>Tags for promotion were generated (<i>Git Tag Created</i>)</li>
+                <li>Configuration was exported, and stored (<i>Exported Configuration Commit</i>)</li>
             </ul>
         </p>
         <table>
             <tr>
-                <th class="content-wrappable">Component id</th>
-                <th class="content-wrappable">type</th>
-                <th class="content-wrappable">branch</th>
-                <th class="content-wrappable">commit build/installed | exported configuration commit</th>
-                <th class="content-wrappable">git tag used (optional)</th>
-                <th class="content-wrappable">git tag created (optional)</th>
+                <th class="content-wrappable">Component ID</th>
+                <th class="content-wrappable">Type</th>
+                <th class="content-wrappable">Installed by ODS</th>
+                <th class="content-wrappable">Branch</th>
+                <th class="content-wrappable">Commit Build/Installed | Exported Configuration Commit</th>
+                <th class="content-wrappable">Git Tag Used (optional)</th>
+                <th class="content-wrappable">Git Tag Created (optional)</th>
             </tr>
             {{#each data.repositories}}
             <tr>
                 <td class="lean">{{id}}</td>
                 <td class="content-wrappable">{{type}}</td>
+                <td class="content-wrappable">{{doInstall}}</td>
                 <td class="content-wrappable">{{data.git.branch}}</td>
                 <td class="content-wrappable">{{data.git.commit}} | {{data.git.createdExecutionCommit}}</td>
                 <td class="content-wrappable">{{data.git.baseTag}}</td>

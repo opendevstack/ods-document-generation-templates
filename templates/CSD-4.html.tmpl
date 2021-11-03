@@ -215,7 +215,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -226,6 +226,7 @@
                         {{/each}}
                     </table>
                 {{/if}}
+
                 {{#each data.requirements.functionalrequirements.epics}}
                     <h5 id="section_3_2_1_{{epicIndex}}"><span>3.2.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
                     <span>{{{epicDescription}}}</span>
@@ -245,7 +246,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -261,36 +262,38 @@
              {{/if}}
 
 
+
             <h4 id="section_3_2_2"><span>3.2.2</span> Data Requirements</h4>
             {{#if data.requirements.datarequirements}}
                 {{#if data.requirements.datarequirements.noepics}}
-                <table>
-                    <tr>
-                        <th>No.</th>
-                        <th>Document</th>
-                        <th>Requirement</th>
-                        <th>Applicability</th>
-                    </tr>
-                    {{#each data.requirements.datarequirements.noepics}}
-                    <tr>
-                        <td class="lean" rowspan="3">{{key}}</td>
-                        <td class="lean">URS</td>
-                        <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                        <td class="lean">{{applicability}}</td>
-                    </tr>
-                    <tr>
-                        <td class="lean">FS</td>
-                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
-                        <td class="lean">{{applicability}}</td>
-                    </tr>
-                    <tr>
-                        <td class="lean">CS</td>
-                        <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-                        <td class="lean">{{applicability}}</td>
-                    </tr>
-                    {{/each}}
-                </table>
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>Document</th>
+                            <th>Requirement</th>
+                            <th>Applicability</th>
+                        </tr>
+                        {{#each data.requirements.datarequirements.noepics}}
+                        <tr>
+                            <td class="lean" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
                 {{/if}}
+
                 {{#each data.requirements.datarequirements.epics}}
                     <h5 id="section_3_2_2_{{epicIndex}}"><span>3.2.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
                     <span>{{{epicDescription}}}</span>
@@ -310,7 +313,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -324,6 +327,10 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
+
+
+
+
 
 
             <h4 id="section_3_2_3"><span>3.2.3</span> Technical Requirements</h4>
@@ -352,7 +359,7 @@
                     </tr>
                     <tr>
                         <td class="lean">FS</td>
-                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                         <td class="lean">{{applicability}}</td>
                     </tr>
                     <tr>
@@ -383,7 +390,7 @@
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
-                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
@@ -397,6 +404,8 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
+
+
 
             <h4 id="section_3_3_2"><span>3.3.2</span> Availability Requirements</h4>
             {{#if data.requirements.availabilityrequirements}}
@@ -417,7 +426,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -428,6 +437,7 @@
                         {{/each}}
                     </table>
                 {{/if}}
+
                 {{#each data.requirements.availabilityrequirements.epics}}
                     <h5 id="section_3_3_2_{{epicIndex}}"><span>3.3.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
                     <span>{{{epicDescription}}}</span>
@@ -447,7 +457,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -461,6 +471,7 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
+
 
             <h4 id="section_3_3_3"><span>3.3.3</span> Security Requirements</h4>
             {{#if data.requirements.securityrequirements}}
@@ -553,7 +564,7 @@
                     </tr>
                     <tr>
                         <td class="lean">FS</td>
-                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                         <td class="lean">{{applicability}}</td>
                     </tr>
                     <tr>
@@ -584,7 +595,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -618,7 +629,7 @@
                     </tr>
                     <tr>
                         <td class="lean">FS</td>
-                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                         <td class="lean">{{applicability}}</td>
                     </tr>
                     <tr>
@@ -649,7 +660,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -683,7 +694,7 @@
                     </tr>
                     <tr>
                         <td class="lean">FS</td>
-                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                         <td class="lean">{{applicability}}</td>
                     </tr>
                     <tr>
@@ -693,6 +704,8 @@
                     </tr>
                     {{/each}}
                 </table>
+                {{/if}}
+
                 {{#each data.requirements.environmentrequirements.epics}}
                     <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                     <span>{{{epicDescription}}}</span>
@@ -712,7 +725,7 @@
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
-                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
@@ -791,8 +804,6 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
-
     </div>
 
     <div class="page">
@@ -817,7 +828,7 @@
                 </tr>
                 <tr>
                     <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                     <td class="lean">{{applicability}}</td>
                 </tr>
                 <tr>
@@ -848,7 +859,7 @@
                 </tr>
                 <tr>
                     <td class="lean">FS</td>
-                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                     <td class="lean">{{applicability}}</td>
                 </tr>
                 <tr>
@@ -862,7 +873,6 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
             {{#if data.requirements.proceduralconstraints}}
@@ -883,7 +893,7 @@
                         </tr>
                         <tr>
                             <td class="lean">FS</td>
-                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -914,7 +924,7 @@
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
-                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
@@ -928,8 +938,6 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
-
     </div>
 
     <div class="page">

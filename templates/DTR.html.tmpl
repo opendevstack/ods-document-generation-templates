@@ -94,7 +94,7 @@
             <li><a href="#section_7">Document History</a></li>
             <li><a href="#section_8">Attachments</a>
                 <ol>
-                    <li><a href="#section_8_1">xUnit XML Documents</a></li>
+                    <li><a href="#section_8_1">xUnit XML Documents (including Test Evidence)</a></li>
                 </ol>
             </li>
         </ol>
@@ -112,7 +112,7 @@
 
     <div class="page">
         <h2 id="section_3"><span>3</span>Development Testing Results</h2>
-		<p>Please, see chapter <a href="#section_8_1">"8.1 xUnit XML Documents"</a> to consult the exhaustive Development Testing Results.</p>
+		<p>Please, see chapter <a href="#section_8_1">"8.1 xUnit XML Documents (including Test Evidence)"</a> to consult the exhaustive Development Testing Results.</p>
 
         <h3 id="section_3_1"><span>3.1</span>Overview of Unit Tested Modules</h3>
         {{#if data.tests}}
@@ -259,8 +259,8 @@
 
     <div class="page">
         <h2 id="section_8"><span>8</span>Attachments</h2>
-        <h3 id="section_8_1"><span>8.1</span>xUnit XML Documents</h3>
-        <p>The information included in this test results provides the xUnit XML results of the execution of the system {{metadata.name}} created by Jenkins Job Name {{metadata.jenkins.jobName}} and Jenkins Build Number {{metadata.jenkins.buildNumber}}.</p>
+        <h3 id="section_8_1"><span>8.1</span>xUnit XML Documents (including Test Evidence)</h3>
+        <p>This section provides the xUnit XML results, including any test evidence, of the execution of the system {{metadata.name}} created by Jenkins Job Name {{metadata.jenkins.jobName}} and Jenkins Build Number {{metadata.jenkins.buildNumber}}.</p>
 		{{#if data.testFiles}}
 			{{#each data.testFiles}}
 			<h4>{{name}}</h4>

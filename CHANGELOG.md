@@ -12,6 +12,7 @@
 - Add support for ods-saas-service component type ([#31](https://github.com/opendevstack/ods-document-generation-templates/pull/31))
 - Fix failure in CSD for GAMP 5 ([#57](https://github.com/opendevstack/ods-document-generation-templates/pull/57))
 - Improve naming of xUnit attachment section to name inclusion of test evidence ([#58](https://github.com/opendevstack/ods-document-generation-templates/pull/58))
+- Fix whitespace behavior in Development Testing Results table ([#59](https://github.com/opendevstack/ods-document-generation-templates/pull/59))
 
 ### Fixed - 2021-04-22
 - Fix the document history section for IVR still shows the wrong title ([#44](https://github.com/opendevstack/ods-document-generation-templates/pull/44))

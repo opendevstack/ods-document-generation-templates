@@ -1,7 +1,13 @@
 # Changelog
 
 ## Unreleased
+
+### Added
 - CFTP for Gamp3/4/5 - Purpose chapter 7.1.1 needs changes([#64](https://github.com/opendevstack/ods-document-generation-templates/pull/64))
+
+## 1.2 - 2021-18-11
+
+### Added
 - Fix some wording the the RA document, and adjust a table in the chapter 4.2.1 ([#49](https://github.com/opendevstack/ods-document-generation-templates/pull/49))
 - Modified SSDS document to use Pull Request info not SonarQube ([#614](https://github.com/opendevstack/ods-jenkins-shared-library/pull/614))
 - Add missing table in RA document ([#50](https://github.com/opendevstack/ods-document-generation-templates/pull/50))
@@ -13,7 +19,7 @@
 - Add support for ods-saas-service component type ([#31](https://github.com/opendevstack/ods-document-generation-templates/pull/31))
 - Fix failure in CSD for GAMP 5 ([#57](https://github.com/opendevstack/ods-document-generation-templates/pull/57))
 - Improve naming of xUnit attachment section to name inclusion of test evidence ([#58](https://github.com/opendevstack/ods-document-generation-templates/pull/58))
-- Fix whitespace behavior in Development Testing Results table ([#59](https://github.com/opendevstack/ods-document-generation-templates/pull/59))
+- Fix whitespace behavior in Development Testing Results table ([#60](https://github.com/opendevstack/ods-document-generation-templates/pull/60))
 
 ### Fixed - 2021-04-22
 - Fix the document history section for IVR still shows the wrong title ([#44](https://github.com/opendevstack/ods-document-generation-templates/pull/44))

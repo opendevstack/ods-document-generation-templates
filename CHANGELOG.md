@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Added
+- CFTP for Gamp3/4/5 - Purpose chapter 7.1.1 needs changes([#64](https://github.com/opendevstack/ods-document-generation-templates/pull/64))
+
 ## 1.2 - 2021-18-11
 
 ### Added

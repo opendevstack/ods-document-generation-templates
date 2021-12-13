@@ -4,6 +4,7 @@
 
 ### Added
 - CFTP for Gamp3/4/5 - Purpose chapter 7.1.1 needs changes([#64](https://github.com/opendevstack/ods-document-generation-templates/pull/64))
+- SDSS for GAMP3/4 - Missing Section 3.2.x tokens for replacement ([#67](https://github.com/opendevstack/ods-document-generation-templates/issues/67))
 
 ## 1.2 - 2021-18-11
 

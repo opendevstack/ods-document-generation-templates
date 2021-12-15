@@ -225,6 +225,8 @@
                 <td class="content-wrappable">{{#if metadata.installation}} {{metadata.installation}} {{else}} N/A {{/if}}</td>
             </tr>
             {{/doInstall}}
+            <!-- insert a new line after each repo -->
+            <tr></tr>
             {{/each}}
             <tr>
                 <td class="content-wrappable">Change id/number</td>
@@ -270,8 +272,9 @@
     <div class="page">
         <h2 id="section_6"><span>6</span>Diagnostics and Testing</h2>
 
-        <p>Each component comes with individual installation tests. For details look in the Technical Installation Report.</p>
+        <p>Each 'ods-installed' component (as per section 3.3) comes with individual installation tests. For details look in the Technical Installation Report.</p>
         {{#each data.repositories}}
+        {{^doInstall}}
         <h3>Component {{id}}</h3>
 
         <table class="no-page-break">
@@ -290,6 +293,7 @@
                 <td class="content-wrappable">N/A</td>
             </tr>
         </table>
+        {{/doInstall}}
         {{/each }}
     </div>
 

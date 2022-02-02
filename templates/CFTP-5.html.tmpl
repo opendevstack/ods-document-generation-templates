@@ -315,7 +315,8 @@
         </ul>
 
         <h3 id="section_11_1"><span>11.1</span> Automated Test Cases</h3>
-        <p>All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log. Failing test cases that cannot be resolved in the environment they must be executed in represent an unacceptable flaw in the system. To advance into the next environment, failing test cases have to be resolved in a follow-up change.</p>
+        <p>All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log. Failed automated test cases where the failure cannot be resolved within the Q environment are considered unacceptable. A move to P is not possible. These failures must be resolved via a change control in the Dev environment.</p>
+        <p>Automated test cases will be executed before manual test cases. Successful execution of automated test cases (no failures) is the prerequisite to start execution of the manual test cases.</p>
 
         <h3 id="section_11_2"><span>11.2</span> Manual Test Cases</h3>
         <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>

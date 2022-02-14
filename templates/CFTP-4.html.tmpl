@@ -78,12 +78,7 @@
                     <li><a href="#section_4_2">Acceptance Testing</a></li>
                 </ol>
             </li>
-            <li><a href="#section_5">Operational Qualification Activities and Training</a>
-                <ol>
-                    <li><a href="#section_5_1">Test Procedure 1: Verification of Operational Documentation</a></li>
-                    <li><a href="#section_5_2">Test Procedure 2: Verification of Training Documentation</a></li>
-                </ol>
-            </li>
+            <li><a href="#section_5">Training</a></li>
             <li><a href="#section_6">Integration Testing</a>
                 <ol>
                     <li><a href="#section_6_1">Purpose of Integration Testing</a></li>
@@ -156,8 +151,8 @@
             <td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Testers will execute the manual test cases and document the results.</td>
         </tr>
         <tr>
-            <td class="lean">Developer</td>
-            <td class="content-wrappable">Writes tests.</td>
+            <td class="lean">Developer/SME</td>
+            <td class="content-wrappable">Writes and, in case of using automation, implements test cases.</td>
         </tr>
     </table>
     </div>
@@ -179,6 +174,14 @@
                 <td class="content-wrappable no-border">{{{data.sections.sec5.content}}}</td>
             </tr>
         </table>
+
+        {{#if data.sections.sec5s2.content}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+            </tr>
+        </table>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -236,7 +239,7 @@
 
         <h3 id="section_8_2"><span>8.2</span>Test Execution</h3>
         <p>Test results shall be recorded in a way that independent reviewer can compare the documented acceptance criteria against the (written or captured) test evidence and determine whether the test results meet these criteria.</p>
-        <p>Automated test cases will be executed before manual test cases. Successful execution of automated test cases (no failures) is the prerequisite to start execution of the manual test cases.</p>
+        <p>If both automated and manual test cases exist, automated test cases will be executed before manual test cases. Successful execution of automated test cases (no failures) is the prerequisite to start execution of the manual test cases.</p>
 
         <h4 id="section_8_2_1">Execution of Automated Test Cases</h4>
         <p>In case test execution is automated:</p>

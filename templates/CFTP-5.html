@@ -78,7 +78,12 @@
                     <li><a href="#section_4_2">Acceptance Testing</a></li>
                 </ol>
             </li>
-            <li><a href="#section_5">Training</a></li>
+            <li><a href="#section_5">Operational Qualification Activities and Training</a>
+                <ol>
+                    <li><a href="#section_5_1">Test Procedure 1: Verification of Operational Documentation</a></li>
+                    <li><a href="#section_5_2">Test Procedure 2: Verification of Training Documentation</a></li>
+                </ol>
+            </li>
             <li><a href="#section_6">Integration Testing</a>
                 <ol>
                     <li><a href="#section_6_1">Purpose of Integration Testing</a></li>
@@ -99,10 +104,11 @@
             </li>
             <li><a href="#section_9">Traceability Matrix</a></li>
             <li><a href="#section_10">Validation Environment</a></li>
-            <li><a href="#section_11">Test Case Failure and Problem Resolution</a>
+            <li><mark style="background-color: orangered;"><a href="#section_11">Test Case Failure and Problem Resolution</a></mark></li>
+            <li><mark style="background-color: limegreen;"><a href="#section_11">Test Case Failure and Problem Resolution</a></mark>
                 <ol>
-                    <li><a href="#section_11_1">Automated Test Cases</a></li>
-                    <li><a href="#section_11_2">Manual Test Cases</a></li>
+                    <li><mark style="background-color: limegreen;"><a href="#section_11_1">Automated Test Cases</a></mark></li>
+                    <li><mark style="background-color: limegreen;"><a href="#section_11_2">Manual Test Cases</a></mark></li>
                 </ol>
             </li>
             <li><a href="#section_12">Integration / Acceptance Testing Documentation</a></li>
@@ -144,44 +150,77 @@
         </tr>
         <tr>
             <td class="lean">Test Administrator</td>
-            <td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Test Administrators will supervise the execution of the manual test cases by the Testers and will review these test cases.</td>
+            <td class="content-wrappable"><mark style="background-color: orangered;">In case of full automation (and no further testcases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</mark></td>
+            <td class="content-wrappable"><mark style="background-color: limegreen;">In case of full automation (and no further manual test cases) - N/A, otherwise Test Administrators will supervise the execution of the manual test cases by the Testers and will review these test cases.</mark></td>
         </tr>
         <tr>
             <td class="lean">Tester</td>
-            <td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Testers will execute the manual test cases and document the results.</td>
+            <td class="content-wrappable"><mark style="background-color: orangered;">In case of full automation (and no further testcases) - N/A, otherwise Testers will execute the test cases and document the results.</mark></td>
+            <td class="content-wrappable"><mark style="background-color: limegreen;">In case of full automation (and no further manual test cases) - N/A, otherwise Testers will execute the manual test cases and document the results.</mark></td>
         </tr>
         <tr>
-            <td class="lean">Developer/SME</td>
-            <td class="content-wrappable">Writes and, in case of using automation, implements test cases.</td>
+            <td class="lean">Developer</td>
+            <td class="content-wrappable">Writes tests.</td>
         </tr>
     </table>
     </div>
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Levels of Testing</h2>
+        <p><mark style="background-color: orangered;">The Testing Approach and Strategy is adapted to the Agile Development Methodologies applied in Platforms.  This means that the former LeVA Development, Functional and Requirements Testing will be also covered but grouped in a different classification: Unit Testing, Installation Testing, Integration Testing and Acceptance Testing. Unit testing is performed during development by the development engineers and documented in the Development Test Plan (C-DTP) and Report (C-DTR).</mark></p>
+        <p><mark style="background-color: orangered;">Installation Testing is aimed at checking the successful installation and configuration, as well as updating or uninstalling the software. This level of testing is usually executed automatically and in Platforms it is part of the Installation Test Plan (C-IVP) and Report (C-IVR).</mark></p>
 
         <h3 id="section_4_1"><span>4.1</span>Integration Testing</h3>
-        <p>The objective of Integration Testing is to verify whether the applicable components (e.g. modules, micro-services and/or systems) work well together and detect flaws in their interactions.</p>
+        <p><mark style="background-color: orangered;">The objective of the Integration Testing level is to verify whether the combined Units work well together as a group. Integration testing is aimed at detecting the flaws in the interactions between the Units within a module, micro-services and/or systems.</mark></p>
+        <p><mark style="background-color: orangered;">In Platforms Integration Testing is part of the Combined Functional/Requirements Test Plan (C-CFTP) and Report (C-CFTR).</mark></p>
+
+        <p><mark style="background-color: limegreen;">The objective of Integration Testing is to verify whether the applicable components (e.g. modules, micro-services and/or systems) work well together and detect flaws in their interactions.</mark></p>
 
         <h3 id="section_4_2"><span>4.2</span>Acceptance Testing</h3>
-        <p>Acceptance tests refer to functional or non-functional (such as system availability, performance, reliability) user requirements. Examples for non-functional acceptance tests are: load tests, performance tests, recovery tests.</p>
+        <p><mark style="background-color: orangered;">This is the last stage of the testing process, where the product is verified against the end user requirements (can be functional or non-functional ones) and for accuracy. Successfully performed acceptance testing is a prerequisite for the product release. This testing level focuses on overall system quality, for example, from content and UI (functional) to performance or security issues (non-functional).</mark></p>
+        <p><mark style="background-color: orangered;">Within an agile approach the Acceptance Criteria are well-defined upfront.</mark></p>
+        <p><mark style="background-color: orangered;">In Platforms Acceptance Testing is part of the Combined Functional/Requirements Test Plan (C-CFTP) and Report (C-CFTR).</mark></p>
+        <p><mark style="background-color: orangered;">As enunciated before, requirements and acceptant criteria can be functional and/or non-functional so Acceptance Testing can be split in two main groups: Functional Testing and Non-Functional Testing.</mark></p>
+
+        <p><mark style="background-color: limegreen;">Acceptance tests refer to functional or non-functional (such as system availability, performance, reliability) user requirements. Examples for non-functional acceptance tests are: load tests, performance tests, recovery tests.</mark></p>
+
+        <h4 id="section_4_2_1"><mark style="background-color: orangered;"><span>4.2.1 </span>Functional Testing</mark></h4>
+        <p><mark style="background-color: orangered;">Functional testing is a type of software testing in which the system is tested against the functional (user) requirements and specifications. Functional testing ensures that the (user) requirements or specifications are properly satisfied by the application. This type of testing is particularly concerned with the result of processing. It focuses on simulation of actual system usage but does not develop any system structure assumptions.</mark></p>
+        <p><mark style="background-color: orangered;">It is basically defined as a type of testing which verifies that each function of the software application works in conformance with the requirement and specification. This testing is not concerned about the source code of the application. Each functionality of the software application is tested by providing appropriate test input, expecting the output and comparing the actual output with the expected output.</mark></p>
+        <p><mark style="background-color: orangered;">Some examples of functional testing types are: Unit Testing, Smoke Testing, Integration Testing, System Testing, Exploratory Testing, etc.</mark></p>
+
+        <h4 id="section_4_2_2"><mark style="background-color: orangered;"><span>4.2.2 </span>Non-Functional Testing</mark></h4>
+        <p><mark style="background-color: orangered;">Non-functional testing is a type of software testing that is performed to verify the Non-Functional requirements of the application or system. It verifies whether the behavior of the system is as per the requirement or not. It tests all the aspects which are not tested in Functional testing.</mark></p>
+        <p><mark style="background-color: orangered;">Non-functional testing is defined as a type of software testing to check non-functional aspects of a software application. It is designed to test the readiness of a system as per non-functional parameters which are never addressed by Functional testing. Non-functional testing is as important as Functional testing.</mark></p>
+        <p><mark style="background-color: orangered;">Some examples of functional testing types are: Performance Testing, Load Testing Stress Testing, Security Testing, Scalability Testing, Compatibility Testing, Usability Testing, etc.</mark></p>
     </div>
 
     <div class="page">
-        <h2 id="section_5"><span>5</span>Training</h2>
+        <h2 id="section_5"><mark style="background-color: orangered;"><span>5</span>Operational Qualification Activities and Training</mark></h2>
+        <h2 id="section_5"><mark style="background-color: limegreen;"><span>5</span>Training</mark></h2>
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec5.content}}}</td>
             </tr>
         </table>
 
-        {{#if data.sections.sec5s2.content}}
+        <h3 id="section_5_1"><mark style="background-color: orangered;"><span>5.1</span>Test Procedure 1: Verification of Operational Documentation</mark></h3>
+        <p><mark style="background-color: orangered;">As part of the Integration Testing the following documentation will be verified for all relevant subjects listed in the Qualification Plan.</mark></p>
+
+            <h4 id="section_5_1_1"><mark style="background-color: orangered;"><span>5.1.1 </span>Test Procedure 1.1: SOPs and Working Instructions</mark></h4>
+            <p><mark style="background-color: orangered;">Verify that approved SOPs and Working Instructions addressing and regarding the production environment, are in place. They must be approved and effective prior to release for production use.</mark></p>
+
+            <h4 id="section_5_1_2"><mark style="background-color: orangered;"><span>5.1.2 </span>Test Procedure 1.2: Manuals and other System Documentation</mark></h4>
+            <p><mark style="background-color: orangered;">Verify that appropriate manuals and other system documentation exist for use in operating, maintaining, configuring, and/or troubleshooting of the system.</mark></p>
+
+        <h3 id="section_5_2"><mark style="background-color: orangered;"><span>5.2</span>Test Procedure 2: Verification of Training Documentation</mark></h3>
+        <p><mark style="background-color: orangered;">List the applicable procedures in which the Integration Testing participants must be trained before executing their portions of the Functional Testing Plan. Describe when and how the training will take place.</mark></p>
         <table class="no-border">
             <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+                <td class="content-wrappable no-border"><mark style="background-color: orangered;">{{{data.sections.sec5s2.content}}}</mark></td>
             </tr>
         </table>
-        {{/if}}
+        <p><mark style="background-color: orangered;">Verify that an approved training plan exists, if justified, for all personnel involved in operating and maintaining the Application/System.</mark></p>
     </div>
 
     <div class="page">
@@ -202,10 +241,13 @@
         <h2 id="section_7"><span>7</span>Acceptance Testing</h2>
         <h3 id="section_7_1"><span>7.1</span>Functional Testing</h3>
 
-        <h4 id="section_7_1_1"><span>7.1.1 </span>Purpose of Combined Functional and Requirements Testing</h4>
-        <p>The purpose of the combined functional/requirements testing is to confirm that the computerized system is capable of performing or controlling the activities of the processes as intended according to the user requirements in a reproducible and effective way, while operating in its specified operating environment.</p>
+        <h4 id="section_7_1_1"><mark style="background-color: orangered;"><span>7.1.1 </span>Purpose of Functional Testing</mark></h4>
+        <h4 id="section_7_1_1"><mark style="background-color: limegreen;"><span>7.1.1 </span>Purpose of Combined Functional and Requirements Testing</mark></h4>
+        <p><mark style="background-color: orangered;">The purpose of the functional testing is to verify that the system is operational and works within the specifications as defined in the functional specifications and / or configuration specifications.</mark></p>
+        <p><mark style="background-color: limegreen;">The purpose of the combined functional/requirements testing is to confirm that the computerized system is capable of performing or controlling the activities of the processes as intended according to the user requirements in a reproducible and effective way, while operating in its specified operating environment.</mark></p>
 
-        <h4 id="section_7_1_2"><span>7.1.2 </span>Scope of Combined Functional and Requirements Testing</h4>
+        <h4 id="section_7_1_2"><mark style="background-color: orangered;"><span>7.1.2 </span>Scope of Functional Testing</mark></h4>
+        <h4 id="section_7_1_2"><mark style="background-color: limegreen;"><span>7.1.2 </span>Scope of Combined Functional and Requirements Testing</mark></h4>
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec7s1s2.content}}}</td>
@@ -239,14 +281,16 @@
 
         <h3 id="section_8_2"><span>8.2</span>Test Execution</h3>
         <p>Test results shall be recorded in a way that independent reviewer can compare the documented acceptance criteria against the (written or captured) test evidence and determine whether the test results meet these criteria.</p>
-        <p>If both automated and manual test cases exist, automated test cases will be executed before manual test cases. Successful execution of automated test cases (no failures) is the prerequisite to start execution of the manual test cases.</p>
+        <p><mark style="background-color: limegreen;">Automated test cases will be executed before manual test cases. Successful execution of automated test cases (no failures) is the prerequisite to start execution of the manual test cases.</mark></p>
 
-        <h4 id="section_8_2_1">Execution of Automated Test Cases</h4>
-        <p>In case test execution is automated:</p>
+        <h4 id="section_8_2_1"><mark style="background-color: limegreen;">Execution of Automated Test Cases</mark></h4>
+        <p><mark style="background-color: orangered;">In the case that the test execution is fully automated:</mark></p>
+        <p><mark style="background-color: limegreen;">In case test execution is automated:</mark></p>
 
         <p>Jenkins (Technical Role) shall:</p>
         <ul>
-            <li>execute the test cases</li>
+            <li><mark style="background-color: orangered;">execute the code base test cases</mark></li>
+            <li><mark style="background-color: limegreen;">execute the test cases</mark></li>
             <li>record the test results and evidence after the execution and include them in the XUnit file following Good Documentation Practices</li>
             <li>mark the test cases as a "Fail" or a "Pass"</li>
             <li>stop the test execution if one of the test cases has failed</li>
@@ -255,8 +299,9 @@
 
         <p>As the execution is fully automated, as included in the section 3 "Roles and Responsibilities" the Tester and Test Administrator does not apply.</p>
 
-        <h4 id="section_8_2_2">Execution of Manual Test Cases</h4>
-        <p>In case test execution is manual:</p>
+        <h4 id="section_8_2_2"><mark style="background-color: limegreen;">Execution of Manual Test Cases</mark></h4>
+        <p><mark style="background-color: orangered;">In the case that the test execution is not fully automated:</mark></p>
+        <p><mark style="background-color: limegreen;">In case test execution is manual:</mark></p>
 
         <p>Testers shall:</p>
         <ul>
@@ -266,10 +311,13 @@
             <li>provide comments for all failed test cases</li>
             <li>sign and date each test in spaces provided after test execution</li>
             <li>label any test output or evidence (e.g., screenshots, printouts and any additional pages) with test case number and test step number. Sign and date the output. If pages have successive page numbers signing and dating the first or last page is sufficient.</li>
-            <li>if any deviations from the test are encountered, follow the Test Case Failure and Problem Resolution (see section 11)</li>
+            <li><mark style="background-color: orangered;">if any deviations from the test are encountered, follow the Test Case Failure and Problem Resolution (see section 10)</mark></li>
+            <li><mark style="background-color: limegreen;">if any deviations from the test are encountered, follow the Test Case Failure and Problem Resolution (see section 11)</mark></li>
+
         </ul>
 
-        <p>If a test case is executed by more than one person (tester), it is required that each tester signs (signature or initials and date) each test step for traceability purpose.</p>
+        <p><mark style="background-color: orangered;">If a test case is executed by more than one person (tester), it is required that each tester signs (signature or initials and date) each test step for traceability purposes.</mark></p>
+        <p><mark style="background-color: limegreen;">If a test case is executed by more than one person (tester), it is required that each tester signs (signature or initials and date) each test step for traceability purpose.</mark></p>
 
         <p>The Test Administrators shall:</p>
         <ul>
@@ -278,13 +326,15 @@
         </ul>
 
         <p>Test execution and test result review must be independent, i.e. for any individual test case the Tester and the Test Administrator must be different individuals.</p>
-        <p>The training records of all testers should be verified prior to initiating testing.</p>
+        <p><mark style="background-color: limegreen;">The training records of all testers should be verified prior to initiating testing.</mark></p>
 
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec8s2.content}}}</td>
             </tr>
         </table>
+
+        <p><mark style="background-color: orangered;">The training records of all testers should be verified prior to initiating testing.</mark></p>
     </div>
 
 
@@ -318,10 +368,10 @@
             <li>a tester's error</li>
         </ul>
 
-        <h3 id="section_11_1"><span>11.1</span> Automated Test Cases</h3>
-        <p>All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log. Failed automated test cases where the failure cannot be resolved within the Q environment are considered unacceptable. A move to P is not possible. These failures must be resolved via a change control in the Dev environment.</p>
+        <h3 id="section_11_1"><mark style="background-color: limegreen;"><span>11.1</span> Automated Test Cases</mark></h3>
+        <p><mark style="background-color: limegreen;">All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log. Failed automated test cases where the failure cannot be resolved within the Q environment are considered unacceptable. A move to P is not possible. These failures must be resolved via a change control in the Dev environment.</mark></p>
 
-        <h3 id="section_11_2"><span>11.2</span> Manual Test Cases</h3>
+        <h3 id="section_11_2"><mark style="background-color: limegreen;"><span>11.2</span> Manual Test Cases</mark></h3>
         <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>
         <p>The Test Administrator will also record all discrepancies that occur during the test execution in a designated discrepancy log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the discrepancy log.</p>
         <p>The final evaluation of remaining risks and unresolved critical failures will be assessed in the validation summary report.</p>

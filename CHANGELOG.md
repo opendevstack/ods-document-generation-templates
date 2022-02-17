@@ -2,11 +2,12 @@
 
 ## Unreleased
 
-## 1.2 - 2022-02-15
+## 1.2 - 2022-02-17
 ### Added
 - CFTP for Gamp3/4/5 - Purpose chapter 7.1.1 needs changes([#64](https://github.com/opendevstack/ods-document-generation-templates/pull/64))
 - SDSS for GAMP3/4 - Missing Section 3.2.x tokens for replacement ([#67](https://github.com/opendevstack/ods-document-generation-templates/issues/67))
 - CFTP for GAMP3/4/5 improvements ([#73](https://github.com/opendevstack/ods-document-generation-templates/pull/73))
+- Add missing chapter numbers([#77](https://github.com/opendevstack/ods-document-generation-templates/pull/77))
 
 ## 1.2 - 2021-18-11
 

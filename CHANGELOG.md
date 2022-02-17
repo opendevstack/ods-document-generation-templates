@@ -8,6 +8,7 @@
 - SDSS for GAMP3/4 - Missing Section 3.2.x tokens for replacement ([#67](https://github.com/opendevstack/ods-document-generation-templates/issues/67))
 - CFTP for GAMP3/4/5 improvements ([#73](https://github.com/opendevstack/ods-document-generation-templates/pull/73))
 - Add missing chapter numbers([#77](https://github.com/opendevstack/ods-document-generation-templates/pull/77))
+- Fixes column widths in various document templates([#80](https://github.com/opendevstack/ods-document-generation-templates/pull/80))
 
 ## 1.2 - 2021-18-11
 

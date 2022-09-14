@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Allow Discrepancies in EDP Templates([#84](https://github.com/opendevstack/ods-document-generation-templates/pull/84))
 
 ## 1.2 - 2022-02-18
 ### Added

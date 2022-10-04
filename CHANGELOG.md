@@ -4,6 +4,7 @@
 - Allow Discrepancies in EDP Templates([#84](https://github.com/opendevstack/ods-document-generation-templates/pull/84))
 - Fix CI name of Container PAAS system references([#85](https://github.com/opendevstack/ods-document-generation-templates/pull/85))
 - Fix truncated table in SSDS when emails cannot be truncated ([#86](https://github.com/opendevstack/ods-document-generation-templates/pull/86))
+- Allow re-deployments and advancing to P despite defects ([#87](https://github.com/opendevstack/ods-document-generation-templates/pull/87))
 
 ## 1.2 - 2022-02-18
 ### Added

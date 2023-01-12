@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add check for project property PROJECT.IS_GXP in SSDS templates ([#90](https://github.com/opendevstack/ods-document-generation-templates/pull/90))
 - Rename BuildConfig and DeploymentConfig to abstract *Resource ([#88](https://github.com/opendevstack/ods-document-generation-templates/pull/88))
 
 ## 1.2.2 - 2022-11-18

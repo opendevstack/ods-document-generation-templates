@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Enable all GAMP Categories in the CSD documents for GAMP3/4/5 ([#91](https://github.com/opendevstack/ods-document-generation-templates/pull/91))
 - Add check for project property PROJECT.IS_GXP in SSDS templates ([#90](https://github.com/opendevstack/ods-document-generation-templates/pull/90))
 - Rename BuildConfig and DeploymentConfig to abstract *Resource ([#88](https://github.com/opendevstack/ods-document-generation-templates/pull/88))
 

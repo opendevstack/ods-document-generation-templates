@@ -1,12 +1,17 @@
 # Changelog
 
 ## Unreleased
+
+## 1.2.3 - 2022-11-17
 - Disallow ConfigSpecs in CSD for GAMP 3 ([#93](https://github.com/opendevstack/ods-document-generation-templates/pull/93))
 - Enable all GAMP Categories in the CSD documents for GAMP3/4/5 ([#91](https://github.com/opendevstack/ods-document-generation-templates/pull/91))
 - Add check for project property PROJECT.IS_GXP in SSDS templates ([#90](https://github.com/opendevstack/ods-document-generation-templates/pull/90))
 - Rename BuildConfig and DeploymentConfig to abstract *Resource ([#88](https://github.com/opendevstack/ods-document-generation-templates/pull/88))
 
 ## 1.2.2 - 2022-11-18
+
+## 1.2 - 2022-10-04
+### Added
 - Allow Discrepancies in EDP Templates([#84](https://github.com/opendevstack/ods-document-generation-templates/pull/84))
 - Fix CI name of Container PAAS system references([#85](https://github.com/opendevstack/ods-document-generation-templates/pull/85))
 - Fix truncated table in SSDS when emails cannot be truncated ([#86](https://github.com/opendevstack/ods-document-generation-templates/pull/86))

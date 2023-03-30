@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}</td>
+                            <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Date Created:</td>
@@ -94,7 +94,7 @@
             </tr>
             {{#each data.documentHistory}}
             <tr>
-                <td class="lean">{{{entryId}}}</td>
+                <td class="lean">{{{docVersion}}}</td>
                 <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
                 <td class="content-wrappable">
                     {{{rational}}}

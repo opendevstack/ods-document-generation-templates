@@ -153,24 +153,26 @@
         <p>The table below lists all Integration tests as defined during the risk assessment and additional optional tests created and executed during development. Not all of those tests are necessarily GxP relevant. To identify GxP-relevant tests please refer to the Risk Assessment or Traceability Matrix.</p>
 
 		<table>
-			<tr>
+			<thead>
 				<th class="lean">ID from Jira</th>
 				<th class="lean">Description</th>
 				<th class="lean">Passed (Y/N)</th>
 				<!-- <th class="lean">Remark</th> -->
 				<th class="lean">Execution time</th>
 				<th class="lean">Run #</th>
-			</tr>
-			{{#each data.integrationTests}}
-			<tr>
-				<td class="lean">{{key}}</td>
-				<td class="content-wrappable">{{{description}}}</td>
-				<td class="lean">{{success}}</td>
-				<!-- <td class="lean">{{remarks}}</td> -->
-				<td class="lean">{{{datetime}}}</td>
-				<td class="lean">{{metadata.jenkins.buildNumber}}</td>
-			</tr>
-			{{/each}}
+			</thead>
+			<tbody>
+				{{#each data.integrationTests}}
+				<tr>
+					<td class="lean">{{key}}</td>
+					<td class="content-wrappable">{{{description}}}</td>
+					<td class="lean">{{success}}</td>
+					<!-- <td class="lean">{{remarks}}</td> -->
+					<td class="lean">{{{datetime}}}</td>
+					<td class="lean">{{metadata.jenkins.buildNumber}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
 		</table>
 		{{else}}
 			<p><em>N/A</em></p>
@@ -183,24 +185,26 @@
             <p>The table below lists all Functional tests as defined during the risk assessment and additional optional tests created and executed during development. Not all of those tests are necessarily GxP relevant. To identify GxP-relevant tests please refer to the Risk Assessment or Traceability Matrix.</p>
 				{{#if data.acceptanceTests}}
 				<table>
-					<tr>
+					<thead>
 						<th class="lean">ID from Jira</th>
 						<th class="lean">Description</th>
 						<th class="lean">Passed (Y/N)</th>
 						<!-- <th class="lean">Remark</th> -->
 						<th class="lean">Execution time</th>
 						<th class="lean">Run #</th>
-					</tr>
-					{{#each data.acceptanceTests}}
-					<tr>
-						<td class="lean">{{key}}</td>
-						<td class="content-wrappable">{{{description}}}</td>
-						<td class="lean">{{success}}</td>
-						<!-- <td class="lean">{{remarks}}</td> -->
-						<td class="lean">{{{datetime}}}</td>
-						<td class="lean">{{metadata.jenkins.buildNumber}}</td>
-					</tr>
-					{{/each}}
+					</thead>
+					<tbody>
+						{{#each data.acceptanceTests}}
+						<tr>
+							<td class="lean">{{key}}</td>
+							<td class="content-wrappable">{{{description}}}</td>
+							<td class="lean">{{success}}</td>
+							<!-- <td class="lean">{{remarks}}</td> -->
+							<td class="lean">{{{datetime}}}</td>
+							<td class="lean">{{metadata.jenkins.buildNumber}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
 				</table>
 				{{else}}
 					<p><em>N/A</em></p>
@@ -279,49 +283,51 @@
         <h2 id="section_8"><span>8</span>Document History</h2>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{docVersion}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">
@@ -335,53 +341,50 @@
         <h2 id="section_9"><span>9</span>Appendix 1: Risk Assessment</h2>
         <h3 id="section_9_1"><span>9.1</span>Risk Assessment Table Description</h3>
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Column</th>
                 <th class="content-wrappable">Description</th>
                 <th class="lean">Completion by</th>
-            </tr>
-            <tr>
-                <td class="lean">Issue No.</td>
-                <td class="content-wrappable">Concurrent numbering of observations</td>
-                <td class="lean">Validation Manager</td>
-            </tr>
-            <tr>
-                <td class="lean">Test Case No.</td>
-                <td class="content-wrappable">Reference to the failed or skipped test case</td>
-                <td class="lean">Validation Manager</td>
-            </tr>
-
-            <tr>
-                <td class="lean">Description of Failure or Discrepancy</td>
-                <td class="content-wrappable">Description of unmet acceptance criteria, of failed function or test case criteria and reason for this</td>
-                <td class="lean">Validation Manager</td>
-            </tr>
-
-            <tr>
-                <td class="lean">Remediation Action</td>
-                <td class="content-wrappable">Description of the proposed measures to eliminate or mitigate the risk</td>
-                <td class="lean">Validation Manager and CSV&C Function</td>
-            </tr>
-
-            <tr>
-                <td class="lean"><p>Responsible</p>
-                <p>Due date</p></td>
-                <td class="content-wrappable"><p>Responsible role / person to track the defined measures</p>
-                <p>Due date for the defined measures</p></td>
-                <td class="lean">Validation Manager and CSV&C Function</td>
-            </tr>
-
-            <tr>
-                <td class="lean">Analysed Risk</td>
-                <td class="content-wrappable">Description of the analysed risk associated with the observed issue</td>
-                <td class="lean">Validation Manager and CSV&C Function</td>
-            </tr>
-
-            <tr>
-                <td class="lean">Risk Acceptability *</td>
-                <td class="content-wrappable">Identification in which degree the proposed resolution is tolerable</td>
-                <td class="lean">Validation Manager and CSV&C Function</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Issue No.</td>
+					<td class="content-wrappable">Concurrent numbering of observations</td>
+					<td class="lean">Validation Manager</td>
+				</tr>
+				<tr>
+					<td class="lean">Test Case No.</td>
+					<td class="content-wrappable">Reference to the failed or skipped test case</td>
+					<td class="lean">Validation Manager</td>
+				</tr>
+				<tr>
+					<td class="lean">Description of Failure or Discrepancy</td>
+					<td class="content-wrappable">Description of unmet acceptance criteria, of failed function or test case criteria and reason for this</td>
+					<td class="lean">Validation Manager</td>
+				</tr>
+				<tr>
+					<td class="lean">Remediation Action</td>
+					<td class="content-wrappable">Description of the proposed measures to eliminate or mitigate the risk</td>
+					<td class="lean">Validation Manager and CSV&C Function</td>
+				</tr>
+				<tr>
+					<td class="lean"><p>Responsible</p>
+					<p>Due date</p></td>
+					<td class="content-wrappable"><p>Responsible role / person to track the defined measures</p>
+					<p>Due date for the defined measures</p></td>
+					<td class="lean">Validation Manager and CSV&C Function</td>
+				</tr>
+				<tr>
+					<td class="lean">Analysed Risk</td>
+					<td class="content-wrappable">Description of the analysed risk associated with the observed issue</td>
+					<td class="lean">Validation Manager and CSV&C Function</td>
+				</tr>
+				<tr>
+					<td class="lean">Risk Acceptability *</td>
+					<td class="content-wrappable">Identification in which degree the proposed resolution is tolerable</td>
+					<td class="lean">Validation Manager and CSV&C Function</td>
+				</tr>
+			</tbody>
         </table>
         <p>* The risk acceptability is identified as follows:</p>
         <p>A = Acceptable with no follow up required</p>

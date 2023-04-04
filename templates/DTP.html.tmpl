@@ -103,14 +103,16 @@
         <h2 id="section_2"><span>2</span>Responsibilities</h2>
         Tests are executed by the platform / Jenkins build engine and are written by developers during the development phase.
         <table>
-            <tr>
+            <thead>
                 <th>Role</th>
                 <th>Responsibilities</th>
-            </tr>
-            <tr>
-                <td>Developer</td>
-                <td>Writes tests</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td>Developer</td>
+					<td>Writes tests</td>
+				</tr>
+			</tbody>
         </table>
     </div>
 
@@ -129,18 +131,20 @@
         <p>The following table contains the list of repositories that will be scanned for unit tests. For the unit tests defined in JIRA, the test ID is shown. More information about them can be found in <a href="#section_4">section 4</a>.</p>
 
         <table>
-   			<tr>
+   			<thead>
 	   			<th class="lean">Module Name</th>
 	   			<th class="lean">Description</th>
 	   			<th class="lean">Test IDs</th>
-   			</tr>
-            {{#each data.modules}}
-            <tr>
-                <td class="lean">{{id}}</td>
-                <td class="content-wrappable">{{description}}</td>
-                <td class="content-wrappable">{{tests}}</td>
-            </tr>
-            {{/each}}
+   			</thead>
+			<tbody>
+				{{#each data.modules}}
+				<tr>
+					<td class="lean">{{id}}</td>
+					<td class="content-wrappable">{{description}}</td>
+					<td class="content-wrappable">{{tests}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
     </div>
 
@@ -174,7 +178,7 @@
         {{#if data.tests}}
         <p>The following table shows only the Unit test cases which mitigate or cover the corresponding Risks or System Requirements and are defined in Jira by the project team. They can be found in the detailed Unit Test Report searching by the ID from Jira.</p>
         <table>
-            <tr>
+            <thead>
                 <th class="lean">CSD ID</th>
                 <th class="lean">Test ID</th>
                 <th class="content-wrappable">Reference to System and Software Design Spec</th>
@@ -182,18 +186,20 @@
                 <th class="content-wrappable">Description</th>
                 <th class="lean">Passed (Y/N)</th>
                 <th class="lean">Comments</th>
-            </tr>
-            {{#each data.tests}}
-            <tr>
-                <td class="content-wrappable">{{systemRequirement}}</td>
-                <td class="lean">{{testKey}}</td>
-                <td class="content-wrappable">{{{softwareDesignSpec}}}</td>
-                <td class="lean">{{riskLevel}}</td>
-                <td class="content-wrappable">{{{description}}}</td>
-                <td class="lean">&nbsp;</td>
-                <td class="lean">&nbsp;</td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.tests}}
+				<tr>
+					<td class="content-wrappable">{{systemRequirement}}</td>
+					<td class="lean">{{testKey}}</td>
+					<td class="content-wrappable">{{{softwareDesignSpec}}}</td>
+					<td class="lean">{{riskLevel}}</td>
+					<td class="content-wrappable">{{{description}}}</td>
+					<td class="lean">&nbsp;</td>
+					<td class="lean">&nbsp;</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{else}}
             <p><em>N/A</em></p>
@@ -236,49 +242,51 @@
         <h2 id="section_7"><span>7</span>Document History</h2>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{docVersion}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">

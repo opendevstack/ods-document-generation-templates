@@ -158,17 +158,19 @@
 			{{#if data.sections.sec3s1.specifications}}
             <p>The system has the following system design specifications:</p>
 			<table>
-				<tr>
+				<thead>
 					<th>SSDS #</th>
 					<th class="content-wrappable">Detailed Technical/Functional Specification</th>
 					<th>Traces To:</th>
-				</tr>
-				{{#each data.sections.sec3s1.specifications}}
-				<tr>
-					<td class="lean">{{key}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-					<td class="content-wrappable">{{req_key}}</td>
-				</tr>
+				</thead>
+				<tbody>
+					{{#each data.sections.sec3s1.specifications}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{{description}}}</td>
+						<td class="content-wrappable">{{req_key}}</td>
+					</tr>
+				</tbody>
 				{{/each}}
 			</table>
 			{{else}}
@@ -192,16 +194,18 @@
 			{{#if data.sections.sec10.modules}}
 			<p>The following modules (components) will be developed.</p>
 			<table>
-				<tr>
+				<thead>
 					<th class="content-wrappable">Name of module</th>
 					<th class="content-wrappable">Purpose </th>
-				</tr>
-				{{#each data.sections.sec10.modules}}
-				<tr>
-					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec10.modules}}
+					<tr>
+						<td class="content-wrappable">{{nameOfSoftware}}</td>
+						<td class="content-wrappable">{{{description}}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -235,22 +239,24 @@
 			{{#if data.sections.sec5s1.components}}
 			<p>This system is composed of the following components: </p>
 			<table>
-				<tr>
+				<thead>
 					<th>SSDS #</th>
 					<th class="content-wrappable">Type of Component</th>
 					<th class="content-wrappable">Identification (Config. Item)</th>
 					<th class="content-wrappable">Functionality/Purpose</th>
 					<th class="content-wrappable">Components Specifications (Section/Doc ID)</th>
-				</tr>
-				{{#each data.sections.sec5s1.components}}
-				<tr>
-					<td class="lean">{{key}}</td>
-					<td class="content-wrappable">{{componentType}}</td>
-					<td class="content-wrappable">{{componentId}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-					<td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec5s1.components}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{componentType}}</td>
+						<td class="content-wrappable">{{componentId}}</td>
+						<td class="content-wrappable">{{{description}}}</td>
+						<td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -261,7 +267,7 @@
 			<p>The installation comprises the following software-defined components, except where denoted otherwise:</p>
             {{#if data.sections.sec5s1.components}}
 			<table>
-				<tr>
+				<thead>
 					<th>SSDS #</th>
 					<th class="content-wrappable">Name of Software</th>
 					<th>Supplier</th>
@@ -269,18 +275,20 @@
 					<th class="content-wrappable">Description of Functionality</th>
 					<th>References</th>
 					<th class="content-wrappable">Installed by ODS</th>
-				</tr>
-				{{#each data.sections.sec5s1.components}}
-				<tr>
-					<td class="content-wrappable">{{key}}</td>
-					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td class="content-wrappable">{{supplier}}</td>
-					<td class="content-wrappable">{{version}}</td>
-					<td class="content-wrappable">{{description}}</td>
-					<td class="content-wrappable">{{references}}</td>
-					<td class="content-wrappable">{{doInstall}}</td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec5s1.components}}
+					<tr>
+						<td class="content-wrappable">{{key}}</td>
+						<td class="content-wrappable">{{nameOfSoftware}}</td>
+						<td class="content-wrappable">{{supplier}}</td>
+						<td class="content-wrappable">{{version}}</td>
+						<td class="content-wrappable">{{description}}</td>
+						<td class="content-wrappable">{{references}}</td>
+						<td class="content-wrappable">{{doInstall}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -360,33 +368,37 @@
 			{{#each data.sections.sec10.modules}}
 			<h3 id="section_10_{{@index}}">{{nameOfSoftware}}</h3>
 			<table>
-				<tr>
+				<thead>
 					<th>Component Name</th>
 					<th>Type of Module</th>
 					<th class="content-wrappable">Source code location</th>
 					<th>Version</th>
-				</tr>
-				<tr>
-					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td>{{componentType}}</td>
-					<td class="content-wrappable">{{supplier}}</td>
-					<td class="lean">{{version}}</td>
-				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="content-wrappable">{{nameOfSoftware}}</td>
+						<td>{{componentType}}</td>
+						<td class="content-wrappable">{{supplier}}</td>
+						<td class="lean">{{version}}</td>
+					</tr>
+				</tbody>
 			</table>
 			<p>{{{description}}}</p>
 				{{#if softwareDesignSpec}}
 					<p>This module has the following software design specifications:</p>
 					<table>
-					<tr>
+					<thead>
 						<th>SSDS #</th>
 						<th class="content-wrappable">Description</th>
-					</tr>
-					{{#each softwareDesignSpec}}
-					<tr>
-						<td class="lean">{{key}}</td>
-						<td class="content-wrappable">{{{softwareDesignSpec}}}</td>
-					</tr>
-					{{/each}}
+					</thead>
+					<tbody>
+						{{#each softwareDesignSpec}}
+						<tr>
+							<td class="lean">{{key}}</td>
+							<td class="content-wrappable">{{{softwareDesignSpec}}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
 					</table>
 				{{/if}}
 
@@ -394,16 +406,18 @@
 				{{#each requirements}}
 					<p>For the GAMP topic <i>{{gampTopic}}</i>, the following requirements are covered by the SSDS above:</p>
 					<table>
-					<tr>
+					<thead>
 						<th>Req #</th>
 						<th class="content-wrappable">Requirement</th>
-					</tr>
-					{{#each requirementsofTopic}}
-					<tr>
-						<td class="lean">{{key}}</td>
-						<td class="content-wrappable">{{{name}}}<br>{{{reqDescription}}}</td>
-					</tr>
-					{{/each}}
+					</thead>
+					<tbody>
+						{{#each requirementsofTopic}}
+						<tr>
+							<td class="lean">{{key}}</td>
+							<td class="content-wrappable">{{{name}}}<br>{{{reqDescription}}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
 					</table>
 				{{/each}}
 				{{/if}}
@@ -418,18 +432,20 @@
 			{{#if data.sections.sec10.modules}}
 			<p>The following modules will be reviewed.</p>
 			<table>
-				<tr>
+				<thead>
 					<th class="content-wrappable">Name of module</th>
 					<th class="content-wrappable">Functionality</th>
 					<th class="content-wrappable">References to SSDS</th>
-				</tr>
-				{{#each data.sections.sec10.modules}}
-				<tr>
-					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td class="content-wrappable">{{description}}</td>
-					<td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec10.modules}}
+					<tr>
+						<td class="content-wrappable">{{nameOfSoftware}}</td>
+						<td class="content-wrappable">{{description}}</td>
+						<td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -475,49 +491,51 @@
 			<h2 id="section_15"><span>15</span>Document History</h2>
             {{#if data.documentHistory}}
             <table>
-                <tr>
+                <thead>
                     <th class="lean">Version</th>
                     <th class="lean">Date</th>
                     <th class="lean">Author</th>
                     <th>Change Reference</th>
-                </tr>
-                {{#each data.documentHistory}}
-                <tr>
-                    <td class="lean">{{{docVersion}}}</td>
-                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                    <td class="content-wrappable">
-                        {{{rational}}}
-                        <br>
-                        {{#each issueType}}
-                        {{#if added}}
-                        The following {{type}} were added:
-                        <ul>
-                            {{#each added}}
-                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        {{#if discontinued}}
-                        The following {{type}} were removed:
-                        <ul>
-                            {{#each discontinued}}
-                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        {{#if changed}}
-                        The following {{type}} were changed:
-                        <ul>
-                            {{#each changed}}
-                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        <br>
-                        {{/each}}
-                    </td>
-                </tr>
-                {{/each}}
+                </thead>
+				<tbody>
+					{{#each data.documentHistory}}
+					<tr>
+						<td class="lean">{{{docVersion}}}</td>
+						<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+						<td class="content-wrappable">
+							{{{rational}}}
+							<br>
+							{{#each issueType}}
+							{{#if added}}
+							The following {{type}} were added:
+							<ul>
+								{{#each added}}
+								<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+							{{#if discontinued}}
+							The following {{type}} were removed:
+							<ul>
+								{{#each discontinued}}
+								<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+							{{#if changed}}
+							The following {{type}} were changed:
+							<ul>
+								{{#each changed}}
+								<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+							<br>
+							{{/each}}
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
             </table>
             {{/if}}
 			<table class="no-border">
@@ -545,37 +563,39 @@
                     The following table lists all PRs which have been approved and merged into a Bitbucket repository’s integration branch:
                 </p>
                 <table>
-                    <tr>
+                    <thead>
                         <th>Date</th>
                         <th>Component</th>
                         <th>Author</th>
                         <th>Reviewer</th>
                         <th>Commit SHA and URL</th>
-                    </tr>
-                    {{#each data.sections.sec16s1.bitbucket}}
-                    <tr>
-                        <td class="content-wrappable">{{date}}</td>
-                        <td class="content-wrappable">{{component}}</td>
-                        <td class="content-wrappable break-all" style="min-width: 200px;">
-                            <ul>
-                                <li>{{authorName}}, {{authorEmail}}</li>
-                            </ul>
-                        </td>
-                        <td class="content-wrappable break-all" style="min-width: 200px;">
-                            <ul>
-                            {{#each reviewers}}
-                                <li>{{reviewerName}}, {{reviewerEmail}}</li>
-                            {{/each}}
-                            </ul>
-                        </td>
-                        <td class="content-wrappable">
-                            <ul>
-                                <li>SHA: {{commit}}</li>
-                                <li>{{url}}</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    {{/each}}
+                    </thead>
+					<tbody>
+						{{#each data.sections.sec16s1.bitbucket}}
+						<tr>
+							<td class="content-wrappable">{{date}}</td>
+							<td class="content-wrappable">{{component}}</td>
+							<td class="content-wrappable break-all" style="min-width: 200px;">
+								<ul>
+									<li>{{authorName}}, {{authorEmail}}</li>
+								</ul>
+							</td>
+							<td class="content-wrappable break-all" style="min-width: 200px;">
+								<ul>
+								{{#each reviewers}}
+									<li>{{reviewerName}}, {{reviewerEmail}}</li>
+								{{/each}}
+								</ul>
+							</td>
+							<td class="content-wrappable">
+								<ul>
+									<li>SHA: {{commit}}</li>
+									<li>{{url}}</li>
+								</ul>
+							</td>
+						</tr>
+						{{/each}}
+					</tbody>
                 </table>
             {{else}}
                 <p><em>N/A</em></p>

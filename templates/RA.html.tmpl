@@ -99,20 +99,22 @@
         <h2 id="section_2"><span>2</span>Base Documents</h2>
         The risk assessment is based on the following documents:
         <table id="base_documents_table">
-            <tr>
+            <thead>
                 <th>Reference Document</th>
                 <th class="lean">Version</th>
                 <th class="content-wrappable">Prefix for Ref. No.</th>
-            </tr>
-            <tr>
-                <td class="content-wrappable">Combined Specification Document</td>
-                <td class="content-wrappable">{{metadata.referencedDocs.CSD}}</td>
-                <td class="content-wrappable" rowspan="2">N/A All Ref. Numbers are unique</td>
-            </tr>
-            <tr>
-                <td class="content-wrappable">System and Software Design Specification</td>
-                <td class="content-wrappable">{{metadata.referencedDocs.SSDS}}</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="content-wrappable">Combined Specification Document</td>
+					<td class="content-wrappable">{{metadata.referencedDocs.CSD}}</td>
+					<td class="content-wrappable" rowspan="2">N/A All Ref. Numbers are unique</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">System and Software Design Specification</td>
+					<td class="content-wrappable">{{metadata.referencedDocs.SSDS}}</td>
+				</tr>
+			</tbody>
         </table>
     </div>
 
@@ -132,125 +134,130 @@
         <h3 id="section_4_1"><span>4.1</span>Risk Assessment Table Description</h3>
         <p>The risk assessment table in section 5 comprises the following columns:</p>
         <table id="Risk Assessment Table Description">
-            <tr>
+            <thead>
                 <th>Column</th>
                 <th>Description</th>
-            </tr>
-            <tr>
-                <td class="lean">Risk No.</td>
-                <td class="content-wrappable">Identifier of the risk for reference within other documents</td>
-            </tr>
-			<tr>
-                <td class="lean">Requirement No.</td>
-                <td class="content-wrappable">Unambiguous reference to a specific requirement, function or a group of requirements in a reference document. The prefix indicates the referenced document</td>
-            </tr>
-			<tr>
-                <td class="lean">Requirement Summary</td>
-                <td class="content-wrappable">Short description of requirement or function</td>
-            </tr>
-			<tr>
-                <td class="lean">GxP</td>
-                <td class="content-wrappable">Relevance of the requirement or function for GxP or non-GxP (e.g. business). See section 4.2.1</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Description of Risks/Failures (or reason for GxP = No)</td>
-                <td class="content-wrappable">Description of possible risks or failures associated with the requirement or function. More than one risk or failure may be associated with a requirement or function.<br/>
-				If non-GxP risks are not evaluated, reason for classification as non-GxP is provided.</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Prob. of Occurrence</td>
-                <td class="content-wrappable">Probability that the failure will occur.</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Severity of Impact</td>
-                <td class="content-wrappable">Possible impact of the failure if it is not detected. See section 4.2.2</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Prob. of Detection</td>
-                <td class="content-wrappable">Most probable point in time when the failure will be detected in routine operation of the system. See section 4.2.4</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Risk Priority Number (RPN)</td>
-                <td class="content-wrappable">Product of the individual factors which determine the risk based on relevance, impact, probability of detection and Prob. of Occurrence (optional). See section 4.2.5</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Risk Priority</td>
-                <td class="content-wrappable">Categorized risk which is derived from the risk priority number RPN. 1 identifies highest risk priority and 3 lowest risk priority.</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Proposed Measures</td>
-                <td class="content-wrappable">Proposed measures (e.g. additional test requirements, design requirements, functional limitations, and organisational or procedural measures) for risk mitigation. This entry is mandatory for priority 1 GxP risks and optional for all other risk priorities</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">Comments</td>
-                <td class="content-wrappable">Comments as applicable (optional)</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Risk No.</td>
+					<td class="content-wrappable">Identifier of the risk for reference within other documents</td>
+				</tr>
+				<tr>
+					<td class="lean">Requirement No.</td>
+					<td class="content-wrappable">Unambiguous reference to a specific requirement, function or a group of requirements in a reference document. The prefix indicates the referenced document</td>
+				</tr>
+				<tr>
+					<td class="lean">Requirement Summary</td>
+					<td class="content-wrappable">Short description of requirement or function</td>
+				</tr>
+				<tr>
+					<td class="lean">GxP</td>
+					<td class="content-wrappable">Relevance of the requirement or function for GxP or non-GxP (e.g. business). See section 4.2.1</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Description of Risks/Failures (or reason for GxP = No)</td>
+					<td class="content-wrappable">Description of possible risks or failures associated with the requirement or function. More than one risk or failure may be associated with a requirement or function.<br/>
+					If non-GxP risks are not evaluated, reason for classification as non-GxP is provided.</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Prob. of Occurrence</td>
+					<td class="content-wrappable">Probability that the failure will occur.</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Severity of Impact</td>
+					<td class="content-wrappable">Possible impact of the failure if it is not detected. See section 4.2.2</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Prob. of Detection</td>
+					<td class="content-wrappable">Most probable point in time when the failure will be detected in routine operation of the system. See section 4.2.4</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Risk Priority Number (RPN)</td>
+					<td class="content-wrappable">Product of the individual factors which determine the risk based on relevance, impact, probability of detection and Prob. of Occurrence (optional). See section 4.2.5</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Risk Priority</td>
+					<td class="content-wrappable">Categorized risk which is derived from the risk priority number RPN. 1 identifies highest risk priority and 3 lowest risk priority.</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Proposed Measures</td>
+					<td class="content-wrappable">Proposed measures (e.g. additional test requirements, design requirements, functional limitations, and organisational or procedural measures) for risk mitigation. This entry is mandatory for priority 1 GxP risks and optional for all other risk priorities</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Comments</td>
+					<td class="content-wrappable">Comments as applicable (optional)</td>
+				</tr>
+			</tbody>
         </table>
 
         <h3 id="section_4_2"><span>4.2</span>Classification Rules</h3>
 			<h3 id="section_4_2_1"><span>4.2.1</span>GxP Relevance</h3>
 			<p>The requirement or function is evaluated to determine if it is related to GxP. If there are both GxP and non-GxP risks, GxP is documented as it is the more relevant risk. However, the associated non-GxP risk should also be taken into account.</p>
 			<table id="GxP Relevance" class="no-page-break">
-            <tr>
+            <thead>
                 <th>GxP Relevance</th>
                 <th>Value</th>
 				<th>Option</th>
 				<th>Description</th>
-            </tr>
-            <tr>
-                <td class="lean">Yes</td>
-                <td class="content-wrappable">R2</td>
-				<td class="content-wrappable">n/a</td>
-				<td class="content-wrappable">The requirement is directly related to GxP regulated activities. Failures could lead to incorrect data, loss of data, deterioration of product quality, or risk exposure for safety of patients or customers.</td>
-            </tr>
-			<tr>
-                <td class="lean" rowspan="3">No</td>
-                <td class="content-wrappable">N0</td>
-				<td class="content-wrappable">Non-GxP risks are not being evaluated</td>
-				<td class="content-wrappable" rowspan="3">The requirement has no GxP relevance. However, the requirement may have an impact on business. Failures could lead to e.g. system downtime, delay of submission process, loss of corporate reputation etc.</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">N1</td>
-				<td class="content-wrappable">Non-GxP risks are evaluated lower than GxP risks</td>
-            </tr>
-			<tr>
-                <td class="content-wrappable">N2</td>
-				<td class="content-wrappable">Non-GxP risks are evaluated the same as GxP risks</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Yes</td>
+					<td class="content-wrappable">R2</td>
+					<td class="content-wrappable">n/a</td>
+					<td class="content-wrappable">The requirement is directly related to GxP regulated activities. Failures could lead to incorrect data, loss of data, deterioration of product quality, or risk exposure for safety of patients or customers.</td>
+				</tr>
+				<tr>
+					<td class="lean" rowspan="3">No</td>
+					<td class="content-wrappable">N0</td>
+					<td class="content-wrappable">Non-GxP risks are not being evaluated</td>
+					<td class="content-wrappable" rowspan="3">The requirement has no GxP relevance. However, the requirement may have an impact on business. Failures could lead to e.g. system downtime, delay of submission process, loss of corporate reputation etc.</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">N1</td>
+					<td class="content-wrappable">Non-GxP risks are evaluated lower than GxP risks</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">N2</td>
+					<td class="content-wrappable">Non-GxP risks are evaluated the same as GxP risks</td>
+				</tr>
+			</tbody>
 			</table>
 
 			<table id="GxP Relevance Selection" class="no-page-break">
-            <tr>
-                <td class="lean">For {{metadata.buildParameter.configItem}}</td>
-                <td class="content-wrappable">{{data.sections.sec4s2s1.nonGxpEvaluation}}</td>
-            </tr>
+				<tr>
+					<td class="lean">For {{metadata.buildParameter.configItem}}</td>
+					<td class="content-wrappable">{{data.sections.sec4s2s1.nonGxpEvaluation}}</td>
+				</tr>
 			</table>
-
 
 			<h3 id="section_4_2_2"><span>4.2.2</span>Probability of Occurrence</h3>
             {{#if data.sections.sec4s2s2.usesPoo}}
 			<p>The probability that a possible failure does occur is classified according to the following table:</p>
 			<table id="probabilityofoccurrencetable" class="no-page-break">
-            <tr>
+            <thead>
                 <th class="content-wrappable">Probability Of Occurrence</th>
                 <th>Value</th>
 				<th class="content-wrappable">Description</th>
-            </tr>
-            <tr>
-                <td class="lean">Low</td>
-                <td class="content-wrappable">1</td>
-				<td class="content-wrappable">{{{data.sections.sec4s2s2.lowDescription}}}</td>
-            </tr>
-			<tr>
-                <td class="lean">Medium</td>
-                <td class="content-wrappable">2</td>
-				<td class="content-wrappable">{{{data.sections.sec4s2s2.mediumDescription}}}</td>
-            </tr>
-			<tr>
-                <td class="lean">High</td>
-                <td class="content-wrappable">3</td>
-				<td class="content-wrappable">{{{data.sections.sec4s2s2.highDescription}}}</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Low</td>
+					<td class="content-wrappable">1</td>
+					<td class="content-wrappable">{{{data.sections.sec4s2s2.lowDescription}}}</td>
+				</tr>
+				<tr>
+					<td class="lean">Medium</td>
+					<td class="content-wrappable">2</td>
+					<td class="content-wrappable">{{{data.sections.sec4s2s2.mediumDescription}}}</td>
+				</tr>
+				<tr>
+					<td class="lean">High</td>
+					<td class="content-wrappable">3</td>
+					<td class="content-wrappable">{{{data.sections.sec4s2s2.highDescription}}}</td>
+				</tr>
+			</tbody>
 			</table>
             {{else}}
             <p>This project does not use Probability Of Occurrence.</p>
@@ -259,55 +266,59 @@
 			<h3 id="section_4_2_3"><span>4.2.3</span>Severity of Impact</h3>
 			<p>The severity of the impact of a possible failure is evaluated according to the following classes:</p>
 			<table id="Severity of Impact" class="no-page-break">
-            <tr>
+            <thead>
                 <th class="content-wrappable">Severity of Impact</th>
                 <th>Value</th>
 				<th>GxP Impact</th>
 				<th class="content-wrappable">Non-GxP Impact (e.g. to cover business risks)</th>
-            </tr>
-            <tr>
-                <td class="lean">Low</td>
-                <td class="content-wrappable">1</td>
-				<td class="content-wrappable">No impact on product quality, patient safety, or data quality; no impact on data integrity is expected: no deviation from regulatory obligations or predicate rules</td>
-				<td class="content-wrappable">Low cost risk; no delay of regulatory processes</td>
-            </tr>
-			<tr>
-                <td class="lean">Medium</td>
-                <td class="content-wrappable">2</td>
-				<td class="content-wrappable">Product quality, patient safety, or data quality could be impacted; correctable impact on data integrity; potential; probability of a deviation from regulatory obligations or predicate rule</td>
-				<td class="content-wrappable">Medium cost risk; short delay of regulatory processes</td>
-            </tr>
-			<tr>
-                <td class="lean">High</td>
-                <td class="content-wrappable">3</td>
-				<td class="content-wrappable">Product quality, patient safety, or data quality will probably be impacted; uncorrectable impact on data integrity; deviation from regulatory obligations or predicate rules</td>
-				<td class="content-wrappable">High cost risk; significant delay of regulatory processes</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Low</td>
+					<td class="content-wrappable">1</td>
+					<td class="content-wrappable">No impact on product quality, patient safety, or data quality; no impact on data integrity is expected: no deviation from regulatory obligations or predicate rules</td>
+					<td class="content-wrappable">Low cost risk; no delay of regulatory processes</td>
+				</tr>
+				<tr>
+					<td class="lean">Medium</td>
+					<td class="content-wrappable">2</td>
+					<td class="content-wrappable">Product quality, patient safety, or data quality could be impacted; correctable impact on data integrity; potential; probability of a deviation from regulatory obligations or predicate rule</td>
+					<td class="content-wrappable">Medium cost risk; short delay of regulatory processes</td>
+				</tr>
+				<tr>
+					<td class="lean">High</td>
+					<td class="content-wrappable">3</td>
+					<td class="content-wrappable">Product quality, patient safety, or data quality will probably be impacted; uncorrectable impact on data integrity; deviation from regulatory obligations or predicate rules</td>
+					<td class="content-wrappable">High cost risk; significant delay of regulatory processes</td>
+				</tr>
+			</tbody>
 			</table>
 
 			<h3 id="section_4_2_4"><span>4.2.4</span>Probability of Detection</h3>
 			<p>The most probable point in time when a possible failure is detected is classified according to the following table:</p>
 			<table id="Probability of Detection" class="no-page-break">
-            <tr>
+            <thead>
                 <th class="content-wrappable">Probability of Detection</th>
                 <th class="lean">Value</th>
 				<th>Description</th>
-            </tr>
-            <tr>
-                <td class="lean">Inmediate</td>
-                <td class="lean">1</td>
-				<td class="content-wrappable">The failure is detected immediately when it occurs. The user is able to take immediate measures to correct the failure before any impact can occur.</td>
-            </tr>
-			<tr>
-                <td class="lean">Before Impact</td>
-                <td class="lean">2</td>
-				<td class="content-wrappable">The failure is not detected immediately by the user but later before it may have any impact. The effect of the failure may still be corrected or minimized by appropriate corrective actions.</td>
-            </tr>
-			<tr>
-                <td class="lean">After Impact</td>
-                <td class="lean">3</td>
-				<td class="content-wrappable">The failure will most probably not be detected before the expected impact occurs.</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Inmediate</td>
+					<td class="lean">1</td>
+					<td class="content-wrappable">The failure is detected immediately when it occurs. The user is able to take immediate measures to correct the failure before any impact can occur.</td>
+				</tr>
+				<tr>
+					<td class="lean">Before Impact</td>
+					<td class="lean">2</td>
+					<td class="content-wrappable">The failure is not detected immediately by the user but later before it may have any impact. The effect of the failure may still be corrected or minimized by appropriate corrective actions.</td>
+				</tr>
+				<tr>
+					<td class="lean">After Impact</td>
+					<td class="lean">3</td>
+					<td class="content-wrappable">The failure will most probably not be detected before the expected impact occurs.</td>
+				</tr>
+			</tbody>
 			</table>
 
 			<h3 id="section_4_2_5"><span>4.2.5</span>Risk Priority Number and Risk Priority</h3>
@@ -317,41 +328,45 @@
 
             {{#if data.sections.sec4s2s2.usesPoo}}
             <table id="risk_priority_mapping_with_poo" class="no-page-break">
-                <tr>
+                <thead>
                     <th>RPN</th>
                     <th>Risk Priority</th>
-                </tr>
-                <tr>
-                    <td class="lean">1-4</td>
-                    <td class="lean">3</td>
-                </tr>
-                <tr>
-                    <td class="lean">6-16</td>
-                    <td class="lean">2</td>
-                </tr>
-                <tr>
-                    <td class="lean">&gt;16</td>
-                    <td class="lean">1</td>
-                </tr>
+                </thead>
+				<tbody>
+					<tr>
+						<td class="lean">1-4</td>
+						<td class="lean">3</td>
+					</tr>
+					<tr>
+						<td class="lean">6-16</td>
+						<td class="lean">2</td>
+					</tr>
+					<tr>
+						<td class="lean">&gt;16</td>
+						<td class="lean">1</td>
+					</tr>
+				</tbody>
             </table>
             {{else}}
             <table id="risk_priority_mapping_no_poo" class="no-page-break">
-                <tr>
+                <thead>
                     <th>RPN</th>
                     <th>Risk Priority</th>
-                </tr>
-                <tr>
-                    <td class="lean">1-2</td>
-                    <td class="lean">3</td>
-                </tr>
-                <tr>
-                    <td class="lean">3-8</td>
-                    <td class="lean">2</td>
-                </tr>
-                <tr>
-                    <td class="lean">&gt;8</td>
-                    <td class="lean">1</td>
-                </tr>
+                </thead>
+				<tbody>
+					<tr>
+						<td class="lean">1-2</td>
+						<td class="lean">3</td>
+					</tr>
+					<tr>
+						<td class="lean">3-8</td>
+						<td class="lean">2</td>
+					</tr>
+					<tr>
+						<td class="lean">&gt;8</td>
+						<td class="lean">1</td>
+					</tr>
+				</tbody>
             </table>
             {{/if}}
             <p>A risk considered as non-GxP and not being evaluated will lead to a RPN = 0 and Risk Priority = 0.</p>
@@ -359,22 +374,24 @@
 			<h3 id="section_4_2_6"><span>4.2.6</span>Proposed Measure</h3>
 			<p>Depending on the risk priority risk mitigating measures must be defined according to the following table. The System Owner must ensure that the defined measures are being implemented.</p>
 			<table id="Proposed Measure" class="no-page-break">
-            <tr>
+            <thead>
                 <th class="content-wrappable">Risk Priority</th>
                 <th>Requirements for mitigating measures</th>
-            </tr>
-            <tr>
-                <td class="lean">1</td>
-                <td class="content-wrappable">Measures in addition to functional or requirements testing need to be defined, whenever feasible. Measures can be procedural measures (e.g. additional checks, four eyes principle, typically defined in a WI or SOP) or technical measures (e.g. additional technical checks, technical security measures).</td>
-            </tr>
-			<tr>
-                <td class="lean">2</td>
-                <td class="content-wrappable">Measures need only to be defined if the underlying functionality cannot be tested, or cannot be tested on an appropriate level.</td>
-            </tr>
-			<tr>
-                <td class="lean">3</td>
-                <td class="content-wrappable">In general no risk mitigating measures need to be defined.</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">1</td>
+					<td class="content-wrappable">Measures in addition to functional or requirements testing need to be defined, whenever feasible. Measures can be procedural measures (e.g. additional checks, four eyes principle, typically defined in a WI or SOP) or technical measures (e.g. additional technical checks, technical security measures).</td>
+				</tr>
+				<tr>
+					<td class="lean">2</td>
+					<td class="content-wrappable">Measures need only to be defined if the underlying functionality cannot be tested, or cannot be tested on an appropriate level.</td>
+				</tr>
+				<tr>
+					<td class="lean">3</td>
+					<td class="content-wrappable">In general no risk mitigating measures need to be defined.</td>
+				</tr>
+			</tbody>
 			</table>
     </div>
 
@@ -382,7 +399,7 @@
         <h2 id="section_5"><span>5</span>Risk Assessment Table</h2>
         {{#if data.sections.sec5.risks }}
 		<table id="Risk Assessment Table">
-            <tr>
+            <thead>
                 <th class="content-wrappable">Risk No.</th>
                 <th class="content-wrappable">Ref No.</th>
 				<th class="content-wrappable">Requirement/ Function</th>
@@ -395,42 +412,46 @@
 				<th class="content-wrappable">Risk Prio.</th>
 				<th class="content-wrappable">Proposed Measures</th>
 				<th class="content-wrappable">Comments</th>
-            </tr>
-            {{#each data.sections.sec5.risks }}
-            <tr>
-                <td class="lean">{{key}}</td>
-                <td class="lean">{{{requirementsKey}}}</td>
-				<td class="content-wrappable">{{{requirements}}}</td>
-				<td class="lean">{{gxpRelevance}}</td>
-				<td class="content-wrappable">Summary:{{name}}.<br>{{{description}}}</td>
-				<td class="content-wrappable">{{probabilityOfOccurrence}}</td>
-				<td class="content-wrappable">{{severityOfImpact}}</td>
-				<td class="content-wrappable">{{probabilityOfDetection}}</td>
-				<td class="content-wrappable">{{riskPriorityNumber}}</td>
-				<td class="content-wrappable">{{riskPriority}}</td>
-				<td class="content-wrappable">{{{proposedMeasures}}}</td>
-				<td class="content-wrappable">{{{riskComment}}}</td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.sections.sec5.risks }}
+				<tr>
+					<td class="lean">{{key}}</td>
+					<td class="lean">{{{requirementsKey}}}</td>
+					<td class="content-wrappable">{{{requirements}}}</td>
+					<td class="lean">{{gxpRelevance}}</td>
+					<td class="content-wrappable">Summary:{{name}}.<br>{{{description}}}</td>
+					<td class="content-wrappable">{{probabilityOfOccurrence}}</td>
+					<td class="content-wrappable">{{severityOfImpact}}</td>
+					<td class="content-wrappable">{{probabilityOfDetection}}</td>
+					<td class="content-wrappable">{{riskPriorityNumber}}</td>
+					<td class="content-wrappable">{{riskPriority}}</td>
+					<td class="content-wrappable">{{{proposedMeasures}}}</td>
+					<td class="content-wrappable">{{{riskComment}}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
 		</table>
 
         {{#if data.sections.sec5.proposedMeasures}}
         <p>The following table contains more information about the proposed mitigations:</p>
         <table id="proposed_mitigations">
-            <tr>
+            <thead>
                 <th class="lean">Mit. No</th>
                 <th class="lean">Type</th>
                 <th>Mitigation description</th>
                 <th class="lean">Risk No.</th>
-            </tr>
-            {{#each data.sections.sec5.proposedMeasures}}
-            <tr>
-                <td class="lean">{{key}}</td>
-                <td class="lean">{{type}}</td>
-                <td class="content-wrappable">{{{name}}}</br>{{{description}}}</td>
-                <td class="lean">{{referencesRisk}}</td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.sections.sec5.proposedMeasures}}
+				<tr>
+					<td class="lean">{{key}}</td>
+					<td class="lean">{{type}}</td>
+					<td class="content-wrappable">{{{name}}}</br>{{{description}}}</td>
+					<td class="lean">{{referencesRisk}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         {{else}}
@@ -475,49 +496,51 @@
         <p>The following table provides the history of the document.</p>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{docVersion}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">

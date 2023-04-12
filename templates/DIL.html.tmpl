@@ -80,7 +80,7 @@
 			<tr>
 				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">
 					<table>
-						<tr>
+						<thead>
 							<th style="white-space: nowrap">Discrepancy ID</th>
 							<th style="white-space: nowrap">Test Case No.</th>
 							<th class="content-wrappable">Level of Test Case</th>
@@ -89,19 +89,21 @@
 							<th class="content-wrappable">Responsible / Due Date</th>
 							<th class="content-wrappable">Outcome of the Resolution</th>
 							<th class="content-wrappable">Resolved Yes/No</th>
-						</tr>
-						{{#each data.integrationTests}}
-							<tr>
-								<td style="white-space: nowrap">{{discrepancyID}}</td>
-								<td style="white-space: nowrap">{{testcaseID}}</td>
-								<td class="content-wrappable">Integration</td>
-								<td class="hyphenate">{{{description}}}</td>
-								<td class="content-wrappable">{{{remediation}}}</td>
-								<td class="content-wrappable">{{responsibleAndDueDate}}</td>
-								<td class="content-wrappable">{{{outcomeResolution}}}</td>
-								<td class="content-wrappable">{{resolved}}</td>
-							</tr>
-						{{/each}}
+						</thead>
+						<tbody>
+							{{#each data.integrationTests}}
+								<tr>
+									<td style="white-space: nowrap">{{discrepancyID}}</td>
+									<td style="white-space: nowrap">{{testcaseID}}</td>
+									<td class="content-wrappable">Integration</td>
+									<td class="hyphenate">{{{description}}}</td>
+									<td class="content-wrappable">{{{remediation}}}</td>
+									<td class="content-wrappable">{{responsibleAndDueDate}}</td>
+									<td class="content-wrappable">{{{outcomeResolution}}}</td>
+									<td class="content-wrappable">{{resolved}}</td>
+								</tr>
+							{{/each}}
+						</tbody>
 					</table>
 				</td>
 			</tr>
@@ -118,7 +120,7 @@
 			<tr>
 				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">
 					<table>
-							<tr>
+							<thead>
 							    <th style="white-space: nowrap">Discrepancy ID</th>
 							    <th style="white-space: nowrap">Test Case No.</th>
 								<th class="content-wrappable">Level of Test Case</th>
@@ -127,19 +129,21 @@
 								<th class="content-wrappable">Responsible / Due Date</th>
 								<th class="content-wrappable">Outcome of the Resolution</th>
 								<th class="content-wrappable">Resolved Yes/No</th>
-							</tr>
-							{{#each data.acceptanceTests}}
-								<tr>
-									<td style="white-space: nowrap">{{discrepancyID}}</td>
-									<td style="white-space: nowrap">{{testcaseID}}</td>
-									<td class="content-wrappable">Acceptance</td>
-									<td class="hyphenate">{{{description}}}</td>
-									<td class="content-wrappable">{{{remediation}}}</td>
-									<td class="content-wrappable">{{responsibleAndDueDate}}</td>
-									<td class="content-wrappable">{{{outcomeResolution}}}</td>
-									<td class="content-wrappable">{{resolved}}</td>
-								</tr>
-							{{/each}}
+							</thead>
+							<tbody>
+								{{#each data.acceptanceTests}}
+									<tr>
+										<td style="white-space: nowrap">{{discrepancyID}}</td>
+										<td style="white-space: nowrap">{{testcaseID}}</td>
+										<td class="content-wrappable">Acceptance</td>
+										<td class="hyphenate">{{{description}}}</td>
+										<td class="content-wrappable">{{{remediation}}}</td>
+										<td class="content-wrappable">{{responsibleAndDueDate}}</td>
+										<td class="content-wrappable">{{{outcomeResolution}}}</td>
+										<td class="content-wrappable">{{resolved}}</td>
+									</tr>
+								{{/each}}
+							</tbody>
 					  </table>
 				</td>
 			</tr>

@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- CFTP Templates adjusted to support non-GxP projects ([#100](https://github.com/opendevstack/ods-document-generation-templates/issues/100))
 - Use a consistent notion of document version ([#95](https://github.com/opendevstack/ods-document-generation-templates/issues/95))
 
 ## 1.2.3 - 2022-11-17

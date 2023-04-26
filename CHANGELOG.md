@@ -4,8 +4,7 @@
 - Use a consistent notion of document version ([#95](https://github.com/opendevstack/ods-document-generation-templates/issues/95))
 - Improve Document Generation Experience ([#97](https://github.com/opendevstack/ods-document-generation-templates/issues/97))
 - Update Reference Documents & Base Documents sections ([#101](https://github.com/opendevstack/ods-document-generation-templates/issues/101))
-- Fix SSDS appendix per gamp ([#103](https://github.com/opendevstack/ods-document-generation-templates/issues/103))
-
+- Fix SSDS appendix per gamp and RA chapter 5 ([#103](https://github.com/opendevstack/ods-document-generation-templates/issues/103))
 
 ## 1.2.3 - 2022-11-17
 - Disallow ConfigSpecs in CSD for GAMP 3 ([#93](https://github.com/opendevstack/ods-document-generation-templates/pull/93))

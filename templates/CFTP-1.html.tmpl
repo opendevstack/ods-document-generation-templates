@@ -81,7 +81,6 @@
             <li><a href="#section_5">Operational Qualification Activities and Training</a>
                 <ol>
                     <li><a href="#section_5_1">Test Procedure 1: Verification of Operational Documentation</a></li>
-                    <li><a href="#section_5_2">Test Procedure 2: Verification of Training Documentation</a></li>
                 </ol>
             </li>
             <li><a href="#section_6">Integration Testing</a>
@@ -134,26 +133,28 @@
     <div class="page">
         <h2 id="section_3"><span>3</span>Roles and Responsibilities</h2>
         <table>
-        <tr>
+        <thead>
             <th>Role</th>
             <th>Responsibility</th>
-        </tr>
-        <tr>
-            <td class="content-wrappable">Jenkins (Technical Role)</td>
-            <td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
-        </tr>
-        <tr>
-            <td class="lean">Test Administrator</td>
-            <td class="content-wrappable">In case of full automation (and no further testcases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
-        </tr>
-        <tr>
-            <td class="lean">Tester</td>
-            <td class="content-wrappable">In case of full automation (and no further testcases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
-        </tr>
-        <tr>
-            <td class="lean">Developer</td>
-            <td class="content-wrappable">Writes tests.</td>
-        </tr>
+        </thead>
+        <tbody>
+			<tr>
+				<td class="content-wrappable">Jenkins (Technical Role)</td>
+				<td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
+			</tr>
+			<tr>
+				<td class="lean">Test Administrator</td>
+				<td class="content-wrappable">In case of full automation (and no further testcases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
+			</tr>
+			<tr>
+				<td class="lean">Tester</td>
+				<td class="content-wrappable">In case of full automation (and no further testcases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
+			</tr>
+			<tr>
+				<td class="lean">Developer</td>
+				<td class="content-wrappable">Writes tests.</td>
+			</tr>
+		</tbody>
     </table>
     </div>
 
@@ -199,15 +200,6 @@
 
             <h4 id="section_5_1_2"><span>5.1.2 </span>Test Procedure 1.2: Manuals and other System Documentation</h4>
             <p>Verify that appropriate manuals and other system documentation exist for use in operating, maintaining, configuring, and/or troubleshooting of the system.</p>
-
-        <h3 id="section_5_2"><span>5.2</span>Test Procedure 2: Verification of Training Documentation</h3>
-        <p>List the applicable procedures in which the Integration Testing participants must be trained before executing their portions of the Functional Testing Plan. Describe when and how the training will take place.</p>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
-            </tr>
-        </table>
-        <p>Verify that an approved training plan exists, if justified, for all personnel involved in operating and maintaining the Infrastructure System.</p>
     </div>
 
     <div class="page">
@@ -373,7 +365,7 @@
     <div class="page">
         <h2 id="section_14"><span>14</span>Reference Documents</h2>
         <ul>
-			<li>Risk Assessment (version {{metadata.referencedDocs.RA}})</li>
+			<li>Risk Assessment ({{metadata.referencedDocs.RA}})</li>
 		</ul>
     </div>
 
@@ -381,49 +373,51 @@
         <h2 id="section_15"><span>15</span>Document History</h2>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{docVersion}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">

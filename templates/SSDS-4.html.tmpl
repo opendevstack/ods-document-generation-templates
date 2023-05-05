@@ -110,6 +110,12 @@
 				</ol>
 				<li><a href="#section_14">REFERENCE DOCUMENTS</a></li>
 				<li><a href="#section_15">DOCUMENT HISTORY</a></li>
+				{{#if data.sections.sec16s1.bitbucket}}
+					<li><a href="#section_16">APPENDIX</a></li>
+					<ol>
+						<li><a href="#section_16_1">SOURCE CODE REVIEW DETAILS</a></li>
+					</ol>
+				{{/if}}
 			</ol>
 		</div>
 
@@ -136,52 +142,17 @@
                     <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
                 </tr>
             </table>
-
-            {{#if data.sections.sec2s3.bitbucket}}
-                <p>
-                    A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
-                    <br/>
-                    A person who creates a PR gets attributed as its author and nominates at least one reviewer. Once mandatory changes requested by the reviewers have been incorporated by the contributors, reviewers can approve the PR. An approval permits that the approved contribution can be merged from a temporary source branch into a longer living target branch inside the repository.{{#if data.isGxpProject}} A single person must not assume the roles of contributor and reviewer on the same PR (no self-approvals).{{/if}}<br/>
-                    <br/>
-                    The following table lists all PRs which have been approved and merged into a Bitbucket repository’s integration branch:
-                </p>
-                <table>
-                    <tr>
-                        <th>Date</th>
-                        <th>Component</th>
-                        <th>Author</th>
-                        <th>Reviewer</th>
-                        <th>Commit SHA and URL</th>
-                    </tr>
-                    {{#each data.sections.sec2s3.bitbucket}}
-                    <tr>
-                        <td class="content-wrappable">{{date}}</td>
-                        <td class="content-wrappable">{{component}}</td>
-                        <td class="content-wrappable break-all" style="min-width: 200px;">
-                            <ul>
-                                <li>{{authorName}}, {{authorEmail}}</li>
-                            </ul>
-                        </td>
-                        <td class="content-wrappable break-all" style="min-width: 200px;">
-                            <ul>
-                            {{#each reviewers}}
-                                <li>{{reviewerName}}, {{reviewerEmail}}</li>
-                            {{/each}}
-                            </ul>
-                        </td>
-                        <td class="content-wrappable">
-                            <ul>
-                                <li>SHA: {{commit}}</li>
-                                <li>{{url}}</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </table>
-            {{else}}
+			{{#if data.sections.sec16s1.bitbucket}}
+				<p>
+					A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
+					<br/>
+					A person who creates a PR gets attributed as its author and nominates at least one reviewer. Once mandatory changes requested by the reviewers have been incorporated by the contributors, reviewers can approve the PR. An approval permits that the approved contribution can be merged from a temporary source branch into a longer living target branch inside the repository.{{#if data.isGxpProject}} A single person must not assume the roles of contributor and reviewer on the same PR (no self-approvals).{{/if}}<br/>
+					<br/>
+				</p>
+				<p>For further details about Pull Requests information, see <a href="#section_16_1">Section 16.1</a>.</p>
+			{{else}}
                 <p><em>N/A</em></p>
             {{/if}}
-
 		</div>
 
 		<div class="page">
@@ -192,18 +163,20 @@
 			{{#if data.sections.sec3s1.specifications}}
             <p>The system has the following system design specifications:</p>
 			<table>
-				<tr>
+				<thead>
 					<th>SSDS #</th>
 					<th class="content-wrappable">Detailed Technical/Functional Specification</th>
 					<th>Traces To:</th>
-				</tr>
-				{{#each data.sections.sec3s1.specifications}}
-				<tr>
-					<td class="lean">{{key}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-					<td class="content-wrappable">{{req_key}}</td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec3s1.specifications}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{{description}}}</td>
+						<td class="content-wrappable">{{req_key}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -252,22 +225,24 @@
 			{{#if data.sections.sec5s1.components}}
 			<p>This system is composed of the following components: </p>
 			<table>
-				<tr>
+				<thead>
 					<th>SSDS #</th>
 					<th class="content-wrappable">Type of Component</th>
 					<th class="content-wrappable">Identification (Config. Item)</th>
 					<th class="content-wrappable">Functionality/Purpose</th>
 					<th class="content-wrappable">Components Specifications (Section/Doc ID)</th>
-				</tr>
-				{{#each data.sections.sec5s1.components}}
-				<tr>
-					<td class="lean">{{key}}</td>
-					<td class="content-wrappable">{{componentType}}</td>
-					<td class="content-wrappable">{{componentId}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-					<td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec5s1.components}}
+					<tr>
+						<td class="lean">{{key}}</td>
+						<td class="content-wrappable">{{componentType}}</td>
+						<td class="content-wrappable">{{componentId}}</td>
+						<td class="content-wrappable">{{{description}}}</td>
+						<td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -278,7 +253,7 @@
 			<p>The installation comprises the following software-defined components, except where denoted otherwise:</p>
             {{#if data.sections.sec5s1.components}}
 			<table>
-				<tr>
+				<thead>
 					<th>SSDS #</th>
 					<th class="content-wrappable">Name of Software</th>
 					<th>Supplier</th>
@@ -286,18 +261,20 @@
 					<th class="content-wrappable">Description of Functionality</th>
 					<th>References</th>
 					<th class="content-wrappable">Installed by ODS</th>
-				</tr>
-				{{#each data.sections.sec5s1.components}}
-				<tr>
-					<td class="content-wrappable">{{key}}</td>
-					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td class="content-wrappable">{{supplier}}</td>
-					<td class="content-wrappable">{{version}}</td>
-					<td class="content-wrappable">{{description}}</td>
-					<td class="content-wrappable">{{references}}</td>
-					<td class="content-wrappable">{{doInstall}}</td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec5s1.components}}
+					<tr>
+						<td class="content-wrappable">{{key}}</td>
+						<td class="content-wrappable">{{nameOfSoftware}}</td>
+						<td class="content-wrappable">{{supplier}}</td>
+						<td class="content-wrappable">{{version}}</td>
+						<td class="content-wrappable">{{description}}</td>
+						<td class="content-wrappable">{{references}}</td>
+						<td class="content-wrappable">{{doInstall}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -373,18 +350,20 @@
 			{{#if data.sections.sec10.modules}}
 			<p>The following modules will be reviewed.</p>
 			<table>
-				<tr>
+				<thead>
 					<th class="content-wrappable">Name of module</th>
 					<th class="content-wrappable">Functionality</th>
 					<th class="content-wrappable">References to SSDS</th>
-				</tr>
-				{{#each data.sections.sec10.modules}}
-				<tr>
-					<td class="content-wrappable">{{nameOfSoftware}}</td>
-					<td class="content-wrappable">{{description}}</td>
-					<td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
-				</tr>
-				{{/each}}
+				</thead>
+				<tbody>
+					{{#each data.sections.sec10.modules}}
+					<tr>
+						<td class="content-wrappable">{{nameOfSoftware}}</td>
+						<td class="content-wrappable">{{description}}</td>
+						<td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
+					</tr>
+					{{/each}}
+				</tbody>
 			</table>
 			{{else}}
 			<p><em>N/A</em></p>
@@ -416,7 +395,7 @@
 		<div class="page">
 			<h2 id="section_14"><span>14</span>Reference Documents</h2>
 			<ul>
-                <li>Combined Specification Document (version {{metadata.referencedDocs.CSD}})</li>
+                <li>Combined Specification Document ({{metadata.referencedDocs.CSD}})</li>
 			    {{#if data.sections.sec14.referencedocs}}
 				{{#each data.sections.sec14.referencedocs}}
 				<li>{{name}}</li>
@@ -429,53 +408,56 @@
                 </tr>
             </table>
 		</div>
+		
 		<div class="page">
 			<h2 id="section_15"><span>15</span>Document History</h2>
             {{#if data.documentHistory}}
             <table>
-                <tr>
+                <thead>
                     <th class="lean">Version</th>
                     <th class="lean">Date</th>
                     <th class="lean">Author</th>
                     <th>Change Reference</th>
-                </tr>
-                {{#each data.documentHistory}}
-                <tr>
-                    <td class="lean">{{{docVersion}}}</td>
-                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                    <td class="content-wrappable">
-                        {{{rational}}}
-                        <br>
-                        {{#each issueType}}
-                        {{#if added}}
-                        The following {{type}} were added:
-                        <ul>
-                            {{#each added}}
-                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        {{#if discontinued}}
-                        The following {{type}} were removed:
-                        <ul>
-                            {{#each discontinued}}
-                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        {{#if changed}}
-                        The following {{type}} were changed:
-                        <ul>
-                            {{#each changed}}
-                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        <br>
-                        {{/each}}
-                    </td>
-                </tr>
-                {{/each}}
+                </thead>
+				<tbody>
+					{{#each data.documentHistory}}
+					<tr>
+						<td class="lean">{{{docVersion}}}</td>
+						<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+						<td class="content-wrappable">
+							{{{rational}}}
+							<br>
+							{{#each issueType}}
+							{{#if added}}
+							The following {{type}} were added:
+							<ul>
+								{{#each added}}
+								<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+							{{#if discontinued}}
+							The following {{type}} were removed:
+							<ul>
+								{{#each discontinued}}
+								<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+							{{#if changed}}
+							The following {{type}} were changed:
+							<ul>
+								{{#each changed}}
+								<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+							<br>
+							{{/each}}
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
             </table>
             {{/if}}
             <table class="no-border">
@@ -484,6 +466,56 @@
                 </tr>
             </table>
 		</div>
+
+		{{#if data.sections.sec16s1.bitbucket}}
+			<div class="page">
+				<h2 id="section_16"><span>16</span>Appendix</h2>
+				<h3 id="section_16_1"><span>16.1</span>Source Code Review Details</h3>
+				<table class="no-border">
+					<tr>
+						<td class="content-wrappable no-border">{{{data.sections.sec16s1.content}}}</td>
+					</tr>
+				</table>
+				<p>
+					The following table lists all PRs which have been approved and merged into a Bitbucket repository’s integration branch:
+				</p>
+				<table>
+					<thead>
+						<th>Date</th>
+						<th>Component</th>
+						<th>Author</th>
+						<th>Reviewer</th>
+						<th>Commit SHA and URL</th>
+					</thead>
+					<tbody>
+						{{#each data.sections.sec16s1.bitbucket}}
+						<tr>
+							<td class="content-wrappable">{{date}}</td>
+							<td class="content-wrappable">{{component}}</td>
+							<td class="content-wrappable break-all" style="min-width: 200px;">
+								<ul>
+									<li>{{authorName}}, {{authorEmail}}</li>
+								</ul>
+							</td>
+							<td class="content-wrappable break-all" style="min-width: 200px;">
+								<ul>
+								{{#each reviewers}}
+									<li>{{reviewerName}}, {{reviewerEmail}}</li>
+								{{/each}}
+								</ul>
+							</td>
+							<td class="content-wrappable">
+								<ul>
+									<li>SHA: {{commit}}</li>
+									<li>{{url}}</li>
+								</ul>
+							</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		{{/if}}
 
 	</body>
 </html>

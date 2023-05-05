@@ -108,18 +108,20 @@
     <p>Automated Configuration and Installation Testing for software components will be performed, based on the below components (and their type): <br>
 
 		<table class="no-page-break">
-            <tr>
+            <thead>
                 <th class="lean">Component Name</th>
                 <th class="lean">Repository Type</th>
                 <th class="lean">Installed by ODS</th>
-            </tr>
-            {{#each data.repositories}}
-            <tr>
-                <td class="content-wrappable"><em>{{id}}</em></td>
-                <td class="content-wrappable">{{type}}</td>
-                <td class="content-wrappable">{{doInstall}}</td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.repositories}}
+				<tr>
+					<td class="content-wrappable"><em>{{id}}</em></td>
+					<td class="content-wrappable">{{type}}</td>
+					<td class="content-wrappable">{{doInstall}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
 		</table>
     </p>
     <p>
@@ -133,22 +135,24 @@
 </div>
 <div class="page"><h2 id="section_3"><span>3</span>ROLES AND RESPONSIBILITIES</h2>
     <table>
-        <tr>
+        <thead>
             <th>Role</th>
             <th>Responsibility</th>
-        </tr>
-        <tr>
-            <td class="lean">Jenkins (Technical Role)</td>
-            <td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
-        </tr>
-        <tr>
-            <td class="lean">Test Administrator</td>
-            <td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
-        </tr>
-        <tr>
-            <td class="lean">Tester</td>
-            <td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
-        </tr>
+        </thead>
+		<tbody>
+			<tr>
+				<td class="lean">Jenkins (Technical Role)</td>
+				<td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
+			</tr>
+			<tr>
+				<td class="lean">Test Administrator</td>
+				<td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
+			</tr>
+			<tr>
+				<td class="lean">Tester</td>
+				<td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
+			</tr>
+		</tbody>
     </table>
 </div>
 <div class="page"><h2 id="section_4"><span>4</span>OVERVIEW OF TECHNICAL ARCHITECTURE</h2>
@@ -162,18 +166,20 @@ Other test cases:
 	<!-- render test case ID / description from zephyr with tagged with IVP -->
     {{#if data.tests}}
 	<table class="no-page-break">
-        <tr>
+        <thead>
             <th class="lean">Test case</th>
             <th class="lean">SSDS Ref</th>
             <th class="lean">Passed (Y/N)</th>
-        </tr>
-        {{#each data.tests}}
-        <tr>
-            <td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
-            <td class="content-wrappable"><em>{{techSpec}}</em></td>
-            <td class="content-wrappable">{{success}}</td>
-        </tr>
-        {{/each}}
+        </thead>
+		<tbody>
+			{{#each data.tests}}
+			<tr>
+				<td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
+				<td class="content-wrappable"><em>{{techSpec}}</em></td>
+				<td class="content-wrappable">{{success}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
     </table>
     {{else}}
         <p><em>N/A</em></p>
@@ -211,9 +217,9 @@ Other test cases:
 </div>
 <div class="page"><h2 id="section_9"><span>9</span>REFERENCE DOCUMENTS</h2>
 	<ul>
-        <li>System and Software Design Specification including Source Code Review Plan (version {{metadata.referencedDocs.SSDS}})</li>
-        <li>Overall Development Test Report (version {{metadata.referencedDocs.DTR}})</li>
-        <li>Overall Technical Installation Report (version {{metadata.referencedDocs.TIR}})</li>
+        <li>System and Software Design Specification including Source Code Review Plan ({{metadata.referencedDocs.SSDS}})</li>
+        <li>Overall Development Test Report ({{metadata.referencedDocs.DTR}})</li>
+        <li>Overall Technical Installation Report ({{metadata.referencedDocs.TIR}})</li>
 	</ul>
 	<table class="no-border">
 	    <tr>
@@ -224,49 +230,51 @@ Other test cases:
 <div class="page"><h2 id="section_10"><span>10</span>DOCUMENT HISTORY</h2>
     {{#if data.documentHistory}}
     <table>
-        <tr>
+        <thead>
             <th class="lean">Version</th>
             <th class="lean">Date</th>
             <th class="lean">Author</th>
             <th>Change Reference</th>
-        </tr>
-        {{#each data.documentHistory}}
-        <tr>
-            <td class="lean">{{{docVersion}}}</td>
-            <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-            <td class="content-wrappable">
-                {{{rational}}}
-                <br>
-                {{#each issueType}}
-                {{#if added}}
-                The following {{type}} were added:
-                <ul>
-                    {{#each added}}
-                    <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                    {{/each}}
-                </ul>
-                {{/if}}
-                {{#if discontinued}}
-                The following {{type}} were removed:
-                <ul>
-                    {{#each discontinued}}
-                    <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                    {{/each}}
-                </ul>
-                {{/if}}
-                {{#if changed}}
-                The following {{type}} were changed:
-                <ul>
-                    {{#each changed}}
-                    <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                    {{/each}}
-                </ul>
-                {{/if}}
-                <br>
-                {{/each}}
-            </td>
-        </tr>
-        {{/each}}
+        </thead>
+		<tbody>
+			{{#each data.documentHistory}}
+			<tr>
+				<td class="lean">{{{docVersion}}}</td>
+				<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+				<td class="content-wrappable">
+					{{{rational}}}
+					<br>
+					{{#each issueType}}
+					{{#if added}}
+					The following {{type}} were added:
+					<ul>
+						{{#each added}}
+						<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+						{{/each}}
+					</ul>
+					{{/if}}
+					{{#if discontinued}}
+					The following {{type}} were removed:
+					<ul>
+						{{#each discontinued}}
+						<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+						{{/each}}
+					</ul>
+					{{/if}}
+					{{#if changed}}
+					The following {{type}} were changed:
+					<ul>
+						{{#each changed}}
+						<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+						{{/each}}
+					</ul>
+					{{/if}}
+					<br>
+					{{/each}}
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
     </table>
     {{/if}}
     <table class="no-border">
@@ -291,28 +299,30 @@ Other test cases:
     <h4 id="section_11_3_1"><span>11.3.1 </span>ODS</h4>
 	{{#if data.testsOdsCode}}
     <table class="no-page-break">
-        <tr>
+        <thead>
             <th class="lean">Repository Type</th>
             <th class="lean">Test case</th>
             <th class="lean">Test steps</th>
-        </tr>
-        {{#each data.testsOdsCode}}
-        <tr>
-            <td class="content-wrappable">ods</td>
-            <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
-            <td class="content-wrappable">
-            {{#if steps}}
-	            <ol>
-            {{#each steps}}
-			        <li>{{step}}</li>
-            {{/each}}
-			    </ol>
-            {{else}}
-            No test steps defined
-            {{/if}}
-            </td>
-        </tr>
-        {{/each}}
+        </thead>
+		<tbody>
+			{{#each data.testsOdsCode}}
+			<tr>
+				<td class="content-wrappable">ods</td>
+				<td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+				<td class="content-wrappable">
+				{{#if steps}}
+					<ol>
+				{{#each steps}}
+						<li>{{step}}</li>
+				{{/each}}
+					</ol>
+				{{else}}
+				No test steps defined
+				{{/if}}
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
     </table>
 	{{else}}
 		<p><em>N/A</em></p>
@@ -321,24 +331,26 @@ Other test cases:
     <h4 id="section_11_3_2"><span>11.3.2 </span>ODS-SERVICE</h4>
 	{{#if data.testsOdsService}}
     <table class="no-page-break">
-        <tr>
+        <thead>
             <th class="lean">Repository Type</th>
             <th class="lean">Test case</th>
             <th class="lean">Test steps</th>
-        </tr>
-        {{#each data.testsOdsService}}
-        <tr>
-            <td class="content-wrappable">ods-service</td>
-            <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
-            <td class="content-wrappable">
-	            <ol>
-            {{#each test.details}}
-			        <li>{{step}}</li>
-            {{/each}}
-			    </ol>
-            </td>
-        </tr>
-        {{/each}}
+        </thead>
+		<tbody>
+			{{#each data.testsOdsService}}
+			<tr>
+				<td class="content-wrappable">ods-service</td>
+				<td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+				<td class="content-wrappable">
+					<ol>
+				{{#each test.details}}
+						<li>{{step}}</li>
+				{{/each}}
+					</ol>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
 	</table>
 	{{else}}
 	<p><em>N/A</em></p>

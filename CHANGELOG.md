@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- CFTP Templates adjusted to support non-GxP projects ([#100](https://github.com/opendevstack/ods-document-generation-templates/issues/100))
 - Use a consistent notion of document version ([#95](https://github.com/opendevstack/ods-document-generation-templates/issues/95))
 - Improve Document Generation Experience ([#97](https://github.com/opendevstack/ods-document-generation-templates/issues/97))
 - Update Reference Documents & Base Documents sections ([#101](https://github.com/opendevstack/ods-document-generation-templates/issues/101))

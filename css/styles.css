@@ -171,6 +171,10 @@ td.content-wrappable table th, td.content-wrappable table td {
   text-align: right;
 }
 
+.align-top {
+  vertical-align:top
+}
+
 .no-border {
   border: none
 }

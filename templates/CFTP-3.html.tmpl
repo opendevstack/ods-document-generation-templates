@@ -310,8 +310,12 @@
         </ul>
 
         <h3 id="section_11_1"><span>11.1</span> Automated Test Cases</h3>
-        <p>All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log. In case of a re-deployment, a rationale must be documented in a manually created C-DIL document. When advancing to the P environment despite failed test cases or exclusions from testing, a rationale including the analyzed risks must be documented in a manually created C-FTR document (Appendix 1).</p>
-
+        <p>
+            All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log.
+            {{#if metadata.gxp}}
+                In case of a re-deployment, a rationale must be documented in a manually created C-DIL document. When advancing to the P environment despite failed test cases or exclusions from testing, a rationale including the analyzed risks must be documented in a manually created C-FTR document (Appendix 1).
+            {{/if}}
+        </p>
         <h3 id="section_11_2"><span>11.2</span> Manual Test Cases</h3>
         <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>
         <p>The Test Administrator will also record all discrepancies that occur during the test execution in a designated discrepancy log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the discrepancy log.</p>

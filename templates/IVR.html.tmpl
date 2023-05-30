@@ -308,12 +308,12 @@ Other test cases:
 			{{#each data.testsOdsCode}}
 			<tr>
 				<td class="content-wrappable">ods</td>
-				<td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+				<td class="content-wrappable"><em>{{key}}: {{{description}}}</em></td>
 				<td class="content-wrappable">
 				{{#if steps}}
 					<ol>
 				{{#each steps}}
-						<li>{{step}}</li>
+						<li>{{{step}}}</li>
 				{{/each}}
 					</ol>
 				{{else}}
@@ -340,13 +340,17 @@ Other test cases:
 			{{#each data.testsOdsService}}
 			<tr>
 				<td class="content-wrappable">ods-service</td>
-				<td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+				<td class="content-wrappable"><em>{{key}}: {{{description}}}</em></td>
 				<td class="content-wrappable">
+				{{#if steps}}
 					<ol>
-				{{#each test.details}}
-						<li>{{step}}</li>
+				{{#each steps}}
+						<li>{{{step}}}</li>
 				{{/each}}
 					</ol>
+				{{else}}
+				No test steps defined
+				{{/if}}
 				</td>
 			</tr>
 			{{/each}}

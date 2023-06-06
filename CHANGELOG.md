@@ -2,7 +2,7 @@
 
 ## Unreleased
 - Use a consistent notion of document version ([#95](https://github.com/opendevstack/ods-document-generation-templates/issues/95))
-- CFTP Templates adjusted to support non-GxP projects ([#100](https://github.com/opendevstack/ods-document-generation-templates/issues/100))
+- CFTP templates adjusted to support non-GxP projects ([#100](https://github.com/opendevstack/ods-document-generation-templates/issues/100))
 - Improve Document Generation Experience ([#97](https://github.com/opendevstack/ods-document-generation-templates/issues/97))
 - Update Reference Documents & Base Documents sections ([#101](https://github.com/opendevstack/ods-document-generation-templates/issues/101))
 - Fix SSDS appendix per gamp and RA chapter 5 ([#103](https://github.com/opendevstack/ods-document-generation-templates/issues/103))

@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}</td>
+                            <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Date Created:</td>
@@ -86,49 +86,51 @@
         <h2 id="section_1"><span>1</span>Document History</h2>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{entryId}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">
@@ -237,39 +239,43 @@
                 </table>
                 <div class="page">
                     <table>
-                    <tr>
+                    <thead>
                         <th>Step</th>
                         <th>Instructions</th>
                         <th>Expected result</th>
                         <th>Actual result</th>
                         <th>Initials / Date</th>
-                    </tr>
-                    {{#each steps}}
-                    <tr>
-                        <td>{{orderId}}</td>
-                        <td class="content-wrappable">{{{step}}}</td>
-                        <td class="content-wrappable">{{{result}}}</td>
-                        <td class="content-wrappable">{{{actualResult}}}</td>
-                        <td></td>
-                    </tr>
-                    {{/each}} <!-- end test steps -->
+                    </thead>
+					<tbody>
+						{{#each steps}}
+						<tr>
+							<td>{{orderId}}</td>
+							<td class="content-wrappable">{{{step}}}</td>
+							<td class="content-wrappable">{{{result}}}</td>
+							<td class="content-wrappable">{{{actualResult}}}</td>
+							<td></td>
+						</tr>
+						{{/each}} <!-- end test steps -->
+					</tbody>
                     </table>
 
                     <table>
-                    <tr>
+                    <thead>
                         <th><b>Test Case result by Tester</b></th>
                         <th><b>Date:</b></th>
                         <th><b>Signature:</b></th>
-                    </tr>
-                    <tr>
-                       <td class="content-wrappable" style="border: 0px;">
-                            <p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed">Pass	<input type="checkbox" name="PassedNo" value="NotPassed"> Fail</p>
-                            <p>Comment (mandatory if failed):</p>
-                            <p>{{commentIfFailed}}</p>
-			</td>
-                        <td class="content-wrappable" style="border: 0px;" />
-                        <td class="content-wrappable" style="border: 0px;" />
-                    </tr>
+                    </thead>
+					<tbody>
+						<tr>
+							<td class="content-wrappable" style="border: 0px;">
+								<p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed">Pass	<input type="checkbox" name="PassedNo" value="NotPassed"> Fail</p>
+								<p>Comment (mandatory if failed):</p>
+								<p>{{commentIfFailed}}</p>
+							</td>
+							<td class="content-wrappable" style="border: 0px;" />
+							<td class="content-wrappable" style="border: 0px;" />
+						</tr>
+					</tbody>
                     </table>
 
                 </div>
@@ -305,39 +311,43 @@
 
                 <div class="page">
                     <table>
-                    <tr>
+                    <thead>
                         <th>Step</th>
                         <th>Instructions</th>
                         <th>Expected result / Evidence</th>
                         <th>Actual result</th>
                         <th>Initials / Date</th>
-                    </tr>
-                    {{#each steps}}
-                    <tr>
-                        <td>{{orderId}}</td>
-                        <td class="content-wrappable">{{{step}}}</td>
-                        <td class="content-wrappable">{{{result}}}</td>
-                        <td>{{{../actualResult}}}</td>
-                        <td></td>
-                    </tr>
-                    {{/each}} <!-- end test steps block -->
+                    </thead>
+					<tbody>
+						{{#each steps}}
+						<tr>
+							<td>{{orderId}}</td>
+							<td class="content-wrappable">{{{step}}}</td>
+							<td class="content-wrappable">{{{result}}}</td>
+							<td>{{{../actualResult}}}</td>
+							<td></td>
+						</tr>
+						{{/each}} <!-- end test steps block -->
+					</tbody>
                     </table>
 
                     <table>
-                    <tr>
+                    <thead>
                         <th><b>Test Case result by Tester</b></th>
                         <th><b>Date:</b></th>
                         <th><b>Signature:</b></th>
-                    </tr>
-                    <tr>
-                       <td class="content-wrappable" style="border: 0px;">
-                            <p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed">Pass	<input type="checkbox" name="PassedNo" value="NotPassed"> Fail</p>
-                            <p>Comment (mandatory if failed):</p>
-                            <p>{{commentIfFailed}}</p>
-			</td>
-                        <td class="content-wrappable" style="border: 0px;" />
-                        <td class="content-wrappable" style="border: 0px;" />
-                    </tr>
+                    </thead>
+                    <tbody>
+						<tr>
+							<td class="content-wrappable" style="border: 0px;">
+								<p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed">Pass	<input type="checkbox" name="PassedNo" value="NotPassed"> Fail</p>
+								<p>Comment (mandatory if failed):</p>
+								<p>{{commentIfFailed}}</p>
+							</td>
+							<td class="content-wrappable" style="border: 0px;" />
+							<td class="content-wrappable" style="border: 0px;" />
+						</tr>
+					</tbody>
                     </table>
 
                 </div>

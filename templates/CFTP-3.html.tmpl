@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}</td>
+                            <td class="content-wrappable">{{metadata.version}}/{{metadata.documentHistoryLatestVersionId}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Date Created:</td>
@@ -134,26 +134,28 @@
     <div class="page">
         <h2 id="section_3"><span>3</span>Roles and Responsibilities</h2>
         <table>
-        <tr>
+        <thead>
             <th>Role</th>
             <th>Responsibility</th>
-        </tr>
-        <tr>
-            <td class="content-wrappable">Jenkins (Technical Role)</td>
-            <td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
-        </tr>
-        <tr>
-            <td class="lean">Test Administrator</td>
-            <td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Test Administrators will supervise the execution of the manual test cases by the Testers and will review these test cases.</td>
-        </tr>
-        <tr>
-            <td class="lean">Tester</td>
-            <td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Testers will execute the manual test cases and document the results.</td>
-        </tr>
-        <tr>
-            <td class="lean">Developer/SME</td>
-            <td class="content-wrappable">Writes and, in case of using automation, implements test cases.</td>
-        </tr>
+        </thead>
+		<tbody>
+			<tr>
+				<td class="content-wrappable">Jenkins (Technical Role)</td>
+				<td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
+			</tr>
+			<tr>
+				<td class="lean">Test Administrator</td>
+				<td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Test Administrators will supervise the execution of the manual test cases by the Testers and will review these test cases.</td>
+			</tr>
+			<tr>
+				<td class="lean">Tester</td>
+				<td class="content-wrappable">In case of full automation (and no further manual test cases) - N/A, otherwise Testers will execute the manual test cases and document the results.</td>
+			</tr>
+			<tr>
+				<td class="lean">Developer/SME</td>
+				<td class="content-wrappable">Writes and, in case of using automation, implements test cases.</td>
+			</tr>
+		</tbody>
     </table>
     </div>
 
@@ -174,14 +176,6 @@
                 <td class="content-wrappable no-border">{{{data.sections.sec5.content}}}</td>
             </tr>
         </table>
-
-        {{#if data.sections.sec5s2}}
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{content}}}</td>
-            </tr>
-        </table>
-        {{/if}}
     </div>
 
     <div class="page">
@@ -316,12 +310,18 @@
         </ul>
 
         <h3 id="section_11_1"><span>11.1</span> Automated Test Cases</h3>
-        <p>All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log. In case of a re-deployment, a rationale must be documented in a manually created C-DIL document. When advancing to the P environment despite failed test cases or exclusions from testing, a rationale including the analyzed risks must be documented in a manually created C-FTR document (Appendix 1).</p>
-
+        <p>
+            All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log.
+            {{#if metadata.gxp}}
+                In case of a re-deployment, a rationale must be documented in a manually created C-DIL document. When advancing to the P environment despite failed test cases or exclusions from testing, a rationale including the analyzed risks must be documented in a manually created C-FTR document (Appendix 1).
+            {{/if}}
+        </p>
         <h3 id="section_11_2"><span>11.2</span> Manual Test Cases</h3>
         <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>
         <p>The Test Administrator will also record all discrepancies that occur during the test execution in a designated discrepancy log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the discrepancy log.</p>
-        <p>The final evaluation of remaining risks and unresolved critical failures will be assessed in the validation summary report.</p>
+        {{#if metadata.gxp}}
+            <p>The final evaluation of remaining risks and unresolved critical failures will be assessed in the validation summary report.</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -361,7 +361,7 @@
     <div class="page">
         <h2 id="section_14"><span>14</span>Reference Documents</h2>
         <ul>
-			<li>Risk Assessment (version {{metadata.referencedDocs.RA}})</li>
+			<li>Risk Assessment ({{metadata.referencedDocs.RA}})</li>
 		</ul>
     </div>
 
@@ -369,49 +369,51 @@
         <h2 id="section_15"><span>15</span>Document History</h2>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{entryId}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">

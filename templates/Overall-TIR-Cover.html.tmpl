@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}</td>
+                            <td class="content-wrappable">Each component has its own version, which is included within this document in its respective document history section</td>
                         </tr>
                         <tr>
                             <td class="lean">Date Created:</td>
@@ -92,7 +92,7 @@
             </ul>
         </p>
         <table>
-            <tr>
+            <thead>
                 <th class="content-wrappable">Component ID</th>
                 <th class="content-wrappable">Type</th>
                 <th class="content-wrappable">Installed by ODS</th>
@@ -100,18 +100,20 @@
                 <th class="content-wrappable">Commit Build/Installed | Exported Configuration Commit</th>
                 <th class="content-wrappable">Git Tag Used (optional)</th>
                 <th class="content-wrappable">Git Tag Created (optional)</th>
-            </tr>
-            {{#each data.repositories}}
-            <tr>
-                <td class="content-wrappable">{{id}}</td>
-                <td class="content-wrappable">{{type}}</td>
-                <td class="content-wrappable">{{doInstall}}</td>
-                <td class="content-wrappable">{{data.git.branch}}</td>
-                <td class="content-wrappable">{{data.git.commit}} | {{data.git.createdExecutionCommit}}</td>
-                <td class="content-wrappable">{{data.git.baseTag}}</td>
-                <td class="content-wrappable">{{data.git.targetTag}}</td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.repositories}}
+				<tr>
+					<td class="content-wrappable">{{id}}</td>
+					<td class="content-wrappable">{{type}}</td>
+					<td class="content-wrappable">{{doInstall}}</td>
+					<td class="content-wrappable">{{data.git.branch}}</td>
+					<td class="content-wrappable">{{data.git.commit}} | {{data.git.createdExecutionCommit}}</td>
+					<td class="content-wrappable">{{data.git.baseTag}}</td>
+					<td class="content-wrappable">{{data.git.targetTag}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
     </div>
 

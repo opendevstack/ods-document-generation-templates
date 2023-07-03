@@ -27,7 +27,7 @@
                         </tr>
                         <tr>
                             <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}</td>
+                            <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
                         </tr>
                         <tr>
                             <td class="lean">Date Created:</td>
@@ -152,22 +152,24 @@
         <p>Jenkins Job has been successfully executed:</p>
 
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Name</th>
                 <th class="lean">Value</th>
-            </tr>
-            <tr>
-                <td class="lean">Job Number</td>
-                <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
-            </tr>
-            <tr>
-                <td class="lean">Job Name</td>
-                <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
-            </tr>
-            <tr>
-                <td class="lean">Build URL</td>
-                <td class="content-wrappable">{{metadata.jenkins.buildUrl}}</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">Job Number</td>
+					<td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+				</tr>
+				<tr>
+					<td class="lean">Job Name</td>
+					<td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+				</tr>
+				<tr>
+					<td class="lean">Build URL</td>
+					<td class="content-wrappable">{{metadata.jenkins.buildUrl}}</td>
+				</tr>
+			</tbody>
         </table>
 
         <h3 id="section_2_2"><span>2.2</span>Components</h3>
@@ -184,15 +186,17 @@
 		        <tr>
 		          Build Resource: <b>{{@key}}</b>
 		          <table>
-		            <tr>
+		            <thead>
 		                <th>Name</th>
 		                <th class="content-wrappable">Value</th>
-		            </tr>
-		            {{#each .}}
-		              <tr>
-		                <td>{{@key}}</td><td class="content-wrappable">{{.}}</td>
-		              <tr>
-		            {{/each}}
+		            </thead>
+					<tbody>
+						{{#each .}}
+						  <tr>
+							<td>{{@key}}</td><td class="content-wrappable">{{.}}</td>
+						  <tr>
+						{{/each}}
+					</tbody>
 		          </table>
 		        </tr>
 		      {{/each}}
@@ -206,15 +210,17 @@
 		        <tr>
 		          Deployment Resource: <b>{{@key}}</b>
 		          <table>
-		            <tr>
+		            <thead>
 		                <th>Name</th>
 		                <th class="content-wrappable">Value</th>
-		            </tr>
-		            {{#each .}}
-		              <tr>
-		                <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
-		              <tr>
-		            {{/each}}
+		            </thead>
+					<tbody>
+						{{#each .}}
+						  <tr>
+							<td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
+						  <tr>
+						{{/each}}
+					</tbody>
 		          </table>
 		        </tr>
 		      {{/each}}
@@ -243,27 +249,29 @@
         {{#data.repo}}
         <h4>Component {{id}}</h4>
         <table class="no-page-break">
-            <tr>
+            <thead>
                 <th class="lean">Step</th>
                 <th class="content-wrappable">Instruction for Testing</th>
                 <th class="content-wrappable">Expected Result</th>
                 <th class="content-wrappable">Actual Result</th>
                 <th class="lean">Pass / Fail</th>
-            </tr>
-            <tr>
-                <td class="lean">1</td>
-                <td class="content-wrappable">automated configuration appplication (Q/P environment)</td>
-                <td class="content-wrappable">Configuration applied</td>
-                <td class="content-wrappable">Configuration applied</td>
-                <td class="lean">pass</td>
-            </tr>
-            <tr>
-                <td class="lean">2</td>
-                <td class="content-wrappable">POD is running</td>
-                <td class="content-wrappable">POD is in status running</td>
-                <td class="content-wrappable">POD is in status running</td>
-                <td class="lean">pass</td>
-            </tr>
+            </thead>
+			<tbody>
+				<tr>
+					<td class="lean">1</td>
+					<td class="content-wrappable">automated configuration appplication (Q/P environment)</td>
+					<td class="content-wrappable">Configuration applied</td>
+					<td class="content-wrappable">Configuration applied</td>
+					<td class="lean">pass</td>
+				</tr>
+				<tr>
+					<td class="lean">2</td>
+					<td class="content-wrappable">POD is running</td>
+					<td class="content-wrappable">POD is in status running</td>
+					<td class="content-wrappable">POD is in status running</td>
+					<td class="lean">pass</td>
+				</tr>
+			</tbody>
         </table>
         {{/data.repo }}
     </div>
@@ -294,7 +302,7 @@
     <div class="page">
         <h2 id="section_6"><span>6</span>Reference Documents</h2>
         <ul>
-            <li>Technical Installation Plan(version {{metadata.referencedDocs.TIP}})</li></li>
+            <li>Technical Installation Plan ({{metadata.referencedDocs.TIP}})</li></li>
         </ul>
         <table class="no-border">
             <tr>
@@ -307,49 +315,51 @@
         <h2 id="section_7"><span>7</span>Document History</h2>
         {{#if data.documentHistory}}
         <table>
-            <tr>
+            <thead>
                 <th class="lean">Version</th>
                 <th class="lean">Date</th>
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
-            </tr>
-            {{#each data.documentHistory}}
-            <tr>
-                <td class="lean">{{{entryId}}}</td>
-                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-                <td class="content-wrappable">
-                    {{{rational}}}
-                    <br>
-                    {{#each issueType}}
-                    {{#if added}}
-                    The following {{type}} were added:
-                    <ul>
-                        {{#each added}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if discontinued}}
-                    The following {{type}} were removed:
-                    <ul>
-                        {{#each discontinued}}
-                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    {{#if changed}}
-                    The following {{type}} were changed:
-                    <ul>
-                        {{#each changed}}
-                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                    <br>
-                    {{/each}}
-                </td>
-            </tr>
-            {{/each}}
+            </thead>
+			<tbody>
+				{{#each data.documentHistory}}
+				<tr>
+					<td class="lean">{{{docVersion}}}</td>
+					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+					<td class="content-wrappable">
+						{{{rational}}}
+						<br>
+						{{#each issueType}}
+						{{#if added}}
+						The following {{type}} were added:
+						<ul>
+							{{#each added}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if discontinued}}
+						The following {{type}} were removed:
+						<ul>
+							{{#each discontinued}}
+							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						{{#if changed}}
+						The following {{type}} were changed:
+						<ul>
+							{{#each changed}}
+							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+							{{/each}}
+						</ul>
+						{{/if}}
+						<br>
+						{{/each}}
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
         </table>
         {{/if}}
         <table class="no-border">

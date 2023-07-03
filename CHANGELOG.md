@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 1.2.4 - 2023-07-03
+- Use a consistent notion of document version ([#95](https://github.com/opendevstack/ods-document-generation-templates/issues/95))
+- CFTP templates adjusted to support non-GxP projects ([#100](https://github.com/opendevstack/ods-document-generation-templates/issues/100))
+- Improve Document Generation Experience ([#97](https://github.com/opendevstack/ods-document-generation-templates/issues/97))
+- Update Reference Documents & Base Documents sections ([#101](https://github.com/opendevstack/ods-document-generation-templates/issues/101))
+- Fix SSDS appendix per gamp and RA chapter 5 ([#103](https://github.com/opendevstack/ods-document-generation-templates/issues/103))
+- CSD document could display an overlapping between JIRA issue and table ([#106](https://github.com/opendevstack/ods-document-generation-templates/issues/106))
+- HTML is not interpreted in IVR document ([#109](https://github.com/opendevstack/ods-document-generation-templates/issues/109))
+
 ## 1.2.3 - 2022-11-17
 - Disallow ConfigSpecs in CSD for GAMP 3 ([#93](https://github.com/opendevstack/ods-document-generation-templates/pull/93))
 - Enable all GAMP Categories in the CSD documents for GAMP3/4/5 ([#91](https://github.com/opendevstack/ods-document-generation-templates/pull/91))

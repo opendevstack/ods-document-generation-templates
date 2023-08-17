@@ -37,7 +37,26 @@
                             <td class="lean">Git Commit:</td>
                             <td class="content-wrappable">{{metadata.git.commit}}</td>
                         </tr>
-
+                        <tr>
+                            <td class="lean">Git Tag:</td>
+                            <td class="content-wrappable">{{metadata.git.targetTag}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Git URL:</td>
+                            <td class="content-wrappable">{{metadata.git.url}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">OpenShift Cluster API URL:</td>
+                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Job Name:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">Created by Jenkins Build Number:</td>
+                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
                     </table>
                 </td>
                 <td id="logo" class="lean"></td>

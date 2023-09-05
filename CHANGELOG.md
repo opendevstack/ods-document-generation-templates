@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Remove CFTR reference from TRC document ([#115](https://github.com/opendevstack/ods-document-generation-templates/pull/115))
 - Add global font-size config in CSS ([#114](https://github.com/opendevstack/ods-document-generation-templates/pull/114))
 
 ## 1.2.4 - 2023-07-03

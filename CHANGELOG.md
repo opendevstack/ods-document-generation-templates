@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Remove CFTR reference from TRC document ([#115](https://github.com/opendevstack/ods-document-generation-templates/pull/115))
+- RA: GxP Relevance section available for GxP projects only ([#118](https://github.com/opendevstack/ods-document-generation-templates/pull/118))
 
 ## 1.2.5 - 2023-10-02
 - Add global font-size config in CSS ([#114](https://github.com/opendevstack/ods-document-generation-templates/pull/114))

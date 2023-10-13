@@ -1273,8 +1273,9 @@
                     <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
                 </tr>
             </table>
-        {{else}}
-            <p>N/A</p>
+        {{/if}}
+        {{#if ^data.sections.sec5s1.content}}
+            <p><em>N/A</em></p>
         {{/if}}
 
         <h3 id="section_5_2"><span>5.2</span>Abbreviationsss</h3>
@@ -1288,8 +1289,7 @@
             </table>
         {{/if}}
         {{#if ^data.sections.sec5s2.content}}
-        	test
-            <p>N/A</p>
+            <p><em>N/A</em></p>
         {{/if}}
     </div>
 
@@ -1301,7 +1301,8 @@
                     <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
                 </tr>
             </table>
-        {{else}}
+        {{/if}}
+        {{#if ^data.sections.sec6.content}}
             <p><em>N/A</em></p>
         {{/if}}
     </div>

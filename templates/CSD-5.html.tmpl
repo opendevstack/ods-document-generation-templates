@@ -102,20 +102,24 @@
 
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction and purpose</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec1.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_2"><span>2</span>Overview</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec2.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -123,11 +127,13 @@
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
 
         <h3 id="section_3_1"><span>3.1</span>Related Business / GxP Process</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
 
         <h3 id="section_3_2"><span>3.2</span>Operational Requirements</h3>
         <table class="no-border">
@@ -1261,27 +1267,43 @@
         <h2 id="section_5"><span>5</span>Definitions and Abbreviations</h2>
 
         <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec5s1.content}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
 
-        <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
-            </tr>
-        </table>
+        <h3 id="section_5_2"><span>5.2</span>Abbreviationsss</h3>
+        {{data.sections.sec5s2.content}}
+        {{{data.sections.sec5s2.content}}}
+        {{#if data.sections.sec5s2.content}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
+        {{#if ^data.sections.sec5s2.content}}
+        	test
+            <p>N/A</p>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_6"><span>6</span>Reference Documents</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec6.content}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p><em>N/A</em></p>
+        {{/if}}
     </div>
 
     <div class="page">

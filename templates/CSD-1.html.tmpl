@@ -658,6 +658,7 @@
         <h2 id="section_4"><span>4</span>Constraints</h2>
 
         <h3 id="section_4_1"><span>4.1</span>Compatibility</h3>
+        {{#if data.sections.sec4s1.done}}
             {{#if data.requirements.compatibility}}
                 {{#if data.requirements.compatibility.noepics}}
                 <table>
@@ -725,9 +726,12 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
+        {{#if data.sections.sec4s2.done}}
             {{#if data.requirements.proceduralconstraints}}
                 {{#if data.requirements.proceduralconstraints.noepics}}
                 <table>
@@ -795,7 +799,9 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
     </div>
 
     <div class="page">

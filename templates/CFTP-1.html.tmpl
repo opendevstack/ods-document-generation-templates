@@ -123,11 +123,15 @@
 
     <div class="page">
         <h2 id="section_2"><span>2</span>Scope</h2>
+        {{#if data.sections.sec2.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -186,11 +190,15 @@
 
     <div class="page">
         <h2 id="section_5"><span>5</span>Operational Qualification Activities and Training</h2>
+        {{#if data.sections.sec5.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec5.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
 
         <h3 id="section_5_1"><span>5.1</span>Test Procedure 1: Verification of Operational Documentation</h3>
         <p>As part of the Integration Testing the following documentation will be verified for all relevant subjects listed in the Qualification Plan.</p>
@@ -209,11 +217,15 @@
         <p>The purpose of the integration testing is to verify the functional, non-functional and reliability between the modules that are integrated and work within the specifications as defined in the functional and/or configuration specifications.</p>
 
         <h3 id="section_6_2"><span>6.2</span>Scope of Integration Testing</h3>
+        {{#if data.sections.sec6s2.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -241,11 +253,15 @@
         <h3 id="section_8_1"><span>8.1</span>Test Cases</h3>
         <p>Test cases are based on the user requirements, functional specifications and the business processes which are supported by the system. Test cases shall contain test data and expected outcomes against which observed outcomes may be compared. If test cases must be executed in a specific order this has to be defined.</p>
         <p>The level of testing for the individual test cases will be defined based on the risk priority as determined in the risk assessment.</p>
-		<table class="no-border">
+		{{#if data.sections.sec8s1.done}}
+        <table class="no-border">
 			<tr>
 				<td class="content-wrappable no-border">{{{data.sections.sec8s1.content}}}</td>
 			</tr>
 		</table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
 
         <h3 id="section_8_2"><span>8.2</span>Test Execution</h3>
         <p>Test results shall be recorded in a way that independent reviewer can compare the documented acceptance criteria against the (written or captured) test evidence and determine whether the test results meet these criteria.</p>
@@ -282,31 +298,43 @@
         </ul>
 
         <p>Test execution and test result review must be independent, i.e. for any individual test case the Tester and the Test Administrator must be different individuals.</p>
+        {{#if data.sections.sec8s2.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec8s2.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
         <p>The training records of all testers should be verified prior to initiating testing.</p>
     </div>
 
 
     <div class="page">
         <h2 id="section_9"><span>9</span>Traceability Matrix</h2>
+        {{#if data.sections.sec9.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec9.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_10"><span>10</span>Validation Environment</h2>
+        {{#if data.sections.sec10.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec10.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -337,29 +365,41 @@
             <li>All executed acceptance test cases</li>
             <li>Discrepancy log</li>
         </ul>
+        {{#if data.sections.sec12.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec12.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_13"><span>13</span>Definitions and Abbreviations</h2>
 
         <h3 id="section_13_1"><span>13.1</span>Definitions</h3>
+        {{#if data.sections.sec13s1.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec13s1.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
 
         <h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
+        {{#if data.sections.sec13s2.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec13s2.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -420,11 +460,15 @@
 			</tbody>
         </table>
         {{/if}}
+        {{#if data.sections.sec15.done}}
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec15.content}}}</td>
             </tr>
         </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 </body>
 </html>

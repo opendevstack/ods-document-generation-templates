@@ -282,41 +282,9 @@
             <p>N/A</p>
 
             <h4 id="section_3_3_3"><span>3.3.3</span> Security Requirements</h4>
-            {{#if data.requirements.securityrequirements}}
-                {{#if data.requirements.securityrequirements.noepics}}
-                <table>
-                    <thead>
-                        <th>No.</th>
-                        <th>Document</th>
-                        <th>Requirement</th>
-                        <th>Applicability</th>
-                    </thead>
-					<tbody>
-						{{#each data.requirements.securityrequirements.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">N/A</td>
-							<td class="lean">N/A</td>
-						</tr>
-						{{/each}}
-					</tbody>
-                </table>
-                {{/if}}
-
-                {{#each data.requirements.securityrequirements.epics}}
-                    <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+            {{#if data.sections.sec3s3s3.done}}
+                {{#if data.requirements.securityrequirements}}
+                    {{#if data.requirements.securityrequirements.noepics}}
                     <table>
                         <thead>
                             <th>No.</th>
@@ -324,32 +292,67 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">N/A</td>
-								<td class="lean">N/A</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.securityrequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">N/A</td>
+                                <td class="lean">N/A</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
-                {{/each}}
-			{{else}}
-             <p><em>N/A</em></p>
-            {{/if}}
+                    {{/if}}
 
+                    {{#each data.requirements.securityrequirements.epics}}
+                        <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
+                        <span>{{{epicDescription}}}</span>
+                        <table>
+                            <thead>
+                                <th>No.</th>
+                                <th>Document</th>
+                                <th>Requirement</th>
+                                <th>Applicability</th>
+                            </thead>
+                            <tbody>
+                                {{#each stories}}
+                                <tr>
+                                    <td class="lean align-top" rowspan="3">{{key}}</td>
+                                    <td class="lean">URS</td>
+                                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">FS</td>
+                                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">CS</td>
+                                    <td class="content-wrappable">N/A</td>
+                                    <td class="lean">N/A</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    {{/each}}
+                {{else}}
+                 <p><em>N/A</em></p>
+                {{/if}}
+            {{else}}
+                <p><em>Not mandatory.</em></p>
+            {{/if}}
 
             <h4 id="section_3_3_4"><span>3.3.4</span> Regulatory Requirements</h4>
             <p>N/A</p>
@@ -358,6 +361,7 @@
         <p>N/A</p>
 
         <h3 id="section_3_5"><span>3.5</span>Roles</h3>
+        {{#if data.sections.sec3s5.done}}
             {{#if data.requirements.roles}}
                 {{#if data.requirements.roles.noepics}}
                 <table>
@@ -425,8 +429,12 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
 
         <h3 id="section_3_6"><span>3.6</span>Interfaces</h3>
+        {{#if data.sections.sec3s6.done}}
             {{#if data.requirements.interfacerequirements}}
                 {{#if data.requirements.interfacerequirements.noepics}}
                 <table>
@@ -494,9 +502,12 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
 
         <h3 id="section_3_7"><span>3.7</span>Operational Environment</h3>
+        {{#if data.sections.sec3s7.done}}
             {{#if data.requirements.environmentrequirements}}
                 {{#if data.requirements.environmentrequirements.noepics}}
                 <table>
@@ -564,10 +575,13 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
 
 
 		<h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
+		{{#if data.sections.sec3s7.done}}
             {{#if data.requirements.uncategorized}}
                 {{#if data.requirements.uncategorized.noepics}}
                 <table>
@@ -635,12 +649,16 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Constraints</h2>
 
         <h3 id="section_4_1"><span>4.1</span>Compatibility</h3>
+        {{#if data.sections.sec4s1.done}}
             {{#if data.requirements.compatibility}}
                 {{#if data.requirements.compatibility.noepics}}
                 <table>
@@ -708,9 +726,12 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
+        {{#if data.sections.sec4s2.done}}
             {{#if data.requirements.proceduralconstraints}}
                 {{#if data.requirements.proceduralconstraints.noepics}}
                 <table>
@@ -778,7 +799,9 @@
 			{{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
+        {{else}}
+            <p><em>Not mandatory.</em></p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -871,11 +894,13 @@
 			</tbody>
         </table>
         {{/if}}
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec7.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 </body>
 </html>

@@ -1388,11 +1388,13 @@
 			</tbody>
         </table>
         {{/if}}
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec7.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 </body>
 </html>

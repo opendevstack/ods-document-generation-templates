@@ -123,18 +123,22 @@
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
 
         <h3 id="section_3_1"><span>3.1</span>Related Business / GxP Process</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3s1.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
 
         <h3 id="section_3_2"><span>3.2</span>Operational Requirements</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3s2.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
 
             {{#if data.requirements.operationalrequirements.noepics}}

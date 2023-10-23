@@ -107,6 +107,10 @@ table, table th, table td {
   /*overflow-wrap: break-word;*/
 }
 
+table thead {
+    display: table-row-group
+}
+
 table th, table td {
   height: 2em;
   white-space: nowrap;

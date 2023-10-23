@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Remove overlapping headers for tables spanning multiple pages ([#121](https://github.com/opendevstack/ods-document-generation-templates/pull/121))
 - Remove CFTR reference from TRC document ([#115](https://github.com/opendevstack/ods-document-generation-templates/pull/115))
 - RA: GxP Relevance section available for GxP projects only ([#118](https://github.com/opendevstack/ods-document-generation-templates/issues/118))
 - IVP, IVR: Redundant bullets in ch12 ([#119](https://github.com/opendevstack/ods-document-generation-templates/issues/119))

@@ -266,7 +266,7 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
              {{else}}
@@ -337,7 +337,7 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
             {{else}}
@@ -411,7 +411,7 @@
                 {{/each}}
             {{else}}
                 <p>N/A</p>
-            {<p>N/A</p>
+            {{/if}}
 
             <h4 id="section_3_2_4"><span>3.2.4</span> Maintenance Requirements</h4>
             {{#if data.requirements.maintenancerequirements}}
@@ -480,7 +480,7 @@
                 {{/each}}
             {{else}}
                 <p>N/A</p>
-            {<p>N/A</p>
+            {{/if}}
 
         <h3 id="section_3_3"><span>3.3</span>Non-Operational Requirements</h3>
         {{#if data.sections.sec3s3s1.done}}
@@ -621,7 +621,7 @@
                             </tr>
                             {{/each}}
                         </tbody>
-             <p>N/A</p>
+                    </table>
                 {{/each}}
             {{else}}
              <p>N/A</p>
@@ -690,7 +690,7 @@
                                 <td class="lean">CS</td>
                                 <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
-             <p>N/A</p>>
+                            </tr>
                             {{/each}}
                         </tbody>
                     </table>
@@ -761,7 +761,7 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
-             <p>N/A</p><td class="lean">CS</td>
+                                <td class="lean">CS</td>
                                 <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
@@ -830,7 +830,7 @@
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
-             <p>N/A</p><td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
@@ -899,7 +899,7 @@
                                 <td class="lean align-top" rowspan="3">{{key}}</td>
                                 <td class="lean">URS</td>
                                 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-            <p>N/A</p> <td class="lean">{{applicability}}</td>
+                                <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
@@ -968,7 +968,7 @@
                         </thead>
                         <tbody>
                             {{#each stories}}
-             <p>N/A</p>
+                            <tr>
                                 <td class="lean align-top" rowspan="3">{{key}}</td>
                                 <td class="lean">URS</td>
                                 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
@@ -1037,7 +1037,7 @@
                             <th>No.</th>
                             <th>Document</th>
                             <th>Requirement</th>
-             <p>N/A</p>Applicability</th>
+                            <th>Applicability</th>
                         </thead>
                         <tbody>
                             {{#each stories}}
@@ -1106,7 +1106,7 @@
                     <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                     <span>{{{epicDescription}}}</span>
                     <table>
-             <p>N/A</p>
+                        <thead>
                             <th>No.</th>
                             <th>Document</th>
                             <th>Requirement</th>
@@ -1179,7 +1179,7 @@
              </table>
             {{/if}}
 
-            {<p>N/A</p>ments.compatibility.epics}}
+            {{#each data.requirements.compatibility.epics}}
                 <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                 <span>{{{epicDescription}}}</span>
                 <table>
@@ -1248,7 +1248,7 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                         {{/each}}
-             <p>N/A</p>
+                    </tbody>
                 </table>
                 {{/if}}
 

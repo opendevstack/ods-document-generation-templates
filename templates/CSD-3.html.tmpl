@@ -266,7 +266,7 @@
                                 <td class="lean">N/A</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
              {{else}}
@@ -337,7 +337,7 @@
                                 <td class="lean">N/A</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
             {{else}}
@@ -406,7 +406,7 @@
                                 <td class="lean">N/A</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
             {{else}}
@@ -475,7 +475,7 @@
                                 <td class="lean">N/A</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
             {{else}}
@@ -545,7 +545,7 @@
                             <td class="content-wrappable">N/A</td>
                             <td class="lean">N/A</td>
                         </tr>
-             <p>N/A</p>}
+                        {{/each}}
                     </tbody>
                     </table>
                 {{/each}}
@@ -615,7 +615,7 @@
                             </tr>
                             <tr>
                                 <td class="lean">CS</td>
-             <p>N/A</p><td class="content-wrappable">N/A</td>
+                                <td class="content-wrappable">N/A</td>
                                 <td class="lean">N/A</td>
                             </tr>
                             {{/each}}
@@ -684,7 +684,7 @@
                             <tr>
                                 <td class="lean">FS</td>
                                 <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-             <p>N/A</p><td class="lean">{{applicability}}</td>
+                                <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
                                 <td class="lean">CS</td>
@@ -753,7 +753,6 @@
                                 <td class="lean">URS</td>
                                 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
-             <p>N/A</p>>
                             <tr>
                                 <td class="lean">FS</td>
                                 <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
@@ -822,7 +821,7 @@
                         <tbody>
                             {{#each stories}}
                             <tr>
-             <p>N/A</p><td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
                                 <td class="lean">URS</td>
                                 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
@@ -895,7 +894,7 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-             <p>N/A</p>
+                        <tbody>
                             {{#each stories}}
                             <tr>
                                 <td class="lean align-top" rowspan="3">{{key}}</td>
@@ -966,7 +965,7 @@
                             <th>No.</th>
                             <th>Document</th>
                             <th>Requirement</th>
-             <p>N/A</p>Applicability</th>
+                            <th>Applicability</th>
                         </thead>
                         <tbody>
                             {{#each stories}}
@@ -1037,7 +1036,7 @@
                     <table>
                         <thead>
                             <th>No.</th>
-             <p>N/A</p>Document</th>
+                            <th>Document</th>
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
@@ -1111,7 +1110,7 @@
                 {{#each data.requirements.compatibility.epics}}
                     <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                     <span>{{{epicDescription}}}</span>
-             <p>N/A</p>
+                    <table>
                         <thead>
                             <th>No.</th>
                             <th>Document</th>
@@ -1181,7 +1180,7 @@
                 </table>
                 {{/if}}
 
-             <p>N/A</p>uirements.proceduralconstraints.epics}}
+                {{#each data.requirements.proceduralconstraints.epics}}
                     <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                     <span>{{{epicDescription}}}</span>
                     <table>

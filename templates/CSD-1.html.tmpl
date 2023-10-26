@@ -346,9 +346,9 @@
                                 {{/each}}
                             </tbody>
                         </table>
-                    {{/each}}
-             <p>N/A</p>
-                 <p>N/A</p>
+                    {{/each}}                
+                {{else}}
+                    <p>N/A</p>
                 {{/if}}
             {{else}}
                 <p>Not mandatory</p>
@@ -423,7 +423,7 @@
                                 <td class="lean">N/A</td>
                             </tr>
                             {{/each}}
-             <p>N/A</p>
+                        </tbody>
                     </table>
                 {{/each}}
             {{else}}
@@ -492,7 +492,7 @@
                         </tr>
                         <tr>
                             <td class="lean">CS</td>
-             <p>N/A</p>class="content-wrappable">N/A</td>
+                            <td class="content-wrappable">N/A</td>
                             <td class="lean">N/A</td>
                         </tr>
                         {{/each}}
@@ -562,7 +562,7 @@
                                 <td class="lean">FS</td>
                                 <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
-             <p>N/A</p>>
+                            </tr>
                             <tr>
                                 <td class="lean">CS</td>
                                 <td class="content-wrappable">N/A</td>
@@ -633,7 +633,7 @@
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
-             <p>N/A</p>class="lean">FS</td>
+                            <td class="lean">FS</td>
                             <td class="content-wrappable">Summary: {{{fsName}}}{{#if }}<br>{{{fsDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
@@ -706,7 +706,7 @@
                         <tr>
                             <td class="lean align-top" rowspan="3">{{key}}</td>
                             <td class="lean">URS</td>
-             <p>N/A</p>class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
                             <td class="lean">{{applicability}}</td>
                         </tr>
                         <tr>
@@ -776,7 +776,7 @@
                     </thead>
                     <tbody>
                         {{#each stories}}
-             <p>N/A</p>
+                        <tr>
                             <td class="lean align-top" rowspan="3">{{key}}</td>
                             <td class="lean">URS</td>
                             <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>

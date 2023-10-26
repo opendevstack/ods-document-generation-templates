@@ -178,7 +178,7 @@
             {{#if data.sections.sec3s1.specifications}}
             <p>The system has the following system design specifications:</p>
             <table>
-   <p>N/A</p>>
+                <thead>
                     <th>SSDS #</th>
                     <th class="content-wrappable">Detailed Technical/Functional Specification</th>
                     <th>Traces To:</th>
@@ -212,7 +212,7 @@
                 <table class="no-border">
                     <tr>
                         <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
-   <p>N/A</p>tr>
+                    </tr>
                 </table>
             {{else}}
                 <p>Not mandatory</p>
@@ -263,7 +263,7 @@
             {{#if data.sections.sec3s2s4.done}}
             {{{data.sections.sec3s2s4.content}}}
             {{else}}
-   <p>N/A</p> mandatory</p>
+                <p>Not mandatory</p>
             {{/if}}
         </div>
 
@@ -295,7 +295,7 @@
                     <tr>
                         <td class="lean">{{key}}</td>
                         <td class="content-wrappable">{{componentType}}</td>
-   <p>N/A</p>  <td class="content-wrappable">{{componentId}}</td>
+                        <td class="content-wrappable">{{componentId}}</td>
                         <td class="content-wrappable">{{{description}}}</td>
                         <td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
                     </tr>
@@ -452,7 +452,7 @@
                 </thead>
                 <tbody>
                     <tr>
-   <p>N/A</p>  <td class="content-wrappable">{{nameOfSoftware}}</td>
+                        <td class="content-wrappable">{{nameOfSoftware}}</td>
                         <td>{{componentType}}</td>
                         <td class="content-wrappable">{{supplier}}</td>
                         <td class="lean">{{version}}</td>

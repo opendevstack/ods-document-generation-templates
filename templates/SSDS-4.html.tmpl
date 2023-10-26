@@ -1,478 +1,490 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</title>
-		<link href="../css/styles.css" rel="stylesheet" type="text/css" />
-	</head>
+    <head>
+        <title>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</title>
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
 
-	<body>
-		<div class="page">
-			<table id="heading">
-				<tr>
-					<td>
-						<table>
-							<tr>
-								<th colspan="2">
-									Stack Information
-								</th>
-							</tr>
-							<tr>
-								<td class="lean" style="vertical-align: top;">Name:</td>
-								<td class="content-wrappable">{{metadata.name}}</td>
-							</tr>
-							<tr>
-								<td class="lean" style="vertical-align: top;">Description:</td>
-								<td class="content-wrappable">{{metadata.description}}</td>
-							</tr>
-							<tr>
-								<td class="lean" style="vertical-align: top;">Version:</td>
-								<td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
-							</tr>
-							<tr>
-								<td class="lean">Date Created:</td>
-								<td class="content-wrappable">{{metadata.date_created}}</td>
-							</tr>
-							<tr>
-								<td class="lean">Git Commit:</td>
-								<td class="content-wrappable">{{metadata.git.commit}}</td>
-							</tr>
-							<tr>
-								<td class="lean">Git Tag:</td>
-								<td class="content-wrappable">{{metadata.git.targetTag}}</td>
-							</tr>
-							<tr>
-								<td class="lean">Git URL:</td>
-								<td class="content-wrappable">{{metadata.git.url}}</td>
-							</tr>
-							<tr>
-								<td class="lean">OpenShift Cluster API URL:</td>
-								<td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
-							</tr>
-							<tr>
-								<td class="lean">Created by Jenkins Job Name:</td>
-								<td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
-							</tr>
-							<tr>
-								<td class="lean">Created by Jenkins Build Number:</td>
-								<td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
-							</tr>
-						</table>
-					</td>
-					<td id="logo" class="lean"></td>
-				</tr>
-			</table>
-
-			<div id="blueband">&nbsp;</div>
-
-			<h1>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</h1>
-
-			<h2>Table of Contents</h2>
-			<ol class="table-of-contents">
-				<li><a href="#section_1">INTRODUCTION</a></li>
-				<li><a href="#section_2">OVERVIEW</a></li>
-				<ol>
-					<li><a href="#section_2_1">System Design Overview Incl. System Diagram</a></li>
-					<li><a href="#section_2_2">SOFTWARE DESIGN OVERVIEW</a></li>
-					<li><a href="#section_2_3">SOURCE CODE REVIEW OVERVIEW</a></li>
-				</ol>
-				<li><a href="#section_3">SYSTEM DESIGN PROFILE AND SYSTEM DESCRIPTION</a>
-					<ol>
-						<li><a href="#section_3_1">SYSTEM DESIGN PROFILE</a></li>
-						<li><a href="#section_3_2">SYSTEM DESCRIPTION</a></li>
-					</ol>
-				</li>
-				<li><a href="#section_4">ARCHITECTURE OF THE SYSTEM</a></li>
-				<li><a href="#section_5">SYSTEM COMPONENTS</a>
-					<ol>
-						<li><a href="#section_5_1">SYSTEM COMPONENT LIST</a></li>
-						<li><a href="#section_5_2">SYSTEM COMPONENT SPECIFICATIONS</a></li>
-						<li><a href="#section_5_3">UTILISATION OF EXISTING INFRASTRUCTURE SYSTEMS</a></li>
-						<li><a href="#section_5_4">UTILISATION OF EXISTING INFRASTRUCTURE SERVICES</a></li>
-					</ol>
-				</li>
-				<li><a href="#section_6">CONFIGURATION FOR ADDITIONAL ENVIRONMENTS</a></li>
-				<ol>
-					<li><a href="#section_6_1">DEVELOPMENT ENVIRONMENT</a></li>
-					<li><a href="#section_6_2">QA/TEST ENVIRONMENT</a></li>
-					<li><a href="#section_6_3">TRAINING ENVIRONMENT</a></li>
-				</ol>
-				<li><a href="#section_7">ENVIRONMENTAL CONDITIONS</a></li>
-				<li><a href="#section_8">SOFTWARE DESIGN PRINCIPLES</a></li>
-				<li><a href="#section_9">SYSTEM DATA</a></li>
-				<li><a href="#section_10">MODULE DESCRIPTION</a></li>
-				<li><a href="#section_11">MODULES TO BE REVIEWED</a></li>
-				<li><a href="#section_12">CODING REVIEW RESULTS</a></li>
-				<li><a href="#section_13">DEFINITIONS AND ABBREVIATIONS</a></li>
-				<ol>
-					<li><a href="#section_13_1">DEFINITIONS</a></li>
-					<li><a href="#section_13_2">ABBREVIATIONS</a></li>
-				</ol>
-				<li><a href="#section_14">REFERENCE DOCUMENTS</a></li>
-				<li><a href="#section_15">DOCUMENT HISTORY</a></li>
-				{{#if data.sections.sec16s1.bitbucket}}
-					<li><a href="#section_16">APPENDIX</a></li>
-					<ol>
-						<li><a href="#section_16_1">SOURCE CODE REVIEW DETAILS</a></li>
-					</ol>
-				{{/if}}
-			</ol>
-		</div>
-
-		<div class="page">
-			<h2 id="section_1"><span>1</span>Introduction</h2>
-			{{#if data.sections.sec1.done}}
-			{{{data.sections.sec1.content}}}
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-		</div>
-
-		<div class="page">
-			<h2 id="section_2"><span>2</span>Overview</h2>
-
-			<h3 id="section_2_1"><span>2.1</span>System Design Overview incl. System Diagram</h3>
-			{{#if data.sections.sec2s1.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec2s1.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-			<h3 id="section_2_2"><span>2.2</span>Software Design Overview</h3>
-			<p>N/A</p>
-
-			<h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
-			{{#if data.sections.sec2s3.done}}
-            <table class="no-border">
+    <body>
+        <div class="page">
+            <table id="heading">
                 <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th colspan="2">
+                                    Stack Information
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="lean" style="vertical-align: top;">Name:</td>
+                                <td class="content-wrappable">{{metadata.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean" style="vertical-align: top;">Description:</td>
+                                <td class="content-wrappable">{{metadata.description}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean" style="vertical-align: top;">Version:</td>
+                                <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Date Created:</td>
+                                <td class="content-wrappable">{{metadata.date_created}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Git Commit:</td>
+                                <td class="content-wrappable">{{metadata.git.commit}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Git Tag:</td>
+                                <td class="content-wrappable">{{metadata.git.targetTag}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Git URL:</td>
+                                <td class="content-wrappable">{{metadata.git.url}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">OpenShift Cluster API URL:</td>
+                                <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Created by Jenkins Job Name:</td>
+                                <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Created by Jenkins Build Number:</td>
+                                <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td id="logo" class="lean"></td>
                 </tr>
             </table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-			{{#if data.sections.sec16s1.bitbucket}}
-				<p>
-					A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
-					<br/>
-					A person who creates a PR gets attributed as its author and nominates at least one reviewer. Once mandatory changes requested by the reviewers have been incorporated by the contributors, reviewers can approve the PR. An approval permits that the approved contribution can be merged from a temporary source branch into a longer living target branch inside the repository.{{#if metadata.gxp}} A single person must not assume the roles of contributor and reviewer on the same PR (no self-approvals).{{/if}}<br/>
-					<br/>
-				</p>
-				<p>For further details about Pull Requests information, see <a href="#section_16_1">Section 16.1</a>.</p>
-			{{else}}
+
+            <div id="blueband">&nbsp;</div>
+
+            <h1>System and Software Design Specification incl. Source Code Review Plan for '{{metadata.name}}'</h1>
+
+            <h2>Table of Contents</h2>
+            <ol class="table-of-contents">
+                <li><a href="#section_1">INTRODUCTION</a></li>
+                <li><a href="#section_2">OVERVIEW</a></li>
+                <ol>
+                    <li><a href="#section_2_1">System Design Overview Incl. System Diagram</a></li>
+                    <li><a href="#section_2_2">SOFTWARE DESIGN OVERVIEW</a></li>
+                    <li><a href="#section_2_3">SOURCE CODE REVIEW OVERVIEW</a></li>
+                </ol>
+                <li><a href="#section_3">SYSTEM DESIGN PROFILE AND SYSTEM DESCRIPTION</a>
+                    <ol>
+                        <li><a href="#section_3_1">SYSTEM DESIGN PROFILE</a></li>
+                        <li><a href="#section_3_2">SYSTEM DESCRIPTION</a></li>
+                    </ol>
+                </li>
+                <li><a href="#section_4">ARCHITECTURE OF THE SYSTEM</a></li>
+                <li><a href="#section_5">SYSTEM COMPONENTS</a>
+                    <ol>
+                        <li><a href="#section_5_1">SYSTEM COMPONENT LIST</a></li>
+                        <li><a href="#section_5_2">SYSTEM COMPONENT SPECIFICATIONS</a></li>
+                        <li><a href="#section_5_3">UTILISATION OF EXISTING INFRASTRUCTURE SYSTEMS</a></li>
+                        <li><a href="#section_5_4">UTILISATION OF EXISTING INFRASTRUCTURE SERVICES</a></li>
+                    </ol>
+                </li>
+                <li><a href="#section_6">CONFIGURATION FOR ADDITIONAL ENVIRONMENTS</a></li>
+                <ol>
+                    <li><a href="#section_6_1">DEVELOPMENT ENVIRONMENT</a></li>
+                    <li><a href="#section_6_2">QA/TEST ENVIRONMENT</a></li>
+                    <li><a href="#section_6_3">TRAINING ENVIRONMENT</a></li>
+                </ol>
+                <li><a href="#section_7">ENVIRONMENTAL CONDITIONS</a></li>
+                <li><a href="#section_8">SOFTWARE DESIGN PRINCIPLES</a></li>
+                <li><a href="#section_9">SYSTEM DATA</a></li>
+                <li><a href="#section_10">MODULE DESCRIPTION</a></li>
+                <li><a href="#section_11">MODULES TO BE REVIEWED</a></li>
+                <li><a href="#section_12">CODING REVIEW RESULTS</a></li>
+                <li><a href="#section_13">DEFINITIONS AND ABBREVIATIONS</a></li>
+                <ol>
+                    <li><a href="#section_13_1">DEFINITIONS</a></li>
+                    <li><a href="#section_13_2">ABBREVIATIONS</a></li>
+                </ol>
+                <li><a href="#section_14">REFERENCE DOCUMENTS</a></li>
+                <li><a href="#section_15">DOCUMENT HISTORY</a></li>
+                {{#if data.sections.sec16s1.bitbucket}}
+                    <li><a href="#section_16">APPENDIX</a></li>
+                    <ol>
+                        <li><a href="#section_16_1">SOURCE CODE REVIEW DETAILS</a></li>
+                    </ol>
+                {{/if}}
+            </ol>
+        </div>
+
+        <div class="page">
+            <h2 id="section_1"><span>1</span>Introduction</h2>
+            {{#if data.sections.sec1.done}}
+            {{{data.sections.sec1.content}}}
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_2"><span>2</span>Overview</h2>
+
+            <h3 id="section_2_1"><span>2.1</span>System Design Overview incl. System Diagram</h3>
+            {{#if data.sections.sec2s1.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec2s1.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+            <h3 id="section_2_2"><span>2.2</span>Software Design Overview</h3>
+            <p>N/A</p>
+
+            <h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
+            {{#if data.sections.sec2s3.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+            {{#if data.sections.sec16s1.bitbucket}}
+                <p>
+                    A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
+                    <br/>
+                    A person who creates a PR gets attributed as its author and nominates at least one reviewer. Once mandatory changes requested by the reviewers have been incorporated by the contributors, reviewers can approve the PR. An approval permits that the approved contribution can be merged from a temporary source branch into a longer living target branch inside the repository.{{#if metadata.gxp}} A single person must not assume the roles of contributor and reviewer on the same PR (no self-approvals).{{/if}}<br/>
+                    <br/>
+                </p>
+                <p>For further details about Pull Requests information, see <a href="#section_16_1">Section 16.1</a>.</p>
+            {{else}}
                 <p><em>N/A</em></p>
             {{/if}}
-		</div>
+        </div>
 
-		<div class="page">
-			<h2 id="section_3"><span>3</span>System Design Profile and System Description</h2>
+        <div class="page">
+            <h2 id="section_3"><span>3</span>System Design Profile and System Description</h2>
 
-			<h3 id="section_3_1"><span>3.1</span>System Design Profile</h3>
+            <h3 id="section_3_1"><span>3.1</span>System Design Profile</h3>
 
-			{{#if data.sections.sec3s1.specifications}}
+            {{#if data.sections.sec3s1.specifications}}
             <p>The system has the following system design specifications:</p>
-			<table>
-				<thead>
-					<th>SSDS #</th>
-					<th class="content-wrappable">Detailed Technical/Functional Specification</th>
-					<th>Traces To:</th>
-				</thead>
-				<tbody>
-					{{#each data.sections.sec3s1.specifications}}
-					<tr>
-						<td class="lean">{{key}}</td>
-						<td class="content-wrappable">{{{description}}}</td>
-						<td class="content-wrappable">{{req_key}}</td>
-					</tr>
-					{{/each}}
-				</tbody>
-			</table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-
-			{{#if data.sections.sec3s1.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-
-			<h3 id="section_3_2"><span>3.2</span>System Description</h3>
-			{{#if data.sections.sec3s2.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-			<h4><span>3.2.1</span> Modules to be developed</h4>
-			<p>N/A</p>
-
-			<h4><span>3.2.2</span> Interfaces between Modules</h4>
-			{{#if data.sections.sec3s2s2.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec3s2s2.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-			<h4><span>3.2.3</span> Interfaces to External Systems</h4>
-			{{#if data.sections.sec3s2s2.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec3s2s3.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-			<h4><span>3.2.4</span> System Diagram</h4>
-			{{#if data.sections.sec3s2s4.done}}
-			{{{data.sections.sec3s2s4.content}}}
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-		</div>
-
-		<div class="page">
-			<h2 id="section_4"><span>4</span>Architecture of the System</h2>
-			{{#if data.sections.sec4.done}}
-			{{{data.sections.sec4.content}}}
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-		</div>
-
-		<div class="page">
-			<h2 id="section_5"><span>5</span>System Components</h2>
-
-			<h3 id="section_5_1"><span>5.1</span>System Components List</h3>
-			{{#if data.sections.sec5s1.components}}
-			<p>This system is composed of the following components: </p>
-			<table>
-				<thead>
-					<th>SSDS #</th>
-					<th class="content-wrappable">Type of Component</th>
-					<th class="content-wrappable">Identification (Config. Item)</th>
-					<th class="content-wrappable">Functionality/Purpose</th>
-					<th class="content-wrappable">Components Specifications (Section/Doc ID)</th>
-				</thead>
-				<tbody>
-					{{#each data.sections.sec5s1.components}}
-					<tr>
-						<td class="lean">{{key}}</td>
-						<td class="content-wrappable">{{componentType}}</td>
-						<td class="content-wrappable">{{componentId}}</td>
-						<td class="content-wrappable">{{{description}}}</td>
-						<td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
-					</tr>
-					{{/each}}
-				</tbody>
-			</table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-
-			<h3 id="section_5_2"><span>5.2</span>System Components Specifications</h3>
-			<!-- all data for sec5s2 is contained in sec5s1 already -->
-			<p>The installation comprises the following software-defined components, except where denoted otherwise:</p>
-            {{#if data.sections.sec5s1.components}}
-			<table>
-				<thead>
-					<th>SSDS #</th>
-					<th class="content-wrappable">Name of Software</th>
-					<th>Supplier</th>
-					<th>Version</th>
-					<th class="content-wrappable">Description of Functionality</th>
-					<th>References</th>
-					<th class="content-wrappable">Installed by ODS</th>
-				</thead>
-				<tbody>
-					{{#each data.sections.sec5s1.components}}
-					<tr>
-						<td class="content-wrappable">{{key}}</td>
-						<td class="content-wrappable">{{nameOfSoftware}}</td>
-						<td class="content-wrappable">{{supplier}}</td>
-						<td class="content-wrappable">{{version}}</td>
-						<td class="content-wrappable">{{description}}</td>
-						<td class="content-wrappable">{{references}}</td>
-						<td class="content-wrappable">{{doInstall}}</td>
-					</tr>
-					{{/each}}
-				</tbody>
-			</table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-
-			<h3 id="section_5_3"><span>5.3</span>Utilisation of Existing Infrastructure Systems</h3>
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec5s3.content}}}</td>
-			    </tr>
-			</table>
-
-			<h3 id="section_5_4"><span>5.4</span>Utilisation of Existing Infrastructure Services</h3>
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec5s4.content}}}</td>
-			    </tr>
-			</table>
-		</div>
-
-		<div class="page">
-			<h2 id="section_6"><span>6</span>Configurations for Additional Environments</h2>
-
-			<h3 id="section_6_1"><span>6.1</span>Development Environment</h3>
-			{{#if data.sections.sec6s1.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-
-			<h3 id="section_6_2"><span>6.2</span>QA/Test Environment</h3>
-			{{#if data.sections.sec6s2.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-
-			<h3 id="section_6_3"><span>6.3</span>Training Environment</h3>
-			{{#if data.sections.sec6s3.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec6s3.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-		</div>
-
-		<div class="page">
-			<h2 id="section_7"><span>7</span>Environmental Conditions</h2>
-			{{#if data.sections.sec7.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-				<p>Not mandatory</p>
-			{{/if}}
-		</div>
-
-		<div class="page">
-			<h2 id="section_8"><span>8</span>Software Design Principles</h2>
-			<p>N/A</p>
-		</div>
-
-		<div class="page">
-			<h2 id="section_9"><span>9</span>System Data</h2>
-			<p>N/A</p>
-		</div>
-
-		<div class="page">
-			<h2 id="section_10"><span>10</span>Module Description</h2>
-			<p>N/A</p>
-		</div>
-
-		<div class="page">
-			<h2 id="section_11"><span>11</span>Modules To Be Reviewed</h2>
-			<!-- all data for sec11 is contained in sec10 already -->
-			{{#if data.sections.sec10.modules}}
-			<p>The following modules will be reviewed.</p>
-			<table>
-				<thead>
-					<th class="content-wrappable">Name of module</th>
-					<th class="content-wrappable">Functionality</th>
-					<th class="content-wrappable">References to SSDS</th>
-				</thead>
-				<tbody>
-					{{#each data.sections.sec10.modules}}
-					<tr>
-						<td class="content-wrappable">{{nameOfSoftware}}</td>
-						<td class="content-wrappable">{{description}}</td>
-						<td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
-					</tr>
-					{{/each}}
-				</tbody>
-			</table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-
-		</div>
-
-		<div class="page">
-			<h2 id="section_12"><span>12</span>Coding Review Results</h2>
-            <p>N/A</p>
-		</div>
-
-		<div class="page">
-			<h2 id="section_13"><span>13</span>Definitions And Abbreviations</h2>
-			<h3 id="section_13_1"><span>13.1</span>Definitions</h3>
-			{{#if data.sections.sec13s1.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec13s1.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-
-			<h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
-			{{#if data.sections.sec13s2.done}}
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec13s2.content}}}</td>
-			    </tr>
-			</table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-
-		</div>
-
-		<div class="page">
-			<h2 id="section_14"><span>14</span>Reference Documents</h2>
-			<ul>
-                <li>Combined Specification Document ({{metadata.referencedDocs.CSD}})</li>
-			    {{#if data.sections.sec14.referencedocs}}
-				{{#each data.sections.sec14.referencedocs}}
-				<li>{{name}}</li>
-				{{/each}}
-			    {{/if}}
-			</ul>
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
-                </tr>
+            <table>
+                <thead>
+                    <th>SSDS #</th>
+                    <th class="content-wrappable">Detailed Technical/Functional Specification</th>
+                    <th>Traces To:</th>
+                </thead>
+                <tbody>
+                    {{#each data.sections.sec3s1.specifications}}
+                    <tr>
+                        <td class="lean">{{key}}</td>
+                        <td class="content-wrappable">{{{description}}}</td>
+                        <td class="content-wrappable">{{req_key}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
             </table>
-		</div>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
 
-		<div class="page">
-			<h2 id="section_15"><span>15</span>Document History</h2>
+            {{#if data.sections.sec3s1.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+
+            <h3 id="section_3_2"><span>3.2</span>System Description</h3>
+            {{#if data.sections.sec3s2.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+            <h4><span>3.2.1</span> Modules to be developed</h4>
+            <p>N/A</p>
+
+            <h4><span>3.2.2</span> Interfaces between Modules</h4>
+            {{#if data.sections.sec3s2s2.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec3s2s2.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+            <h4><span>3.2.3</span> Interfaces to External Systems</h4>
+            {{#if data.sections.sec3s2s2.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec3s2s3.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+            <h4><span>3.2.4</span> System Diagram</h4>
+            {{#if data.sections.sec3s2s4.done}}
+            {{{data.sections.sec3s2s4.content}}}
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_4"><span>4</span>Architecture of the System</h2>
+            {{#if data.sections.sec4.done}}
+            {{{data.sections.sec4.content}}}
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_5"><span>5</span>System Components</h2>
+
+            <h3 id="section_5_1"><span>5.1</span>System Components List</h3>
+            {{#if data.sections.sec5s1.components}}
+            <p>This system is composed of the following components: </p>
+            <table>
+                <thead>
+                    <th>SSDS #</th>
+                    <th class="content-wrappable">Type of Component</th>
+                    <th class="content-wrappable">Identification (Config. Item)</th>
+                    <th class="content-wrappable">Functionality/Purpose</th>
+                    <th class="content-wrappable">Components Specifications (Section/Doc ID)</th>
+                </thead>
+                <tbody>
+                    {{#each data.sections.sec5s1.components}}
+                    <tr>
+                        <td class="lean">{{key}}</td>
+                        <td class="content-wrappable">{{componentType}}</td>
+                        <td class="content-wrappable">{{componentId}}</td>
+                        <td class="content-wrappable">{{{description}}}</td>
+                        <td class="lean">see <a href="#section_5_2">Section 5.2</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+
+            <h3 id="section_5_2"><span>5.2</span>System Components Specifications</h3>
+            <!-- all data for sec5s2 is contained in sec5s1 already -->
+            <p>The installation comprises the following software-defined components, except where denoted otherwise:</p>
+            {{#if data.sections.sec5s1.components}}
+            <table>
+                <thead>
+                    <th>SSDS #</th>
+                    <th class="content-wrappable">Name of Software</th>
+                    <th>Supplier</th>
+                    <th>Version</th>
+                    <th class="content-wrappable">Description of Functionality</th>
+                    <th>References</th>
+                    <th class="content-wrappable">Installed by ODS</th>
+                </thead>
+                <tbody>
+                    {{#each data.sections.sec5s1.components}}
+                    <tr>
+                        <td class="content-wrappable">{{key}}</td>
+                        <td class="content-wrappable">{{nameOfSoftware}}</td>
+                        <td class="content-wrappable">{{supplier}}</td>
+                        <td class="content-wrappable">{{version}}</td>
+                        <td class="content-wrappable">{{description}}</td>
+                        <td class="content-wrappable">{{references}}</td>
+                        <td class="content-wrappable">{{doInstall}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+
+            <h3 id="section_5_3"><span>5.3</span>Utilisation of Existing Infrastructure Systems</h3>
+            {{#if data.sections.sec5s3.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec5s3.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+
+            <h3 id="section_5_4"><span>5.4</span>Utilisation of Existing Infrastructure Services</h3>
+            {{#if data.sections.sec5s4.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec5s4.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_6"><span>6</span>Configurations for Additional Environments</h2>
+
+            <h3 id="section_6_1"><span>6.1</span>Development Environment</h3>
+            {{#if data.sections.sec6s1.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+
+            <h3 id="section_6_2"><span>6.2</span>QA/Test Environment</h3>
+            {{#if data.sections.sec6s2.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+
+            <h3 id="section_6_3"><span>6.3</span>Training Environment</h3>
+            {{#if data.sections.sec6s3.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec6s3.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_7"><span>7</span>Environmental Conditions</h2>
+            {{#if data.sections.sec7.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_8"><span>8</span>Software Design Principles</h2>
+            <p>N/A</p>
+        </div>
+
+        <div class="page">
+            <h2 id="section_9"><span>9</span>System Data</h2>
+            <p>N/A</p>
+        </div>
+
+        <div class="page">
+            <h2 id="section_10"><span>10</span>Module Description</h2>
+            <p>N/A</p>
+        </div>
+
+        <div class="page">
+            <h2 id="section_11"><span>11</span>Modules To Be Reviewed</h2>
+            <!-- all data for sec11 is contained in sec10 already -->
+            {{#if data.sections.sec10.modules}}
+            <p>The following modules will be reviewed.</p>
+            <table>
+                <thead>
+                    <th class="content-wrappable">Name of module</th>
+                    <th class="content-wrappable">Functionality</th>
+                    <th class="content-wrappable">References to SSDS</th>
+                </thead>
+                <tbody>
+                    {{#each data.sections.sec10.modules}}
+                    <tr>
+                        <td class="content-wrappable">{{nameOfSoftware}}</td>
+                        <td class="content-wrappable">{{description}}</td>
+                        <td class="content-wrappable">see <a href="#section_10_{{@index}}">Section 10</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+
+        </div>
+
+        <div class="page">
+            <h2 id="section_12"><span>12</span>Coding Review Results</h2>
+            <p>N/A</p>
+        </div>
+
+        <div class="page">
+            <h2 id="section_13"><span>13</span>Definitions And Abbreviations</h2>
+            <h3 id="section_13_1"><span>13.1</span>Definitions</h3>
+            {{#if data.sections.sec13s1.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec13s1.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+
+            <h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
+            {{#if data.sections.sec13s2.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec13s2.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+
+        </div>
+
+        <div class="page">
+            <h2 id="section_14"><span>14</span>Reference Documents</h2>
+            <ul>
+                <li>Combined Specification Document ({{metadata.referencedDocs.CSD}})</li>
+                {{#if data.sections.sec14.referencedocs}}
+                {{#each data.sections.sec14.referencedocs}}
+                <li>{{name}}</li>
+                {{/each}}
+                {{/if}}
+            </ul>
+            {{#if data.sections.sec14.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_15"><span>15</span>Document History</h2>
             {{#if data.documentHistory}}
             <table>
                 <thead>
@@ -481,107 +493,107 @@
                     <th class="lean">Author</th>
                     <th>Change Reference</th>
                 </thead>
-				<tbody>
-					{{#each data.documentHistory}}
-					<tr>
-						<td class="lean">{{{docVersion}}}</td>
-						<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-						<td class="content-wrappable">
-							{{{rational}}}
-							<br>
-							{{#each issueType}}
-							{{#if added}}
-							The following {{type}} were added:
-							<ul>
-								{{#each added}}
-								<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-								{{/each}}
-							</ul>
-							{{/if}}
-							{{#if discontinued}}
-							The following {{type}} were removed:
-							<ul>
-								{{#each discontinued}}
-								<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-								{{/each}}
-							</ul>
-							{{/if}}
-							{{#if changed}}
-							The following {{type}} were changed:
-							<ul>
-								{{#each changed}}
-								<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-								{{/each}}
-							</ul>
-							{{/if}}
-							<br>
-							{{/each}}
-						</td>
-					</tr>
-					{{/each}}
-				</tbody>
+                <tbody>
+                    {{#each data.documentHistory}}
+                    <tr>
+                        <td class="lean">{{{docVersion}}}</td>
+                        <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                        <td class="content-wrappable">
+                            {{{rational}}}
+                            <br>
+                            {{#each issueType}}
+                            {{#if added}}
+                            The following {{type}} were added:
+                            <ul>
+                                {{#each added}}
+                                <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                            {{#if discontinued}}
+                            The following {{type}} were removed:
+                            <ul>
+                                {{#each discontinued}}
+                                <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                            {{#if changed}}
+                            The following {{type}} were changed:
+                            <ul>
+                                {{#each changed}}
+                                <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                            <br>
+                            {{/each}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
             </table>
             {{/if}}
-			{{#if data.sections.sec15.done}}
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec15.content}}}</td>
-                </tr>
-            </table>
-			{{else}}
-			<p><em>N/A</em></p>
-			{{/if}}
-		</div>
+            {{#if data.sections.sec15.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec15.content}}}</td>
+                    </tr>
+                </table>
+            {{else}}
+                <p><em>N/A</em></p>
+            {{/if}}
+        </div>
 
-		{{#if data.sections.sec16s1.bitbucket}}
-			<div class="page">
-				<h2 id="section_16"><span>16</span>Appendix</h2>
-				<h3 id="section_16_1"><span>16.1</span>Source Code Review Details</h3>
-				<table class="no-border">
-					<tr>
-						<td class="content-wrappable no-border">{{{data.sections.sec16s1.content}}}</td>
-					</tr>
-				</table>
-				<p>
-					The following table lists all PRs which have been approved and merged into a Bitbucket repository’s integration branch:
-				</p>
-				<table>
-					<thead>
-						<th>Date</th>
-						<th>Component</th>
-						<th>Author</th>
-						<th>Reviewer</th>
-						<th>Commit SHA and URL</th>
-					</thead>
-					<tbody>
-						{{#each data.sections.sec16s1.bitbucket}}
-						<tr>
-							<td class="content-wrappable">{{date}}</td>
-							<td class="content-wrappable">{{component}}</td>
-							<td class="content-wrappable break-all" style="min-width: 200px;">
-								<ul>
-									<li>{{authorName}}, {{authorEmail}}</li>
-								</ul>
-							</td>
-							<td class="content-wrappable break-all" style="min-width: 200px;">
-								<ul>
-								{{#each reviewers}}
-									<li>{{reviewerName}}, {{reviewerEmail}}</li>
-								{{/each}}
-								</ul>
-							</td>
-							<td class="content-wrappable">
-								<ul>
-									<li>SHA: {{commit}}</li>
-									<li>{{url}}</li>
-								</ul>
-							</td>
-						</tr>
-						{{/each}}
-					</tbody>
-				</table>
-			</div>
-		{{/if}}
+        {{#if data.sections.sec16s1.bitbucket}}
+            <div class="page">
+                <h2 id="section_16"><span>16</span>Appendix</h2>
+                <h3 id="section_16_1"><span>16.1</span>Source Code Review Details</h3>
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec16s1.content}}}</td>
+                    </tr>
+                </table>
+                <p>
+                    The following table lists all PRs which have been approved and merged into a Bitbucket repository’s integration branch:
+                </p>
+                <table>
+                    <thead>
+                        <th>Date</th>
+                        <th>Component</th>
+                        <th>Author</th>
+                        <th>Reviewer</th>
+                        <th>Commit SHA and URL</th>
+                    </thead>
+                    <tbody>
+                        {{#each data.sections.sec16s1.bitbucket}}
+                        <tr>
+                            <td class="content-wrappable">{{date}}</td>
+                            <td class="content-wrappable">{{component}}</td>
+                            <td class="content-wrappable break-all" style="min-width: 200px;">
+                                <ul>
+                                    <li>{{authorName}}, {{authorEmail}}</li>
+                                </ul>
+                            </td>
+                            <td class="content-wrappable break-all" style="min-width: 200px;">
+                                <ul>
+                                {{#each reviewers}}
+                                    <li>{{reviewerName}}, {{reviewerEmail}}</li>
+                                {{/each}}
+                                </ul>
+                            </td>
+                            <td class="content-wrappable">
+                                <ul>
+                                    <li>SHA: {{commit}}</li>
+                                    <li>{{url}}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/if}}
 
-	</body>
+    </body>
 </html>

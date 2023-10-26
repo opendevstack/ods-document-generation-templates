@@ -107,12 +107,12 @@
                 <th>Role</th>
                 <th>Responsibilities</th>
             </thead>
-			<tbody>
-				<tr>
-					<td>Developer</td>
-					<td>Writes tests</td>
-				</tr>
-			</tbody>
+            <tbody>
+                <tr>
+                    <td>Developer</td>
+                    <td>Writes tests</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
@@ -131,20 +131,20 @@
         <p>The following table contains the list of repositories that will be scanned for unit tests. For the unit tests defined in JIRA, the test ID is shown. More information about them can be found in <a href="#section_4">section 4</a>.</p>
 
         <table>
-   			<thead>
-	   			<th class="lean">Module Name</th>
-	   			<th class="lean">Description</th>
-	   			<th class="lean">Test IDs</th>
-   			</thead>
-			<tbody>
-				{{#each data.modules}}
-				<tr>
-					<td class="lean">{{id}}</td>
-					<td class="content-wrappable">{{description}}</td>
-					<td class="content-wrappable">{{tests}}</td>
-				</tr>
-				{{/each}}
-			</tbody>
+               <thead>
+                   <th class="lean">Module Name</th>
+                   <th class="lean">Description</th>
+                   <th class="lean">Test IDs</th>
+               </thead>
+            <tbody>
+                {{#each data.modules}}
+                <tr>
+                    <td class="lean">{{id}}</td>
+                    <td class="content-wrappable">{{description}}</td>
+                    <td class="content-wrappable">{{tests}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
     </div>
 
@@ -187,19 +187,19 @@
                 <th class="lean">Passed (Y/N)</th>
                 <th class="lean">Comments</th>
             </thead>
-			<tbody>
-				{{#each data.tests}}
-				<tr>
-					<td class="content-wrappable">{{systemRequirement}}</td>
-					<td class="lean">{{testKey}}</td>
-					<td class="content-wrappable">{{{softwareDesignSpec}}}</td>
-					<td class="lean">{{riskLevel}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-					<td class="lean">&nbsp;</td>
-					<td class="lean">&nbsp;</td>
-				</tr>
-				{{/each}}
-			</tbody>
+            <tbody>
+                {{#each data.tests}}
+                <tr>
+                    <td class="content-wrappable">{{systemRequirement}}</td>
+                    <td class="lean">{{testKey}}</td>
+                    <td class="content-wrappable">{{{softwareDesignSpec}}}</td>
+                    <td class="lean">{{riskLevel}}</td>
+                    <td class="content-wrappable">{{{description}}}</td>
+                    <td class="lean">&nbsp;</td>
+                    <td class="lean">&nbsp;</td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
         {{else}}
             <p><em>N/A</em></p>
@@ -258,45 +258,45 @@
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
             </thead>
-			<tbody>
-				{{#each data.documentHistory}}
-				<tr>
-					<td class="lean">{{{docVersion}}}</td>
-					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-					<td class="content-wrappable">
-						{{{rational}}}
-						<br>
-						{{#each issueType}}
-						{{#if added}}
-						The following {{type}} were added:
-						<ul>
-							{{#each added}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if discontinued}}
-						The following {{type}} were removed:
-						<ul>
-							{{#each discontinued}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if changed}}
-						The following {{type}} were changed:
-						<ul>
-							{{#each changed}}
-							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						<br>
-						{{/each}}
-					</td>
-				</tr>
-				{{/each}}
-			</tbody>
+            <tbody>
+                {{#each data.documentHistory}}
+                <tr>
+                    <td class="lean">{{{docVersion}}}</td>
+                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                    <td class="content-wrappable">
+                        {{{rational}}}
+                        <br>
+                        {{#each issueType}}
+                        {{#if added}}
+                        The following {{type}} were added:
+                        <ul>
+                            {{#each added}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if discontinued}}
+                        The following {{type}} were removed:
+                        <ul>
+                            {{#each discontinued}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if changed}}
+                        The following {{type}} were changed:
+                        <ul>
+                            {{#each changed}}
+                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        <br>
+                        {{/each}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
         {{/if}}
         {{#if data.sections.sec7.done}}
@@ -305,6 +305,9 @@
                     <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
                 </tr>
             </table>
+        {{/if}}
+        {{else}}
+            <p>Not mandatory</p>
         {{/if}}
     </div>
 </body>

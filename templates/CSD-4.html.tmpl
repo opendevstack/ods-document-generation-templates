@@ -80,7 +80,7 @@
                     <li><a href="#section_3_5">Roles</a></li>
                     <li><a href="#section_3_6">Interfaces</a></li>
                     <li><a href="#section_3_7">Operational Environment</a></li>
-					<li><a href="#section_3_8">Uncategorized Requirements</a></li>
+                    <li><a href="#section_3_8">Uncategorized Requirements</a></li>
                 </ol>
             </li>
             <li><a href="#section_4">Constraints</a>
@@ -142,33 +142,33 @@
         <p>Requirements intended to fulfil applicable regulatory requirements are included in the tables below.</p>
 
             {{#if data.requirements.operationalrequirements.noepics}}
-			<table>
+            <table>
                 <thead>
                     <th>No.</th>
                     <th>Document</th>
                     <th>Requirement</th>
                     <th>Applicability</th>
                 </thead>
-				<tbody>
-					{{#each data.requirements.operationalrequirements.noepics}}
-					<tr>
-						<td class="lean align-top" rowspan="3">{{key}}</td>
-						<td class="lean">URS</td>
-						<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					<tr>
-						<td class="lean">FS</td>
-						<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					<tr>
-						<td class="lean">CS</td>
-						<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					{{/each}}
-				</tbody>
+                <tbody>
+                    {{#each data.requirements.operationalrequirements.noepics}}
+                    <tr>
+                        <td class="lean align-top" rowspan="3">{{key}}</td>
+                        <td class="lean">URS</td>
+                        <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">FS</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">CS</td>
+                        <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
              </table>
              {{/if}}
              {{#each data.requirements.operationalrequirements.epics}}
@@ -181,26 +181,26 @@
                          <th>Requirement</th>
                          <th>Applicability</th>
                      </thead>
-					 <tbody>
-						 {{#each stories}}
-						 <tr>
-							 <td class="lean align-top" rowspan="3">{{key}}</td>
-							 <td class="lean">URS</td>
-							 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							 <td class="lean">{{applicability}}</td>
-						 </tr>
-						 <tr>
-							 <td class="lean">FS</td>
-							 <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							 <td class="lean">{{applicability}}</td>
-						 </tr>
-						 <tr>
-							 <td class="lean">CS</td>
-							 <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							 <td class="lean">{{applicability}}</td>
-						 </tr>
-						 {{/each}}
-					 </tbody>
+                     <tbody>
+                         {{#each stories}}
+                         <tr>
+                             <td class="lean align-top" rowspan="3">{{key}}</td>
+                             <td class="lean">URS</td>
+                             <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                             <td class="lean">{{applicability}}</td>
+                         </tr>
+                         <tr>
+                             <td class="lean">FS</td>
+                             <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                             <td class="lean">{{applicability}}</td>
+                         </tr>
+                         <tr>
+                             <td class="lean">CS</td>
+                             <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                             <td class="lean">{{applicability}}</td>
+                         </tr>
+                         {{/each}}
+                     </tbody>
                  </table>
              {{/each}}
 
@@ -214,26 +214,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.functionalrequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.functionalrequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -247,29 +247,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			 {{else}}
+             {{else}}
              <p><em>N/A</em></p>
              {{/if}}
 
@@ -285,26 +285,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.datarequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.datarequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -318,36 +318,31 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
-
-
-
-
-
 
             <h4 id="section_3_2_3"><span>3.2.3</span> Technical Requirements</h4>
             {{#if data.requirements.technicalrequirements}}
@@ -359,26 +354,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.technicalrequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.technicalrequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -392,30 +387,30 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
-             <p><em>N/A</em></p>
+            {{else}}
+                <p><em>N/A</em></p>
             {{/if}}
 
             <h4 id="section_3_2_4"><span>3.2.4</span> Maintenance Requirements</h4>
@@ -428,26 +423,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.maintenancerequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.maintenancerequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -461,30 +456,30 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
-             <p><em>N/A</em></p>
+            {{else}}
+                <p><em>N/A</em></p>
             {{/if}}
 
         <h3 id="section_3_3"><span>3.3</span>Non-Operational Requirements</h3>
@@ -499,26 +494,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.performancerequirements.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.performancerequirements.noepics}}
+                        <tr>
+                            <td class="lean align-top" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
 
@@ -532,29 +527,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-								<tr>
-									<td class="lean align-top" rowspan="3">{{key}}</td>
-									<td class="lean">URS</td>
-									<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-								<tr>
-									<td class="lean">FS</td>
-									<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-								<tr>
-									<td class="lean">CS</td>
-									<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                                <tr>
+                                    <td class="lean align-top" rowspan="3">{{key}}</td>
+                                    <td class="lean">URS</td>
+                                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">FS</td>
+                                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">CS</td>
+                                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -573,26 +568,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.availabilityrequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.availabilityrequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -606,29 +601,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -646,26 +641,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.securityrequirements.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.securityrequirements.noepics}}
+                        <tr>
+                            <td class="lean align-top" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
                 {{#each data.requirements.securityrequirements.epics}}
@@ -719,26 +714,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.regulatoryrequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.regulatoryrequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -752,29 +747,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -792,26 +787,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each data.requirements.overarchingrequirements.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each data.requirements.overarchingrequirements.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/if}}
 
@@ -825,29 +820,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -865,26 +860,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.roles.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.roles.noepics}}
+                        <tr>
+                            <td class="lean align-top" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
 
@@ -898,26 +893,26 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
             {{else}}
@@ -938,26 +933,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.interfacerequirements.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.interfacerequirements.noepics}}
+                        <tr>
+                            <td class="lean align-top" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
 
@@ -971,29 +966,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -1011,26 +1006,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.environmentrequirements.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.environmentrequirements.noepics}}
+                        <tr>
+                            <td class="lean align-top" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
 
@@ -1044,37 +1039,37 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-								<tr>
-									<td class="lean align-top" rowspan="3">{{key}}</td>
-									<td class="lean">URS</td>
-									<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-								<tr>
-									<td class="lean">FS</td>
-									<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-								<tr>
-									<td class="lean">CS</td>
-									<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                                <tr>
+                                    <td class="lean align-top" rowspan="3">{{key}}</td>
+                                    <td class="lean">URS</td>
+                                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">FS</td>
+                                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">CS</td>
+                                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
             <p><em>Not mandatory.</em></p>
         {{/if}}
 
-		<h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
-		{{#if data.sections.sec3s8.done}}
+        <h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
+        {{#if data.sections.sec3s8.done}}
             {{#if data.requirements.uncategorized}}
                 {{#if data.requirements.uncategorized.noepics}}
                 <table>
@@ -1084,26 +1079,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.uncategorized.noepics}}
-						<tr>
-							<td class="lean align-top" rowspan="3">{{key}}</td>
-							<td class="lean">URS</td>
-							<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">FS</td>
-							<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						<tr>
-							<td class="lean">CS</td>
-							<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-							<td class="lean">{{applicability}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.uncategorized.noepics}}
+                        <tr>
+                            <td class="lean align-top" rowspan="3">{{key}}</td>
+                            <td class="lean">URS</td>
+                            <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">FS</td>
+                            <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        <tr>
+                            <td class="lean">CS</td>
+                            <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                            <td class="lean">{{applicability}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
 
@@ -1117,29 +1112,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -1161,26 +1156,26 @@
                     <th>Requirement</th>
                     <th>Applicability</th>
                 </thead>
-				<tbody>
-					{{#each data.requirements.compatibility.noepics}}
-					<tr>
-						<td class="lean align-top" rowspan="3">{{key}}</td>
-						<td class="lean">URS</td>
-						<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					<tr>
-						<td class="lean">FS</td>
-						<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					<tr>
-						<td class="lean">CS</td>
-						<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					{{/each}}
-				</tbody>
+                <tbody>
+                    {{#each data.requirements.compatibility.noepics}}
+                    <tr>
+                        <td class="lean align-top" rowspan="3">{{key}}</td>
+                        <td class="lean">URS</td>
+                        <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">FS</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">CS</td>
+                        <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
              </table>
             {{/if}}
 
@@ -1194,29 +1189,29 @@
                     <th>Requirement</th>
                     <th>Applicability</th>
                 </thead>
-				<tbody>
-					{{#each stories}}
-					<tr>
-						<td class="lean align-top" rowspan="3">{{key}}</td>
-						<td class="lean">URS</td>
-						<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					<tr>
-						<td class="lean">FS</td>
-						<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					<tr>
-						<td class="lean">CS</td>
-						<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-						<td class="lean">{{applicability}}</td>
-					</tr>
-					{{/each}}
-				</tbody>
+                <tbody>
+                    {{#each stories}}
+                    <tr>
+                        <td class="lean align-top" rowspan="3">{{key}}</td>
+                        <td class="lean">URS</td>
+                        <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">FS</td>
+                        <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">CS</td>
+                        <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                        <td class="lean">{{applicability}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
              </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -1234,26 +1229,26 @@
                         <th>Requirement</th>
                         <th>Applicability</th>
                     </thead>
-					<tbody>
-						{{#each data.requirements.proceduralconstraints.noepics}}
-							<tr>
-								<td class="lean align-top" rowspan="3">{{key}}</td>
-								<td class="lean">URS</td>
-								<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">FS</td>
-								<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-							<tr>
-								<td class="lean">CS</td>
-								<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-								<td class="lean">{{applicability}}</td>
-							</tr>
-						{{/each}}
-					</tbody>
+                    <tbody>
+                        {{#each data.requirements.proceduralconstraints.noepics}}
+                            <tr>
+                                <td class="lean align-top" rowspan="3">{{key}}</td>
+                                <td class="lean">URS</td>
+                                <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">FS</td>
+                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                            <tr>
+                                <td class="lean">CS</td>
+                                <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                <td class="lean">{{applicability}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
                 </table>
                 {{/if}}
 
@@ -1267,29 +1262,29 @@
                             <th>Requirement</th>
                             <th>Applicability</th>
                         </thead>
-						<tbody>
-							{{#each stories}}
-								<tr>
-									<td class="lean align-top" rowspan="3">{{key}}</td>
-									<td class="lean">URS</td>
-									<td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-								<tr>
-									<td class="lean">FS</td>
-									<td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-								<tr>
-									<td class="lean">CS</td>
-									<td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
-									<td class="lean">{{applicability}}</td>
-								</tr>
-							{{/each}}
-						</tbody>
+                        <tbody>
+                            {{#each stories}}
+                                <tr>
+                                    <td class="lean align-top" rowspan="3">{{key}}</td>
+                                    <td class="lean">URS</td>
+                                    <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">FS</td>
+                                    <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean">CS</td>
+                                    <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
+                                    <td class="lean">{{applicability}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
                     </table>
                 {{/each}}
-			{{else}}
+            {{else}}
              <p><em>N/A</em></p>
             {{/if}}
         {{else}}
@@ -1346,45 +1341,45 @@
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
             </thead>
-			<tbody>
-				{{#each data.documentHistory}}
-				<tr>
-					<td class="lean">{{{docVersion}}}</td>
-					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-					<td class="content-wrappable">
-						{{{rational}}}
-						<br>
-						{{#each issueType}}
-						{{#if added}}
-						The following {{type}} were added:
-						<ul>
-							{{#each added}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if discontinued}}
-						The following {{type}} were removed:
-						<ul>
-							{{#each discontinued}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if changed}}
-						The following {{type}} were changed:
-						<ul>
-							{{#each changed}}
-							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						<br>
-						{{/each}}
-					</td>
-				</tr>
-				{{/each}}
-			</tbody>
+            <tbody>
+                {{#each data.documentHistory}}
+                <tr>
+                    <td class="lean">{{{docVersion}}}</td>
+                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                    <td class="content-wrappable">
+                        {{{rational}}}
+                        <br>
+                        {{#each issueType}}
+                        {{#if added}}
+                        The following {{type}} were added:
+                        <ul>
+                            {{#each added}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if discontinued}}
+                        The following {{type}} were removed:
+                        <ul>
+                            {{#each discontinued}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if changed}}
+                        The following {{type}} were changed:
+                        <ul>
+                            {{#each changed}}
+                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        <br>
+                        {{/each}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
         {{/if}}
         {{#if data.sections.sec7.done}}
@@ -1393,6 +1388,9 @@
                     <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
                 </tr>
             </table>
+        {{/if}}
+        {{else}}
+            <p>Not mandatory</p>
         {{/if}}
     </div>
 </body>

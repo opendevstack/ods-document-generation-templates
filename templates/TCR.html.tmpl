@@ -290,7 +290,7 @@
                                 <p>{{#if bugs}} {{bugs}} {{/if}} {{#if comment}} {{comment}} {{/if}}</p>
                             </td>
                             <td class="content-wrappable" style="border: 0px;">{{{timestamp}}}</td>
-                            <td class="content-wrappable" style="border: 0px;">Jenkins</td>
+         <p>N/A</p><td class="content-wrappable" style="border: 0px;">Jenkins</td>
                         </tr>
                     </tbody>
                     </table>
@@ -298,7 +298,7 @@
                 </div>
         {{/each}} <!-- end integration tests block -->
             {{else}}
-                <p><em>N/A</em></p>
+                <p>N/A</p>
             {{/if}}
             <h3 id="section_3_2"><span>3.2</span>Acceptance Test Cases</h3>
                 {{#if data.acceptanceTests}}
@@ -362,7 +362,7 @@
                                 <p>{{#if bugs}} {{bugs}} {{/if}} {{#if comment}} {{comment}} {{/if}}</p>
                             </td>
                             <td class="content-wrappable" style="border: 0px;">{{{timestamp}}}</td>
-                            <td class="content-wrappable" style="border: 0px;">Jenkins</td>
+  <p>N/A</p>       <td class="content-wrappable" style="border: 0px;">Jenkins</td>
                         </tr>
                     </tbody>
                     </table>
@@ -370,14 +370,14 @@
                 </div>
         {{/each}}
         {{else}}
-            <p><em>N/A</em></p>
+            <p>N/A</p>
         {{/if}}
     </div>
     <div class="page">
         <h2 id="section_4"><span>4</span>Attachments</h2>
         <h3 id="section_4_1"><span>4.1</span>xUnit XML Documents (including Test Evidence)</h3>
         <p>This section provides the xUnit XML results, including any test evidence, of the execution of the system {{metadata.name}} created by Jenkins Job Name {{metadata.jenkins.jobName}} and Jenkins Build Number {{metadata.jenkins.buildNumber}}.</p>
-
+<p>N/A</p>
         <h4 id="section_4_1_1"><span>4.1.1</span>Integration Test Cases</h4>
         {{#if data.integrationTestFiles}}
             {{#each data.integrationTestFiles}}
@@ -385,9 +385,9 @@
             <p><pre>{{text}}</pre></p>
             {{/each}}
         {{else}}
-            <p><em>N/A</em></p>
+            <p>N/A</p>
         {{/if}}
-
+<p>N/A</p>
         <h4 id="section_4_1_2"><span>4.1.2</span>Acceptance Test Cases</h4>
         {{#if data.acceptanceTestFiles}}
             {{#each data.acceptanceTestFiles}}
@@ -395,7 +395,7 @@
             <p><pre>{{text}}</pre></p>
             {{/each}}
         {{else}}
-            <p><em>N/A</em></p>
+            <p>N/A</p>
         {{/if}}
     </div>
 </body>

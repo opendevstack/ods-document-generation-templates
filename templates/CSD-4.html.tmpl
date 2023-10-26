@@ -266,11 +266,11 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             {{/each}}
-                        </tbody>
+             <p>N/A</p>
                     </table>
                 {{/each}}
              {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
              {{/if}}
 
 
@@ -337,11 +337,11 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             {{/each}}
-                        </tbody>
+             <p>N/A</p>
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
 
             <h4 id="section_3_2_3"><span>3.2.3</span> Technical Requirements</h4>
@@ -410,8 +410,8 @@
                     </table>
                 {{/each}}
             {{else}}
-                <p><em>N/A</em></p>
-            {{/if}}
+                <p>N/A</p>
+            {<p>N/A</p>
 
             <h4 id="section_3_2_4"><span>3.2.4</span> Maintenance Requirements</h4>
             {{#if data.requirements.maintenancerequirements}}
@@ -479,8 +479,8 @@
                     </table>
                 {{/each}}
             {{else}}
-                <p><em>N/A</em></p>
-            {{/if}}
+                <p>N/A</p>
+            {<p>N/A</p>
 
         <h3 id="section_3_3"><span>3.3</span>Non-Operational Requirements</h3>
         {{#if data.sections.sec3s3s1.done}}
@@ -550,10 +550,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
 
@@ -621,13 +621,13 @@
                             </tr>
                             {{/each}}
                         </tbody>
-                    </table>
+             <p>N/A</p>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h4 id="section_3_3_3"><span>3.3.3</span> Security Requirements</h4>
@@ -690,16 +690,16 @@
                                 <td class="lean">CS</td>
                                 <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
-                            </tr>
+             <p>N/A</p>>
                             {{/each}}
                         </tbody>
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
 
@@ -761,7 +761,7 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
-                                <td class="lean">CS</td>
+             <p>N/A</p><td class="lean">CS</td>
                                 <td class="content-wrappable">Summary: {{{csName}}}{{#if csDescription}}<br>{{{csDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
@@ -770,10 +770,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h3 id="section_3_4"><span>3.4</span>Overarching Requirements</h3>
@@ -830,7 +830,7 @@
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
-                                <td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
+             <p>N/A</p><td class="content-wrappable">Summary: {{{fsName}}}{{#if fsDescription}}<br>{{{fsDescription}}}{{/if}}</td>
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
@@ -843,10 +843,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h3 id="section_3_5"><span>3.5</span>Roles</h3>
@@ -899,7 +899,7 @@
                                 <td class="lean align-top" rowspan="3">{{key}}</td>
                                 <td class="lean">URS</td>
                                 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
-                                <td class="lean">{{applicability}}</td>
+            <p>N/A</p> <td class="lean">{{applicability}}</td>
                             </tr>
                             <tr>
                                 <td class="lean">FS</td>
@@ -916,10 +916,10 @@
                     </table>
                 {{/each}}
             {{else}}
-                <p><em>N/A</em></p>
+                <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h3 id="section_3_6"><span>3.6</span>Interfaces</h3>
@@ -968,7 +968,7 @@
                         </thead>
                         <tbody>
                             {{#each stories}}
-                            <tr>
+             <p>N/A</p>
                                 <td class="lean align-top" rowspan="3">{{key}}</td>
                                 <td class="lean">URS</td>
                                 <td class="content-wrappable">Summary: {{{ursName}}}{{#if ursDescription}}<br>{{{ursDescription}}}{{/if}}</td>
@@ -989,10 +989,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h3 id="section_3_7"><span>3.7</span>Operational Environment</h3>
@@ -1037,7 +1037,7 @@
                             <th>No.</th>
                             <th>Document</th>
                             <th>Requirement</th>
-                            <th>Applicability</th>
+             <p>N/A</p>Applicability</th>
                         </thead>
                         <tbody>
                             {{#each stories}}
@@ -1062,10 +1062,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h3 id="section_3_8"><span>3.8</span> Uncategorized Requirements</h3>
@@ -1106,7 +1106,7 @@
                     <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                     <span>{{{epicDescription}}}</span>
                     <table>
-                        <thead>
+             <p>N/A</p>
                             <th>No.</th>
                             <th>Document</th>
                             <th>Requirement</th>
@@ -1135,10 +1135,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
     </div>
 
@@ -1179,7 +1179,7 @@
              </table>
             {{/if}}
 
-            {{#each data.requirements.compatibility.epics}}
+            {<p>N/A</p>ments.compatibility.epics}}
                 <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
                 <span>{{{epicDescription}}}</span>
                 <table>
@@ -1212,10 +1212,10 @@
              </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
 
         <h3 id="section_4_2"><span>4.2</span>Procedural Constraints</h3>
@@ -1248,7 +1248,7 @@
                                 <td class="lean">{{applicability}}</td>
                             </tr>
                         {{/each}}
-                    </tbody>
+             <p>N/A</p>
                 </table>
                 {{/if}}
 
@@ -1285,10 +1285,10 @@
                     </table>
                 {{/each}}
             {{else}}
-             <p><em>N/A</em></p>
+             <p>N/A</p>
             {{/if}}
         {{else}}
-            <p><em>Not mandatory.</em></p>
+            <p>Not mandatory</p>
         {{/if}}
     </div>
 

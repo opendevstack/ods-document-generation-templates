@@ -102,20 +102,28 @@
 
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction and purpose</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec1.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_2"><span>2</span>Overview</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec2.done}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">

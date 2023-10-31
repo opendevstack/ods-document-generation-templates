@@ -142,11 +142,13 @@
 			<p>N/A</p>
 
 			<h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
-                </tr>
-            </table>
+            {{#if data.sections.sec2s3.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
+                    </tr>
+                </table>
+            {{/if}}
 			{{#if data.sections.sec16s1.bitbucket}}
 				<p>
 					A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
@@ -204,8 +206,6 @@
 			        <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
 			    </tr>
 			</table>
-			{{else}}
-				<p>Not mandatory</p>
 			{{/if}}
 
 			<h4><span>3.2.1</span> Modules to be developed</h4>
@@ -445,11 +445,13 @@
 				{{/each}}
 			    {{/if}}
 			</ul>
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
-			    </tr>
-			</table>
+            {{#if data.sections.sec14.done}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
+                    </tr>
+                </table>
+            {{/if}}
 		</div>
 
 		<div class="page">

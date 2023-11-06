@@ -133,7 +133,7 @@
             </tbody>
         </table>
         {{/if}}
-        {{#if data.sections.sec1.done}}
+        {{#if data.sections.sec1.show}}
             <table class="no-border">
                 <tr>
                     <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
@@ -163,7 +163,7 @@
     <div class="page">
         <h2 id="section_3"><span>3</span>Scope of Test Execution</h2>
         <p>This section will be manually filled before test execution. Please describe the scope of Test case execution in case not all test cases in this document will be executed.</p>
-        {{#if data.sections.sec3.done}}
+        {{#if data.sections.sec3.show}}
             <table style="border: 0px; padding: 0px; margin: 0px">
                 <tr>
                     <td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec3.content}}}</td>

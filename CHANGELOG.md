@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Rework non gxp messages ([#126](https://github.com/opendevstack/ods-document-generation-templates/issues/126))
 - Bugfix/cftr document presents an inconsistent behaviour between testing sections ([#124](https://github.com/opendevstack/ods-document-generation-templates/pull/124))
 - Remove overlapping headers for tables spanning multiple pages ([#121](https://github.com/opendevstack/ods-document-generation-templates/pull/121))
 - Remove CFTR reference from TRC document ([#115](https://github.com/opendevstack/ods-document-generation-templates/pull/115))

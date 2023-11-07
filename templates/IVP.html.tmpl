@@ -32,18 +32,18 @@
                         <td class="lean">Git Commit:</td>
                         <td class="content-wrappable">{{metadata.git.commit}}</td>
                     </tr>
-					<tr>
-						<td class="lean">Git Tag:</td>
-						<td class="content-wrappable">{{metadata.git.targetTag}}</td>
-					</tr>
+                    <tr>
+                        <td class="lean">Git Tag:</td>
+                        <td class="content-wrappable">{{metadata.git.targetTag}}</td>
+                    </tr>
                     <tr>
                         <td class="lean">Git URL:</td>
                         <td class="content-wrappable">{{metadata.git.url}}</td>
                     </tr>
-					<tr>
-						<td class="lean">OpenShift Cluster API URL:</td>
-						<td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
-					</tr>
+                    <tr>
+                        <td class="lean">OpenShift Cluster API URL:</td>
+                        <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
+                    </tr>
                     <tr>
                         <td class="lean">Created by Jenkins Job Name:</td>
                         <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
@@ -92,37 +92,39 @@
 </div>
 <div class="page"><h2 id="section_1"><span>1</span>PURPOSE</h2>
     <p>The purpose of the Configuration and Installation Testing Plan (hereafter referred to as CIT for Installation Qualification) is to check the performance of installation activities, demonstrating that the installation performed for all system hardware, network components, system software, application software, client desktop, and associated peripherals was performed according to the System and Software Design Specifications taking into account the manufacturer and software supplier specifications.
-    	Furthermore the existence of all needed documents for the operation of the system will be checked.</p>
+        Furthermore the existence of all needed documents for the operation of the system will be checked.</p>
         For details, please see System and Software Design Specification including Source Code Review Report, referenced in the 'Reference Documents' section.
 </div>
 <div class="page"><h2 id="section_2"><span>2</span>SCOPE</h2>
     <p>Automated Configuration and Installation Testing for software components will be performed, based on the below components (and their type): <br>
 
-		<table class="no-page-break">
+        <table class="no-page-break">
             <thead>
                 <th class="lean">Component Name</th>
                 <th class="lean">Repository Type</th>
                 <th class="lean">Installed by ODS</th>
             </thead>
-			<tbody>
-				{{#each data.repositories}}
-				<tr>
-					<td class="content-wrappable"><em>{{id}}</em></td>
-					<td class="content-wrappable">{{type}}</td>
-					<td class="content-wrappable">{{doInstall}}</td>
-				</tr>
-				{{/each}}
-			</tbody>
-		</table>
+            <tbody>
+                {{#each data.repositories}}
+                <tr>
+                    <td class="content-wrappable"><em>{{id}}</em></td>
+                    <td class="content-wrappable">{{type}}</td>
+                    <td class="content-wrappable">{{doInstall}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </p>
     <p>
     Attention: Chapters 12 and 13 of the original LeVA template do not apply, since they are not relevant if documentation is generated in an automated way.
     </p>
-    <table class="no-border">
-        <tr>
-            <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
-        </tr>
-    </table>
+    {{#if data.sections.sec2.show}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
+            </tr>
+        </table>
+    {{/if}}
 </div>
 <div class="page"><h2 id="section_3"><span>3</span>ROLES AND RESPONSIBILITIES</h2>
     <table>
@@ -130,50 +132,50 @@
             <th>Role</th>
             <th>Responsibility</th>
         </thead>
-		<tbody>
-			<tr>
-				<td class="lean">Jenkins (Technical Role)</td>
-				<td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
-			</tr>
-			<tr>
-				<td class="lean">Test Administrator</td>
-				<td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
-			</tr>
-			<tr>
-				<td class="lean">Tester</td>
-				<td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
-			</tr>
-		</tbody>
+        <tbody>
+            <tr>
+                <td class="lean">Jenkins (Technical Role)</td>
+                <td class="content-wrappable">To run the verification of the system, execute tests if applicable and collect all the needed information.</td>
+            </tr>
+            <tr>
+                <td class="lean">Test Administrator</td>
+                <td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Test Administrators will supervise the Administrator execution of the test by the Testers and will review the test cases.</td>
+            </tr>
+            <tr>
+                <td class="lean">Tester</td>
+                <td class="content-wrappable">In case of full automation (and no further test cases) - N/A, otherwise Testers will execute the test cases and document the results.</td>
+            </tr>
+        </tbody>
     </table>
 </div>
 <div class="page"><h2 id="section_4"><span>4</span>OVERVIEW OF TECHNICAL ARCHITECTURE</h2>
-	<p>This Plan considers correctly all relevant content of the System and Software Design Specification including Source Code Review Report - see section <i>Reference Documents</i>. The referenced System and Software Design Specification including Source Code Review Report is generated within the same Jenkins Build Run as this IVP/R - so consistency, and traceability is always given. The report will provide the actually referenced version.</p>
+    <p>This Plan considers correctly all relevant content of the System and Software Design Specification including Source Code Review Report - see section <i>Reference Documents</i>. The referenced System and Software Design Specification including Source Code Review Report is generated within the same Jenkins Build Run as this IVP/R - so consistency, and traceability is always given. The report will provide the actually referenced version.</p>
 </div>
 <div class="page"><h2 id="section_5"><span>5</span>TEST CASES</h2>
 <p>Automated test cases contained within the application components mentioned in the scope section were executed at this point.</p>
 
 Other test cases:
 
-	<!-- render test case ID / description from zephyr with tagged with IVP -->
+    <!-- render test case ID / description from zephyr with tagged with IVP -->
     {{#if data.tests}}
-	<table class="no-page-break">
+    <table class="no-page-break">
         <thead>
             <th class="lean">Test case</th>
             <th class="lean">SSDS Ref.</th>
             <th class="lean">Passed (Y/N)</th>
         </thead>
-		<tbody>
-			{{#each data.tests}}
-			<tr>
-				<td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
-				<td class="content-wrappable"><em>{{#if techSpec}} {{techSpec}} {{else}} N/A {{/if}}</em></td>
-				<td class="content-wrappable"></td>
-			</tr>
-			{{/each}}
-		</tbody>
-	</table>
+        <tbody>
+            {{#each data.tests}}
+            <tr>
+                <td class="content-wrappable"><em>{{key}}: {{summary}}</em></td>
+                <td class="content-wrappable"><em>{{#if techSpec}} {{techSpec}} {{else}} N/A {{/if}}</em></td>
+                <td class="content-wrappable"></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </ta<p>N/A</p>
     {{else}}
-        <p><em>N/A</em></p>
+        <p>N/A</p>
     {{/if}}
 
 </div>
@@ -189,29 +191,35 @@ Other test cases:
 </div>
 <div class="page"><h2 id="section_8"><span>8</span>DEFINITIONS AND ABBREVIATIONS</h2>
     <h3 id="section_8_1"><span>8.1</span>DEFINITIONS</h3>
-    <table class="no-border">
-        <tr>
-            <td class="content-wrappable no-border">{{{data.sections.sec8s1.content}}}</td>
-        </tr>
-    </table>
+    {{#if data.sections.sec8s1.show}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec8s1.content}}}</td>
+            </tr>
+        </table>
+    {{/if}}
     <h3 id="section_8_2"><span>8.2</span>ABBREVIATIONS</h3>
-    <table class="no-border">
-        <tr>
-            <td class="content-wrappable no-border">{{{data.sections.sec8s2.content}}}</td>
-        </tr>
-    </table>
+    {{#if data.sections.sec8s2.show}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec8s2.content}}}</td>
+            </tr>
+        </table>
+    {{/if}}
 </div>
 <div class="page"><h2 id="section_9"><span>9</span>REFERENCE DOCUMENTS</h2>
-	<ul>
+    <ul>
         <li>System and Software Design Specification including Source Code Review Plan ({{metadata.referencedDocs.SSDS}})</li>
         <li>Overall Development Test Report ({{metadata.referencedDocs.DTR}})</li>
         <li>Overall Technical Installation Report ({{metadata.referencedDocs.TIR}})</li>
-	</ul>
-	<table class="no-border">
-	    <tr>
-	        <td class="content-wrappable no-border">{{{data.sections.sec9.content}}}</td>
-	    </tr>
-	</table>
+    </ul>
+    {{#if data.sections.sec9.show}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec9.content}}}</td>
+            </tr>
+        </table>
+    {{/if}}
 </div>
 <div class="page"><h2 id="section_10"><span>10</span>DOCUMENT HISTORY</h2>
     {{#if data.documentHistory}}
@@ -222,56 +230,58 @@ Other test cases:
             <th class="lean">Author</th>
             <th>Change Reference</th>
         </thead>
-		<tbody>
-			{{#each data.documentHistory}}
-			<tr>
-				<td class="lean">{{{docVersion}}}</td>
-				<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-				<td class="content-wrappable">
-					{{{rational}}}
-					<br>
-					{{#each issueType}}
-					{{#if added}}
-					The following {{type}} were added:
-					<ul>
-						{{#each added}}
-						<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-						{{/each}}
-					</ul>
-					{{/if}}
-					{{#if discontinued}}
-					The following {{type}} were removed:
-					<ul>
-						{{#each discontinued}}
-						<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-						{{/each}}
-					</ul>
-					{{/if}}
-					{{#if changed}}
-					The following {{type}} were changed:
-					<ul>
-						{{#each changed}}
-						<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-						{{/each}}
-					</ul>
-					{{/if}}
-					<br>
-					{{/each}}
-				</td>
-			</tr>
-			{{/each}}
-		</tbody>
+        <tbody>
+            {{#each data.documentHistory}}
+            <tr>
+                <td class="lean">{{{docVersion}}}</td>
+                <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                <td class="content-wrappable">
+                    {{{rational}}}
+                    <br>
+                    {{#each issueType}}
+                    {{#if added}}
+                    The following {{type}} were added:
+                    <ul>
+                        {{#each added}}
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if discontinued}}
+                    The following {{type}} were removed:
+                    <ul>
+                        {{#each discontinued}}
+                        <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    {{#if changed}}
+                    The following {{type}} were changed:
+                    <ul>
+                        {{#each changed}}
+                        <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                    <br>
+                    {{/each}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
     </table>
     {{/if}}
-    <table class="no-border">
-        <tr>
-            <td class="content-wrappable no-border">{{{data.sections.sec10.content}}}</td>
-        </tr>
-    </table>
+    {{#if data.sections.sec10.show}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec10.content}}}</td>
+            </tr>
+        </table>
+    {{/if}}
 </div>
 
 <div class="page"><h2 id="section_11"><span>11</span>TEST CASES TEST GROUP 01 COMPONENTS</h2>
-	<!-- render test case fields from zephyr with IVP -->
+    <!-- render test case fields from zephyr with IVP -->
     <h3 id="section_11_1"><span>11.1</span>SERVER</h3>
     Containers are volatile, that means the underlying platform decides depending on resource usage and consumption - where (on which server(s)) and how a container is run.<br>
     Only the TIR (that is created as part of the installation) contains the information where a pod was located at that point in time - hence we leave this information out of the CIT, which is generated at a later point in time.<br>
@@ -283,76 +293,78 @@ Other test cases:
     <h3 id="section_11_3"><span>11.3</span>REPOSITORY TYPE</h3>
 
     <h4 id="section_11_3_1"><span>11.3.1 </span>ODS</h4>
-	{{#if data.testsOdsCode}}
+    {{#if data.testsOdsCode}}
     <table class="no-page-break">
         <thead>
             <th class="lean">Repository Type</th>
             <th class="lean">Test case</th>
             <th class="lean">Test steps</th>
         </thead>
-		<tbody>
-			{{#each data.testsOdsCode}}
-			<tr>
-				<td class="content-wrappable">ods</td>
-				<td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
-				<td class="content-wrappable">
-				{{#if steps}}
-					<ol>
-				{{#each steps}}
-						<li>{{step}}</li>
-				{{/each}}
-					</ol>
-				{{else}}
-				No test steps defined
-				{{/if}}
-				</td>
-			</tr>
-			{{/each}}
-		</tbody>
+        <tbody>
+            {{#each data.testsOdsCode}}
+            <tr>
+                <td class="content-wrappable">ods</td>
+                <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+                <td class="content-wrappable">
+                {{#if steps}}
+                    <ol>
+                {{#each steps}}
+                        <li>{{step}}</li>
+                {{/each}}
+  <p>N/A</p>/ol>
+                {{else}}
+                No test steps defined
+                {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
     </table>
-	{{else}}
-		<p><em>N/A</em></p>
-	{{/if}}
+    {{else}}
+        <p>N/A</p>
+    {{/if}}
 
     <h4 id="section_11_3_2"><span>11.3.2 </span>ODS-SERVICE</h4>
-	{{#if data.testsOdsService}}
+    {{#if data.testsOdsService}}
     <table class="no-page-break">
         <thead>
             <th class="lean">Repository Type</th>
             <th class="lean">Test case</th>
             <th class="lean">Test steps</th>
         </thead>
-		<tbody>
-			{{#each data.testsOdsService}}
-			<tr>
-				<td class="content-wrappable">ods-service</td>
-				<td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
-				<td class="content-wrappable">
-					<ol>
-				{{#each test.details}}
-						<li>{{step}}</li>
-				{{/each}}
-					</ol>
-				</td>
-			</tr>
-			{{/each}}
-		</tbody>
-	</table>
-	{{else}}
-	<p><em>N/A</em></p>
-	{{/if}}
+        <tbody>
+            {{#each data.testsOdsService}}
+            <tr>
+                <td class="content-wrappable">ods-service</td>
+                <td class="content-wrappable"><em>{{key}}: {{description}}</em></td>
+                <td class="content-wrappable">
+                    <ol>
+                {{#each test.details}}
+                        <li>{{step}}</li>
+                {{/each}}
+                    </ol>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+        <p>N/A</p>
+    {{/if}}
 
-	<!-- report: results / executions -->
+    <!-- report: results / executions -->
 </div>
 
 <div class="page"><h2 id="section_12"><span>12</span>TEST CASES TEST GROUP 02 SYSTEM LEVEL</h2>
     <h3 id="section_12_1"><span>12.1</span>OPERATIONAL DOCUMENTS ON SYSTEM LEVEL</h3>
     <!-- backup and monitoring plan for qualified infrastructure -->
-    <table class="no-border">
-        <tr>
-            <td class="content-wrappable no-border">{{{data.sections.sec12s1.content}}}</td>
-        </tr>
-    </table>
+    {{#if data.sections.sec12s1.show}}
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec12s1.content}}}</td>
+            </tr>
+        </table>
+    {{/if}}
     <!-- <p><b>System level monitoring:</b></p>
     <table class="System level monitoring">
         <tr>
@@ -489,11 +501,13 @@ Other test cases:
 
     <h3 id="section_12_2"><span>12.2</span>CONFIGURATION DATABASE CMDB</h3>
     Configuration Data of Config Item '{{metadata.name}}' is correct and verified
-    <table style="border: 0px; padding: 0px; margin: 0px">
-        <tr>
-            <td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec12s2.content}}}</td>
-        </tr>
-    </table>
+    {{#if data.sections.sec12s2.show}}
+        <table style="border: 0px; padding: 0px; margin: 0px">
+            <tr>
+                <td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec12s2.content}}}</td>
+            </tr>
+        </table>
+     {{/if}}
 </div>
 
 </body>

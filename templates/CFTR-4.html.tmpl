@@ -107,20 +107,28 @@
 
     <div class="page">
         <h2 id="section_1"><span>1</span>Purpose</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
-        <h2 id="section_2"><span>2</span>Testing Environment</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
-            </tr>
-        </table>
+        <h2 id="section_2"><span>2</span>Testing Environment</h2>        
+        {{#if data.sections.sec2.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec2.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -128,112 +136,134 @@
         <p>This chapter summarizes the testing activities and deliverables that were created during the testing process according to the combined functional  / requirements  testing plan of the {{metadata.name}}.</p>
 
         <h3 id="section_3_1"><span>3.1</span>Training</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3s1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3s1.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
 
         <h3 id="section_3_2"><span>3.2</span>Responsibilities and Signature Resource Log</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3s2.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
 
         <h3 id="section_3_3"><span>3.3</span>Discrepancy Log</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3s3.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3s3.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3s3.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
 
         <h3 id="section_3_4"><span>3.4</span>Integration Testing Results</h3>
-		{{#if data.integrationTests}}
+        {{#if data.integrationTests}}
         <p>The table below lists all Integration tests as defined during the risk assessment and additional optional tests created and executed during development. Not all of those tests are necessarily GxP relevant. To identify GxP-relevant tests please refer to the Risk Assessment or Traceability Matrix.</p>
 
-		<table>
-			<thead>
-				<th class="lean">ID from Jira</th>
-				<th class="lean">Description</th>
-				<th class="lean">Passed (Y/N)</th>
-				<!-- <th class="lean">Remark</th> -->
-				<th class="lean">Execution time</th>
-				<th class="lean">Run #</th>
-			</thead>
-			<tbody>
-				{{#each data.integrationTests}}
-				<tr>
-					<td class="lean">{{key}}</td>
-					<td class="content-wrappable">{{{description}}}</td>
-					<td class="lean">{{success}}</td>
-					<!-- <td class="lean">{{remarks}}</td> -->
-					<td class="lean">{{{datetime}}}</td>
-					<td class="lean">{{metadata.jenkins.buildNumber}}</td>
-				</tr>
-				{{/each}}
-			</tbody>
-		</table>
-		{{else}}
-			<p><em>N/A</em></p>
+        <table>
+            <thead>
+                <th class="lean">ID from Jira</th>
+                <th cass="lean">Description</th>
+                <th class="lean">Passed (Y/N)</th>
+                <!-- <th class="lean">Remark</th> -->
+                <th class="lean">Execution time</th>
+                <th class="lean">Run #</th>
+            </thead>
+            <tbody>
+                {{#each data.integrationTests}}
+                <tr>
+                    <td class="lean">{{key}}</td>
+                    <td class="content-wrappable">{{{description}}}</td>
+                    <td class="lean">{{success}}</td>
+                    <!-- <td class="lean">{{remarks}}</td> -->
+                    <td class="lean">{{{datetime}}}</td>
+                    <td class="lean">{{metadata.jenkins.buildNumber}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            <p>N/A</p>
         {{/if}}
 
         <p>Additional Integration Tests not defined in Jira and executed: {{data.numAdditionalIntegrationTests}}</p>
 
         <h3 id="section_3_5"><span>3.5</span>Acceptance Testing Results</h3>
             <h4 id="section_3_5_1"><span>3.5.1 </span>Functional Testing Results</h4>
-				{{#if data.acceptanceTests}}
+                {{#if data.acceptanceTests}}
                 <p>The table below lists all Functional tests as defined during the risk assessment and additional optional tests created and executed during development. Not all of those tests are necessarily GxP relevant. To identify GxP-relevant tests please refer to the Risk Assessment or Traceability Matrix.</p>
-				<table>
-					<thead>
-						<th class="lean">ID from Jira</th>
-						<th class="lean">Description</th>
-						<th class="lean">Passed (Y/N)</th>
-						<!-- <th class="lean">Remark</th> -->
-						<th class="lean">Execution time</th>
-						<th class="lean">Run #</th>
-					</thead>
-					<tbody>
-						{{#each data.acceptanceTests}}
-						<tr>
-							<td class="lean">{{key}}</td>
-							<td class="content-wrappable">{{{description}}}</td>
-							<td class="lean">{{success}}</td>
-							<!-- <td class="lean">{{remarks}}</td> -->
-							<td class="lean">{{{datetime}}}</td>
-							<td class="lean">{{metadata.jenkins.buildNumber}}</td>
-						</tr>
-						{{/each}}
-					</tbody>
-				</table>
-				{{else}}
-					<p><em>N/A</em></p>
-				{{/if}}
+                <table>
+                    <thead>
+                        <th class="lean">ID from Jira</th>
+                        <th class="lean">Description</th>
+                        <th class="lean">Passed (Y/N)</th>
+                        <!-- <th class="lean">Remark</th> -->
+                        <th class="lean">Execution time</th>
+                        <th class="lean">Run #</th>
+                    </thead>
+                    <tbody>
+                        {{#each data.acceptanceTests}}
+                        <tr>
+                            <td class="lean">{{key}}</td>
+                            <td class="content-wrappable">{{{description}}}</td>
+                            <td class="lean">{{success}}</td>
+                            <!-- <td class="lean">{{remarks}}</td> -->
+                            <td class="lean">{{{datetime}}}</td>
+                            <td class="lean">{{metadata.jenkins.buildNumber}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                    <p>N/A</p>
+                {{/if}}
                 <p>Additional Functional Tests not defined in Jira and executed: {{data.numAdditionalAcceptanceTests}}</p>
 
             <h4 id="section_3_5_2"><span>3.5.2 </span>Non-Functional Testing Results</h4>
+            {{#if data.sections.sec3s5s2.show}}
                 <table class="no-border">
                     <tr>
                         <td class="content-wrappable no-border">{{{data.sections.sec3s5s2.content}}}</td>
                     </tr>
                 </table>
+            {{else}}
+                <p>Not mandatory</p>
+            {{/if}}
 
         <h2 id="section_3_6"><span>3.6</span>Traceability Matrix</h2>
+        {{#if data.sections.sec3s6.show}}
             <table class="no-border">
                 <tr>
                     <td class="content-wrappable no-border">{{{data.sections.sec3s6.content}}}</td>
                 </tr>
             </table>
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Risk Assessment</h2>
         <p>This section provides an assessment of all discrepancies and excluded test cases. All risks within these categories have been compiled and assessed in Appendix 1.</p>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec4.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec4.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec4.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -251,18 +281,26 @@
     <div class="page">
         <h2 id="section_6"><span>6</span>Definitions and Abbreviations</h2>
         <h3 id="section_6_1"><span>6.1</span>Definitions</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec6s1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
 
         <h3 id="section_6_2"><span>6.2</span>Abbreviations</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec6s2.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -272,11 +310,13 @@
             <li>Risk Assessment ({{metadata.referencedDocs.RA}})</li>
             <li>Traceability Matrix ({{metadata.referencedDocs.TRC}})</li>
         </ul>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec7.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -289,52 +329,54 @@
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
             </thead>
-			<tbody>
-				{{#each data.documentHistory}}
-				<tr>
-					<td class="lean">{{{docVersion}}}</td>
-					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-					<td class="content-wrappable">
-						{{{rational}}}
-						<br>
-						{{#each issueType}}
-						{{#if added}}
-						The following {{type}} were added:
-						<ul>
-							{{#each added}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if discontinued}}
-						The following {{type}} were removed:
-						<ul>
-							{{#each discontinued}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if changed}}
-						The following {{type}} were changed:
-						<ul>
-							{{#each changed}}
-							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						<br>
-						{{/each}}
-					</td>
-				</tr>
-				{{/each}}
-			</tbody>
+            <tbody>
+                {{#each data.documentHistory}}
+                <tr>
+                    <td class="lean">{{{docVersion}}}</td>
+                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                    <td class="content-wrappable">
+                        {{{rational}}}
+                        <br>
+                        {{#each issueType}}
+                        {{#if added}}
+                        The following {{type}} were added:
+                        <ul>
+                            {{#each added}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if discontinued}}
+                        The following {{type}} were removed:
+                        <ul>
+                            {{#each discontinued}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if changed}}
+                        The following {{type}} were changed:
+                        <ul>
+                            {{#each changed}}
+                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        <br>
+                        {{/each}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
         {{/if}}
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec8.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec8.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -346,45 +388,45 @@
                 <th class="content-wrappable">Description</th>
                 <th class="lean">Completion by</th>
             </thead>
-			<tbody>
-				<tr>
-					<td class="lean">Issue No.</td>
-					<td class="content-wrappable">Concurrent numbering of observations</td>
-					<td class="lean">Validation Manager</td>
-				</tr>
-				<tr>
-					<td class="lean">Test Case No.</td>
-					<td class="content-wrappable">Reference to the failed or skipped test case</td>
-					<td class="lean">Validation Manager</td>
-				</tr>
-				<tr>
-					<td class="lean">Description of Failure or Discrepancy</td>
-					<td class="content-wrappable">Description of unmet acceptance criteria, of failed function or test case criteria and reason for this</td>
-					<td class="lean">Validation Manager</td>
-				</tr>
-				<tr>
-					<td class="lean">Remediation Action</td>
-					<td class="content-wrappable">Description of the proposed measures to eliminate or mitigate the risk</td>
-					<td class="lean">Validation Manager and CSV&C Function</td>
-				</tr>
-				<tr>
-					<td class="lean"><p>Responsible</p>
-					<p>Due date</p></td>
-					<td class="content-wrappable"><p>Responsible role / person to track the defined measures</p>
-					<p>Due date for the defined measures</p></td>
-					<td class="lean">Validation Manager and CSV&C Function</td>
-				</tr>
-				<tr>
-					<td class="lean">Analysed Risk</td>
-					<td class="content-wrappable">Description of the analysed risk associated with the observed issue</td>
-					<td class="lean">Validation Manager and CSV&C Function</td>
-				</tr>
-				<tr>
-					<td class="lean">Risk Acceptability *</td>
-					<td class="content-wrappable">Identification in which degree the proposed resolution is tolerable</td>
-					<td class="lean">Validation Manager and CSV&C Function</td>
-				</tr>
-			</tbody>
+            <tbody>
+                <tr>
+                    <td class="lean">Issue No.</td>
+                    <td class="content-wrappable">Concurrent numbering of observations</td>
+                    <td class="lean">Validation Manager</td>
+                </tr>
+                <tr>
+                    <td class="lean">Test Case No.</td>
+                    <td class="content-wrappable">Reference to the failed or skipped test case</td>
+                    <td class="lean">Validation Manager</td>
+                </tr>
+                <tr>
+                    <td class="lean">Description of Failure or Discrepancy</td>
+                    <td class="content-wrappable">Description of unmet acceptance criteria, of failed function or test case criteria and reason for this</td>
+                    <td class="lean">Validation Manager</td>
+                </tr>
+                <tr>
+                    <td class="lean">Remediation Action</td>
+                    <td class="content-wrappable">Description of the proposed measures to eliminate or mitigate the risk</td>
+                    <td class="lean">Validation Manager and CSV&C Function</td>
+                </tr>
+                <tr>
+                    <td class="lean"><p>Responsible</p>
+                    <p>Due date</p></td>
+                    <td class="content-wrappable"><p>Responsible role / person to track the defined measures</p>
+                    <p>Due date for the defined measures</p></td>
+                    <td class="lean">Validation Manager and CSV&C Function</td>
+                </tr>
+                <tr>
+                    <td class="lean">Analysed Risk</td>
+                    <td class="content-wrappable">Description of the analysed risk associated with the observed issue</td>
+                    <td class="lean">Validation Manager and CSV&C Function</td>
+                </tr>
+                <tr>
+                    <td class="lean">Risk Acceptability *</td>
+                    <td class="content-wrappable">Identification in which degree the proposed resolution is tolerable</td>
+                    <td class="lean">Validation Manager and CSV&C Function</td>
+                </tr>
+            </tbody>
         </table>
         <p>* The risk acceptability is identified as follows:</p>
         <p>A = Acceptable with no follow up required</p>
@@ -421,7 +463,7 @@
         </table>
 
         <h4 id="section_9_2_2"><span>9.2.2</span>Exclusions from Testing</h4>
-		N/A - all test cases without the status "Ready to Test" have been excluded from the execution.
+        N/A - all test cases without the status "Ready to Test" have been excluded from the execution.
         <table class="no-border">
             <tr>
                 <td class="content-wrappable no-border">{{{data.sections.sec9s2s2.content}}}</td>
@@ -457,7 +499,7 @@
             {{/each}}
         </table>
 
-		<h4 id="section_9_3_2"><span>9.3.2</span>Exclusions from Testing</h4>
+        <h4 id="section_9_3_2"><span>9.3.2</span>Exclusions from Testing</h4>
         N/A - all test cases without the status "Ready to Test" have been excluded from the execution.
         <table class="no-border">
             <tr>

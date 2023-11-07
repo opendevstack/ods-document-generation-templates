@@ -138,11 +138,13 @@
 			<p>N/A</p>
 
 			<h3 id="section_2_3"><span>2.3</span>Source Code Review Overview</h3>
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
-                </tr>
-            </table>
+            {{#if data.sections.sec2s3.show}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec2s3.content}}}</td>
+                    </tr>
+                </table>
+            {{/if}}
 			{{#if data.sections.sec16s1.bitbucket}}
 				<p>
 					A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and assert the readiness of a contribution to a Bitbucket repository comprising code, tests, configuration, or a combination of these.</br>
@@ -152,7 +154,7 @@
 				</p>
 				<p>For further details about Pull Requests information, see <a href="#section_16_1">Section 16.1</a>.</p>
 			{{else}}
-                <p><em>N/A</em></p>
+                <p>N/A</p>
             {{/if}}
 		</div>
 
@@ -176,11 +178,11 @@
 						<td class="content-wrappable">{{{description}}}</td>
 						<td class="content-wrappable">{{req_key}}</td>
 					</tr>
-					{{/each}}
+                    {{/each}}
 				</tbody>
 			</table>
 			{{else}}
-			<p><em>N/A</em></p>
+				<p>N/A</p>
 			{{/if}}
 
 			<table class="no-border">
@@ -189,13 +191,14 @@
 			    </tr>
 			</table>
 
-
+			{{#if data.sections.sec3s2.show}}
 			<h3 id="section_3_2"><span>3.2</span>System Description</h3>
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec3s2.content}}}</td>
 			    </tr>
 			</table>
+			{{/if}}
 
 			<h4><span>3.2.1</span> Modules to be developed</h4>
 			<p>N/A</p>
@@ -210,7 +213,11 @@
 
 		<div class="page">
 			<h2 id="section_4"><span>4</span>Architecture of the System</h2>
-			{{{data.sections.sec4.content}}}
+			{{#if data.sections.sec4.show}}
+				{{{data.sections.sec4.content}}}
+			{{else}}
+				<p>Not mandatory</p>
+			{{/if}}
 		</div>
 
 		<div class="page">
@@ -240,7 +247,7 @@
 				</tbody>
 			</table>
 			{{else}}
-			<p><em>N/A</em></p>
+				<p>Not mandatory</p>
 			{{/if}}
 
 			<h3 id="section_5_2"><span>5.2</span>System Components Specifications</h3>
@@ -257,7 +264,7 @@
 					<th>References</th>
 					<th class="content-wrappable">Installed by ODS</th>
 				</thead>
-				<tbody>
+                <tbody>
 					{{#each data.sections.sec5s1.components}}
 					<tr>
 						<td class="content-wrappable">{{key}}</td>
@@ -272,15 +279,19 @@
 				</tbody>
 			</table>
 			{{else}}
-			<p><em>N/A</em></p>
+				<p>N/A</p>
 			{{/if}}
 
 			<h3 id="section_5_3"><span>5.3</span>Utilisation of Existing Infrastructure Systems</h3>
+			{{#if data.sections.sec5s3.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec5s3.content}}}</td>
 			    </tr>
 			</table>
+			{{else}}
+				<p>Not mandatory</p>
+			{{/if}}
 
 
 			<h3 id="section_5_4"><span>5.4</span>Utilisation of Existing Infrastructure Services</h3>
@@ -293,37 +304,53 @@
 
 		<div class="page">
 			<h2 id="section_6"><span>6</span>Configurations for Additional Environments</h2>
-
+			
 			<h3 id="section_6_1"><span>6.1</span>Development Environment</h3>
+			{{#if data.sections.sec6s1.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec6s1.content}}}</td>
 			    </tr>
 			</table>
+			{{else}}
+				<p>Not mandatory</p>
+			{{/if}}
 
 			<h3 id="section_6_2"><span>6.2</span>QA/Test Environment</h3>
+			{{#if data.sections.sec6s2.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec6s2.content}}}</td>
 			    </tr>
 			</table>
+			{{else}}
+				<p>Not mandatory</p>
+			{{/if}}
 
 			<h3 id="section_6_3"><span>6.3</span>Training Environment</h3>
+			{{#if data.sections.sec6s3.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec6s3.content}}}</td>
 			    </tr>
 			</table>
+			{{else}}
+				<p>Not mandatory</p>
+			{{/if}}
 		</div>
 
 		<div class="page">
 			<h2 id="section_7"><span>7</span>Environmental Conditions</h2>
+			{{#if data.sections.sec7.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
 			    </tr>
 			</table>
-		</div>
+			{{else}}
+				<p>Not mandatory</p>
+			{{/if}}
+        </div>
 
 		<div class="page">
 			<h2 id="section_8"><span>8</span>Software Design Principles</h2>
@@ -362,7 +389,7 @@
 				</tbody>
 			</table>
 			{{else}}
-			<p><em>N/A</em></p>
+				<p>N/A</p>
 			{{/if}}
 
 		</div>
@@ -375,17 +402,25 @@
 		<div class="page">
 			<h2 id="section_13"><span>13</span>Definitions And Abbreviations</h2>
 			<h3 id="section_13_1"><span>13.1</span>Definitions</h3>
+			{{#if data.sections.sec13s1.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec13s1.content}}}</td>
 			    </tr>
 			</table>
+			{{else}}
+				<p>N/A</p>
+			{{/if}}
 			<h3 id="section_13_2"><span>13.2</span>Abbreviations</h3>
+			{{#if data.sections.sec13s2.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec13s2.content}}}</td>
 			    </tr>
 			</table>
+			{{else}}
+				<p>N/A</p>
+			{{/if}}
 		</div>
 
 		<div class="page">
@@ -398,11 +433,13 @@
 				{{/each}}
 			    {{/if}}
 			</ul>
-			<table class="no-border">
-			    <tr>
-			        <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
-			    </tr>
-			</table>
+            {{#if data.sections.sec14.show}}
+                <table class="no-border">
+                    <tr>
+                        <td class="content-wrappable no-border">{{{data.sections.sec14.content}}}</td>
+                    </tr>
+                </table>
+            {{/if}}
 		</div>
 
 		<div class="page">
@@ -456,11 +493,13 @@
 				</tbody>
             </table>
             {{/if}}
+			{{#if data.sections.sec15.show}}
 			<table class="no-border">
 			    <tr>
 			        <td class="content-wrappable no-border">{{{data.sections.sec15.content}}}</td>
 			    </tr>
 			</table>
+			{{/if}}
 		</div>
 
 		{{#if data.sections.sec16s1.bitbucket}}

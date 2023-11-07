@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.2.6 - 2023-11-07
 - Rework non gxp messages ([#126](https://github.com/opendevstack/ods-document-generation-templates/issues/126))
 - Bugfix/cftr document presents an inconsistent behaviour between testing sections ([#124](https://github.com/opendevstack/ods-document-generation-templates/pull/124))
 - Remove overlapping headers for tables spanning multiple pages ([#121](https://github.com/opendevstack/ods-document-generation-templates/pull/121))

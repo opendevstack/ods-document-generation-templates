@@ -102,10 +102,6 @@
 					<td class="content-wrappable">Combined Functional and Requirements Testing Plan</td>
 					<td class="lean">{{metadata.referencedDocs.CFTP}}</td>
 				</tr>
-				<tr>
-					<td class="content-wrappable">Combined Functional and Requirements Testing Report</td>
-					<td class="lean">{{metadata.referencedDocs.CFTR}}</td>
-				</tr>
 			</tbody>
         </table>
     </div>
@@ -161,27 +157,29 @@
 			</tbody>
         </table>
         {{/if}}
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec3.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec3.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec3.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Traceability Matrix</h2>
         <table>
             <thead>
-                <th class="lean">User Req., FS and CS Ref.</th>
+                <th class="content-wrappable">User Req., FS and CS Ref.</th>
                 <th>Description</th>
-                <th class="lean">SSDS Ref.</th>
-                <th class="lean">Risk Assessment Ref.</th>
-                <th class="lean">Test Case Ref.</th>
+                <th class="content-wrappable">SSDS Ref.</th>
+                <th class="content-wrappable">Risk Assessment Ref.</th>
+                <th class="content-wrappable">Test Case Ref.</th>
             </thead>
 			<tbody>
 				{{#each data.sections.sec4.systemRequirements}}
 				<tr>
-					<td class="lean">{{key}}
+					<td class="content-wrappable">{{key}}
 						{{#if predecessors}}
 						<br>Previously was:<br>
 						<ul>

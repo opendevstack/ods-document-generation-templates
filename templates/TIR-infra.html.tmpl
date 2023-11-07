@@ -160,20 +160,20 @@
                 <th class="lean">Name</th>
                 <th class="lean">Value</th>
             </thead>
-			<tbody>
-				<tr>
-					<td class="lean">Job Number</td>
-					<td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
-				</tr>
-				<tr>
-					<td class="lean">Job Name</td>
-					<td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
-				</tr>
-				<tr>
-					<td class="lean">Build URL</td>
-					<td class="content-wrappable">{{metadata.jenkins.buildUrl}}</td>
-				</tr>
-			</tbody>
+            <tbody>
+                <tr>
+                    <td class="lean">Job Number</td>
+                    <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">Job Name</td>
+                    <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
+                </tr>
+                <tr>
+                    <td class="lean">Build URL</td>
+                    <td class="content-wrappable">{{metadata.jenkins.buildUrl}}</td>
+                </tr>
+            </tbody>
         </table>
 
 
@@ -228,14 +228,14 @@
                 <th class="lean">Test Description</th>
                 <th class="lean">Pass / Fail</th>
             </thead>
-			<tbody>
-				{{#each testcases}}
-				<tr>
-					<td class="content-wrappable">{{name}}</td>
-					<td class="lean">Pass</td>
-				</tr>
-				{{/each}}
-			</tbody>
+            <tbody>
+                {{#each testcases}}
+                <tr>
+                    <td class="content-wrappable">{{name}}</td>
+                    <td class="lean">Pass</td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
         {{else}}
         <table>
@@ -243,12 +243,12 @@
             <th class="lean">Test Description</th>
             <th class="lean">Pass / Fail</th>
         </thead>
-		<tbody>
-			<tr>
-				<td class="content-wrappable">N/A</td>
-				<td class="lean">N/A</td>
-			</tr>
-		</tbody>
+        <tbody>
+            <tr>
+                <td class="content-wrappable">N/A</td>
+                <td class="lean">N/A</td>
+            </tr>
+        </tbody>
         </table>
         {{/if}}
         {{/each}}
@@ -265,18 +265,26 @@
         <h2 id="section_5"><span>5</span>Definitions and Abbreviations</h2>
 
         <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec5s1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
 
         <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec5s2.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+                </tr>
+            </table>
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -284,20 +292,24 @@
         <ul>
             <li>Technical Installation Plan ({{metadata.referencedDocs.TIP}})</li></li>
         </ul>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec6.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_7"><span>7</span>Document History</h2>
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 </body>
 </html>

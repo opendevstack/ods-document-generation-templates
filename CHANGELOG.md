@@ -1,7 +1,15 @@
 # Changelog
 
 ## Unreleased
+
+## 1.2.6 - 2023-11-07
+- Rework non gxp messages ([#126](https://github.com/opendevstack/ods-document-generation-templates/issues/126))
+- Bugfix/cftr document presents an inconsistent behaviour between testing sections ([#124](https://github.com/opendevstack/ods-document-generation-templates/pull/124))
+- Remove overlapping headers for tables spanning multiple pages ([#121](https://github.com/opendevstack/ods-document-generation-templates/pull/121))
 - Remove CFTR reference from TRC document ([#115](https://github.com/opendevstack/ods-document-generation-templates/pull/115))
+- RA: GxP Relevance section available for GxP projects only ([#118](https://github.com/opendevstack/ods-document-generation-templates/issues/118))
+- IVP, IVR: Redundant bullets in ch12 ([#119](https://github.com/opendevstack/ods-document-generation-templates/issues/119))
+- TRC: Content wrappable in section 4 table ([#128](https://github.com/opendevstack/ods-document-generation-templates/issues/128))
 
 ## 1.2.5 - 2023-10-02
 - Add global font-size config in CSS ([#114](https://github.com/opendevstack/ods-document-generation-templates/pull/114))

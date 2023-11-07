@@ -83,7 +83,7 @@
                     <li><a href="#section_3_2">Acceptance Test Cases</a></li>
                 </ol>
             </li>
-			<li><a href="#section_4">Attachments</a>
+            <li><a href="#section_4">Attachments</a>
                 <ol>
                     <li><a href="#section_4_1">xUnit XML Documents (including Test Evidence)</a></li>
                 </ol>
@@ -101,52 +101,54 @@
                 <th class="lean">Author</th>
                 <th>Change Reference</th>
             </thead>
-			<tbody>
-				{{#each data.documentHistory}}
-				<tr>
-					<td class="lean">{{{docVersion}}}</td>
-					<td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
-					<td class="content-wrappable">
-						{{{rational}}}
-						<br>
-						{{#each issueType}}
-						{{#if added}}
-						The following {{type}} were added:
-						<ul>
-							{{#each added}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if discontinued}}
-						The following {{type}} were removed:
-						<ul>
-							{{#each discontinued}}
-							<li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						{{#if changed}}
-						The following {{type}} were changed:
-						<ul>
-							{{#each changed}}
-							<li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-						<br>
-						{{/each}}
-					</td>
-				</tr>
-				{{/each}}
-			</tbody>
+            <tbody>
+                {{#each data.documentHistory}}
+                <tr>
+                    <td class="lean">{{{docVersion}}}</td>
+                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                    <td class="content-wrappable">
+                        {{{rational}}}
+                        <br>
+                        {{#each issueType}}
+                        {{#if added}}
+                        The following {{type}} were added:
+                        <ul>
+                            {{#each added}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if discontinued}}
+                        The following {{type}} were removed:
+                        <ul>
+                            {{#each discontinued}}
+                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        {{#if changed}}
+                        The following {{type}} were changed:
+                        <ul>
+                            {{#each changed}}
+                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                        <br>
+                        {{/each}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
         {{/if}}
-        <table class="no-border">
-            <tr>
-                <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
-            </tr>
-        </table>
+        {{#if data.sections.sec1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">{{{data.sections.sec1.content}}}</td>
+                </tr>
+            </table>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -170,11 +172,15 @@
     <div class="page">
         <h2 id="section_3"><span>3</span>Scope of Test Execution</h2>
         <p>This section will be manually filled before test execution. Please describe the scope of Test case execution in case not all test cases in this document will be executed.</p>
-		<table style="border: 0px; padding: 0px; margin: 0px">
-			<tr>
-				<td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec3.content}}}</td>
-			</tr>
-		</table>
+        {{#if data.sections.sec3.show}}
+        <table style="border: 0px; padding: 0px; margin: 0px">
+            <tr>
+                <td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec3.content}}}</td>
+            </tr>
+        </table> 
+        {{else}}
+            <p>Not mandatory</p>
+        {{/if}}
     </div>
 
     <div class="page">
@@ -222,7 +228,7 @@
     <div class="page">
         <h2 id="section_3"><span>3</span>Test Cases</h2>
             <h3 id="section_3_1"><span>3.1</span>Integration Test Cases</h3>
-	    {{#if data.integrationTests}}
+        {{#if data.integrationTests}}
                 {{#each data.integrationTests}}
                 <table>
                     <tr>
@@ -255,17 +261,17 @@
                         <th>Actual result</th>
                         <th>Initials / Date</th>
                     </thead>
-					<tbody>
-						{{#each steps}}
-						<tr>
-							<td>{{orderId}}</td>
-							<td class="content-wrappable">{{{step}}}</td>
-							<td class="content-wrappable">{{{result}}}</td>
-							<td class="content-wrappable">{{{../actualResult}}}</td>
-							<td class="content-wrappable">Jenkins {{{../timestamp}}}</td>
-						</tr>
-						{{/each}} <!-- end test steps -->
-					</tbody>
+                    <tbody>
+                        {{#each steps}}
+                        <tr>
+                            <td>{{orderId}}</td>
+                            <td class="content-wrappable">{{{step}}}</td>
+                            <td class="content-wrappable">{{{result}}}</td>
+                            <td class="content-wrappable">{{{../actualResult}}}</td>
+                            <td class="content-wrappable">Jenkins {{{../timestamp}}}</td>
+                        </tr>
+                        {{/each}} <!-- end test steps -->
+                    </tbody>
                     </table>
 
                     <table>
@@ -274,27 +280,27 @@
                         <th><b>Date:</b></th>
                         <th><b>Signature:</b></th>
                     </thead>
-					<tbody>
-						<tr>
-							<td class="content-wrappable" style="border: 0px;">
-								<p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed" {{#if isSuccess}}checked="checked"{{/if}}>Pass	<input type="checkbox" name="PassedNo" value="NotPassed" {{#unless isSuccess}}checked="checked"{{/unless}}> Fail</p>
-								<p>Comment (mandatory if failed): </p>
-								<p>{{#if bugs}} {{bugs}} {{/if}} {{#if comment}} {{comment}} {{/if}}</p>
-							</td>
-							<td class="content-wrappable" style="border: 0px;">{{{timestamp}}}</td>
-							<td class="content-wrappable" style="border: 0px;">Jenkins</td>
-						</tr>
-					</tbody>
+                    <tbody>
+                        <tr>
+                            <td class="content-wrappable" style="border: 0px;">
+                                <p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed" {{#if isSuccess}}checked="checked"{{/if}}>Pass	<input type="checkbox" name="PassedNo" value="NotPassed" {{#unless isSuccess}}checked="checked"{{/unless}}> Fail</p>
+                                <p>Comment (mandatory if failed): </p>
+                                <p>{{#if bugs}} {{bugs}} {{/if}} {{#if comment}} {{comment}} {{/if}}</p>
+                            </td>
+                            <td class="content-wrappable" style="border: 0px;">{{{timestamp}}}</td>
+                            <td class="content-wrappable" style="border: 0px;">Jenkins</td>
+                        </tr>
+                    </tbody>
                     </table>
 
                 </div>
-		{{/each}} <!-- end integration tests block -->
+        {{/each}} <!-- end integration tests block -->
             {{else}}
-	        <p><em>N/A</em></p>
-	    {{/if}}
+                <p>N/A</p>
+            {{/if}}
             <h3 id="section_3_2"><span>3.2</span>Acceptance Test Cases</h3>
                 {{#if data.acceptanceTests}}
-		{{#each data.acceptanceTests}}
+        {{#each data.acceptanceTests}}
                 <table>
                     <tr>
                         <th class="lean">Test Case Number:</th>
@@ -327,17 +333,17 @@
                         <th>Actual result</th>
                         <th>Initials / Date</th>
                     </thead>
-					<tbody>
-						{{#each steps}}
-						<tr>
-							<td>{{orderId}}</td>
-							<td class="content-wrappable">{{{step}}}</td>
-							<td class="content-wrappable">{{{result}}}</td>
-							<td class="content-wrappable">{{{actualResult}}}</td>
-							<td>Jenkins {{{../timestamp}}}</td>
-						</tr>
-						{{/each}} <!-- end test steps block -->
-					</tbody>
+                    <tbody>
+                        {{#each steps}}
+                        <tr>
+                            <td>{{orderId}}</td>
+                            <td class="content-wrappable">{{{step}}}</td>
+                            <td class="content-wrappable">{{{result}}}</td>
+                            <td class="content-wrappable">{{{actualResult}}}</td>
+                            <td>Jenkins {{{../timestamp}}}</td>
+                        </tr>
+                        {{/each}} <!-- end test steps block -->
+                    </tbody>
                     </table>
 
                     <table>
@@ -346,48 +352,46 @@
                         <th><b>Date:</b></th>
                         <th><b>Signature:</b></th>
                     </thead>
-					<tbody>
-						<tr>
-							<td class="content-wrappable" style="border: 0px;">
-								<p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed" {{#if isSuccess}}checked="checked"{{/if}}>Pass	<input type="checkbox" name="PassedNo" value="NotPassed" {{#unless isSuccess}}checked="checked"{{/unless}}> Fail</p>
-								<p>Comment (mandatory if failed): {{comment}}</p>
-								<p>{{#if bugs}} {{bugs}} {{/if}} {{#if comment}} {{comment}} {{/if}}</p>
-							</td>
-							<td class="content-wrappable" style="border: 0px;">{{{timestamp}}}</td>
-							<td class="content-wrappable" style="border: 0px;">Jenkins</td>
-						</tr>
-					</tbody>
+                    <tbody>
+                        <tr>
+                            <td class="content-wrappable" style="border: 0px;">
+                                <p>Test Case:  <input type="checkbox" name="PassedYes" value="Passed" {{#if isSuccess}}checked="checked"{{/if}}>Pass	<input type="checkbox" name="PassedNo" value="NotPassed" {{#unless isSuccess}}checked="checked"{{/unless}}> Fail</p>
+                                <p>Comment (mandatory if failed): {{comment}}</p>
+                                <p>{{#if bugs}} {{bugs}} {{/if}} {{#if comment}} {{comment}} {{/if}}</p>
+                            </td>
+                            <td class="content-wrappable" style="border: 0px;">{{{timestamp}}}</td>
+                            <td class="content-wrappable" style="border: 0px;">Jenkins</td>
+                        </tr>
+                    </tbody>
                     </table>
 
                 </div>
-		{{/each}}
-		{{else}}
-		<p><em>N/A</em></p>
-		{{/if}}
+        {{/each}}
+        {{else}}
+            <p>N/A</p>
+        {{/if}}
     </div>
     <div class="page">
         <h2 id="section_4"><span>4</span>Attachments</h2>
         <h3 id="section_4_1"><span>4.1</span>xUnit XML Documents (including Test Evidence)</h3>
         <p>This section provides the xUnit XML results, including any test evidence, of the execution of the system {{metadata.name}} created by Jenkins Job Name {{metadata.jenkins.jobName}} and Jenkins Build Number {{metadata.jenkins.buildNumber}}.</p>
-
         <h4 id="section_4_1_1"><span>4.1.1</span>Integration Test Cases</h4>
-		{{#if data.integrationTestFiles}}
-			{{#each data.integrationTestFiles}}
-			<h5>{{name}}</h5>
-			<p><pre>{{text}}</pre></p>
-			{{/each}}
-		{{else}}
-			<p><em>N/A</em></p>
+        {{#if data.integrationTestFiles}}
+            {{#each data.integrationTestFiles}}
+            <h5>{{name}}</h5>
+            <p><pre>{{text}}</pre></p>
+            {{/each}}
+        {{else}}
+            <p>N/A</p>
         {{/if}}
-
         <h4 id="section_4_1_2"><span>4.1.2</span>Acceptance Test Cases</h4>
-		{{#if data.acceptanceTestFiles}}
-			{{#each data.acceptanceTestFiles}}
-			<h5>{{name}}</h5>
-			<p><pre>{{text}}</pre></p>
-			{{/each}}
-		{{else}}
-			<p><em>N/A</em></p>
+        {{#if data.acceptanceTestFiles}}
+            {{#each data.acceptanceTestFiles}}
+            <h5>{{name}}</h5>
+            <p><pre>{{text}}</pre></p>
+            {{/each}}
+        {{else}}
+            <p>N/A</p>
         {{/if}}
     </div>
 </body>

@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- minor non-GxP handling fixes 
 - Align center for first column in table in CSD ([#125](https://github.com/opendevstack/ods-document-generation-templates/issues/125))
 ## 1.2.6 - 2023-11-07
 - Rework non gxp messages ([#126](https://github.com/opendevstack/ods-document-generation-templates/issues/126))

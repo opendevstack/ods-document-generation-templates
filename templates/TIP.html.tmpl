@@ -184,7 +184,7 @@
 					<td class="content-wrappable" style="font-size: smaller">{{data.git.url}} branch {{data.git.branch}}, the actual commit is specified as parameter during installation</td>
 					<td class="content-wrappable">BI-AS-ATLASSIAN / Project: {{metadata.name}} // repo: {{id}}</td>
 					<td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
-					<td class="content-wrappable">{{#if metadata.doInstall}} Yes {{else}} No {{/if}}</td>
+					<td class="content-wrappable">{{#if doInstall}} Yes {{else}} No {{/if}}</td>
 				</tr>
 				{{/each}}
 			</tbody>
@@ -219,7 +219,7 @@
             </tr>
             <tr>
                 <td class="content-wrappable">Installation by ODS <em>{{id}}</em></td>
-                <td class="content-wrappable">{{#if metadata.doInstall}} Yes {{else}} No {{/if}}</td>
+                <td class="content-wrappable">{{#if doInstall}} Yes {{else}} No {{/if}}</td>
             </tr>
             {{^doInstall}}
             <tr>

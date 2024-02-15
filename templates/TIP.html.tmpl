@@ -219,7 +219,7 @@
             </tr>
             <tr>
                 <td class="content-wrappable">Installation by ODS <em>{{id}}</em></td>
-                <td class="content-wrappable">{{doInstall}}</td>
+                <td class="content-wrappable">{{#if metadata.doInstall}} Yes {{else}} No {{/if}}</td>
             </tr>
             {{^doInstall}}
             <tr>

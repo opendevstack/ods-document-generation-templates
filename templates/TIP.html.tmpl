@@ -147,7 +147,7 @@
                 Component repository is a <em>GIT</em> managed repository on validated <em>BI-AS-ATLASSIAN</em>.
             </li>
             <li>
-                Component inside a <em>GIT</em> repository is of type <em>ods</em>, <em>ods-infra</em>, <em>ods-saas-service</em>, <em>ods-service</em>, or <em>ods-test</em>. Components of type <em>ods-saas-service</em> are not installed by OpenDevStack, but by their respective manufacturer. Components of type <em>ods-test</em> are not installed, but contain automated end-to-end tests used to exercise the system. The foundation of those components, named <em>Boilerplates</em>, are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
+                Component inside a <em>GIT</em> repository is of type <em>ods</em>, <em>ods-infra</em>, <em>ods-saas-service</em>, <em>ods-service</em>, or <em>ods-test</em>. Components of type <em>ods-saas-service</em> are not installed by OpenDevStack, but by their respective manufacturer. Components of type <em>ods-test</em> are not installed, but contain automated end-to-end tests used to exercise the system. The foundation of those components, named <em>OpenDevStack Quickstarters</em>, are qualified through the qualification of OpenDevStack (<em>ODS</em>, <em>BI-IT-DEVSTACK</em>) itself.
             </li>
             <li>
                 Except for the <em>ods-saas-service</em> type, a component's <em>GIT</em> repository contains a Jenkins file (named Jenkinsfile), which is used for building, testing, and installation through the OpenDevStack Jenkins build engine.
@@ -165,7 +165,6 @@
 
         <h3 id="section_3_1"><span>3.1</span>Components Specification</h3>
         <p>The installation comprises the following software-defined components:</p>
-        Components where <em>Installation by ODS</em> is denoted as <em>false</em> are of type <em>ods-saas-service</em>, or <em>ods-test</em>.</p>
 
         <table>
             <thead>

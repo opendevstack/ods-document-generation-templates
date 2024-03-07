@@ -118,7 +118,7 @@
                 <tr>
                     <td class="content-wrappable"><em>{{id}}</em></td>
                     <td class="content-wrappable">{{type}}</td>
-                    <td class="content-wrappable">{{doInstall}}</td>
+                    <td class="content-wrappable">{{#if doInstall}} Yes {{else}} No {{/if}}</td>
                 </tr>
                 {{/each}}
             </tbody>

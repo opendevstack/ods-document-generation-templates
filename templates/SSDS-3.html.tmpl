@@ -291,7 +291,7 @@
                         <td class="content-wrappable">{{version}}</td>
                         <td class="content-wrappable">{{description}}</td>
                         <td class="content-wrappable">{{references}}</td>
-                        <td class="content-wrappable">{{doInstall}}</td>
+                        <td class="content-wrappable">{{#if doInstall}} Yes {{else}} No {{/if}}</td>
                     </tr>
                     {{/each}}
                 </tbody>

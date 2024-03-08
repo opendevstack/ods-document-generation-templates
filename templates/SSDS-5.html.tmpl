@@ -301,7 +301,6 @@
                     <th>Version</th>
                     <th class="content-wrappable">Description of Functionality</th>
                     <th>References</th>
-                    <th class="content-wrappable">Installed by ODS</th>
                 </thead>
                 <tbody>
                     {{#each data.sections.sec5s1.components}}
@@ -312,7 +311,6 @@
                         <td class="content-wrappable">{{version}}</td>
                         <td class="content-wrappable">{{description}}</td>
                         <td class="content-wrappable">{{references}}</td>
-                        <td class="content-wrappable">{{#if doInstall}} Yes {{else}} No {{/if}}</td>
                     </tr>
                     {{/each}}
                 </tbody>

@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add support for partial deployment ([#137](https://github.com/opendevstack/ods-document-generation-templates/pull/137))
 
 ## 1.2.7 - 2023-11-20
 - minor non-GxP handling fixes  ([#133](https://github.com/opendevstack/ods-document-generation-templates/pull/133))

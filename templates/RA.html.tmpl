@@ -422,8 +422,8 @@
 				{{#each data.sections.sec5.risks }}
 				<tr>
 					<td class="lean">{{key}}</td>
-                    {{#each requirementsKey}}
-                      <td class="content-wrappable">{{.}}:{{lookup ../requirements @index}}</td>
+                    {{#each requirements}}
+                      <td class="content-wrappable">{{key}}: {{name}}<br>{{{description}}}</td>
                     {{/each}}
 					<td class="lean">{{gxpRelevance}}</td>
 					<td class="content-wrappable">Summary:{{name}}.<br>{{{description}}}</td>

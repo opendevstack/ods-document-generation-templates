@@ -422,9 +422,11 @@
 				{{#each data.sections.sec5.risks }}
 				<tr>
 					<td class="lean">{{key}}</td>
-                    {{#each requirements}}
-                      <td class="content-wrappable">{{key}}: {{name}}<br>{{{description}}}</td>
-                    {{/each}}
+				    <td class="content-wrappable">
+                     {{#each requirements}}
+                    <h1>{{key}}: {{name}}</h1></br>{{{description}}}
+                     {{/each}}
+                    </td>
 					<td class="lean">{{gxpRelevance}}</td>
 					<td class="content-wrappable">Summary:{{name}}.<br>{{{description}}}</td>
 					<td class="content-wrappable">{{probabilityOfOccurrence}}</td>

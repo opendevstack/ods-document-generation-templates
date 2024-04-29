@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Included the complete Requirement description to Risk Assessment Table ([#138](https://github.com/opendevstack/ods-document-generation-templates/pull/138))
 - Add support for partial deployment ([#137](https://github.com/opendevstack/ods-document-generation-templates/pull/137))
 
 ## 1.2.7 - 2023-11-20

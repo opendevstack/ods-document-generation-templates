@@ -85,7 +85,7 @@
 
     <div class="page">
         <h2><span>1</span>Installed Component Summary</h2>
-        <p><pre>Based on the component type, as mentioned in the TIP, the following components were installed, and where applicable:</pre>
+        <p><pre>The following components were installed by ODS, and where applicable, these additional tasks were done:</pre>
             <ul>
                 <li>Tags for promotion were generated (<i>Git Tag Created</i>)</li>
                 <li>Configuration was exported, and stored (<i>Exported Configuration Commit</i>)</li>
@@ -95,7 +95,6 @@
             <thead>
                 <th class="content-wrappable">Component ID</th>
                 <th class="content-wrappable">Type</th>
-                <th class="content-wrappable">Installed by ODS</th>
                 <th class="content-wrappable">Branch</th>
                 <th class="content-wrappable">Commit Build/Installed | Exported Configuration Commit</th>
                 <th class="content-wrappable">Git Tag Used (optional)</th>
@@ -103,18 +102,20 @@
             </thead>
 			<tbody>
 				{{#each data.repositories}}
+                {{#if doInstall}}
 				<tr>
 					<td class="content-wrappable">{{id}}</td>
 					<td class="content-wrappable">{{type}}</td>
-					<td class="content-wrappable">{{doInstall}}</td>
 					<td class="content-wrappable">{{data.git.branch}}</td>
 					<td class="content-wrappable">{{data.git.commit}} | {{data.git.createdExecutionCommit}}</td>
 					<td class="content-wrappable">{{data.git.baseTag}}</td>
 					<td class="content-wrappable">{{data.git.targetTag}}</td>
 				</tr>
+                {{/if}}
 				{{/each}}
 			</tbody>
         </table>
+        <p>Please consult the TIP document for a comprehensive overview of all system components.</p>
     </div>
 
     <div class="page">

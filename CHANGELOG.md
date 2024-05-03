@@ -3,6 +3,7 @@
 ## Unreleased
 - Included the new "Requirements" column and the new description which include all the data that is going to be shown. ([#139](https://github.com/opendevstack/ods-document-generation-templates/pull/139))
 - Included the complete Requirement description to Risk Assessment Table ([#138](https://github.com/opendevstack/ods-document-generation-templates/pull/138))
+- Add support for partial deployment ([#137](https://github.com/opendevstack/ods-document-generation-templates/pull/137))
 
 ## 1.2.7 - 2023-11-20
 - minor non-GxP handling fixes  ([#133](https://github.com/opendevstack/ods-document-generation-templates/pull/133))

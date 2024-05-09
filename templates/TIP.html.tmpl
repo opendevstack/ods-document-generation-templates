@@ -182,7 +182,7 @@
 					<td class="content-wrappable">{{id}}</td>
 					<td class="content-wrappable">{{metadata.supplier}}</td>
 					<td class="content-wrappable" style="font-size: smaller">git branch {{data.git.branch}}</td>
-					<td class="content-wrappable">{{data.git.printurl}}</td>
+					<td class="content-wrappable"><a href="{{data.git.url}}">{{printurl}}</a></td>
 					<td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
 					<td class="content-wrappable">{{#if include}} Yes {{else}} No {{/if}}</td>
 					<td class="content-wrappable">{{#if include}} {{#if doInstall}} Yes {{else}} No {{/if}} {{else}} N/A {{/if}}</td>

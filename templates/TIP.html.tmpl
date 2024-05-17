@@ -181,7 +181,7 @@
 				<tr>
 					<td class="content-wrappable">{{id}}</td>
 					<td class="content-wrappable"><a style="color: inherit; text-decoration: inherit;" href="{{metadata.supplier}}" style="">{{printsupplier}}</a></td>
-					<td class="content-wrappable" style="font-size: smaller">git branch {{#if include}} {{data.git.branch}} {{else}} N/A {{/if}}</td>
+					<td class="content-wrappable" style="font-size: smaller">{{#if include}}git branch  {{data.git.branch}} {{else}} N/A {{/if}}</td>
 					<td class="content-wrappable"><a style="color: inherit; text-decoration: inherit;" href="{{data.git.url}}" style="">{{printurl}}</a></td>
 					<td class="content-wrappable">{{../metadata.buildParameter.configItem}} / {{metadata.referencedDocs.SSDS}} System and Software Design Specification</td>
 					<td class="content-wrappable">{{#if include}} Yes {{else}} No {{/if}}</td>

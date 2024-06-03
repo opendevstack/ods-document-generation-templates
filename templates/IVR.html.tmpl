@@ -111,14 +111,12 @@
             <thead>
                 <th class="lean">Component Name</th>
                 <th class="lean">Repository Type</th>
-                <th class="lean">Installed by ODS</th>
             </thead>
             <tbody>
                 {{#each data.repositories}}
                 <tr>
                     <td class="content-wrappable"><em>{{id}}</em></td>
                     <td class="content-wrappable">{{type}}</td>
-                    <td class="content-wrappable">{{doInstall}}</td>
                 </tr>
                 {{/each}}
             </tbody>

@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.2.8 - 2024-06-06
 - RA doc in section 4.1 has got a typo in Description of column Requirement ([#142](https://github.com/opendevstack/ods-document-generation-templates/pull/142))
 - Changed the branch name to N/A in the TIP for not included component ([#141](https://github.com/opendevstack/ods-document-generation-templates/pull/141))
 - Added some clarification to TIP and TIR ([#140](https://github.com/opendevstack/ods-document-generation-templates/pull/140))

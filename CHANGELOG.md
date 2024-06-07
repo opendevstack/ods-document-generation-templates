@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 1.2.8 - 2024-06-06
+- RA doc in section 4.1 has got a typo in Description of column Requirement ([#142](https://github.com/opendevstack/ods-document-generation-templates/pull/142))
+- Changed the branch name to N/A in the TIP for not included component ([#141](https://github.com/opendevstack/ods-document-generation-templates/pull/141))
+- Added some clarification to TIP and TIR ([#140](https://github.com/opendevstack/ods-document-generation-templates/pull/140))
+- Included the new "Requirements" column and the new description which include all the data that is going to be shown. ([#139](https://github.com/opendevstack/ods-document-generation-templates/pull/139))
+- Included the complete Requirement description to Risk Assessment Table ([#138](https://github.com/opendevstack/ods-document-generation-templates/pull/138))
+- Add support for partial deployment ([#137](https://github.com/opendevstack/ods-document-generation-templates/pull/137))
+
 ## 1.2.7 - 2023-11-20
 - minor non-GxP handling fixes  ([#133](https://github.com/opendevstack/ods-document-generation-templates/pull/133))
 - Align center for first column in table in CSD ([#125](https://github.com/opendevstack/ods-document-generation-templates/issues/125))

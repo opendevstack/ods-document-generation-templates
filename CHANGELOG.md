@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))
 
 ## 1.2.8 - 2024-06-06
 - RA doc in section 4.1 has got a typo in Description of column Requirement ([#142](https://github.com/opendevstack/ods-document-generation-templates/pull/142))

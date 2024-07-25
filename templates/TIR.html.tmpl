@@ -203,6 +203,52 @@
               </table>
             </tr>
           {{/builds}}
+        {{/openShiftData}}
+        {{#if deployment}}
+        {{#deployment}}
+            <tr>
+              <table>
+              {{#status}}
+              <tr>
+                  <b>Deployment Status</b>
+                  <table>
+                    <thead>
+                        <th>Name</th>
+                        <th class="content-wrappable">Value</th>
+                    </thead>
+                    <tbody>
+                        {{#each .}}
+                          <tr>
+                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
+                          <tr>
+                        {{/each}}
+                    </tbody>
+                  </table>
+              </tr>
+              {{/status}}
+              {{#mean}}
+              <tr>
+                  <b>Deployment Mean</b>
+                  <table>
+                    <thead>
+                        <th>Name</th>
+                        <th class="content-wrappable">Value</th>
+                    </thead>
+                    <tbody>
+                        {{#each .}}
+                          <tr>
+                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
+                          <tr>
+                        {{/each}}
+                    </tbody>
+                  </table>
+              </tr>
+              {{/mean}}
+              </table>
+            </tr>
+        {{/deployment}}
+        {{else}}
+        {{#openShiftData}}
           {{#deployments}}
             <tr>
               <table>
@@ -229,6 +275,7 @@
           {{/deployments}}
         </table>
         {{/openShiftData}}
+        {{/if}}
         {{/data.repo}}
     </div>
 

@@ -2,7 +2,8 @@
 
 ## Unreleased
 - Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))
-- TIR changes: Changed wording in DIAGNOSTIC RESULT table to fit for helm deployments. In addition wording no longer claims that the expected result is "POD is in status running" which would not be the case for example when a job is deployed. [#145](https://github.com/opendevstack/ods-document-generation-templates/pull/145)
+- TIR changes: Wording changes to be more inclusive of helm deployments. Also removes language mentioning "pods" as these are dynamic and may change over time ([#146](https://github.com/opendevstack/ods-document-generation-templates/pull/146))
+
 
 ## 1.2.8 - 2024-06-06
 - RA doc in section 4.1 has got a typo in Description of column Requirement ([#142](https://github.com/opendevstack/ods-document-generation-templates/pull/142))

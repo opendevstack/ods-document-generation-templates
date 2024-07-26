@@ -176,7 +176,7 @@
         <p><b>Note:</b> {{deployNote}}</p>
 
         {{#data.repo}}
-        <p>The following components have been successfully installed:<b>{{id}}</b></p>
+        <p>The following component has been successfully installed: <b>{{id}}</b></p>
         {{#openShiftData}}
         <table>
           {{#builds}}
@@ -203,6 +203,52 @@
               </table>
             </tr>
           {{/builds}}
+        {{/openShiftData}}
+        {{#if deployment}}
+        {{#deployment}}
+            <tr>
+              <table>
+              {{#status}}
+              <tr>
+                  <b>Deployment Status</b>
+                  <table>
+                    <thead>
+                        <th>Name</th>
+                        <th class="content-wrappable">Value</th>
+                    </thead>
+                    <tbody>
+                        {{#each .}}
+                          <tr>
+                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
+                          <tr>
+                        {{/each}}
+                    </tbody>
+                  </table>
+              </tr>
+              {{/status}}
+              {{#mean}}
+              <tr>
+                  <b>Deployment Mean</b>
+                  <table>
+                    <thead>
+                        <th>Name</th>
+                        <th class="content-wrappable">Value</th>
+                    </thead>
+                    <tbody>
+                        {{#each .}}
+                          <tr>
+                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
+                          <tr>
+                        {{/each}}
+                    </tbody>
+                  </table>
+              </tr>
+              {{/mean}}
+              </table>
+            </tr>
+        {{/deployment}}
+        {{else}}
+        {{#openShiftData}}
           {{#deployments}}
             <tr>
               <table>
@@ -229,6 +275,7 @@
           {{/deployments}}
         </table>
         {{/openShiftData}}
+        {{/if}}
         {{/data.repo}}
     </div>
 
@@ -259,17 +306,17 @@
             <tbody>
                 <tr>
                     <td class="lean">1</td>
-                    <td class="content-wrappable">automated configuration appplication (Q/P environment)</td>
+                    <td class="content-wrappable">Automated configuration appplication (Q/P environment)</td>
                     <td class="content-wrappable">Configuration applied</td>
                     <td class="content-wrappable">Configuration applied</td>
-                    <td class="lean">pass</td>
+                    <td class="lean">Pass</td>
                 </tr>
                 <tr>
                     <td class="lean">2</td>
-                    <td class="content-wrappable">POD is running</td>
-                    <td class="content-wrappable">POD is in status running</td>
-                    <td class="content-wrappable">POD is in status running</td>
-                    <td class="lean">pass</td>
+                    <td class="content-wrappable">Wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state</td>
+                    <td class="content-wrappable">Applicable resources are in ready state</td>
+                    <td class="content-wrappable">Applicable resources are in ready state</td>
+                    <td class="lean">Pass</td>
                 </tr>
             </tbody>
         </table>

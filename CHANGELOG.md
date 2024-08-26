@@ -1,9 +1,11 @@
 # Changelog
 
 ## Unreleased
-- Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))
-- Fix CSD file with block <p>N/A</p> always present ([#147](https://github.com/opendevstack/ods-document-generation-templates/pull/147))
 
+
+## 1.2.9 - 2024-08-26
+- Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))
+- Fix CSD file with block containing N/A always present ([#147](https://github.com/opendevstack/ods-document-generation-templates/pull/147))
 
 ## 1.2.8 - 2024-06-06
 - RA doc in section 4.1 has got a typo in Description of column Requirement ([#142](https://github.com/opendevstack/ods-document-generation-templates/pull/142))

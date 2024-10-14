@@ -5,7 +5,6 @@
     <title>Technical Installation Report for '{{metadata.name}}'</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
     <div class="page">
         <table id="heading">
@@ -14,11 +13,11 @@
                     <table>
                         <tr>
                             <th colspan="2">
-                                Information
+                                Information <script></script>
                             </th>
                         </tr>
                         <tr>
-                            <td class="lean" style="vertical-align: top;">Name:</td>
+                            <td id="test" class="lean" style="vertical-align: top;">Name:</td>
                             <td class="content-wrappable">{{metadata.name}}</td>
                         </tr>
                         <tr>
@@ -27,7 +26,8 @@
                         </tr>
                         <tr>
                             <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
+                            <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}
+                            </td>
                         </tr>
                         <tr>
                             <td class="lean">Date Created:</td>
@@ -91,11 +91,16 @@
     <div class="page">
         <h2 id="section_1"><span>1</span>Introduction</h2>
 
-        <p>This document describes the installation of the software-defined component <em>{{data.repo.id}}</em>. The installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item: {{metadata.buildParameter.configItem}}.</p>
+        <p>This document describes the installation of the software-defined component <em>{{data.repo.id}}</em>. The
+            installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item:
+            {{metadata.buildParameter.configItem}}.</p>
 
-        <p>The plan outlines additional chapters, namely <em>Installation Prerequisites (3)</em> and <em>Environmental Conditions (4)</em>.</p>
+        <p>The plan outlines additional chapters, namely <em>Installation Prerequisites (3)</em> and <em>Environmental
+                Conditions (4)</em>.</p>
 
-        <p>Installation plan reference: ITEMS Document Number <em>{{metadata.version}}-{{metadata.jenkins.buildNumber}}</em>, Version: <em>{{metadata.referencedDocs.TIP}}</em>.</p>
+        <p>Installation plan reference: ITEMS Document Number
+            <em>{{metadata.version}}-{{metadata.jenkins.buildNumber}}</em>, Version:
+            <em>{{metadata.referencedDocs.TIP}}</em>.</p>
 
         <h3>Parameters</h3>
         <table class="no-page-break">
@@ -152,127 +157,172 @@
         <p>Jenkins Job has been successfully executed:</p>
 
         <table>
-            <thead>
-                <th class="lean">Name</th>
-                <th class="lean">Value</th>
-            </thead>
             <tbody>
                 <tr>
-                    <td class="lean">Job Number</td>
+                    <td class="lean header">Job Number</td>
                     <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
                 </tr>
                 <tr>
-                    <td class="lean">Job Name</td>
+                    <td class="lean header">Job Name</td>
                     <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
                 </tr>
                 <tr>
-                    <td class="lean">Build URL</td>
+                    <td class="lean header">Build URL</td>
                     <td class="content-wrappable">{{metadata.jenkins.buildUrl}}</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="section_2_2"><span>2.2</span>Components</h3>
+        <h3 id="section_2_2"><span>2.2</span>Component</h3>
         <p><b>Note:</b> {{deployNote}}</p>
 
         {{#data.repo}}
         <p>The following component has been successfully installed: <b>{{id}}</b></p>
         {{#openShiftData}}
         <table>
-          {{#builds}}
+            {{#builds}}
             <tr>
-              <table>
-              {{#each .}}
-                <tr>
-                  Build Resource: <b>{{@key}}</b>
-                  <table>
-                    <thead>
-                        <th>Name</th>
-                        <th class="content-wrappable">Value</th>
-                    </thead>
-                    <tbody>
-                        {{#each .}}
-                          <tr>
-                            <td>{{@key}}</td><td class="content-wrappable">{{.}}</td>
-                          <tr>
-                        {{/each}}
-                    </tbody>
-                  </table>
-                </tr>
-              {{/each}}
-              </table>
+                <table>
+                    {{#each .}}
+                    <tr>
+                        Build Resource: <b>{{@key}}</b>
+                        <table>
+                            <tbody>
+                                {{#each .}}
+                                <tr>
+                                    <td class="lean header">{{@key}}</td>
+                                    <td class="content-wrappable">{{.}}</td>
+                                <tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </tr>
+                    {{/each}}
+                </table>
             </tr>
-          {{/builds}}
+            {{/builds}}
         {{/openShiftData}}
         {{#if deployment}}
-        {{#deployment}}
+            {{#deployment}}
             <tr>
-              <table>
-              {{#status}}
-              <tr>
-                  <b>Deployment Status</b>
-                  <table>
-                    <thead>
-                        <th>Name</th>
-                        <th class="content-wrappable">Value</th>
-                    </thead>
-                    <tbody>
-                        {{#each .}}
-                          <tr>
-                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
-                          <tr>
-                        {{/each}}
-                    </tbody>
-                  </table>
-              </tr>
-              {{/status}}
-              {{#mean}}
-              <tr>
-                  <b>Deployment Mean</b>
-                  <table>
-                    <thead>
-                        <th>Name</th>
-                        <th class="content-wrappable">Value</th>
-                    </thead>
-                    <tbody>
-                        {{#each .}}
-                          <tr>
-                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
-                          <tr>
-                        {{/each}}
-                    </tbody>
-                  </table>
-              </tr>
-              {{/mean}}
-              </table>
+                <table>
+                    {{#mean}}
+                    <tr>
+                        <b>Deployment</b>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="lean header">Name</td>
+                                    <td class="content-wrappable">{{releaseName}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Instance</td>
+                                    <td class="content-wrappable">{{helmReleaseName}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Version</td>
+                                    <td class="content-wrappable">{{releaseRevision}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Namespace</td>
+                                    <td class="content-wrappable">{{namespace}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Managed by</td>
+                                    <td class="content-wrappable">{{type}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Selector</td>
+                                    <td class="content-wrappable">{{{selector}}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Source repository</td>
+                                    <td class="content-wrappable"> {{../url}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Descriptor path</td>
+                                    <td class="content-wrappable">{{chartDir}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Environment variables</td>
+                                    <td class="content-wrappable">{{{helmEnvBasedValuesFiles}}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Configuration files</td>
+                                    <td class="content-wrappable">{{{helmValuesFiles}}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Configuration parameters</td>
+                                    <td class="content-wrappable">{{{helmValues}}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Default command line flags</td>
+                                    <td class="content-wrappable">{{{helmDefaultFlags}}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Additional command line flags</td>
+                                    <td class="content-wrappable">{{{helmAdditionalFlags}}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </tr>
+                    {{/mean}}
+                    {{#status}}
+                    <tr>
+                        <b>Deployment Result</b>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="lean header">Status</td>
+                                    <td class="content-wrappable">{{deployStatus}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Result message</td>
+                                    <td class="content-wrappable">{{description}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Timestamp</td>
+                                    <td class="content-wrappable">{{lastDeployed}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lean header">Resources</td>
+                                    <td class="content-wrappable">{{{resources}}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </tr>
+                    {{/status}}
+
+                </table>
             </tr>
-        {{/deployment}}
-        {{else}}
-        {{#openShiftData}}
-          {{#deployments}}
+            {{/deployment}}
+            {{else}}
+            {{#openShiftData}}
+            {{#deployments}}
             <tr>
-              <table>
-              {{#each .}}
-                <tr>
-                  Deployment Resource: <b>{{@key}}</b>
-                  <table>
-                    <thead>
-                        <th>Name</th>
-                        <th class="content-wrappable">Value</th>
-                    </thead>
-                    <tbody>
-                        {{#each .}}
-                          <tr>
-                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
-                          <tr>
-                        {{/each}}
-                    </tbody>
-                  </table>
-                </tr>
-              {{/each}}
-              </table>
+                <table>
+                    {{#each .}}
+                    <tr>
+                        Deployment Resource: <b>{{@key}}</b>
+                        <table>
+                            <thead>
+                                <th>Name</th>
+                                <th class="content-wrappable">Value</th>
+                            </thead>
+                            <tbody>
+                                {{#each .}}
+                                <tr>
+                                    <td>{{@key}}</td>
+                                    <td class="content-wrappable">{{this}}</td>
+                                <tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </tr>
+                    {{/each}}
+                </table>
             </tr>
-          {{/deployments}}
+            {{/deployments}}
         </table>
         {{/openShiftData}}
         {{/if}}
@@ -313,7 +363,8 @@
                 </tr>
                 <tr>
                     <td class="lean">2</td>
-                    <td class="content-wrappable">Wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state</td>
+                    <td class="content-wrappable">Wait until all Pods, PVCs, Services, and minimum number of Pods of a
+                        Deployment, StatefulSet, or ReplicaSet are in a ready state</td>
                     <td class="content-wrappable">Applicable resources are in ready state</td>
                     <td class="content-wrappable">Applicable resources are in ready state</td>
                     <td class="lean">Pass</td>
@@ -325,7 +376,10 @@
 
     <div class="page">
         <h2 id="section_4"><span>4</span>Conclusion Statement</h2>
-        <p>All deliverables of the Technical Installation Plan have been successfully executed and the signature of this Report verifies that the system has been installed according to all requirements stated in the Installation Plan or, in the event the requirements are not met, that the deviations and/or failures are properly documented and addressed.</p>
+        <p>All deliverables of the Technical Installation Plan have been successfully executed and the signature of this
+            Report verifies that the system has been installed according to all requirements stated in the Installation
+            Plan or, in the event the requirements are not met, that the deviations and/or failures are properly
+            documented and addressed.</p>
     </div>
 
     <div class="page">
@@ -333,38 +387,39 @@
 
         <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
         {{#if data.sections.sec5s1.show}}
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
-                </tr>
-            </table>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
+            </tr>
+        </table>
         {{else}}
-            <p>N/A</p>
+        <p>N/A</p>
         {{/if}}
 
         <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
         {{#if data.sections.sec5s2.show}}
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
-                </tr>
-            </table>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+            </tr>
+        </table>
         {{else}}
-            <p>N/A</p>
+        <p>N/A</p>
         {{/if}}
     </div>
 
     <div class="page">
         <h2 id="section_6"><span>6</span>Reference Documents</h2>
         <ul>
-            <li>Technical Installation Plan ({{metadata.referencedDocs.TIP}})</li></li>
+            <li>Technical Installation Plan ({{metadata.referencedDocs.TIP}})</li>
+            </li>
         </ul>
         {{#if data.sections.sec6.show}}
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
-                </tr>
-            </table>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
+            </tr>
+        </table>
         {{/if}}
     </div>
 
@@ -382,7 +437,8 @@
                 {{#each data.documentHistory}}
                 <tr>
                     <td class="lean">{{{docVersion}}}</td>
-                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of
+                        printout.</td>
                     <td class="content-wrappable">
                         {{{rational}}}
                         <br>
@@ -420,12 +476,13 @@
         </table>
         {{/if}}
         {{#if data.sections.sec7.show}}
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
-                </tr>
-            </table>
+        <table class="no-border">
+            <tr>
+                <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+            </tr>
+        </table>
         {{/if}}
     </div>
 </body>
+
 </html>

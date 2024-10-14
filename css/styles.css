@@ -168,6 +168,27 @@ td.content-wrappable table th, td.content-wrappable table td {
   white-space: normal;
 }
 
+/* Remove all spacing around .inner-ul-2 elements */
+
+td > ul.inner-ul {
+  list-style-type: none;
+  padding: 0em;
+  margin: 0em;
+}
+
+li > ul.inner-ul {
+  list-style-type: none;
+  padding-left: 1em;
+  padding-right: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+
+.inner-span {
+  display: inline-block;
+  margin-right: 0em;
+}
+
 .center {
   text-align: center;
 }

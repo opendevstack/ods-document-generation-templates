@@ -1,7 +1,8 @@
 # Changelog
 
 ## Unreleased
-
+- Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))
+- TIR changes: Wording changes to be more inclusive of helm deployments, removed dynamic values from report tables and change in table formatting ([#146](https://github.com/opendevstack/ods-document-generation-templates/pull/146))
 
 ## 1.2.9 - 2024-08-26
 - Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))

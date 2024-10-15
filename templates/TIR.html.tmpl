@@ -88,10 +88,7 @@
                             <tr>
                                 <td class="lean">Target environment:</td>
                                 <td class="content-wrappable">
-                                    {{
-                                        metadata.buildParameter
-                                            .targetEnvironment
-                                    }}
+                                    {{ metadata.buildParameter.targetEnvironment }}
                                 </td>
                             </tr>
                         </table>
@@ -141,12 +138,7 @@
 
             <p>
                 Installation plan reference: ITEMS Document Number
-                <em
-                    >{{ metadata.version }}-{{
-                        metadata.jenkins.buildNumber
-                    }}</em
-                >, Version: <em>{{ metadata.referencedDocs.TIP }}</em
-                >.
+                <em>{{ metadata.version }}-{{ metadata.jenkins.buildNumber }}</em>, Version: <em>{{ metadata.referencedDocs.TIP }}</em>.
             </p>
 
             <h3>Parameters</h3>
@@ -551,9 +543,7 @@
             <h2 id="section_6"><span>6</span>Reference Documents</h2>
             <ul>
                 <li>
-                    Technical Installation Plan ({{
-                        metadata.referencedDocs.TIP
-                    }})
+                    Technical Installation Plan ({{ metadata.referencedDocs.TIP }})
                 </li>
             </ul>
             {{#if data.sections.sec6.show}}
@@ -594,8 +584,7 @@
                             <ul>
                                 {{#each added}}
                                 <li>
-                                    {{ key }}{{#if details}}: {{ details
-                                    }}{{/if}}
+                                    {{ key }}{{#if details}}: {{ details}}{{/if}}
                                 </li>
                                 {{/each}}
                             </ul>
@@ -605,8 +594,7 @@
                             <ul>
                                 {{#each discontinued}}
                                 <li>
-                                    {{ key }}{{#if details}}: {{ details
-                                    }}{{/if}}
+                                    {{ key }}{{#if details}}: {{ details }}{{/if}}
                                 </li>
                                 {{/each}}
                             </ul>
@@ -616,8 +604,7 @@
                             <ul>
                                 {{#each changed}}
                                 <li>
-                                    {{ key }} was previously {{ predecessors
-                                    }}{{#if details}}: {{ details }}{{/if}}
+                                    {{ key }} was previously {{ predecessors }}{{#if details}}: {{ details }}{{/if}}
                                 </li>
                                 {{/each}}
                             </ul>

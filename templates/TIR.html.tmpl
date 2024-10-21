@@ -275,11 +275,10 @@
                 </tr>
                 {{/builds}}
                 {{/openShiftData}}
-                {{#if deployment}}
-                {{#deployment}}
+                {{#if deploymentMean.type == 'helm'}}
+                {{#deploymentMean}}
                 <tr>
                     <table>
-                        {{#mean}}
                         <tr>
                             <b>Deployment</b>
                             <table>
@@ -361,8 +360,7 @@
                                 </tbody>
                             </table>
                         </tr>
-                        {{/mean}}
-                        {{#status}}
+                        {{#helmStatus}}
                         <tr>
                             <b>Deployment Result</b>
                             <table>
@@ -396,10 +394,10 @@
                                 </tbody>
                             </table>
                         </tr>
-                        {{/status}}
+                        {{/helmStatus}}
                     </table>
                 </tr>
-                {{/deployment}}
+                {{/deploymentMean}}
                 {{else}}
                 {{#openShiftData}}
                 {{#deployments}}

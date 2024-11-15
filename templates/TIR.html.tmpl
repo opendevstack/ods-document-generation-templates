@@ -34,9 +34,7 @@
                                     Version:
                                 </td>
                                 <td class="content-wrappable">
-                                    {{ metadata.version }}/{{
-                                        data.documentHistoryLatestVersionId
-                                    }}
+                                    {{ metadata.version }}/{{ data.documentHistoryLatestVersionId }}
                                 </td>
                             </tr>
                             <tr>
@@ -138,7 +136,10 @@
 
             <p>
                 Installation plan reference: ITEMS Document Number
-                <em>{{ metadata.version }}-{{ metadata.jenkins.buildNumber }}</em>, Version: <em>{{ metadata.referencedDocs.TIP }}</em>.
+                <em
+                    >{{ metadata.version }}-{{ metadata.jenkins.buildNumber }}</em
+                >, Version: <em>{{ metadata.referencedDocs.TIP }}</em
+                >.
             </p>
 
             <h3>Parameters</h3>
@@ -247,8 +248,9 @@
                 The following component has been successfully installed:
                 <b>{{ id }}</b>
             </p>
-            {{#openShiftData}}
+            {{/data.repo}}
             <table>
+                {{#openShiftData}}
                 {{#builds}}
                 <tr>
                     <table>
@@ -263,10 +265,7 @@
                                         <td class="lean header">{{@key}}</td>
                                         <td class="content-wrappable">{{.}}</td>
                                     </tr>
-
-                                    <tr>
-                                        {{/each}}
-                                    </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </tr>
@@ -275,7 +274,8 @@
                 </tr>
                 {{/builds}}
                 {{/openShiftData}}
-                {{#if deploymentMean.type == 'helm'}}
+
+                {{^legacy}}
                 {{#deploymentMean}}
                 <tr>
                     <table>
@@ -296,17 +296,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="lean header">Selector</td>
-                                        <td class="content-wrappable">
-                                            {{{selector}}}
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td class="lean header">
                                             Source repository
                                         </td>
                                         <td class="content-wrappable">
-                                            {{../url}}
+                                            <!-- TODO find where to get this from -->
+                                            {{../data/repo/url}}
                                         </td>
                                     </tr>
                                     <tr>
@@ -314,23 +309,23 @@
                                             Descriptor path
                                         </td>
                                         <td class="content-wrappable">
-                                            {{ chartDir }}
+                                            {{ descriptorPath }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="lean header">
-                                            Environment configuration
+                                            Environment configuration files
                                         </td>
                                         <td class="content-wrappable">
-                                            {{{helmEnvBasedValuesFiles}}}
+                                            {{{envConfigFiles}}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="lean header">
-                                            Configuration files
+                                            Global configuration files
                                         </td>
                                         <td class="content-wrappable">
-                                            {{{helmValuesFiles}}}
+                                            {{{configFiles}}}
                                         </td>
                                     </tr>
                                     <tr>
@@ -338,7 +333,7 @@
                                             Configuration parameters
                                         </td>
                                         <td class="content-wrappable">
-                                            {{{helmValues}}}
+                                            {{{configParams}}}
                                         </td>
                                     </tr>
                                     <tr>
@@ -346,7 +341,7 @@
                                             Default command line flags
                                         </td>
                                         <td class="content-wrappable">
-                                            {{{helmDefaultFlags}}}
+                                            {{{defaultCmdLineArgs}}}
                                         </td>
                                     </tr>
                                     <tr>
@@ -354,13 +349,13 @@
                                             Additional command line flags
                                         </td>
                                         <td class="content-wrappable">
-                                            {{{helmAdditionalFlags}}}
+                                            {{{additionalCmdLineArgs}}}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </tr>
-                        {{#helmStatus}}
+                        {{#deploymentStatus}}
                         <tr>
                             <b>Deployment Result</b>
                             <table>
@@ -376,7 +371,7 @@
                                             Result message
                                         </td>
                                         <td class="content-wrappable">
-                                            {{ description }}
+                                            {{ resultMessage }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -394,11 +389,38 @@
                                 </tbody>
                             </table>
                         </tr>
-                        {{/helmStatus}}
+                        {{/deploymentStatus}}
                     </table>
                 </tr>
                 {{/deploymentMean}}
-                {{else}}
+                {{/legacy}}
+                
+                {{#legacy}}
+                {{#deploymentMean}}
+                <tr>
+                    <table>
+                        <tr>
+                            <b>Deployment</b>
+                            <table>
+                                <thead>
+                                    <th>Name</th>
+                                    <th class="content-wrappable">Value</th>
+                                </thead>
+                                <tbody>
+                                    {{#each .}}
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td class="content-wrappable">
+                                            {{ this }}
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </tr>
+                    </table>
+                </tr>
+                {{/deploymentMean}}
                 {{#openShiftData}}
                 {{#deployments}}
                 <tr>
@@ -420,10 +442,7 @@
                                             {{ this }}
                                         </td>
                                     </tr>
-
-                                    <tr>
                                     {{/each}}
-                                    </tr>
                                 </tbody>
                             </table>
                         </tr>
@@ -431,10 +450,9 @@
                     </table>
                 </tr>
                 {{/deployments}}
+                {{/openShiftData}}
+                {{/legacy}}
             </table>
-            {{/openShiftData}}
-            {{/if}}
-            {{/data.repo}}
         </div>
 
         <div class="page">
@@ -492,7 +510,7 @@
                     </tr>
                 </tbody>
             </table>
-            {{/data.repo }}
+            {{/data.repo}}
         </div>
 
         <div class="page">
@@ -541,7 +559,7 @@
             <h2 id="section_6"><span>6</span>Reference Documents</h2>
             <ul>
                 <li>
-                    Technical Installation Plan ({{ metadata.referencedDocs.TIP }})
+                    Technical Installation Plan ({{metadata.referencedDocs.TIP}})
                 </li>
             </ul>
             {{#if data.sections.sec6.show}}
@@ -582,7 +600,7 @@
                             <ul>
                                 {{#each added}}
                                 <li>
-                                    {{ key }}{{#if details}}: {{ details}}{{/if}}
+                                    {{ key }}{{#if details}}: {{ details }}{{/if}}
                                 </li>
                                 {{/each}}
                             </ul>

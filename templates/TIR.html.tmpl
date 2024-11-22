@@ -93,7 +93,64 @@
                     </td>
                     <td id="logo" class="lean"></td>
                 </tr>
-            </table>
+            </table>id: anteloro
+name: Project anteloro
+description: Description of anteloro.
+
+services:
+  bitbucket:
+    credentials:
+      id: anteloro-cd-cd-user-with-password
+
+  # Uncomment (below) to connect to jira
+  jira:
+    credentials:
+      id: anteloro-cd-cd-user-with-password
+  nexus:
+    repository:
+      name: leva-documentation
+
+repositories:
+
+  - id: backend-first
+    
+    name: anteloro-backend-first
+    
+  
+  
+    type: null
+
+  - id: backend-helm-monorepo
+    
+    name: anteloro-backend-helm-monorepo
+    
+  
+  
+    type: null
+
+  - id: test-first
+    
+    name: anteloro-test-first
+    
+  
+  
+    type: null
+
+
+#    forceRebuild: true
+
+# Uncomment (below) to generate documents
+capabilities:
+  - Zephyr
+  - LeVADocs:
+  
+      GAMPCategory: 5
+  
+  
+      templatesVersion: "1.2"
+  
+# Uncomment (below) to allow partial rebuilding during development
+# allowPartialRebuild: true
 
             <div id="blueband">&nbsp;</div>
 

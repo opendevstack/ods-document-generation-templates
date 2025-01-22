@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-
+- Update TRC reference document with SSDS and TCP ([#149](https://github.com/opendevstack/ods-document-generation-templates/pull/149))
 
 ## 1.2.9 - 2024-08-26
 - Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))

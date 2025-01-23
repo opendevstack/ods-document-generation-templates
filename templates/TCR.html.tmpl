@@ -217,11 +217,6 @@
             <li>Screen shots or other objective evidence made by one tester may be collected e.g. in a MS Word document, but must be printed and dated/signed by the Tester on the day of test execution. Alternatively, these can be signed in IDEAforCON directly, as long as the Tester signs the Word document with the screenshots on the day of test execution in IDEAforCON.</li>
             <li>In case of electronically recorded evidence (e.g. video files), the test results must be unambiguously linked to the objective evidence, summarized on a printout and signed on the day of test execution.</li>
         </ul>
-        <p>The column "Initials / Date" only needs to be filled if</p>
-        <ul>
-            <li>Test steps in a test case are executed by more than one tester: Each tester writes initials/dates for all steps executed into the column.</li>
-            <li>Test steps in a test case are executed on more than one day: the tester writes the date of execution for every step into the column.</li>
-        </ul>
     </div>
     -->
 
@@ -259,7 +254,6 @@
                         <th>Instructions</th>
                         <th>Expected result</th>
                         <th>Actual result</th>
-                        <th>Initials / Date</th>
                     </thead>
                     <tbody>
                         {{#each steps}}
@@ -268,7 +262,6 @@
                             <td class="content-wrappable">{{{step}}}</td>
                             <td class="content-wrappable">{{{result}}}</td>
                             <td class="content-wrappable">{{{../actualResult}}}</td>
-                            <td class="content-wrappable">Jenkins {{{../timestamp}}}</td>
                         </tr>
                         {{/each}} <!-- end test steps -->
                     </tbody>
@@ -331,7 +324,6 @@
                         <th>Instructions</th>
                         <th>Expected result / Evidence</th>
                         <th>Actual result</th>
-                        <th>Initials / Date</th>
                     </thead>
                     <tbody>
                         {{#each steps}}
@@ -340,7 +332,6 @@
                             <td class="content-wrappable">{{{step}}}</td>
                             <td class="content-wrappable">{{{result}}}</td>
                             <td class="content-wrappable">{{{actualResult}}}</td>
-                            <td>Jenkins {{{../timestamp}}}</td>
                         </tr>
                         {{/each}} <!-- end test steps block -->
                     </tbody>

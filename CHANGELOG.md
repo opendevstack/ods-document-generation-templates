@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.2.10 - 2025-1-27
 - Remove "Initials/Date" from TCP and TCR documents. ([#150](https://github.com/opendevstack/ods-document-generation-templates/pull/150))
 - Update TRC reference document with SSDS and TCP ([#149](https://github.com/opendevstack/ods-document-generation-templates/pull/149))
 

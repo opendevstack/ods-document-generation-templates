@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Make content in column Test Case No. wrappable. ([#152](https://github.com/opendevstack/ods-document-generation-templates/pull/152))
 
 - Remove Jira issue ID strikethrough on SLC documents. ([#153](https://github.com/opendevstack/ods-document-generation-templates/pull/153))
 - Make content in column Test Case No. wrappable. ([#152](https://github.com/opendevstack/ods-document-generation-templates/pull/152))

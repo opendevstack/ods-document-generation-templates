@@ -82,7 +82,7 @@
 					<table>
 						<thead>
 							<th style="white-space: nowrap">Discrepancy ID</th>
-							<th style="white-space: nowrap">Test Case No.</th>
+							<th class="content-wrappable">Test Case No.</th>
 							<th class="content-wrappable">Level of Test Case</th>
 							<th class="content-wrappable">Description of Failure or Discrepancy</th>
 							<th class="content-wrappable">Remediation Action</th>
@@ -94,7 +94,7 @@
 							{{#each data.integrationTests}}
 								<tr>
 									<td style="white-space: nowrap">{{discrepancyID}}</td>
-									<td style="white-space: nowrap">{{testcaseID}}</td>
+									<td class="content-wrappable">{{testcaseID}}</td>
 									<td class="content-wrappable">Integration</td>
 									<td class="hyphenate">{{{description}}}</td>
 									<td class="content-wrappable">{{{remediation}}}</td>
@@ -122,7 +122,7 @@
 					<table>
 							<thead>
 							    <th style="white-space: nowrap">Discrepancy ID</th>
-							    <th style="white-space: nowrap">Test Case No.</th>
+							    <th class="content-wrappable">Test Case No.</th>
 								<th class="content-wrappable">Level of Test Case</th>
 								<th class="content-wrappable">Description of Failure or Discrepancy</th>
 								<th class="content-wrappable">Remediation Action</th>
@@ -134,7 +134,7 @@
 								{{#each data.acceptanceTests}}
 									<tr>
 										<td style="white-space: nowrap">{{discrepancyID}}</td>
-										<td style="white-space: nowrap">{{testcaseID}}</td>
+										<td class="content-wrappable">{{testcaseID}}</td>
 										<td class="content-wrappable">Acceptance</td>
 										<td class="hyphenate">{{{description}}}</td>
 										<td class="content-wrappable">{{{remediation}}}</td>

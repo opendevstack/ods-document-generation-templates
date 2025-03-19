@@ -1,8 +1,13 @@
 # Changelog
 
 ## Unreleased
-- Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))
+- Remove Jira issue ID strikethrough on SLC documents. ([#153](https://github.com/opendevstack/ods-document-generation-templates/pull/153))
+- Make content in column Test Case No. wrappable. ([#152](https://github.com/opendevstack/ods-document-generation-templates/pull/152))
 - TIR changes: Wording changes to be more inclusive of helm deployments, removed dynamic values from report tables and change in table formatting ([#146](https://github.com/opendevstack/ods-document-generation-templates/pull/146))
+
+## 1.2.10 - 2025-1-27
+- Remove "Initials/Date" from TCP and TCR documents. ([#150](https://github.com/opendevstack/ods-document-generation-templates/pull/150))
+- Update TRC reference document with SSDS and TCP ([#149](https://github.com/opendevstack/ods-document-generation-templates/pull/149))
 
 ## 1.2.9 - 2024-08-26
 - Make risk level column in Overview of Unit Tested Modules (in DTP and DTR) wrappable  ([#144](https://github.com/opendevstack/ods-document-generation-templates/pull/144))

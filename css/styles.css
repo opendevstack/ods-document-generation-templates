@@ -47,6 +47,9 @@ h5 span {
   margin-right: 1.5em;
 }
 
+del {
+  text-decoration: none;
+}
 
 input + label {
   margin-left: 0.5em;

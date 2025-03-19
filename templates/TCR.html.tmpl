@@ -168,63 +168,6 @@
         </ul>
     </div>
 
-    <!--
-    <div class="page">
-        <h2 id="section_3"><span>3</span>Scope of Test Execution</h2>
-        <p>This section will be manually filled before test execution. Please describe the scope of Test case execution in case not all test cases in this document will be executed.</p>
-        {{#if data.sections.sec3.show}}
-        <table style="border: 0px; padding: 0px; margin: 0px">
-            <tr>
-                <td class="content-wrappable" style="border: 0px; padding: 0px; margin: 0px;">{{{data.sections.sec3.content}}}</td>
-            </tr>
-        </table> 
-        {{else}}
-            <p>Not mandatory</p>
-        {{/if}}
-    </div>
-
-    <div class="page">
-        <h2 id="section_4"><span>4</span>Test Execution Instructions</h2>
-        <p>In the case that the test execution is fully automated, Jenkins (Technical Role) shall:</p>
-        <ul>
-            <li>Execute the code base test cases</li>
-            <li>Record the test results and evidence after the execution and include them in the XUnit file</li>
-            <li>Following Good Documentation Practices</li>
-            <li>Mark the test cases as a "Fail" or a "Pass"</li>
-            <li>Stop the test execution if one of the test cases has failed</li>
-            <li>Report back the test execution results to the Test Management Tool</li>
-        </ul>
-
-        <p>Preparation of the test document for execution:</p>
-        <ul>
-            <li>Test results must be documented on a paper copy or a printout of the approved test case document.</li>
-            <li>The copy or printout must include the approval signatures (handwritten or electronic signature page) for the test cases</li>
-            <li>Pages of test cases that will not be executed may be removed prior to start of test execution. This must be documented in section 3.</li>
-            <li>No pages of the copy or printout must be removed or replaced during test execution.</li>
-            <li>Pages may be added during execution, e.g. if test cases need to be re-executed. Reason for the addition must be documented on these additional pages.</li>
-        </ul>
-        <p>For the documentation of test results the following rules of good documentation practice need to be fulfilled:</p>
-        <ul>
-            <li>Results and other entries have to be recorded handwritten.</li>
-            <li>Initials, signatures and dates provided by the tester have to be documented handwritten.</li>
-            <li>Handwritten entries must be made in clear, legible, indelible way.</li>
-            <li>Records must be made or completed at the time each action is taken and in such a way that all significant activities are traceable.</li>
-            <li>Any alteration made to an entry must be signed and dated; the alteration should permit the reading of the original information. Where appropriate, the reason for the alteration should be recorded.</li>
-        </ul>
-        <p>Creation of supporting evidence:</p>
-        <ul>
-            <li>Supporting evidence must be printed, dated and signed by the Tester, and labelled with test case # and step # on the day of test execution.</li>
-            <li>Screen shots or other objective evidence made by one tester may be collected e.g. in a MS Word document, but must be printed and dated/signed by the Tester on the day of test execution. Alternatively, these can be signed in IDEAforCON directly, as long as the Tester signs the Word document with the screenshots on the day of test execution in IDEAforCON.</li>
-            <li>In case of electronically recorded evidence (e.g. video files), the test results must be unambiguously linked to the objective evidence, summarized on a printout and signed on the day of test execution.</li>
-        </ul>
-        <p>The column "Initials / Date" only needs to be filled if</p>
-        <ul>
-            <li>Test steps in a test case are executed by more than one tester: Each tester writes initials/dates for all steps executed into the column.</li>
-            <li>Test steps in a test case are executed on more than one day: the tester writes the date of execution for every step into the column.</li>
-        </ul>
-    </div>
-    -->
-
     <div class="page">
         <h2 id="section_3"><span>3</span>Test Cases</h2>
             <h3 id="section_3_1"><span>3.1</span>Integration Test Cases</h3>
@@ -259,7 +202,6 @@
                         <th>Instructions</th>
                         <th>Expected result</th>
                         <th>Actual result</th>
-                        <th>Initials / Date</th>
                     </thead>
                     <tbody>
                         {{#each steps}}
@@ -268,7 +210,6 @@
                             <td class="content-wrappable">{{{step}}}</td>
                             <td class="content-wrappable">{{{result}}}</td>
                             <td class="content-wrappable">{{{../actualResult}}}</td>
-                            <td class="content-wrappable">Jenkins {{{../timestamp}}}</td>
                         </tr>
                         {{/each}} <!-- end test steps -->
                     </tbody>
@@ -331,7 +272,6 @@
                         <th>Instructions</th>
                         <th>Expected result / Evidence</th>
                         <th>Actual result</th>
-                        <th>Initials / Date</th>
                     </thead>
                     <tbody>
                         {{#each steps}}
@@ -340,7 +280,6 @@
                             <td class="content-wrappable">{{{step}}}</td>
                             <td class="content-wrappable">{{{result}}}</td>
                             <td class="content-wrappable">{{{actualResult}}}</td>
-                            <td>Jenkins {{{../timestamp}}}</td>
                         </tr>
                         {{/each}} <!-- end test steps block -->
                     </tbody>

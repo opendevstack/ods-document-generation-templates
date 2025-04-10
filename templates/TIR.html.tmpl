@@ -1,384 +1,647 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Technical Installation Report for '{{metadata.name}}'</title>
-    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <div class="page">
-        <table id="heading">
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <th colspan="2">
-                                Information
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="lean" style="vertical-align: top;">Name:</td>
-                            <td class="content-wrappable">{{metadata.name}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean" style="vertical-align: top;">Description:</td>
-                            <td class="content-wrappable">{{metadata.description}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean" style="vertical-align: top;">Version:</td>
-                            <td class="content-wrappable">{{metadata.version}}/{{data.documentHistoryLatestVersionId}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Date Created:</td>
-                            <td class="content-wrappable">{{metadata.date_created}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Git Commit:</td>
-                            <td class="content-wrappable">{{metadata.git.commit}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Git Tag:</td>
-                            <td class="content-wrappable">{{metadata.git.targetTag}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Git URL:</td>
-                            <td class="content-wrappable">{{metadata.git.url}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">OpenShift Cluster API URL:</td>
-                            <td class="content-wrappable">{{metadata.openShift.apiUrl}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Created by Jenkins Job Name:</td>
-                            <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Created by Jenkins Build Number:</td>
-                            <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
-                        </tr>
-                        <tr>
-                            <td class="lean">Target environment:</td>
-                            <td class="content-wrappable">{{metadata.buildParameter.targetEnvironment}}</td>
-                        </tr>
-                    </table>
-                </td>
-                <td id="logo" class="lean"></td>
-            </tr>
-        </table>
-
-        <div id="blueband">&nbsp;</div>
-
-        <h1>Technical Installation Report for '{{metadata.name}}'</h1>
-
-        <h2>Table of Contents</h2>
-        <ol class="table-of-contents">
-            <li><a href="#section_1">Introduction</a></li>
-            <li><a href="#section_2">Installation</a></li>
-            <li><a href="#section_3">Diagnostics and Testing</a></li>
-            <li><a href="#section_4">Conclusion Statement</a></li>
-            <li><a href="#section_5">Definitions and Abbreviations</a>
-                <ol>
-                    <li><a href="#section_5_1">Definitions</a></li>
-                    <li><a href="#section_5_2">Abbreviations</a></li>
-                </ol>
-            </li>
-            <li><a href="#section_6">Reference Documents</a></li>
-            <li><a href="#section_7">Document History</a></li>
-        </ol>
-    </div>
-
-    <div class="page">
-        <h2 id="section_1"><span>1</span>Introduction</h2>
-
-        <p>This document describes the installation of the software-defined component <em>{{data.repo.id}}</em>. The installation is based on the corresponding Technical Installation Plan (<em>TIP</em>) of Config Item: {{metadata.buildParameter.configItem}}.</p>
-
-        <p>The plan outlines additional chapters, namely <em>Installation Prerequisites (3)</em> and <em>Environmental Conditions (4)</em>.</p>
-
-        <p>Installation plan reference: ITEMS Document Number <em>{{metadata.version}}-{{metadata.jenkins.buildNumber}}</em>, Version: <em>{{metadata.referencedDocs.TIP}}</em>.</p>
-
-        <h3>Parameters</h3>
-        <table class="no-page-break">
-            <tr>
-                <th class="center lean" colspan="2">Parameters</th>
-            </tr>
-            <tr>
-                <th class="lean">Parameter</th>
-                <th class="content-wrappable">Value</th>
-            </tr>
-            <tr>
-                <td>Git Commit Component <em>{{id}}</em></td>
-                <td class="content-wrappable">{{data.repo.data.git.commit}}</td>
-            </tr>
-            <tr>
-                <td>Git Repo Component <em>{{id}}</em></td>
-                <td class="content-wrappable">{{data.repo.data.git.url}}</td>
-            </tr>
-            <tr>
-                <td>ODS Component Type <em>{{id}}</em></td>
-                <td class="content-wrappable">{{data.repo.type}}</td>
-            </tr>
-            <tr>
-                <td>Environment</td>
-                <td class="content-wrappable">{{metadata.buildParameter.targetEnvironment}}</td>
-            </tr>
-            <tr>
-                <td>Change Description</td>
-                <td class="content-wrappable">{{metadata.buildParameter.changeDescription}}</td>
-            </tr>
-            <tr>
-                <td>Version</td>
-                <td class="content-wrappable">{{metadata.buildParameter.version}}</td>
-            </tr>
-            <tr>
-                <td>Config Item</td>
-                <td class="content-wrappable">{{metadata.buildParameter.configItem}}</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="page">
-        <h2 id="section_2"><span>2</span>Installation</h2>
-        <p>Installations steps have been successfully conducted. Overall installation status:</p>
-
-        <table>
-            <tr>
-                <td>Status</td>
-                <td>OK</td>
-            </tr>
-        </table>
-
-        <h3 id="section_2_1"><span>2.1</span>Jenkins</h3>
-        <p>Jenkins Job has been successfully executed:</p>
-
-        <table>
-            <thead>
-                <th class="lean">Name</th>
-                <th class="lean">Value</th>
-            </thead>
-            <tbody>
+    <head>
+        <title>Technical Installation Report for '{{ metadata.name }}'</title>
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="page">
+            <table id="heading">
                 <tr>
-                    <td class="lean">Job Number</td>
-                    <td class="content-wrappable">{{metadata.jenkins.buildNumber}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">Job Name</td>
-                    <td class="content-wrappable">{{metadata.jenkins.jobName}}</td>
-                </tr>
-                <tr>
-                    <td class="lean">Build URL</td>
-                    <td class="content-wrappable">{{metadata.jenkins.buildUrl}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 id="section_2_2"><span>2.2</span>Components</h3>
-        <p><b>Note:</b> {{deployNote}}</p>
-
-        {{#data.repo}}
-        <p>The following components have been successfully installed:<b>{{id}}</b></p>
-        {{#openShiftData}}
-        <table>
-          {{#builds}}
-            <tr>
-              <table>
-              {{#each .}}
-                <tr>
-                  Build Resource: <b>{{@key}}</b>
-                  <table>
-                    <thead>
-                        <th>Name</th>
-                        <th class="content-wrappable">Value</th>
-                    </thead>
-                    <tbody>
-                        {{#each .}}
-                          <tr>
-                            <td>{{@key}}</td><td class="content-wrappable">{{.}}</td>
-                          <tr>
-                        {{/each}}
-                    </tbody>
-                  </table>
-                </tr>
-              {{/each}}
-              </table>
-            </tr>
-          {{/builds}}
-          {{#deployments}}
-            <tr>
-              <table>
-              {{#each .}}
-                <tr>
-                  Deployment Resource: <b>{{@key}}</b>
-                  <table>
-                    <thead>
-                        <th>Name</th>
-                        <th class="content-wrappable">Value</th>
-                    </thead>
-                    <tbody>
-                        {{#each .}}
-                          <tr>
-                            <td>{{@key}}</td><td class="content-wrappable">{{this}}</td>
-                          <tr>
-                        {{/each}}
-                    </tbody>
-                  </table>
-                </tr>
-              {{/each}}
-              </table>
-            </tr>
-          {{/deployments}}
-        </table>
-        {{/openShiftData}}
-        {{/data.repo}}
-    </div>
-
-    <div class="page">
-        <h2 id="section_3"><span>3</span>Diagnostics and Testing</h2>
-        <p>Diagnostic steps have been successfully applied to the requested component.</p>
-
-        <h3>Diagnostic Status</h3>
-        <table class="no-page-break">
-            <tr>
-                <td>Status</td>
-                <td>OK</td>
-            </tr>
-        </table>
-
-        <h3>Diagnostic Result</h3>
-
-        {{#data.repo}}
-        <h4>Component {{id}}</h4>
-        <table class="no-page-break">
-            <thead>
-                <th class="lean">Step</th>
-                <th class="content-wrappable">Instruction for Testing</th>
-                <th class="content-wrappable">Expected Result</th>
-                <th class="content-wrappable">Actual Result</th>
-                <th class="lean">Pass / Fail</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="lean">1</td>
-                    <td class="content-wrappable">automated configuration appplication (Q/P environment)</td>
-                    <td class="content-wrappable">Configuration applied</td>
-                    <td class="content-wrappable">Configuration applied</td>
-                    <td class="lean">pass</td>
-                </tr>
-                <tr>
-                    <td class="lean">2</td>
-                    <td class="content-wrappable">POD is running</td>
-                    <td class="content-wrappable">POD is in status running</td>
-                    <td class="content-wrappable">POD is in status running</td>
-                    <td class="lean">pass</td>
-                </tr>
-            </tbody>
-        </table>
-        {{/data.repo }}
-    </div>
-
-    <div class="page">
-        <h2 id="section_4"><span>4</span>Conclusion Statement</h2>
-        <p>All deliverables of the Technical Installation Plan have been successfully executed and the signature of this Report verifies that the system has been installed according to all requirements stated in the Installation Plan or, in the event the requirements are not met, that the deviations and/or failures are properly documented and addressed.</p>
-    </div>
-
-    <div class="page">
-        <h2 id="section_5"><span>5</span>Definitions and Abbreviations</h2>
-
-        <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
-        {{#if data.sections.sec5s1.show}}
-            <table class="no-border">
-                <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec5s1.content}}}</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th colspan="2">Information</th>
+                            </tr>
+                            <tr>
+                                <td class="lean" style="vertical-align: top">
+                                    Name:
+                                </td>
+                                <td class="content-wrappable">
+                                    {{ metadata.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean" style="vertical-align: top">
+                                    Description:
+                                </td>
+                                <td class="content-wrappable">
+                                    {{ metadata.description }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean" style="vertical-align: top">
+                                    Version:
+                                </td>
+                                <td class="content-wrappable">
+                                    {{ metadata.version }}/{{ data.documentHistoryLatestVersionId }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Date Created:</td>
+                                <td class="content-wrappable">
+                                    {{ metadata.date_created }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Git Commit:</td>
+                                <td class="content-wrappable">
+                                    {{ metadata.git.commit }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Git Tag:</td>
+                                <td class="content-wrappable">
+                                    {{ metadata.git.targetTag }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Git URL:</td>
+                                <td class="content-wrappable">
+                                    {{ metadata.git.url }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">OpenShift Cluster API URL:</td>
+                                <td class="content-wrappable">
+                                    {{ metadata.openShift.apiUrl }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">
+                                    Created by Jenkins Job Name:
+                                </td>
+                                <td class="content-wrappable">
+                                    {{ metadata.jenkins.jobName }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">
+                                    Created by Jenkins Build Number:
+                                </td>
+                                <td class="content-wrappable">
+                                    {{ metadata.jenkins.buildNumber }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="lean">Target environment:</td>
+                                <td class="content-wrappable">
+                                    {{ metadata.buildParameter.targetEnvironment }}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td id="logo" class="lean"></td>
                 </tr>
             </table>
-        {{else}}
-            <p>N/A</p>
-        {{/if}}
 
-        <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
-        {{#if data.sections.sec5s2.show}}
-            <table class="no-border">
+            <div id="blueband">&nbsp;</div>
+
+            <h1>Technical Installation Report for '{{ metadata.name }}'</h1>
+
+            <h2>Table of Contents</h2>
+            <ol class="table-of-contents">
+                <li><a href="#section_1">Introduction</a></li>
+                <li><a href="#section_2">Installation</a></li>
+                <li><a href="#section_3">Diagnostics and Testing</a></li>
+                <li><a href="#section_4">Conclusion Statement</a></li>
+                <li>
+                    <a href="#section_5">Definitions and Abbreviations</a>
+                    <ol>
+                        <li><a href="#section_5_1">Definitions</a></li>
+                        <li><a href="#section_5_2">Abbreviations</a></li>
+                    </ol>
+                </li>
+                <li><a href="#section_6">Reference Documents</a></li>
+                <li><a href="#section_7">Document History</a></li>
+            </ol>
+        </div>
+
+        <div class="page">
+            <h2 id="section_1"><span>1</span>Introduction</h2>
+
+            <p>
+                This document describes the installation of the software-defined
+                component <em>{{ data.repo.id }}</em
+                >. The installation is based on the corresponding Technical
+                Installation Plan (<em>TIP</em>) of Config Item:
+                {{ metadata.buildParameter.configItem }}.
+            </p>
+
+            <p>
+                The plan outlines additional chapters, namely
+                <em>Installation Prerequisites (3)</em> and
+                <em>Environmental Conditions (4)</em>.
+            </p>
+
+            <p>
+                Installation plan reference: ITEMS Document Number
+                <em
+                    >{{ metadata.version }}-{{ metadata.jenkins.buildNumber }}</em
+                >, Version: <em>{{ metadata.referencedDocs.TIP }}</em
+                >.
+            </p>
+
+            <h3>Parameters</h3>
+            <table class="no-page-break">
                 <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec5s2.content}}}</td>
+                    <th class="center lean" colspan="2">Parameters</th>
                 </tr>
-            </table>
-        {{else}}
-            <p>N/A</p>
-        {{/if}}
-    </div>
-
-    <div class="page">
-        <h2 id="section_6"><span>6</span>Reference Documents</h2>
-        <ul>
-            <li>Technical Installation Plan ({{metadata.referencedDocs.TIP}})</li></li>
-        </ul>
-        {{#if data.sections.sec6.show}}
-            <table class="no-border">
                 <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec6.content}}}</td>
+                    <th class="lean">Parameter</th>
+                    <th class="content-wrappable">Value</th>
                 </tr>
-            </table>
-        {{/if}}
-    </div>
-
-    <div class="page">
-        <h2 id="section_7"><span>7</span>Document History</h2>
-        {{#if data.documentHistory}}
-        <table>
-            <thead>
-                <th class="lean">Version</th>
-                <th class="lean">Date</th>
-                <th class="lean">Author</th>
-                <th>Change Reference</th>
-            </thead>
-            <tbody>
-                {{#each data.documentHistory}}
                 <tr>
-                    <td class="lean">{{{docVersion}}}</td>
-                    <td colspan="2" class="content-wrappable">See Summary of electronic document or signature page of printout.</td>
+                    <td>
+                        Git Commit Component <em>{{ id }}</em>
+                    </td>
                     <td class="content-wrappable">
-                        {{{rational}}}
-                        <br>
-                        {{#each issueType}}
-                        {{#if added}}
-                        The following {{type}} were added:
-                        <ul>
-                            {{#each added}}
-                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        {{#if discontinued}}
-                        The following {{type}} were removed:
-                        <ul>
-                            {{#each discontinued}}
-                            <li>{{key}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        {{#if changed}}
-                        The following {{type}} were changed:
-                        <ul>
-                            {{#each changed}}
-                            <li>{{key}} was previously {{predecessors}}{{#if details}}: {{details}}{{/if}}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                        <br>
-                        {{/each}}
+                        {{ data.repo.data.git.commit }}
                     </td>
                 </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        {{/if}}
-        {{#if data.sections.sec7.show}}
-            <table class="no-border">
                 <tr>
-                    <td class="content-wrappable no-border">{{{data.sections.sec7.content}}}</td>
+                    <td>
+                        Git Repo Component <em>{{ id }}</em>
+                    </td>
+                    <td class="content-wrappable">
+                        {{ data.repo.data.git.url }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ODS Component Type <em>{{ id }}</em>
+                    </td>
+                    <td class="content-wrappable">{{ data.repo.type }}</td>
+                </tr>
+                <tr>
+                    <td>Environment</td>
+                    <td class="content-wrappable">
+                        {{ metadata.buildParameter.targetEnvironment }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Description</td>
+                    <td class="content-wrappable">
+                        {{ metadata.buildParameter.changeDescription }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Version</td>
+                    <td class="content-wrappable">
+                        {{ metadata.buildParameter.version }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Config Item</td>
+                    <td class="content-wrappable">
+                        {{ metadata.buildParameter.configItem }}
+                    </td>
                 </tr>
             </table>
-        {{/if}}
-    </div>
-</body>
+        </div>
+
+        <div class="page">
+            <h2 id="section_2"><span>2</span>Installation</h2>
+            <p>
+                Installations steps have been successfully conducted. Overall
+                installation status:
+            </p>
+
+            <table>
+                <tr>
+                    <td>Status</td>
+                    <td>OK</td>
+                </tr>
+            </table>
+
+            <h3 id="section_2_1"><span>2.1</span>Jenkins</h3>
+            <p>Jenkins Job has been successfully executed:</p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="lean header">Job Number</td>
+                        <td class="content-wrappable">
+                            {{ metadata.jenkins.buildNumber }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lean header">Job Name</td>
+                        <td class="content-wrappable">
+                            {{ metadata.jenkins.jobName }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lean header">Build URL</td>
+                        <td class="content-wrappable">
+                            {{ metadata.jenkins.buildUrl }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="section_2_2"><span>2.2</span>Component</h3>
+            <p><b>Note:</b> {{ deployNote }}</p>
+
+            {{#data.repo}}
+            <p>
+                The following component has been successfully installed:
+                <b>{{ id }}</b>
+            </p>
+            {{/data.repo}}
+            <table>
+                {{#openShiftData}}
+                {{#builds}}
+                <tr>
+                    <table>
+                        {{#each .}}
+                        <tr>
+                            Build Resource:
+                            <b>{{@key}}</b>
+                            <table>
+                                <tbody>
+                                    {{#each .}}
+                                    <tr>
+                                        <td class="lean header">{{@key}}</td>
+                                        <td class="content-wrappable">{{.}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </tr>
+                {{/builds}}
+                {{/openShiftData}}
+
+                {{^legacy}}
+                {{#deploymentMean}}
+                <tr>
+                    <table>
+                        <tr>
+                            <b>Deployment</b>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="lean header">Namespace</td>
+                                        <td class="content-wrappable">
+                                            {{ namespace }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">Managed by</td>
+                                        <td class="content-wrappable">
+                                            {{ type }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Source repository
+                                        </td>
+                                        <td class="content-wrappable">
+                                            <!-- TODO find where to get this from -->
+                                            {{../data/repo/url}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Descriptor path
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{ descriptorPath }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Environment configuration files
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{{envConfigFiles}}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Global configuration files
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{{configFiles}}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Configuration parameters
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{{configParams}}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Default command line flags
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{{defaultCmdLineArgs}}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Additional command line flags
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{{additionalCmdLineArgs}}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </tr>
+                        {{#deploymentStatus}}
+                        <tr>
+                            <b>Deployment Result</b>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="lean header">Status</td>
+                                        <td class="content-wrappable">
+                                            {{ deployStatus }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">
+                                            Result message
+                                        </td>
+                                        <td class="content-wrappable">
+                                            {{ resultMessage }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">Timestamp</td>
+                                        <td class="content-wrappable">
+                                            {{ lastDeployed }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lean header">Resources</td>
+                                        <td class="content-wrappable">
+                                            {{{resources}}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </tr>
+                        {{/deploymentStatus}}
+                    </table>
+                </tr>
+                {{/deploymentMean}}
+                {{/legacy}}
+                
+                {{#legacy}}
+                {{#deploymentMean}}
+                <tr>
+                    <table>
+                        <tr>
+                            <b>Deployment</b>
+                            <table>
+                                <thead>
+                                    <th>Name</th>
+                                    <th class="content-wrappable">Value</th>
+                                </thead>
+                                <tbody>
+                                    {{#each .}}
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td class="content-wrappable">
+                                            {{ this }}
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </tr>
+                    </table>
+                </tr>
+                {{/deploymentMean}}
+                {{#openShiftData}}
+                {{#deployments}}
+                <tr>
+                    <table>
+                        {{#each .}}
+                        <tr>
+                            Deployment Resource:
+                            <b>{{@key}}</b>
+                            <table>
+                                <thead>
+                                    <th>Name</th>
+                                    <th class="content-wrappable">Value</th>
+                                </thead>
+                                <tbody>
+                                    {{#each .}}
+                                    <tr>
+                                        <td>{{@key}}</td>
+                                        <td class="content-wrappable">
+                                            {{ this }}
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </tr>
+                {{/deployments}}
+                {{/openShiftData}}
+                {{/legacy}}
+            </table>
+        </div>
+
+        <div class="page">
+            <h2 id="section_3"><span>3</span>Diagnostics and Testing</h2>
+            <p>
+                Diagnostic steps have been successfully applied to the requested
+                component.
+            </p>
+
+            <h3>Diagnostic Status</h3>
+            <table class="no-page-break">
+                <tr>
+                    <td>Status</td>
+                    <td>OK</td>
+                </tr>
+            </table>
+
+            <h3>Diagnostic Result</h3>
+
+            {{#data.repo}}
+            <h4>Component {{ id }}</h4>
+            <table class="no-page-break">
+                <thead>
+                    <th class="lean">Step</th>
+                    <th class="content-wrappable">Instruction for Testing</th>
+                    <th class="content-wrappable">Expected Result</th>
+                    <th class="content-wrappable">Actual Result</th>
+                    <th class="lean">Pass / Fail</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="lean">1</td>
+                        <td class="content-wrappable">
+                            Automated configuration appplication (Q/P
+                            environment)
+                        </td>
+                        <td class="content-wrappable">Configuration applied</td>
+                        <td class="content-wrappable">Configuration applied</td>
+                        <td class="lean">Pass</td>
+                    </tr>
+                    <tr>
+                        <td class="lean">2</td>
+                        <td class="content-wrappable">
+                            Wait until all Pods, PVCs, Services, and minimum
+                            number of Pods of a Deployment, StatefulSet, or
+                            ReplicaSet are in a ready state
+                        </td>
+                        <td class="content-wrappable">
+                            Applicable resources are in ready state
+                        </td>
+                        <td class="content-wrappable">
+                            Applicable resources are in ready state
+                        </td>
+                        <td class="lean">Pass</td>
+                    </tr>
+                </tbody>
+            </table>
+            {{/data.repo}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_4"><span>4</span>Conclusion Statement</h2>
+            <p>
+                All deliverables of the Technical Installation Plan have been
+                successfully executed and the signature of this Report verifies
+                that the system has been installed according to all requirements
+                stated in the Installation Plan or, in the event the
+                requirements are not met, that the deviations and/or failures
+                are properly documented and addressed.
+            </p>
+        </div>
+
+        <div class="page">
+            <h2 id="section_5"><span>5</span>Definitions and Abbreviations</h2>
+
+            <h3 id="section_5_1"><span>5.1</span>Definitions</h3>
+            {{#if data.sections.sec5s1.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">
+                        {{{data.sections.sec5s1.content}}}
+                    </td>
+                </tr>
+            </table>
+            {{else}}
+            <p>N/A</p>
+            {{/if}}
+
+            <h3 id="section_5_2"><span>5.2</span>Abbreviations</h3>
+            {{#if data.sections.sec5s2.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">
+                        {{{data.sections.sec5s2.content}}}
+                    </td>
+                </tr>
+            </table>
+            {{else}}
+            <p>N/A</p>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_6"><span>6</span>Reference Documents</h2>
+            <ul>
+                <li>
+                    Technical Installation Plan ({{metadata.referencedDocs.TIP}})
+                </li>
+            </ul>
+            {{#if data.sections.sec6.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">
+                        {{{data.sections.sec6.content}}}
+                    </td>
+                </tr>
+            </table>
+            {{/if}}
+        </div>
+
+        <div class="page">
+            <h2 id="section_7"><span>7</span>Document History</h2>
+            {{#if data.documentHistory}}
+            <table>
+                <thead>
+                    <th class="lean">Version</th>
+                    <th class="lean">Date</th>
+                    <th class="lean">Author</th>
+                    <th>Change Reference</th>
+                </thead>
+                <tbody>
+                    {{#each data.documentHistory}}
+                    <tr>
+                        <td class="lean">{{{docVersion}}}</td>
+                        <td colspan="2" class="content-wrappable">
+                            See Summary of electronic document or signature page
+                            of printout.
+                        </td>
+                        <td class="content-wrappable">
+                            {{{rational}}}
+                            <br />
+                            {{#each issueType}}
+                            {{#if added}}
+                            The following {{ type }} were added:
+                            <ul>
+                                {{#each added}}
+                                <li>
+                                    {{ key }}{{#if details}}: {{ details }}{{/if}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                            {{#if discontinued}}
+                            The following {{ type }} were removed:
+                            <ul>
+                                {{#each discontinued}}
+                                <li>
+                                    {{ key }}{{#if details}}: {{ details }}{{/if}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                            {{#if changed}}
+                            The following {{ type }} were changed:
+                            <ul>
+                                {{#each changed}}
+                                <li>
+                                    {{ key }} was previously {{ predecessors }}{{#if details}}: {{ details }}{{/if}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                            <br />
+                            {{/each}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+            {{#if data.sections.sec7.show}}
+            <table class="no-border">
+                <tr>
+                    <td class="content-wrappable no-border">
+                        {{{data.sections.sec7.content}}}
+                    </td>
+                </tr>
+            </table>
+            {{/if}}
+        </div>
+    </body>
 </html>

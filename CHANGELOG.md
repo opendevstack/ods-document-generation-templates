@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Fixed table tag in Section 5 of IVP. ([#156](https://github.com/opendevstack/ods-document-generation-templates/pull/156))
 
 ## 1.2.11 - 2025-4-10
 - Remove Jira issue ID strikethrough on SLC documents. ([#153](https://github.com/opendevstack/ods-document-generation-templates/pull/153))

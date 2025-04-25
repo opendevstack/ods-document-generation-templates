@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Fixed table tag in Section 5 of IVP. ([#156](https://github.com/opendevstack/ods-document-generation-templates/pull/156))
 
 ## 1.2.10 - 2025-1-27
 - Remove "Initials/Date" from TCP and TCR documents. ([#150](https://github.com/opendevstack/ods-document-generation-templates/pull/150))

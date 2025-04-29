@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.2.12 - 2025-4-29
 - Fixed html parser errors. ([#158](https://github.com/opendevstack/ods-document-generation-templates/pull/158))
 - Remove Jira issue ID strikethrough on SLC documents. ([#153](https://github.com/opendevstack/ods-document-generation-templates/pull/153))
 - Make content in column Test Case No. wrappable. ([#152](https://github.com/opendevstack/ods-document-generation-templates/pull/152))

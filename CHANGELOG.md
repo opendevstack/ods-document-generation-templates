@@ -1,12 +1,7 @@
 # Changelog
 
 ## Unreleased
-
-## 1.2.11 - 2025-4-10
-- Remove Jira issue ID strikethrough on SLC documents. ([#153](https://github.com/opendevstack/ods-document-generation-templates/pull/153))
-- Make content in column Test Case No. wrappable. ([#152](https://github.com/opendevstack/ods-document-generation-templates/pull/152))
-- TIR changes: Wording changes to be more inclusive of helm deployments, removed dynamic values from report tables and change in table formatting ([#146](https://github.com/opendevstack/ods-document-generation-templates/pull/146)) & ([#154](https://github.com/opendevstack/ods-document-generation-templates/pull/154))
-
+- Fixed html parser errors. ([#158](https://github.com/opendevstack/ods-document-generation-templates/pull/158))
 - Remove Jira issue ID strikethrough on SLC documents. ([#153](https://github.com/opendevstack/ods-document-generation-templates/pull/153))
 - Make content in column Test Case No. wrappable. ([#152](https://github.com/opendevstack/ods-document-generation-templates/pull/152))
 - TIR changes: Wording changes to be more inclusive of helm deployments, removed dynamic values from report tables and change in table formatting ([#146](https://github.com/opendevstack/ods-document-generation-templates/pull/146)) & ([#154](https://github.com/opendevstack/ods-document-generation-templates/pull/154))

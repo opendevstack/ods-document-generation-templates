@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+
+## 1.2.13 - 2025-7-10
 - Fixed the document history of the TIR for ods-infra components ([#160](https://github.com/opendevstack/ods-document-generation-templates/pull/160))
 
 ## 1.2.12 - 2025-4-29

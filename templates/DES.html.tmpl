@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>System and Software Description Document for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+        <div>
+            <table id="heading">
+                <tbody>
+                {{#with metadata}}
+                    <tr>
+                        <td>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th class="lean">Date Created</th>
+                                    <td class="content-wrappable">{{dateCreated}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Change Number</th>
+                                    <td class="content-wrappable">{{changeId}}</td>
+                                </tr>
+								<tr>
+									<th class="lean">Change Reason</th>
+									<td class="content-wrappable">{{changeReason}}</td>
+								</tr>
+                                <tr>
+                                    <th class="lean">Configuration Item</th>
+                                    <td class="content-wrappable">{{configItem}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">OpenShift Cluster API URL</th>
+                                    <td class="content-wrappable"><a href="{{{openShiftURL}}}">{{openShiftURL}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Release Manager Git URL</th>
+                                    <td class="content-wrappable"><a href="{{{gitURL}}}">{{gitURL}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Release Manager Git SHA</th>
+                                    <td class="content-wrappable"><a href="{{{commitURL}}}">{{rmCommitHash}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Jenkins Build</th>
+                                    <td class="content-wrappable">{{build}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td id="logo" class="lean"></td>
+                    </tr>
+                {{/with}}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="blueband">&nbsp;</div>
+        <main>
+        <h1>System and Software Description Document for '{{metadata.name}}'</h1>
+
+        <section class="page">
+        <h2>Table of Contents</h2>
+        <nav>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">System Overview</a></li>
+            <li><a href="#section_2">System Components</a></li>
+            <li><a href="#section_3">System Modules</a></li>
+            <li><a href="#section_4">System Relations</a></li>
+            <li><a href="#section_5">References</a></li>
+			<li><a href="#section_6">Change History</a></li>
+        </ol>
+        </nav>
+        </section>
+
+    <section class="page">
+        <h2 id="section_1" class="autonumber">System Overview</h2>
+
+        <p>This section provides an overview of the system <em>{{metadata.configItem}}</em>.
+            All information in this section has been obtained from ServiceNow at
+            <em><a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a></em>.
+            Please refer to ServiceNow for further details.</p>
+
+        {{#if data.fullDiagramPngImage}}
+            <img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" />
+        {{/if}}
+
+        <table>
+            <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#with data.parentCi}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Type</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{application_type}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+            {{/with}}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="page">
+        <h2 id="section_2" class="autonumber">System Components</h2>
+
+        <p>This section lists the components (Bitbucket repositories) of the system <em>{{metadata.configItem}}</em>.
+            Only components of type <em>ods</em>, <em>ods-infra</em>, and <em>ods-service</em>
+            as defined in <em>BI-IT-DEVSTACK</em> can be installed.</p>
+
+		{{#if data.componentsDiagramPngImage}}
+            <img src="data:image/png;base64,{{{data.componentsDiagramPngImage}}}" alt="System Components" class="center"/>
+        {{/if}}
+
+        <table>
+            <thead>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Type</th>
+				<th>Installable?</th>
+				<th>Supplier</th>
+				<th>Version</th>
+				<th>Bitbucket URL</th>
+            </thead>
+            <tbody>
+                {{#each data.components}}
+                <tr>
+                    <td class="content-wrappable" style="vertical-align: top;">{{repo.name}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{description}}</td>
+					<td class="content-wrappable" style="vertical-align: top;">{{type}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{#if installable}}Yes{{else}}No{{/if}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{supplier}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{version}}</td>
+                    <td class="content-wrappable break-all" style="vertical-align: top;"><div><a href="{{{repo.url}}}">{{repo.url}}</a></div></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="page">
+        <h2 id="section_3" class="autonumber">System Modules</h2>
+
+        <p>This section lists the modules of the system <em>{{metadata.configItem}}</em>.
+            All information in this section has been obtained from ServiceNow
+            at <em><a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a></em>.
+            Please refer to ServiceNow for further details.</p>
+
+        {{#if data.parentCiModulesPngImage}}
+        <img src="data:image/png;base64,{{{data.parentCiModulesPngImage}}}" alt="Module Diagram" class="center" />
+        {{/if}}
+
+        {{#each data.parentCiModules}}
+        <table>
+            <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if application_type}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Type</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{application_type}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+            </tbody>
+        </table>
+        {{/each}}
+    </section>
+
+    <section class="page">
+        <h2 id="section_4" class="autonumber">System Relations</h2>
+
+        <p>This section lists the system relations of the system <em>{{metadata.configItem}}</em>.
+            All information in this section has been obtained from ServiceNow
+            at <a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a>
+            for the <em>Development</em> environment. Please refer to ServiceNow for further details.</p>
+
+        {{#if data.parentCiRelationsPngImage}}
+        <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
+        {{/if}}
+
+        {{#each data.parentCiRelations}}
+        <table>
+            <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+            </tbody>
+        </table>
+        {{/each}}
+    </section>
+
+    <section class="page">
+        <h2 id="section_5" class="autonumber">References</h2>
+        {{#with data.references}}
+            <ul>
+                {{#with req}}
+                    <li>Requirements Specification incl. Risk Assessment Document. (Veeva Quality Document ID: <a href="{{{link}}}">{{id}}</a>)</li>
+                {{/with}}
+            </ul>
+        {{else}}
+            <p><em>No references available.</em></p>
+        {{/with}}
+    </section>
+
+	<section class="page">
+        <h2 id="section_6" class="autonumber">Change History</h2>
+        {{#if data.changeHistory}}
+            <table>
+                <thead>
+                <tr>
+                    <th>Change Number</th>
+                    <th>Change Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data.changeHistory}}
+                    <tr>
+                        <td>{{changeNumber}}</td>
+                        <td class="content-wrappable">{{changeReason}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p><em>No change history available.</em></p>
+        {{/if}}
+    </section>
+    </main>
+</body>
+</html>

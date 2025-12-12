@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Qualification Evidence Document ({{env}}) for '{{metadata.name}}'</title>
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div>
+            <table id="heading">
+                <tbody>
+                {{#with metadata}}
+                    <tr>
+                        <td>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th class="lean">Date Created</th>
+                                    <td class="content-wrappable">{{dateCreated}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Change Number</th>
+                                    <td class="content-wrappable">{{changeId}}</td>
+                                </tr>
+								<tr>
+									<th class="lean">Change Reason</th>
+									<td class="content-wrappable">{{changeReason}}</td>
+								</tr>
+                                <tr>
+                                    <th class="lean">Configuration Item</th>
+                                    <td class="content-wrappable">{{configItem}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">OpenShift Cluster API URL</th>
+                                    <td class="content-wrappable"><a
+                                        href="{{{openShiftURL}}}">{{openShiftURL}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Release Manager Git URL</th>
+                                    <td class="content-wrappable"><a
+                                        href="{{{gitURL}}}">{{gitURL}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Release Manager Git SHA</th>
+                                    <td class="content-wrappable"><a
+                                        href="{{{commitURL}}}">{{rmCommitHash}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Jenkins Build</th>
+                                    <td class="content-wrappable">{{build}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td id="logo" class="lean"></td>
+                    </tr>
+                {{/with}}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="blueband">&nbsp;</div>
+        <main>
+            <h1>Qualification Evidence Document ({{env}}) for '{{metadata.name}}'</h1>
+
+            <section class="page">
+            <h2 id="toc">Table of Contents</h2>
+            <nav>
+            <ol class="table-of-contents">
+                <li><a href="#section_1">Installation Results</a></li>
+                {{#if assembled}}
+                    <li><a href="#section_2">Source Code Review</a>
+                        <ol>
+                            <li><a href="#section_2_1">Bitbucket Pull Requests</a>
+                                {{#if data.repos}}
+                                    <ol>
+                                        {{#each data.repos}}
+                                            <li><a href="#section_2_1_{{@index}}">{{@key}} repository</a></li>
+                                        {{/each}}
+                                    </ol>
+                                {{/if}}
+                            </li>
+                            <li><a href="#section_2_2">SonarQube Code Quality Summary Report</a>
+                                {{#if data.sonar}}
+                                    <ol>
+                                        {{#each data.sonar}}
+                                            <li><a href="#section_2_2_{{@index}}">Component: {{@key}}</a></li>
+                                        {{/each}}
+                                    </ol>
+                                {{/if}}
+                            </li>
+                            <li><a href="#section_2_3">AquaSec Code Quality Summary Report</a>
+                                {{#if data.aqua}}
+                                    <ol>
+                                        {{#each data.aqua}}
+                                            <li><a href="#section_2_3_{{@index}}">Component: {{@key}}</a></li>
+                                        {{/each}}
+                                    </ol>
+                                {{/if}}
+                            </li>
+                        </ol>
+                    </li>
+                {{/if}}
+                <li><a href="#section_3">Test Results</a>
+                    {{#if data.tests}}
+                    <ol>
+                        <li><a href="#section_3_summary">Test Result Summary</a></li>
+                        {{#each data.tests}}
+                            <li><a href="#section_3_{{@index}}">Test: {{name}}</a></li>
+                        {{/each}}
+                    </ol>
+                    {{/if}}
+                </li>
+                <li><a href="#section_4">Attachments</a>
+                    <ol>
+                        {{#if assembled}}
+                            <li><a href="#section_4_1">Source Code Review</a>
+                                <ol>
+                                    <li><a href="#section_4_1_1">SonarQube Code Quality Report</a>
+                                        {{#if data.sonar}}
+                                            <ol>
+                                                {{#each data.sonar}}
+                                                    <li><a href="#section_4_1_1_{{@index}}">Component: {{@key}}</a></li>
+                                                {{/each}}
+                                            </ol>
+                                        {{/if}}
+                                    </li>
+                                    <li><a href="#section_4_1_2">AquaSec Container Security Report</a>
+                                        {{#if data.aqua}}
+                                            <ol>
+                                                {{#each data.aqua}}
+                                                    <li><a href="#section_4_1_2_{{@index}}">Component: {{@key}}</a></li>
+                                                {{/each}}
+                                            </ol>
+                                        {{/if}}
+                                    </li>
+                                </ol>
+                            </li>
+                        {{/if}}
+                        <li><a href="#section_4_2">Installation Logs</a>
+                            <ol>
+                                {{#each data.components}}
+                                    <li><a href="#section_4_2_{{@index}}">Component: {{name}}</a></li>
+                                {{/each}}
+                                <li><a href="#section_4_2_rm">Release Manager</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li><a href="#section_5">References</a></li>
+				<li><a href="#section_6">Change History</a></li>
+            </ol>
+            </nav>
+            </section>
+
+        <section class="page">
+            <h2 id="section_1" class="autonumber">Installation Results</h2>
+            <p>
+                This section lists the installation status of each system component in the <i>Development</i> environment.
+                In case of an installation failure,
+                the release process terminates unsuccessfully and does not generate this document.
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Component Name</th>
+                    <th>Installed?</th>
+                    <th>Installation Result</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data.components}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{#if installed}}Yes{{else}}No{{/if}}</td>
+                        <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </section>
+
+        {{#if assembled}}
+        <section class="page">
+            <h2 id="section_2" class="autonumber">Source Code Review</h2>
+            <p>
+                A source code review only applies to components of type <i>ods</i>,
+                <i>ods-infra</i>, and <i>ods-test</i>.
+            </p>
+
+            <section>
+            <h3 id="section_2_1" class="autonumber">Bitbucket Pull Requests</h3>
+            {{#if data.repos}}
+                <p>
+                    A Bitbucket Pull Request (PR) is where contributors and reviewers meet to discuss and verify
+                    the readiness of a contribution to a Bitbucket repository,
+                    which may comprise code, tests, configuration, or a combination of these.
+                </p>
+                <p>
+                    A person who creates a PR gets attributed as its author and nominates at least one reviewer.
+                    Once the contributors have incorporated the mandatory changes requested by the reviewers,
+                    the reviewers can approve the PR.
+                    Once approved, the contribution can be merged from a temporary source branch
+                    into a long-lived integration branch inside the repository.
+                </p>
+                <p>
+                    This section lists all PRs that were merged into a component's integration branch and which are
+                    related to done work items in Jira in the current change{{#if changeId}} '{{changeId}}'{{/if}}.
+                </p>
+                {{#each data.repos}}
+                    <section>
+                    <h4 id="section_2_1_{{@index}}" class="autonumber">{{@key}} repository</h4>
+                    {{#if this}}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Requirement Name</th>
+                                <th>Summary of Work Done</th>
+                                <th>Bitbucket Pull Request URL</th>
+                                <th>Git Commit SHAs</th>
+                                <th>Reviewers</th>
+                                <th>Authors</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each this}}
+                                <tr>
+                                    <td class="content-wrappable">
+                                        <div>
+                                        {{#with requirement}}
+                                            {{title}}
+                                        {{else}}
+                                            {{#if requirements}}
+                                                <ul>
+                                                    {{#each requirements}}
+                                                        <li>{{title}}</li>
+                                                    {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                <em>None linked</em>
+                                            {{/if}}
+                                        {{/with}}
+                                        </div>
+                                    </td>
+                                    <td class="content-wrappable">
+                                        <div>
+                                        {{#if issues}}
+                                            <ul>
+                                                {{#each issues}}
+                                                    <li>{{summary}}</li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            <em>None linked</em>
+                                        {{/if}}
+                                        </div>
+                                    </td>
+                                    <td class="content-wrappable break-all">
+                                        <div>
+                                        {{#if url}}
+                                            <a href="{{{url}}}">{{url}}</a>
+                                        {{else}}
+                                            <em>{{id}}</em>
+                                        {{/if}}
+                                        </div>
+                                    </td>
+                                    <td class="content-wrappable break-all">
+                                        <div>
+                                        {{#if commits}}
+                                            <ul>
+                                                {{#each commits}}
+                                                    <li>{{hash}}</li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            <em>None</em>
+                                        {{/if}}
+                                        </div>
+                                    </td>
+                                    <td class="content-wrappable break-all">
+                                        <div style="min-width: 10em">
+                                        {{#if approvers}}
+                                            <ul>
+                                                {{#each approvers}}
+                                                    <li>
+                                                        {{#if email}}
+                                                            <a href="mailto:{{email}}">{{email}}</a>
+                                                        {{else}}
+                                                            {{name}}
+                                                        {{/if}}
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            <em>None</em>
+                                        {{/if}}
+                                        </div>
+                                    </td>
+                                    <td class="content-wrappable break-all">
+                                        <div style="min-width: 10em">
+                                        {{#if commitAuthors}}
+                                            <ul>
+                                                {{#each commitAuthors}}
+                                                    <li>
+                                                        {{#if email}}
+                                                            <a href="mailto:{{email}}">{{email}}</a>
+                                                        {{else}}
+                                                            {{name}}
+                                                        {{/if}}
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            {{#with author}}
+                                                {{#if email}}
+                                                    <a href="mailto:{{email}}">{{email}}</a>
+                                                {{else}}
+                                                    {{name}}
+                                                {{/if}}
+                                            {{else}}
+                                                <em>None</em>
+                                            {{/with}}
+                                        {{/if}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    {{else}}
+                        <p><em>No pull requests found for this component in this change.</em></p>
+                    {{/if}}
+                    </section>
+                {{else}}
+                    <p><em>No pull requests found for this change.</em></p>
+                {{/each}}
+            {{else}}
+                <p><em>No pull requests found for this change.</em></p>
+            {{/if}}
+            </section>
+
+            <section>
+            <h3 id="section_2_2" class="autonumber">SonarQube Code Quality Summary Report</h3>
+            <p>
+                This section provides a summary of critical and major findings by SonarQube.
+                Please refer to the attachments section for the exhaustive report.
+            </p>
+            {{#each data.sonar}}
+                <section>
+                    <h4 id="section_2_2_{{@index}}" class="autonumber">Component: {{@key}}</h4>
+                    {{#if this}}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Rule</th>
+                                <th>Type</th>
+                                <th>Severity</th>
+                                <th>File</th>
+                                <th>Message</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each this}}
+                                <tr>
+                                    <td>{{rule}}</td>
+                                    <td>{{type}}</td>
+                                    <td>{{severity}}</td>
+                                    <td class="content-wrappable break-all"><div>{{file}}</div></td>
+                                    <td class="content-wrappable"><div>{{message}}</div></td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    {{else}}
+                        <p>No blocker, critical or major findings.</p>
+                    {{/if}}
+                </section>
+            {{else}}
+                <p><em>No SonarQube reports available.</em></p>
+            {{/each}}
+            </section>
+
+            <section>
+            <h3 id="section_2_3" class="autonumber">AquaSec Container Security Summary Report</h3>
+            <p>
+                This section provides a summary of critical and high findings by AquaSec Container Security.
+                If a remotely exploitable critical vulnerability is detected,
+                the release process terminates unsuccessfully and does not generate this document.
+            </p>
+                {{#each data.aqua}}
+                    <section>
+                        <h4 id="section_2_3_{{@index}}" class="autonumber">Component: {{@key}}</h4>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Total</th>
+                                <th>Critical</th>
+                                <th>High</th>
+                                <th>Medium</th>
+                                <th>Low</th>
+                                <th>Negligible</th>
+                                <th>Score Average</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            {{#with summary}}
+                                <td>{{total}}</td>
+                                <td>{{critical}}</td>
+                                <td>{{high}}</td>
+                                <td>{{medium}}</td>
+                                <td>{{low}}</td>
+                                <td>{{negligible}}</td>
+                                <td>{{score}}</td>
+                            {{/with}}
+                            </tr>
+                            </tbody>
+                        </table>
+                        {{#if vulnerabilities}}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Vulnerability</th>
+                                <th>Severity</th>
+                                <th>Score</th>
+                                <th>Description</th>
+                                <th>Affected Resource</th>
+                                <th>Resource Format</th>
+                                <th>Resource Version</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each vulnerabilities}}
+                                <tr>
+                                    <td>{{id}}</td>
+                                    <td>{{severity}}</td>
+                                    <td>{{score}}</td>
+                                    <td class="content-wrappable">{{description}}</td>
+                                    <td>{{resource}}</td>
+                                    <td>{{resourceFormat}}</td>
+                                    <td>{{resourceVersion}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                        {{/if}}
+                    </section>
+                {{else}}
+                    <p><em>No Aqua Security reports available.</em></p>
+                {{/each}}
+            </section>
+        </section>
+        {{/if}}
+
+        <section class="page">
+            <h2 id="section_3" class="autonumber">Test Results</h2>
+            <p>
+                This section lists the results of all automated tests executed in the <i>{{environment}}</i> environment.
+                In case of a failed test execution,
+                the release process terminates unsuccessfully and does not generate this document.
+            </p>
+            <section>
+                <h3 id="section_3_summary" class="autonumber">Test Result Summary</h3>
+                {{#if data.tests}}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Test Execution Result</th>
+                            <th>Requirement Name</th>
+                            <th>Component</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each data.tests}}
+                            <tr>
+                                <td class="content-wrappable">{{name}}</td>
+                                <td>{{result}}</td>
+                                <td class="content-wrappable">{{requirementName}}</td>
+                                <td>{{component}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{else}}
+                    <p><em>No test results available.</em></p>
+                {{/if}}
+            </section>
+
+            {{#each data.tests}}
+                <section>
+                <h3 id="section_3_{{@index}}" class="autonumber">Test: {{name}}</h3>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Test Name</th>
+                        <td class="content-wrappable">{{name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Test Execution Result</th>
+                        <td>{{result}}</td>
+                    </tr>
+                    <tr>
+                        <th>Requirement Name</th>
+                        <td class="content-wrappable">{{requirementName}}</td>
+                    </tr>
+                    <tr>
+                        <th>Component</th>
+                        <td>{{component}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                {{#if evidence}}
+                    <h4>Evidence</h4>
+                    <div><img src="{{{evidence}}}" alt="Evidence"/></div>
+                {{/if}}
+                </section>
+            {{/each}}
+        </section>
+
+        <section class="page">
+            <h2 id="section_4" class="autonumber">Attachments</h2>
+            {{#if assembled}}
+            <section>
+            <h3 id="section_4_1" class="autonumber">Source Code Review</h3>
+                <section>
+                <h4 id="section_4_1_1" class="autonumber">SonarQube Code Quality Report</h4>
+                    {{#if data.sonar}}
+						{{#each data.sonar}}
+							<section>
+								<h5 id="section_4_1_1_{{@index}}" class="autonumber">Component: {{@key}}</h5>
+								<p>The report is available as a PDF attachment SonarQube-{{@key}}.docx.</p>
+							</section>
+						{{/each}}
+					{{else}}
+						<p><em>No SonarQube reports available.</em></p>
+					{{/if}}
+                </section>
+                <section>
+                <h4 id="section_4_1_2" class="autonumber">AquaSec Container Security Report</h4>
+                    {{#if data.aqua}}
+						{{#each data.aqua}}
+							<section>
+								<h5 id="section_4_1_2_{{@index}}" class="autonumber">Component: {{@key}}</h5>
+								<p>The report is available as a PDF attachment AquaSec-{{@key}}.html.</p>
+							</section>
+						{{/each}}
+					{{else}}
+                        <p><em>No Aqua Security reports available.</em></p>
+					{{/if}}
+                </section>
+            </section>
+            {{/if}}
+
+            <section>
+            <h3 id="section_4_2" class="autonumber">Installation Logs</h3>
+                {{#each data.components}}
+                    <section>
+                        <h4 id="section_4_2_{{@index}}" class="autonumber">Component: {{name}}</h4>
+                        <p>The log file is available as a PDF attachment {{name}}.log.</p>
+                    </section>
+                {{/each}}
+                <section>
+                <h4 id="section_4_2_rm" class="autonumber">Release Manager</h4>
+                    <p>The log file is available as a PDF attachment release-manager.log.</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="page">
+            <h2 id="section_5" class="autonumber">References</h2>
+            {{#with data.references}}
+                <ul>
+                    {{#with req}}
+                        <li>Requirements Specification incl. Risk Assessment Document. (Veeva Quality Document ID: <a href="{{{link}}}">{{id}}</a>)</li>
+                    {{/with}}
+                    {{#with des}}
+                        <li>System and Software Description Document. (Veeva Quality Document ID: <a href="{{{link}}}">{{id}}</a>)</li>
+                    {{/with}}
+                </ul>
+            {{else}}
+                <p><em>No references available.</em></p>
+            {{/with}}
+        </section>
+
+        <section class="page">
+			<h2 id="section_6" class="autonumber">Change History</h2>
+			{{#if data.changeHistory}}
+				<table>
+					<thead>
+					<tr>
+						<th>Change Number</th>
+						<th>Change Reason</th>
+					</tr>
+					</thead>
+					<tbody>
+					{{#each data.changeHistory}}
+						<tr>
+                            <td>{{changeNumber}}</td>
+                            <td class="content-wrappable">{{changeReason}}</td>
+						</tr>
+					{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<p><em>No change history available.</em></p>
+			{{/if}}
+		</section>
+        </main>
+    </body>
+</html>

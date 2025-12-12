@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Requirements Specification incl. Risk Assessment Document for '{{data.metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div>
+    <table id="heading">
+        <tbody>
+        {{#with metadata}}
+            <tr>
+                <td>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th class="lean">Date Created</th>
+                            <td class="content-wrappable">{{dateCreated}}</td>
+                        </tr>
+                        <tr>
+                            <th class="lean">Change Number</th>
+                            <td class="content-wrappable">{{changeId}}</td>
+                        </tr>
+						<tr>
+                            <th class="lean">Change Reason</th>
+                            <td class="content-wrappable">{{changeReason}}</td>
+                        </tr>
+                        <tr>
+                            <th class="lean">Configuration Item</th>
+                            <td class="content-wrappable">{{configItem}}</td>
+                        </tr>
+                        <tr>
+                            <th class="lean">OpenShift Cluster API URL</th>
+                            <td class="content-wrappable"><a
+                                href="{{{openShiftURL}}}">{{openShiftURL}}</a></td>
+                        </tr>
+                        <tr>
+                            <th class="lean">Release Manager Git URL</th>
+                            <td class="content-wrappable"><a
+                                href="{{{gitURL}}}">{{gitURL}}</a></td>
+                        </tr>
+                        <tr>
+                            <th class="lean">Release Manager Git SHA</th>
+                            <td class="content-wrappable"><a
+                                href="{{{commitURL}}}">{{rmCommitHash}}</a></td>
+                        </tr>
+                        <tr>
+                            <th class="lean">Jenkins Build</th>
+                            <td class="content-wrappable">{{build}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td id="logo" class="lean"></td>
+            </tr>
+        {{/with}}
+        </tbody>
+    </table>
+</div>
+
+<div id="blueband">&nbsp;</div>
+<main>
+    <h1>Requirements Specification incl. Risk Assessment for '{{metadata.name}}'</h1>
+
+    <section class="page">
+        <h2>Table of Contents</h2>
+        <nav>
+            <ol class="table-of-contents">
+                <li><a href="#section_1">Requirements</a>
+                    {{#if data.requirements}}
+                        <ol>
+                            {{#each data.requirements}}
+                                <li><a href="#section_1_{{@index}}">{{name}}</a></li>
+                            {{/each}}
+                        </ol>
+                    {{/if}}
+                </li>
+                <li><a href="#section_2">Change History</a></li>
+            </ol>
+        </nav>
+    </section>
+
+    <section class="page">
+        <h2 id="section_1" class="autonumber">Requirements</h2>
+        <p>This section lists all implemented requirements. Work done in change <em>{{metadata.changeId}}</em> is fully documented.</p>
+        {{#each data.requirements}}
+            <section>
+                <h3 id="section_1_{{@index}}" class="autonumber">{{name}}</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>Requirement Type</th>
+                        <td>{{requirementType}}</td>
+                    </tr>
+                    <tr>
+                        <th>Implementation Type</th>
+                        <td>{{implementationType}}</td>
+                    </tr>
+                    {{#if procedure}}
+                        <tr>
+                            <th>Procedure</th>
+                            <td>{{procedure}}</td>
+                        </tr>
+                    {{/if}}
+                    </tbody>
+                </table>
+                <div>{{{content}}}</div>
+                <section>
+                    <h4>Work Done in {{../metadata.changeId}}</h4>
+                    {{#each changes}}
+                        <h5>{{summary}}</h5>
+                        {{#if description}}
+                            <p>{{description}}</p>
+                        {{else}}
+                            <p><em>No description available.</em></p>
+                        {{/if}}
+                    {{else}}
+                        <p><em>No work done for this requirement in the current change.</em></p>
+                    {{/each}}
+                </section>
+            </section>
+        {{else}}
+            <p><em>No requirements in the current change.</em></p>
+        {{/each}}
+    </section>
+
+    <section class="page">
+        <h2 id="section_2" class="autonumber">Change History</h2>
+        {{#if data.changeHistory}}
+            <table>
+                <thead>
+                <tr>
+                    <th>Change Number</th>
+                    <th>Change Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data.changeHistory}}
+                    <tr>
+                        <td>{{changeNumber}}</td>
+                        <td class="content-wrappable">{{changeReason}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p><em>No change history available.</em></p>
+        {{/if}}
+        {{#if data.changeLog}}
+            <p>The table shows a summary of all requirements and related work items.
+                Entries are sorted by resolution time and requirement number, with newer entries appearing at the top.</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Change Number</th>
+                    <th>Date</th>
+                    <th>Requirement Name</th>
+                    <th>Summary of Work Done</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data.changeLog}}
+                    <tr>
+                        <td>{{fixVersion}}</td>
+                        <td>{{date}}</td>
+                        <td class="content-wrappable">
+                            {{#with requirement}}
+                                {{name}}
+                            {{else}}
+                                {{#if requirements}}
+                                    <ul>
+                                        {{#each requirements}}
+                                            <li>{{name}}</li>
+                                        {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <em>None</em>
+                                {{/if}}
+                            {{/with}}
+                        </td>
+                        <td class="content-wrappable">{{#if summary}}{{summary}}{{else}}{{key}}{{/if}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+    </section>
+</main>
+</body>
+</html>

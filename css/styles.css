@@ -6,10 +6,22 @@
 body {
   margin: 0;
   font-size: 100%;
+  counter-reset: h2;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+
+img.center {
+    display: block;
 }
 
 h1 {
   font-size: 2em;
+  counter-reset: h2;
 }
 
 h1 span {
@@ -21,6 +33,7 @@ h2 {
   font-size: 1.6em;
   page-break-after: avoid;
   text-transform: uppercase;
+  counter-reset: h3;
 }
 
 h2 span {
@@ -28,8 +41,14 @@ h2 span {
   margin-right: 1.65em;
 }
 
+h2.autonumber:before {
+    counter-increment: h2;
+    content: counter(h2) " ";
+}
+
 h3 {
   text-transform: uppercase;
+  counter-reset: h4;
 }
 
 h3 span {
@@ -37,14 +56,42 @@ h3 span {
   margin-right: 1.5em;
 }
 
+h3.autonumber:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) " ";
+}
+
+h4 {
+  counter-reset: h5;
+}
+
 h4 span {
   display: inline-block;
   margin-right: 1.5em;
 }
 
+h4.autonumber:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) " ";
+}
+
+h5 {
+  counter-reset: h6;
+}
+
 h5 span {
   display: inline-block;
   margin-right: 1.5em;
+}
+
+h5.autonumber:before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) " ";
+}
+
+h6.autonumber:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) " ";
 }
 
 del {
@@ -173,10 +220,18 @@ td.content-wrappable table th, td.content-wrappable table td {
 
 /* Remove all spacing around .inner-ul-2 elements */
 
-td > ul.inner-ul {
+td > div {
+  min-width: 8em;
+}
+
+td ul {
+    padding-left: 1em;
+    padding-right: 0em;
+    margin: 0em;
+}
+
+td ul.inner-ul {
   list-style-type: none;
-  padding: 0em;
-  margin: 0em;
 }
 
 li > ul.inner-ul {

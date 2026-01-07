@@ -136,11 +136,11 @@
                 </tr>
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
                 </tr>
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
                 </tr>
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
@@ -259,16 +259,16 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
                 </tr>
                 {{/if}}
-                {{#if owned_by}}
+                {{#if owned_by.email}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
                 </tr>
                 {{/if}}
-                {{#if managed_by}}
+                {{#if managed_by.email}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
                 </tr>
                 {{/if}}
                 {{#if validation_determination_reference}}
@@ -355,16 +355,16 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
                 </tr>
                 {{/if}}
-                {{#if owned_by}}
+                {{#if owned_by.email}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
                 </tr>
                 {{/if}}
-                {{#if managed_by}}
+                {{#if managed_by.email}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by}}</td>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
                 </tr>
                 {{/if}}
                 {{#if validation_determination_reference}}

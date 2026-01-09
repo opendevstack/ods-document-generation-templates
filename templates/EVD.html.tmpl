@@ -163,9 +163,8 @@
         <section class="page">
             <h2 id="section_1" class="autonumber">Installation Results</h2>
             <p>
-                This section lists the installation status of each system component in the <i>Development</i> environment.
-                In case of an installation failure,
-                the release process terminates unsuccessfully and does not generate this document.
+                This section lists the automated installation result of each system component declared as <i>installable</i> within the System Description in the <i>{{env}}</i> environment.
+                <br>In case of an installation failure, the release process terminates unsuccessfully and does not generate this document.
             </p>
             <table>
                 <thead>
@@ -468,6 +467,31 @@
                 In case of a failed test execution,
                 the release process terminates unsuccessfully and does not generate this document.
             </p>
+
+                <h3 id="section_3_components" class="autonumber">Test components used</h2>
+                <p>
+                    This section lists all test components used during the test execution in the <i>{{environment}}</i> environment.
+                </p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Component Name</th>
+                        <th>Version (Git)</th>
+                        <th>Metadata</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data.testcomponents}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{data.git}}</td>
+                            <td>{{metadata}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </section>
+
             <section>
                 <h3 id="section_3_summary" class="autonumber">Test Result Summary</h3>
                 {{#if data.tests}}

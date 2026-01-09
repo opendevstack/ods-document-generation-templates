@@ -171,6 +171,7 @@
                 <thead>
                 <tr>
                     <th>Component Name</th>
+                    <th>Version (Git)</th>
                     <th>Installed?</th>
                     <th>Installation Result</th>
                 </tr>
@@ -179,6 +180,7 @@
                 {{#each data.components}}
                     <tr>
                         <td>{{name}}</td>
+                        <td>{{data.git}}</td>
                         <td>{{#if installed}}Yes{{else}}No{{/if}}</td>
                         <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
                     </tr>

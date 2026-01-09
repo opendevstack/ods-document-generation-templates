@@ -179,7 +179,7 @@
                 {{#each data.components}}
                     <tr>
                         <td>{{name}}</td>
-                        <td>{{data.git}}</td>
+                        <td>commit: {{git.commit}} / tag: {{git.baseTag}}</td>
                         <td>{{#if installed}}Yes{{else}}No{{/if}}</td>
                         <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
                     </tr>
@@ -485,8 +485,8 @@
                     {{#each data.testcomponents}}
                         <tr>
                             <td>{{name}}</td>
-                            <td>{{git}}</td>
-                            <td>{{metadata}}</td>
+                            <td>commit: {{git.commit}} / tag: {{git.baseTag}}</td>
+                            <td>{{metadata.description}}</td>
                         </tr>
                     {{/each}}
                     </tbody>

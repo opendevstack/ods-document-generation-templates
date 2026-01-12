@@ -319,6 +319,12 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
                 </tr>
                 {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
                 {{#if relation.friendly_name}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">Relation</th>

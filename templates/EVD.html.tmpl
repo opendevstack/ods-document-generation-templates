@@ -475,7 +475,7 @@
                 the release process terminates unsuccessfully and does not generate this document.
             </p>
             <section>
-                <h3 id="section_3_components" class="autonumber">Test components used</h2>
+                <h3 id="section_3_components" class="autonumber">Test components used</h3>
                 <p>
                     This section lists all automated test components used during the test execution in the <i>{{environment}}</i> environment.
                     They are defined in the System Description.
@@ -509,7 +509,8 @@
                             <th>Test Name</th>
                             <th>Test Execution Result</th>
                             <th>Requirement Name</th>
-                            <th>Component</th>
+                            <th>Test component</th>
+                            <th>Test type</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -519,6 +520,7 @@
                                 <td>{{result}}</td>
                                 <td class="content-wrappable">{{requirementName}}</td>
                                 <td>{{component}}</td>
+                                <td>{{type}}</td>
                             </tr>
                         {{/each}}
                         </tbody>
@@ -527,7 +529,7 @@
                     <p><em>No test results available.</em></p>
                 {{/if}}
             </section>
-
+<!-- NOT needed, we print the same above :) simple is good!
             {{#each data.tests}}
                 <section>
                 <h3 id="section_3_{{@index}}" class="autonumber">Test: {{name}}</h3>
@@ -554,7 +556,7 @@
                 </section>
             {{/each}}
         </section>
-
+-->
         <section class="page">
             <h2 id="section_4" class="autonumber">Attachments</h2>
             {{#if assembled}}

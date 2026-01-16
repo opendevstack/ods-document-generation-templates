@@ -152,6 +152,13 @@
                                 <li><a href="#section_4_2_rm">Release Manager</a></li>
                             </ol>
                         </li>
+                        <li><a href="#section_4_3">Test Evidences</a>
+                            <ol>
+                                {{#each data.testComponents}}
+                                    <li><a href="#section_4_3_{{@index}}">Component: {{name}}</a></li>
+                                {{/each}}
+                            </ol>
+                        </li>
                     </ol>
                 </li>
                 <li><a href="#section_5">References</a></li>
@@ -544,10 +551,6 @@
                     </tr>
                     </tbody>
                 </table>
-                {{#if evidence}}
-                    <h4>Evidence</h4>
-                    <div><img src="{{{evidence}}}" alt="Evidence"/></div>
-                {{/if}}
                 </section>
             {{/each}}
         </section>
@@ -598,6 +601,17 @@
                 <h4 id="section_4_2_rm" class="autonumber">Release Manager</h4>
                     <p>The log file is available as a PDF attachment release-manager.log.</p>
                 </section>
+            </section>
+            <section>
+                <h3 id="section_4_3" class="autonumber">Test Evidences</h3>
+                {{#each data.testComponents}}
+                    <section>
+                        <h4 id="section_4_3_{{@index}}" class="autonumber">Component: {{name}}</h4>
+                        <p>The log file is available as a PDF attachment test-evidence-{{name}}.pdf.</p>
+                    </section>
+                {{else}}
+                    <p><em>No test components executed.</em></p>
+                {{/each}}
             </section>
         </section>
 

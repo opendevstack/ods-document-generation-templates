@@ -111,10 +111,11 @@
                 <li><a href="#section_3">Test Results</a>
                     {{#if data.tests}}
                     <ol>
-                        <li><a href="#section_3_summary">Test Result Summary</a></li>
-                        {{#each data.tests}}
+                        <li><a href="#section_3_1">Test Components used</a></li>
+                        <li><a href="#section_3_2">Test Results summary</a></li>
+<!--                        {{#each data.tests}}
                             <li><a href="#section_3_{{@index}}">Test: {{name}}</a></li>
-                        {{/each}}
+                        {{/each}} -->
                     </ol>
                     {{/if}}
                 </li>
@@ -475,7 +476,7 @@
                 the release process terminates unsuccessfully and does not generate this document.
             </p>
             <section>
-                <h3 id="section_3_components" class="autonumber">Test components used</h3>
+                <h3 id="section_3_1" class="autonumber">Test components used</h3>
                 <p>
                     This section lists all automated test components used during the test execution in the <i>{{environment}}</i> environment.
                     They are defined in the System Description.
@@ -501,7 +502,7 @@
             </section>
 
             <section>
-                <h3 id="section_3_summary" class="autonumber">Test Result Summary</h3>
+                <h3 id="section_3_2" class="autonumber">Test Result Summary</h3>
                 {{#if data.tests}}
                     <table>
                         <thead>

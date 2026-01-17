@@ -479,8 +479,30 @@
                 <h3 id="section_3_1" class="autonumber">Test components used</h3>
                 <p>
                     This section lists all repositories used during the test execution in the <i>{{environment}}</i> environment.
-                    They are defined in the System Description. Depending on the component type and the environment, 
-                    certain testtypes (unit, integration, system, acceptance) have been executed and are noted below.
+                    They are defined in the System Description. 
+                    Depending on the component type and the environment, certain testtypes (unit, installation, integration, acceptance) are executed.
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Environment</th>
+                                <th>Executed test types</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DEV</td>
+                                <td>Unit, Installation, integration and Acceptance tests</td>
+                            </tr>
+                            <tr>
+                                <td>QA</td>
+                                <td>Installation, integration and Acceptance tests</td>
+                            </tr>
+                            <tr>
+                                <td>PROD</td>
+                                <td>Installation tests</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </p>
                 <table>
                     <thead>

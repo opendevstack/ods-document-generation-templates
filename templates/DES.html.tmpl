@@ -298,7 +298,7 @@
         <p>This section lists the system relations of the system <em>{{metadata.configItem}}</em>.
             All information in this section has been obtained from ServiceNow
             at <a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a>
-            for the <em>Development</em> environment. Please refer to ServiceNow for further details.</p>
+            for the <em>{{environment}}</em> environment. Please refer to ServiceNow for further details.</p>
 
         {{#if data.parentCiRelationsPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
@@ -307,12 +307,61 @@
         <!-- cut BCN Jan WS -->
         <h3 id="section_4_1" class="autonumber">Environments</h3>
         This section shows the various environments related to the system.
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
         <h3 id="section_4_2" class="autonumber">Database projects</h3>
         This section shows the database projects used by the system.
+
+        <table>
+            <thead>
+            <tr>
+                <th>Database instance</th>
+                <th>Database farm instance</th>
+                <th>Server</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
         <h3 id="section_4_3" class="autonumber">Interfaces / Integrations</h3>
         This section shows the interfaces, including objects transferred and technology used.
+        <table>
+            <thead>
+            <tr>
+                <th>Interface</th>
+                <th>Source System CI Name</th>
+                <th>Target System CI Name</th>
+                <th>Information Object transferred</th>
+                <th>Technology used / installed on</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
         <h3 id="section_4_4" class="autonumber">Software</h3>
         This section shows any software being used by the system.
+        <table>
+            <thead>
+            <tr>
+                <th>Software Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
         <h3 id="section_4_5" class="autonumber">Others</h3>
         This section shows any software being used by the system.
 

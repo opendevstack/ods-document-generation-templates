@@ -66,7 +66,11 @@
         <div id="blueband">&nbsp;</div>
         <main>
         <h1>System and Software Description Document for '{{metadata.name}}'</h1>
-
+        <p>
+            This document describes the system architecture, components, and software configuration in detail.
+            It includes technical specifications, interfaces, and dependencies to provide a comprehensive understanding of the system.
+            This description supports validation activities, operational readiness, and compliance with regulatory requirements.  
+        </p>
         <section class="page">
         <h2>Table of Contents</h2>
         <nav>
@@ -124,7 +128,7 @@
                     <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
-                <tr>
+                <!-- cut: BCN 3 workshop tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
                 </tr>
@@ -147,7 +151,7 @@
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
-                </tr>
+                </tr -->
             {{/with}}
             </tbody>
         </table>
@@ -159,8 +163,8 @@
         <p>This section lists the components (Bitbucket repositories) of the system <em>{{metadata.configItem}}</em>.
             Only components of type <em>ods</em>, <em>ods-infra</em>, and <em>ods-service</em>
             as defined in <em>BI-IT-DEVSTACK</em> can be installed.</p>
-
 		{{#if data.componentsDiagramPngImage}}
+            The below diagram displays the components and their relations.
             <img src="data:image/png;base64,{{{data.componentsDiagramPngImage}}}" alt="System Components" class="center"/>
         {{/if}}
 
@@ -171,7 +175,8 @@
 				<th>Type</th>
 				<th>Installable?</th>
 				<th>Supplier</th>
-				<th>Version</th>
+                <!-- cut: BCN 3rd ws 
+    				th>Version</th -->
 				<th>Bitbucket URL</th>
             </thead>
             <tbody>
@@ -182,7 +187,8 @@
 					<td class="content-wrappable" style="vertical-align: top;">{{type}}</td>
                     <td class="content-wrappable" style="vertical-align: top;">{{#if installable}}Yes{{else}}No{{/if}}</td>
                     <td class="content-wrappable" style="vertical-align: top;">{{supplier}}</td>
-                    <td class="content-wrappable" style="vertical-align: top;">{{version}}</td>
+                    <!-- cut: BCN 3rd ws 
+                        td class="content-wrappable" style="vertical-align: top;">{{version}}</td-->
                     <td class="content-wrappable break-all" style="vertical-align: top;"><div><a href="{{{repo.url}}}">{{repo.url}}</a></div></td>
                 </tr>
                 {{/each}}
@@ -298,6 +304,18 @@
         <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
         {{/if}}
 
+        <!-- cut BCN Jan WS -->
+        <h3 id="section_4_1" class="autonumber">Environments</h3>
+        This section shows the various environments related to the system.
+        <h3 id="section_4_2" class="autonumber">Database projects</h3>
+        This section shows the database projects used by the system.
+        <h3 id="section_4_3" class="autonumber">Interfaces / Integrations</h3>
+        This section shows the interfaces, including objects transferred and technology used.
+        <h3 id="section_4_4" class="autonumber">Software</h3>
+        This section shows any software being used by the system.
+        <h3 id="section_4_5" class="autonumber">Others</h3>
+        This section shows any software being used by the system.
+
         {{#each data.parentCiRelations}}
         <table>
             <thead>
@@ -347,6 +365,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
+                <!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -383,6 +402,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
+                -->
             </tbody>
         </table>
         {{/each}}

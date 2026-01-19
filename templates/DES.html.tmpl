@@ -89,7 +89,11 @@
             <em><a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a></em>.
             Please refer to ServiceNow for further details.</p>
 
-        <p><em>Please find the System Diagram in the attached file 'system-diagram.png'.</em></p>
+        {{#if data.fullDiagramPngImage}}
+            <img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" />
+        {{else}}
+            <p><em>Please find the System Diagram in the attached file 'system-diagram.png'.</em></p>
+        {{/if}}
 
         <table>
             <thead>

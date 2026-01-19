@@ -69,11 +69,19 @@
 <div id="blueband">&nbsp;</div>
 <main>
     <h1>Requirements Specification incl. Risk Assessment for '{{metadata.name}}'</h1>
-
+    <p> The purpose of this document is to define the User Requirements Specification (URS) and associated risk assessment for {{configItem}}. 
+        It establishes the foundation for system design, implementation, and validation activities by clearly outlining the intended use, functional expectations, and compliance obligations. This document ensures that:
+        All requirements are captured, traceable, and aligned with business objectives and regulatory standards.
+        Risks related to functionality, data integrity, and compliance are identified, assessed, and mitigated.
+        The system concept supports operational efficiency while maintaining adherence to applicable GxP principles and relevant regulations (e.g., EU GMP Annex 11, 21 CFR Part 11).
+        Validation activities can be planned and executed based on documented requirements and risk considerations.
+        This section serves as a reference point throughout the system lifecycle, ensuring transparency, accountability, and audit readiness.
+    </p>
     <section class="page">
         <h2>Table of Contents</h2>
         <nav>
             <ol class="table-of-contents">
+                <li><a href="#section_0">Introduction</a>
                 <li><a href="#section_1">Requirements</a>
                     {{#if data.requirements}}
                         <ol>
@@ -89,8 +97,12 @@
     </section>
 
     <section class="page">
+        <h2 id="section_0" class="autonumber">Introduction</h2>
+    </section>
+
+    <section class="page">
         <h2 id="section_1" class="autonumber">Requirements</h2>
-        <p>This section lists all implemented requirements. Work done in change <em>{{metadata.changeId}}</em> is fully documented.</p>
+        <p>This section lists all implemented requirements.</p>
         {{#each data.requirements}}
             <section>
                 <h3 id="section_1_{{@index}}" class="autonumber">{{name}}</h3>
@@ -119,7 +131,7 @@
                     </tbody>
                 </table>
                 <div>{{{content}}}</div>
-                <section>
+                <!-- cut: removed after BCN Jan WS section>
                     <h4>Work Done in {{../metadata.changeId}}</h4>
                     {{#each changes}}
                         <h5>{{summary}}</h5>
@@ -131,7 +143,7 @@
                     {{else}}
                         <p><em>No work done for this requirement in the current change.</em></p>
                     {{/each}}
-                </section>
+                </section -->
             </section>
         {{else}}
             <p><em>No requirements in the current change.</em></p>

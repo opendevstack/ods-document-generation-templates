@@ -96,9 +96,7 @@
         <h2 id="section_1" class="autonumber">System Overview</h2>
 
         <p>This section provides an overview of the system <em>{{metadata.configItem}}</em>.
-            All information in this section has been obtained from ServiceNow at
-            <em><a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a></em>.
-            Please refer to ServiceNow for further details.</p>
+            All information in this section has been obtained from the CMDB, for its endpoint see references chapter.</p>
 
         {{#if data.cmdbDiagramPngImage}}
             <img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" />
@@ -222,9 +220,7 @@
         <h2 id="section_3" class="autonumber">System Modules</h2>
 
         <p>This section lists the modules of the system <em>{{metadata.configItem}}</em>.
-            All information in this section has been obtained from ServiceNow
-            at <em><a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a></em>.
-            Please refer to ServiceNow for further details.</p>
+        All information in this section has been obtained from the CMDB, for its endpoint see references chapter.</p>
 
         {{#if data.parentCiModulesPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiModulesPngImage}}}" alt="Module Diagram" class="center" />
@@ -318,9 +314,7 @@
         <h2 id="section_4" class="autonumber">System Relations</h2>
 
         <p>This section lists the system relations of the system <em>{{metadata.configItem}}</em>.
-            All information in this section has been obtained from ServiceNow
-            at <a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a>
-            for the <em>{{environment}}</em> environment. Please refer to ServiceNow for further details.</p>
+            All information in this section has been obtained from the CMDB for the <em>{{environment}}</em> environment.</p>
 
         {{#if data.parentCiRelationsPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
@@ -481,6 +475,7 @@
 
     <section class="page">
         <h2 id="section_5" class="autonumber">References</h2>
+        <ul><li>Configuration Mgmt Database: <a href="{{{data.cmdbUrl}}}">{{cmdbUrl}}</a></li></ul>
         {{#with data.references}}
             <ul>
                 {{#with req}}
@@ -488,7 +483,7 @@
                 {{/with}}
             </ul>
         {{else}}
-            <p><em>No references available.</em></p>
+            <p><em>No document references available.</em></p>
         {{/with}}
     </section>
 

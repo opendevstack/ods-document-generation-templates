@@ -184,7 +184,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Component Name</th>
+                    <th>Component Name / Id</th>
                     <th>Version (Git Commit SHA)</th>
                     <th>Installed?</th>
                     <th>Installation Result</th>
@@ -194,7 +194,7 @@
                 {{#each data.components}}
                     {{#if installed}}
                         <tr>
-                            <td>{{name}}</td>
+                            <td>{{name}} / {{id}}</td>
                             <td>{{git.commit}} {{#if git.baseTag}}/ tag: {{git.baseTag}} {{/if}}</td>
                             <td>{{#if installed}}Yes{{else}}No (type: {{type}}){{/if}}</td>
                             <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
@@ -522,7 +522,7 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>Component Name</th>
+                        <th>Component Name / Id</th>
                         <th>Version (Git Commit SHA)</th>
                         <th>Metadata</th>
                     </tr>
@@ -530,7 +530,7 @@
                     <tbody>
                     {{#each data.testComponents}}
                         <tr>
-                            <td>{{name}}</td>
+                            <td>{{name}} / {{id}}</td>
                             <td>{{git.commit}} {{#if git.baseTag}}/ tag: {{git.baseTag}} {{/if}}</td>
                             <td>{{metadata.description}}</td>
                         </tr>

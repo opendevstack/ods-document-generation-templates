@@ -53,6 +53,10 @@
                                     <th class="lean">Jenkins Build</th>
                                     <td class="content-wrappable">{{build}}</td>
                                 </tr>
+                                <tr>
+                                    <th class="lean">based on template</th>
+                                    <td class="content-wrappable">{{template_type}} / version: {{template_version}}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </td>
@@ -475,7 +479,7 @@
 
     <section class="page">
         <h2 id="section_5" class="autonumber">References</h2>
-        <ul><li>Configuration Mgmt Database: <a href="{{{data.cmdbUrl}}}">{{cmdbUrl}}</a></li></ul>
+        <ul><li>Configuration Mgmt Database: <a href="{{{data.cmdbUrl}}}">{{data.cmdbUrl}}</a></li></ul>
         {{#with data.references}}
             <ul>
                 {{#with req}}

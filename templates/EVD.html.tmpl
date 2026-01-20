@@ -192,28 +192,32 @@
                 </thead>
                 <tbody>
                 {{#each data.components}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{git.commit}} {{#if git.baseTag}}/ tag: {{git.baseTag}} {{/if}}</td>
-                        <td>{{#if installed}}Yes{{else}}No{{/if}}</td>
-                        <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
-                    </tr>
+                    {{#if installed}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{git.commit}} {{#if git.baseTag}}/ tag: {{git.baseTag}} {{/if}}</td>
+                            <td>{{#if installed}}Yes{{else}}No (type: {{type}}){{/if}}</td>
+                            <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
+                        </tr>
+                    {{/if}}
                 {{/each}}
                 </tbody>
             </table>
-            {{#if data.components.length}}
-            {{else}}
-                As no repositories/components were marked for installation, none were installed.
-            {{/if}}
         </section>
 
         {{#if assembled}}
         <section class="page">
-            <h2 id="section_2" class="autonumber">Source Code Review</h2>
-            <p>
-                A source code review only applies to components of type <i>ods</i>, <i>ods-infra</i>, and <i>ods-test</i>.
-                The components and their types are defined in the System Description.
-            </p>
+            <h2 id="section_2" class="autonumber">Source Code Review Results</h2>
+            All changes to components, except by the automated transport manager, are subject to source code review.
+            The review process is comprised of
+            <ul>
+                <li>Automated source code reviews (by Sonar and Aqua) for components of
+                 type <i>ods</i>, <i>ods-infra</i>, and <i>ods-test</i>.
+                </li>
+                <li>Peer reviews of Bitbucket Pull Requests for all components types.</li>
+            </ul> 
+
+            In case of no changes to any components in scope, the sections below are empty.
 
             <section>
             <h3 id="section_2_1" class="autonumber">Bitbucket Pull Requests</h3>

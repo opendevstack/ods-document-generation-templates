@@ -79,6 +79,12 @@
             <li><a href="#section_2">System Components</a></li>
             <li><a href="#section_3">System Modules</a></li>
             <li><a href="#section_4">System Relations</a></li>
+            <ol>
+                <li><a href="#section_4_1">Environments</a></li>
+                <li><a href="#section_4_2">Database projects</a></li>
+                <li><a href="#section_4_3">Interfaces / Integrations</a></li>
+                <li><a href="#section_4_4">Software</a></li>
+            <ol>
             <li><a href="#section_5">References</a></li>
 			<li><a href="#section_6">Change History</a></li>
         </ol>
@@ -92,6 +98,12 @@
             All information in this section has been obtained from ServiceNow at
             <em><a href="https://boehringereval.service-now.com">https://boehringereval.service-now.com</a></em>.
             Please refer to ServiceNow for further details.</p>
+
+        {{#if data.cmdbDiagramPngImage}}
+            <img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" />
+        {{else}}
+            <p><em>No system diagram found in CMDB with name 'system-diagram.png'.</em></p>
+        {{/if}}
 
         {{#if data.fullDiagramPngImage}}
             <img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" />
@@ -127,6 +139,15 @@
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                <!-- cut: BCN 3 workshop
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Type</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_type}}</td>
+                </tr>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Vendor version</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{version_number}}</td>
                 </tr>
                 <!-- cut: BCN 3 workshop tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>

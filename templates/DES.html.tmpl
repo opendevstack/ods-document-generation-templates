@@ -54,8 +54,8 @@
                                     <td class="content-wrappable">{{build}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="lean">Document template</th>
-                                    <td class="content-wrappable">type: {{template_type}} / version: {{template_version}}</td>
+                                    <th class="lean">based on template</th>
+                                    <td class="content-wrappable">{{template_type}} / version: {{template_version}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -90,7 +90,7 @@
                 <li><a href="#section_4_4">Software</a></li>
                 <li><a href="#section_4_5">Others</a></li>
             </ol>
-            <li><a href="#section_5">References / Glossary</a></li>
+            <li><a href="#section_5">References</a></li>
 			<li><a href="#section_6">Change History</a></li>
         </ol>
         </nav>
@@ -143,7 +143,7 @@
                     <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
-                <!-- cut: BCN 3 workshop -->
+                <!-- cut: BCN 3 workshop
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Type</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_type}}</td>
@@ -320,70 +320,498 @@
         <p>This section lists the system relations of the system <em>{{metadata.configItem}}</em>.
             All information in this section has been obtained from the CMDB for the <em>{{environment}}</em> environment.</p>
 
+        <!-- cut BCN Jan WS
         {{#if data.parentCiRelationsPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
         {{/if}}
 
+        {{#each data.parentCiRelations}}
+        <table>
+            <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                <!-- cut BCN Jan workshop
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+                -->
+            </tbody>
+        </table>
+        {{/each}}
+        -->
+
         <!-- cut BCN Jan WS -->
         <h3 id="section_4_1" class="autonumber">Environments</h3>
-        This section shows the various environments related to the system.
+        This section shows the environments related to the system '{{configItem}}'.
+
+        {{#each data.environments}}
         <table>
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Property</th>
+                <th>Value</th>
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                <!-- cut BCN Jan workshop
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+                -->
             </tbody>
         </table>
+        {{/each}}
 
-        <h3 id="section_4_2" class="autonumber">Database projects</h3>
-        This section shows the database projects used by the system.
+        <h3 id="section_4_2" class="autonumber">Database Projects</h3>
+        This section shows the database projects related to the system '{{configItem}}'.
 
+        {{#if data.parentCiDatabaseProjectsPngImage}}
+        <img src="data:image/png;base64,{{{data.parentCiDatabaseProjectsPngImage}}}" alt="Database Projects" class="center" />
+        {{/if}}
+
+        {{#each data.parentCiRelations}}
         <table>
             <thead>
             <tr>
-                <th>Database instance</th>
-                <th>Database farm instance</th>
-                <th>Server</th>
+                <th>Property</th>
+                <th>Value</th>
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                <!-- cut BCN Jan workshop
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+                -->
             </tbody>
         </table>
+        {{/each}}
 
-        <h3 id="section_4_3" class="autonumber">Interfaces / Integrations</h3>
-        This section shows the interfaces, including objects transferred and technology used.
+        <h3 id="section_4_3" class="autonumber">Interfaces (Integrations)</h3>
+        This section shows the interfaces, including the information objects transferred and technology used, for the system '{{configItem}}'.
+
+        {{#if data.parentCiInterfacesPngImage}}
+        <img src="data:image/png;base64,{{{data.parentCiInterfacesPngImage}}}" alt="Interfaces Diagram" class="center" />
+        {{/if}}
+
+        {{#each data.interfaces}}
         <table>
             <thead>
             <tr>
-                <th>Interface</th>
-                <th>Source System CI Name</th>
-                <th>Target System CI Name</th>
-                <th>Information Object transferred</th>
-                <th>Technology used / installed on</th>
+                <th>Property</th>
+                <th>Value</th>
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                <!-- cut BCN Jan workshop
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+                -->
             </tbody>
         </table>
+        {{/each}}
 
         <h3 id="section_4_4" class="autonumber">Software</h3>
-        This section shows any software being used by the system.
+        This section shows the software used by the system '{{configItem}}'.
+
+        {{#if data.parentCiSoftwarePngImage}}
+        <img src="data:image/png;base64,{{{data.parentCiSoftwarePngImage}}}" alt="Software Diagram" class="center" />
+        {{/if}}
+
+        {{#each data.software}}
         <table>
             <thead>
             <tr>
-                <th>Software Name</th>
-                <th>Description</th>
+                <th>Property</th>
+                <th>Value</th>
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+                <!-- cut BCN Jan workshop
+                {{#if gxp_criticality}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
+                </tr>
+                {{/if}}
+                {{#if gamp_category}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
+                </tr>
+                {{/if}}
+                {{#if owned_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if managed_by.email}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
+                </tr>
+                {{/if}}
+                {{#if validation_determination_reference}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
+                </tr>
+                {{/if}}
+                {{#if slc_documents_location}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
+                </tr>
+                {{/if}}
+                -->
             </tbody>
         </table>
+        {{/each}}
 
         <h3 id="section_4_5" class="autonumber">Others</h3>
-        This section shows any software being used by the system.
+        This section shows system relations not mentioned above for the system '{{configItem}}'.
+
+        {{#if data.parentCiDatabaseProjectsPngImage}}
+        <img src="data:image/png;base64,{{{data.parentCiDatabaseProjectsPngImage}}}" alt="Environments Diagram" class="center" />
+        {{/if}}
 
         {{#each data.parentCiRelations}}
         <table>
@@ -478,11 +906,8 @@
     </section>
 
     <section class="page">
-        <h2 id="section_5" class="autonumber">References / Glossary</h2>        
-        <ul>
-            <li>Generated by BI-IT-DEVSTACK, for further details check EDMS</li>
-            <li>Configuration Mgmt Database: <a href="{{{data.cmdbUrl}}}">{{data.cmdbUrl}}</a></li>
-        </ul>
+        <h2 id="section_5" class="autonumber">References</h2>
+        <ul><li>Configuration Mgmt Database: <a href="{{{data.cmdbUrl}}}">{{data.cmdbUrl}}</a></li></ul>
         {{#with data.references}}
             <ul>
                 {{#with req}}
@@ -490,22 +915,8 @@
                 {{/with}}
             </ul>
         {{else}}
-            <p><em>No other document references available.</em></p>
+            <p><em>No document references available.</em></p>
         {{/with}}
-        <table>
-            <thead>
-            <tr>
-                <th>glossary term</th>
-                <th>description</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>BI-IT-DEVSTACK</td>
-                    <td>Boehringer Ingelheim Development stack</td>
-                </tr>
-            </tbody>
-        </table>        
     </section>
 
 	<section class="page">

@@ -423,7 +423,7 @@
 
         <!-- cut BCN Jan WS -->
         <h3 id="section_4_1" class="autonumber">Environments</h3>
-        This section shows the environments related to the system '{{configItem}}'.
+        This section shows the environments related to the system '{{metadata.configItem}}'.
 
         {{#each data.environments}}
         <table>
@@ -517,7 +517,7 @@
         {{/each}}
 
         <h3 id="section_4_2" class="autonumber">Database Projects</h3>
-        This section shows the database projects related to the system '{{configItem}}'.
+        This section shows the database projects related to the system '{{metadata.configItem}}'.
 
         {{#if data.parentCiDatabaseProjectsPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiDatabaseProjectsPngImage}}}" alt="Database Projects" class="center" />
@@ -620,7 +620,7 @@
         {{/each}}
 
         <h3 id="section_4_3" class="autonumber">Interfaces (Integrations)</h3>
-        This section shows the interfaces, including the information objects transferred and technology used, for the system '{{configItem}}'.
+        This section shows the interfaces, including the information objects transferred and technology used, for the system '{{metadata.configItem}}'.
 
         {{#if data.parentCiInterfacesPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiInterfacesPngImage}}}" alt="Interfaces Diagram" class="center" />
@@ -823,7 +823,7 @@
         {{/each}}
 
         <h3 id="section_4_5" class="autonumber">Others</h3>
-        This section shows system relations not mentioned above for the system '{{configItem}}'.
+        This section shows system relations not mentioned above for the system '{{metadata.configItem}}'.
 
         {{#if data.parentCiDatabaseProjectsPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiDatabaseProjectsPngImage}}}" alt="Environments Diagram" class="center" />

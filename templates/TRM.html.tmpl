@@ -90,26 +90,26 @@
                 <th>Requirement Name</th>
                 <th>Test Name</th>
                 <th>Test type</th>
-                <th>automated (yes/no)</th>
+                <th>execution type</th>
             </tr>
             </thead>
             <tbody>
             {{#each data.tests}}
                 <tr>
-                    <td class="content-wrappable">{{requirementNumber}}</td>                            
-                    <td class="content-wrappable">{{requirementName}}</td>
+                    <td class="content-wrappable">{{id}}</td>                            
+                    <td class="content-wrappable">{{name}}</td>
                     <td class="content-wrappable">{{testName}}</td>
                     <td>{{type}}</td>
-                    <td>true</td>
+                    <td>automated</td>
                 </tr>
             {{/each}}
             {{#each data.manualtests}}
                 <tr>
-                    <td class="content-wrappable">{{requirementNumber}}</td>                            
-                    <td class="content-wrappable">{{requirementName}}</td>
+                    <td class="content-wrappable">{{id}}</td>                            
+                    <td class="content-wrappable">{{name}}</td>
                     <td class="content-wrappable">                      </td>
                     <td class="content-wrappable">                      </td>
-                    <td>false</td>
+                    <td>manual</td>
                 </tr>
             {{/each}}
             </tbody>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manual test tracebility matrix for '{{metadata.name}}'</title>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+        <div>
+            <table id="heading">
+                <tbody>
+                {{#with metadata}}
+                    <tr>
+                        <td>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th class="lean">Date Created</th>
+                                    <td class="content-wrappable">{{dateCreated}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Change Number</th>
+                                    <td class="content-wrappable">{{changeId}}</td>
+                                </tr>
+								<tr>
+									<th class="lean">Change Reason</th>
+									<td class="content-wrappable">{{changeReason}}</td>
+								</tr>
+                                <tr>
+                                    <th class="lean">Configuration Item</th>
+                                    <td class="content-wrappable">{{configItem}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Release Manager Git URL</th>
+                                    <td class="content-wrappable"><a href="{{{gitURL}}}">{{gitURL}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Release Manager Git SHA</th>
+                                    <td class="content-wrappable"><a href="{{{commitURL}}}">{{rmCommitHash}}</a></td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">Jenkins Build</th>
+                                    <td class="content-wrappable">{{build}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="lean">based on template</th>
+                                    <td class="content-wrappable">{{template_type}} / version: {{template_version}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td id="logo" class="lean"></td>
+                    </tr>
+                {{/with}}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="blueband">&nbsp;</div>
+        <main>
+        <h1>Manual test tracebility matrix ({{env}}) for '{{metadata.name}}'</h1>
+        <p>
+            This document contains the traceability matrix for automated tests and manual tests associated with the system '{{metadata.name}}'.
+            This document exists as not all requirements were covered by automated tests, and hence manual tests are needed to verify functionality.
+        </p>
+        <section class="page">
+        <h2>Table of Contents</h2>
+        <nav>
+        <ol class="table-of-contents">
+            <li><a href="#section_1">Matrix of requirements / tests</a></li>
+            <li><a href="#section_5">References / Glossary</a></li>
+			<li><a href="#section_6">Change History</a></li>
+        </ol>
+        </nav>
+        </section>
+
+    <section class="page">
+        <h2 id="section_1" class="autonumber">Matrix of requirements / tests</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Requirement Number</th>
+                <th>Requirement Name</th>
+                <th>Test Name</th>
+                <th>Test type</th>
+                <th>automated (yes/no)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each data.tests}}
+                <tr>
+                    <td class="content-wrappable">{{requirementNumber}}</td>                            
+                    <td class="content-wrappable">{{requirementName}}</td>
+                    <td class="content-wrappable">{{testName}}</td>
+                    <td>{{type}}</td>
+                    <td>true</td>
+                </tr>
+            {{/each}}
+            {{#each data.manualtests}}
+                <tr>
+                    <td class="content-wrappable">{{requirementNumber}}</td>                            
+                    <td class="content-wrappable">{{requirementName}}</td>
+                    <td class="content-wrappable">                      </td>
+                    <td class="content-wrappable">                      </td>
+                    <td>false</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="page">
+        <h2 id="section_5" class="autonumber">References / Glossary</h2>
+        Generated by BI-IT-DEVSTACK, for SLC documentation check EDMS
+        {{#with data.references}}
+            <ul>
+                {{#with req}}
+                    <li>Requirements Specification incl. Risk Assessment Document. (Veeva Quality Document ID: <a href="{{{link}}}">{{id}}</a>)</li>
+                {{/with}}
+                {{#with evd}}
+                    <li>Evidence document. (Veeva Quality Document ID: <a href="{{{link}}}">{{id}}</a>)</li>
+                {{/with}}
+            </ul>
+        {{/with}}
+        <table>
+            <thead>
+            <tr>
+                <th>glossary term / reference name</th>
+                <th>description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BI-IT-DEVSTACK</td>
+                    <td>Boehringer Ingelheim Development stack</td>
+                </tr>
+                <tr>
+                    <td>EDMS</td>
+                    <td>Electronic Document Management System</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+	<section class="page">
+        <h2 id="section_6" class="autonumber">Change History</h2>
+        {{#if data.changeHistory}}
+            <table>
+                <thead>
+                <tr>
+                    <th>Change Number</th>
+                    <th>Change Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data.changeHistory}}
+                    <tr>
+                        <td>{{changeNumber}}</td>
+                        <td class="content-wrappable">{{changeReason}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+    </section>
+    </main>
+  </body>
+</html>

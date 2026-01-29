@@ -86,11 +86,11 @@
         <table>
             <thead>
             <tr>
-                <th>Requirement Number</th>
-                <th>Requirement Name</th>
+                <th class="content-wrappable">Requirement Number</th>
+                <th class="content-wrappable">Requirement Name</th>
                 <th>Test Name</th>
                 <th>Test type</th>
-                <th>execution type</th>
+                <th class="content-wrappable">execution type</th>
             </tr>
             </thead>
             <tbody>
@@ -105,8 +105,8 @@
             {{/each}}
             {{#each data.manualtests}}
                 <tr>
-                    <td class="content-wrappable">{{id}}</td>                            
-                    <td class="content-wrappable">{{name}}</td>
+                    <td class="content-wrappable">{{reqId}}</td>                            
+                    <td class="content-wrappable">{{requirementName}}</td>
                     <td class="content-wrappable">                      </td>
                     <td class="content-wrappable">                      </td>
                     <td>manual</td>

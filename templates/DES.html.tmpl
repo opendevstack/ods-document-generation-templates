@@ -98,10 +98,10 @@
         <p>This section provides an overview of the system <em>{{metadata.configItem}}</em>.
             All information in this section has been obtained from the CMDB, for its endpoint see references chapter.</p>
 
-        {{#if data.cmdbAttachmentOveriew}}
+        {{#if data.cmdbAttachmentOverview}}
             <p>
-                <img src="data:{{{data.cmdbAttachmentOveriew.contentType}}};base64,{{{data.cmdbAttachmentOveriew.data}}}" alt="System Overview Diagram" class="center" />
-                Created by {{{data.cmdbAttachmentOveriew.createdBy}}} on {{{data.cmdbAttachmentOveriew.createdDate}}} (filename: {{{data.cmdbAttachmentOveriew.fileName}}})
+                <img src="{{{data.cmdbAttachmentOverview.htmlImage}}}" alt="System Overview Diagram" class="center" />
+                Created by {{{data.cmdbAttachmentOverview.createdBy}}} on {{{data.cmdbAttachmentOverview.createdDate}}} (filename: {{{data.cmdbAttachmentOverview.fileName}}})
             </p>
         {{else}}
             <p><em>No dedicated system diagram found in CMDB for the config item with name 'overview.png/jpg/jpeg'.</em></p>

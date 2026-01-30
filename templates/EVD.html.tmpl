@@ -74,10 +74,18 @@
         <div id="blueband">&nbsp;</div>
         <main>
             <h1>Qualification Evidence Document ({{env}}) for '{{metadata.name}}'</h1>
-            <p>This document consolidates evidence demonstrating that the system has been developed, tested, 
+            <p>This document consolidates evidence, based on automation, demonstrating that the system has been developed, tested, 
             and installed according to defined requirements and standards. It includes automated test results, 
             installation reports, and configuration verification records. The qualification evidence ensures transparency, audit readiness, and compliance with GxP and regulatory guidelines.</p>
-            <section class="page">
+
+            {{if data.untestedRequirements}}
+            <p style="color: red;">
+                <b>IMPORTANT:</b> {{data.untestedRequirements}} requirement(s) were not covered by automated tests and hence no test results are available.
+                A traceability matrix has been automatically created and uploaded to the EDMS (type: TRM) linked to this change ({{metadata.changeId}}).
+            </p>
+            {{/if}}
+
+            <section class="page">            
             <h2 id="toc">Table of Contents</h2>
             <nav>
             <ol class="table-of-contents">
@@ -490,12 +498,6 @@
                 In case of a failed test execution,
                 the release process terminates unsuccessfully and does not generate this document.
             </p>
-            {{if data.untestedRequirements}}
-            <p style="color: red;">
-                <b>IMPORTANT:</b> {{data.untestedRequirements}} requirement(s) were not covered by automated tests and hence no test results are available.
-                A traceability matrix has been automatically created and uploaded to the EDMS (type: TRM) linked to this change ({{metadata.changeId}}).
-            </p>
-            {{/if}}
             <section>
                 <h3 id="section_3_1" class="autonumber">Test components used</h3>
                 <p>

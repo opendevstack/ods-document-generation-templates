@@ -37,11 +37,11 @@
                                     <th class="lean">Configuration Item</th>
                                     <td class="content-wrappable">{{configItem}}</td>
                                 </tr>
-                                <!-- cut: BCN workshop jan                                
+                                {{!-- cut: BCN workshop jan
                                 <tr>
                                     <th class="lean">OpenShift Cluster API URL</th>
                                     <td class="content-wrappable"><a href="{{{openShiftURL}}}">{{openShiftURL}}</a></td>
-                                </tr> -->
+                                </tr> --}}
                                 <tr>
                                     <th class="lean">Release Manager Git URL</th>
                                     <td class="content-wrappable"><a href="{{{gitURL}}}">{{gitURL}}</a></td>
@@ -74,7 +74,7 @@
         <p>
             This document describes the system architecture, components, and software configuration in detail.
             It includes technical specifications, interfaces, and dependencies to provide a comprehensive understanding of the system.
-            This description supports validation activities, operational readiness, and compliance with regulatory requirements.  
+            This description supports validation activities, operational readiness, and compliance with regulatory requirements.
         </p>
         <section class="page">
         <h2>Table of Contents</h2>
@@ -145,7 +145,7 @@
                     <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
-                <!-- cut: BCN 3 workshop -->
+                {{!-- cut: BCN 3 workshop --}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Type</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_type}}</td>
@@ -156,7 +156,8 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{version_number}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut: BCN 3 workshop tr>
+                {{!-- cut: BCN 3 workshop
+                <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
                 </tr>
@@ -179,7 +180,7 @@
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
-                </tr -->
+                </tr> --}}
             {{/with}}
             </tbody>
         </table>
@@ -203,8 +204,8 @@
 				<th>Type</th>
 				<th>Installable?</th>
 				<th>Supplier</th>
-                <!-- cut: BCN 3rd ws 
-    				th>Version</th -->
+                {{!-- cut: BCN 3rd ws
+    				<th>Version</th> --}}
 				<th>Bitbucket URL</th>
             </thead>
             <tbody>
@@ -215,8 +216,8 @@
 					<td class="content-wrappable" style="vertical-align: top;">{{type}}</td>
                     <td class="content-wrappable" style="vertical-align: top;">{{#if installable}}Yes{{else}}No{{/if}}</td>
                     <td class="content-wrappable" style="vertical-align: top;">{{supplier}}</td>
-                    <!-- cut: BCN 3rd ws 
-                        td class="content-wrappable" style="vertical-align: top;">{{version}}</td-->
+                    {{!-- cut: BCN 3rd ws
+                        <td class="content-wrappable" style="vertical-align: top;">{{version}}</td> --}}
                     <td class="content-wrappable break-all" style="vertical-align: top;"><div><a href="{{{repo.url}}}">{{repo.url}}</a></div></td>
                 </tr>
                 {{/each}}
@@ -324,7 +325,7 @@
         <p>This section lists the system relations of the system <em>{{metadata.configItem}}</em>.
             All information in this section has been obtained from the CMDB for the <em>{{environment}}</em> environment.</p>
 
-        <!-- cut BCN Jan WS
+        {{!-- cut BCN Jan WS
         {{#if data.parentCiRelationsPngImage}}
         <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
         {{/if}}
@@ -378,7 +379,6 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -415,18 +415,16 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
-                -->
             </tbody>
         </table>
         {{/each}}
-        -->
+        --}}
 
-        <!-- cut BCN Jan WS -->
+        {{!-- cut BCN Jan WS --}}
         <h3 id="section_4_1" class="autonumber">Environments</h3>
         This section shows the environments related to the system '{{metadata.configItem}}'.
 
-        {{#if data.environments}}
-            {{#each data.environments}}
+        {{#each data.environments}}
         <table>
             <thead>
             <tr>
@@ -475,7 +473,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut BCN Jan workshop
+                {{!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -512,13 +510,12 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
-                -->
+                --}}
             </tbody>
         </table>
-            {{/each}}
         {{else}}
-        <p>N/A</p>
-        {{/if}}
+            <p>N/A</p>
+        {{/each}}
 
         <h3 id="section_4_2" class="autonumber">Database Projects</h3>
         This section shows the database projects related to the system '{{metadata.configItem}}'.
@@ -532,11 +529,11 @@
         <table>
             <thead>
             <tr>
-                <!-- use later once the generic tabular structure got companded
+                {{!-- use later once the generic tabular structure got companded
                 <th>Database instance</th>
                 <th>Database farm instance</th>
                 <th>Server</th>
-                -->
+                --}}
                 <th>Property</th>
                 <th>Value</th>
             </tr>
@@ -582,7 +579,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut BCN Jan workshop
+                {{!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -619,7 +616,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
-                -->
+                --}}
             </tbody>
         </table>
             {{/each}}
@@ -639,13 +636,13 @@
         <table>
             <thead>
             <tr>
-                <!-- use later once the generic tabular structure got companded
+                {{!-- use later once the generic tabular structure got companded
                 <th>Interface</th>
                 <th>Source System CI Name</th>
                 <th>Target System CI Name</th>
                 <th>Information Object transferred</th>
                 <th>Technology used / installed on</th>
-                -->
+                --}}
                 <th>Property</th>
                 <th>Value</th>
             </tr>
@@ -691,7 +688,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut BCN Jan workshop
+                {{!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -728,7 +725,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
-                -->
+                --}}
             </tbody>
         </table>
             {{/each}}
@@ -737,8 +734,9 @@
         {{/if}}
 
         <h3 id="section_4_4" class="autonumber">Software</h3>
-        This section shows the software used by the system '{{configItem}}'.
+        This section shows the software used by the system '{{metadata.configItem}}'.
 
+        {{#if data.software}}
         {{#if data.parentCiSoftwarePngImage}}
         <img src="data:image/png;base64,{{{data.parentCiSoftwarePngImage}}}" alt="Software Diagram" class="center" />
         {{/if}}
@@ -792,7 +790,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut BCN Jan workshop
+                {{!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -829,7 +827,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
-                -->
+                --}}
             </tbody>
         </table>
             {{/each}}
@@ -894,7 +892,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
                 {{/if}}
-                <!-- cut BCN Jan workshop
+                {{!-- cut BCN Jan workshop
                 {{#if gxp_criticality}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
@@ -931,7 +929,7 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
                 </tr>
                 {{/if}}
-                -->
+                --}}
             </tbody>
         </table>
             {{/each}}

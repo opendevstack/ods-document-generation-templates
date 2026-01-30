@@ -58,7 +58,7 @@
                                     <td class="content-wrappable">{{build}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="lean">Document template</th>
+                                    <th class="lean">based on template</th>
                                     <td class="content-wrappable">type: {{template_type}} / version: {{template_version}}</td>
                                 </tr>
                                 </tbody>
@@ -74,10 +74,18 @@
         <div id="blueband">&nbsp;</div>
         <main>
             <h1>Qualification Evidence Document ({{env}}) for '{{metadata.name}}'</h1>
-            <p>This document consolidates evidence demonstrating that the system has been developed, tested, 
+            <p>This document consolidates all evidence based on automation, demonstrating that the system has been developed, tested, 
             and installed according to defined requirements and standards. It includes automated test results, 
             installation reports, and configuration verification records. The qualification evidence ensures transparency, audit readiness, and compliance with GxP and regulatory guidelines.</p>
-            <section class="page">
+
+            {{#if data.untestedRequirements}}
+            <p style="color: red;">
+                <b>IMPORTANT:</b> {{data.untestedRequirements}} requirement(s) were not covered by automated tests and hence no test results are available.
+                A traceability matrix has been automatically generated and uploaded to the EDMS (type: <i>TRM</i>) and linked to this change (id: {{metadata.changeId}}).
+            </p>
+            {{/if}}
+
+            <section class="page">            
             <h2 id="toc">Table of Contents</h2>
             <nav>
             <ol class="table-of-contents">
@@ -191,16 +199,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{#each data.components}}
-                    {{#if installed}}
-                        <tr>
-                            <td>{{name}} / {{id}}</td>
-                            <td>{{git.commit}} {{#if git.baseTag}}/ tag: {{git.baseTag}} {{/if}}</td>
-                            <td>{{#if installed}}Yes{{else}}No (type: {{type}}){{/if}}</td>
-                            <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
-                        </tr>
-                    {{/if}}
-                {{/each}}
+                {{#if data.components}}
+                    {{#each data.components}}
+                        {{#if installed}}
+                            <tr>
+                                <td>{{name}} / {{id}}</td>
+                                <td>{{git.commit}} {{#if git.baseTag}}/ tag: {{git.baseTag}} {{/if}}</td>
+                                <td>{{#if installed}}Yes{{else}}No (type: {{type}}){{/if}}</td>
+                                <td>{{#if installed}}{{#if failedStage}}Failure{{else}}Success{{/if}}{{else}}N/A{{/if}}</td>
+                            </tr>
+                        {{/if}}
+                    {{/each}}
+                {{else}}
+                    <tr>
+                        <td colspan="4"><em>No installable components found for this environment.</em></td>
+                    </tr>
+                {{/if}}
                 </tbody>
             </table>
         </section>

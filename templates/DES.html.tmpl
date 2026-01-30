@@ -87,8 +87,9 @@
             <ol>
                 <li><a href="#section_4_1">Environments</a></li>
                 <li><a href="#section_4_2">Databases</a></li>
-                <li><a href="#section_4_3">Interfaces / Integrations</a></li>
-                <li><a href="#section_4_4">Software</a></li>
+                <li><a href="#section_4_3">Interfaces/Integrations</a></li>
+                <li><a href="#section_4_4">Servers</a></li>
+                <li><a href="#section_4_5">Software</a></li>
             </ol>
             <li><a href="#section_5">References</a></li>
 			<li><a href="#section_6">Change History</a></li>
@@ -458,7 +459,7 @@
         <p>No database projects or databases related to the system '{{metadata.configItem}}' were found.</p>
         {{/if}}
 
-        <h3 id="section_4_3" class="autonumber">Interfaces / Integrations</h3>
+        <h3 id="section_4_3" class="autonumber">Interfaces/Integrations</h3>
 
         {{#if data.interfaces}}
             <p>This section shows the interfaces, including the information objects transferred and the technology used, for the system '{{metadata.configItem}}'.</p>
@@ -529,7 +530,71 @@
         <p>No interfaces related to the system '{{metadata.configItem}}' were found.</p>
         {{/if}}
 
-        <h3 id="section_4_4" class="autonumber">Software</h3>
+        <h3 id="section_4_4" class="autonumber">Servers</h3>
+
+        {{#if data.servers}}
+        <p>This section shows the servers used by the system '{{metadata.configItem}}'.</p>
+            {{#if data.parentCiServersPngImage}}
+        <p><img src="data:image/png;base64,{{{data.parentCiServersPngImage}}}" alt="Servers Diagram" class="center" /></p>
+            {{/if}}
+
+            {{#each data.servers}}
+        <table>
+            <thead>
+            <tr>
+                <th>Server Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
+                </tr>
+                {{#if name_business_friendly}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
+                </tr>
+                {{/if}}
+                {{#if sys_class_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if relation.friendly_name}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
+                </tr>
+                {{/if}}
+                {{#if short_description}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
+                </tr>
+                {{/if}}
+                {{#if service_classification}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
+                </tr>
+                {{/if}}
+                {{#if gxp_relevant}}
+                <tr>
+                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
+                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
+                </tr>
+                {{/if}}
+            </tbody>
+        </table>
+            {{/each}}
+        {{else}}
+        <p>No servers related to the system '{{metadata.configItem}}' were found.</p>
+        {{/if}}
+
+        <h3 id="section_4_5" class="autonumber">Software</h3>
 
         {{#if data.software}}
         <p>This section shows the software used by the system '{{metadata.configItem}}'.</p>

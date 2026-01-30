@@ -37,11 +37,6 @@
                                     <th class="lean">Configuration Item</th>
                                     <td class="content-wrappable">{{configItem}}</td>
                                 </tr>
-                                {{!-- cut: BCN workshop jan
-                                <tr>
-                                    <th class="lean">OpenShift Cluster API URL</th>
-                                    <td class="content-wrappable"><a href="{{{openShiftURL}}}">{{openShiftURL}}</a></td>
-                                </tr> --}}
                                 <tr>
                                     <th class="lean">Release Manager Git URL</th>
                                     <td class="content-wrappable"><a href="{{{gitURL}}}">{{gitURL}}</a></td>
@@ -147,7 +142,6 @@
                     <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
                 </tr>
-                {{!-- cut: BCN 3 workshop --}}
                 <tr>
                     <th class="content-wrappable" style="vertical-align: top;">GxP Type</th>
                     <td class="content-wrappable" style="vertical-align: top;">{{gxp_type}}</td>
@@ -158,31 +152,6 @@
                     <td class="content-wrappable" style="vertical-align: top;">{{version_number}}</td>
                 </tr>
                 {{/if}}
-                {{!-- cut: BCN 3 workshop
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
-                </tr>
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
-                </tr>
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
-                </tr>
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
-                </tr>
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
-                </tr>
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
-                </tr> --}}
             {{/with}}
             </tbody>
         </table>
@@ -208,8 +177,6 @@
 				<th>Type</th>
 				<th>Installable?</th>
 				<th>Supplier</th>
-                {{!-- cut: BCN 3rd ws
-    				<th>Version</th> --}}
 				<th>Bitbucket URL</th>
             </thead>
             <tbody>
@@ -220,8 +187,6 @@
 					<td class="content-wrappable" style="vertical-align: top;">{{type}}</td>
                     <td class="content-wrappable" style="vertical-align: top;">{{#if installable}}Yes{{else}}No{{/if}}</td>
                     <td class="content-wrappable" style="vertical-align: top;">{{supplier}}</td>
-                    {{!-- cut: BCN 3rd ws
-                        <td class="content-wrappable" style="vertical-align: top;">{{version}}</td> --}}
                     <td class="content-wrappable break-all" style="vertical-align: top;"><div><a href="{{{repo.url}}}">{{repo.url}}</a></div></td>
                 </tr>
                 {{/each}}

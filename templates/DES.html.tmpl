@@ -89,7 +89,6 @@
                 <li><a href="#section_4_2">Databases</a></li>
                 <li><a href="#section_4_3">Interfaces / Integrations</a></li>
                 <li><a href="#section_4_4">Software</a></li>
-                <li><a href="#section_4_5">Others</a></li>
             </ol>
             <li><a href="#section_5">References</a></li>
 			<li><a href="#section_6">Change History</a></li>
@@ -747,108 +746,6 @@
             <tr>
                 <th>Software Name</th>
                 <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Name</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{name}}</td>
-                </tr>
-                {{#if name_business_friendly}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Friendly Name</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{name_business_friendly}}</td>
-                </tr>
-                {{/if}}
-                {{#if sys_class_name}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">System Class</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{sys_class_name}}</td>
-                </tr>
-                {{/if}}
-                {{#if relation.friendly_name}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Relation</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{relation.friendly_name}}</td>
-                </tr>
-                {{/if}}
-                {{#if short_description}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Description</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{short_description}}</td>
-                </tr>
-                {{/if}}
-                {{#if service_classification}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Service Classification</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{service_classification}}</td>
-                </tr>
-                {{/if}}
-                {{#if gxp_relevant}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">GxP Relevant</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_relevant}}</td>
-                </tr>
-                {{/if}}
-                {{!-- cut BCN Jan workshop
-                {{#if gxp_criticality}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">GxP Criticality</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{gxp_criticality}}</td>
-                </tr>
-                {{/if}}
-                {{#if gamp_category}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">GAMP Category</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{gamp_category}}</td>
-                </tr>
-                {{/if}}
-                {{#if owned_by.email}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">System Owner</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{owned_by.email}}</td>
-                </tr>
-                {{/if}}
-                {{#if managed_by.email}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">System Lead</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{managed_by.email}}</td>
-                </tr>
-                {{/if}}
-                {{#if validation_determination_reference}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">Validation Determination</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{validation_determination_reference}}</td>
-                </tr>
-                {{/if}}
-                {{#if slc_documents_location}}
-                <tr>
-                    <th class="content-wrappable" style="vertical-align: top;">SLC Documents Location</th>
-                    <td class="content-wrappable" style="vertical-align: top;">{{slc_documents_location}}</td>
-                </tr>
-                {{/if}}
-                --}}
-            </tbody>
-        </table>
-            {{/each}}
-        {{else}}
-        <p>N/A</p>
-        {{/if}}
-
-        <h3 id="section_4_5" class="autonumber">Others</h3>
-        This section shows system relations not mentioned above for the system '{{metadata.configItem}}'.
-
-        {{#if data.other}}
-            {{#if data.parentCiOtherPngImage}}
-        <img src="data:image/png;base64,{{{data.parentCiOtherPngImage}}}" alt="Others Diagram" class="center" />
-            {{/if}}
-
-            {{#each data.other}}
-        <table>
-            <thead>
-            <tr>
-                <th>Property</th>
-                <th>Value</th>
             </tr>
             </thead>
             <tbody>

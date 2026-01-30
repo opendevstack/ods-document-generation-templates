@@ -103,14 +103,16 @@
             All information in this section has been obtained from the CMDB, for its endpoint see references chapter.</p>
 
         {{#if data.cmdbAttachmentOveriew}}
-            <img src="data:{{{data.cmdbAttachmentOveriew.contentType}}};base64,{{{data.cmdbAttachmentOveriew.data}}}" alt="System Overview Diagram" class="center" />
-            Created by {{{data.cmdbAttachmentOveriew.createdBy}}} on {{{data.cmdbAttachmentOveriew.createdDate}}} (filename: {{{data.cmdbAttachmentOveriew.fileName}}})
+            <p>
+                <img src="data:{{{data.cmdbAttachmentOveriew.contentType}}};base64,{{{data.cmdbAttachmentOveriew.data}}}" alt="System Overview Diagram" class="center" />
+                Created by {{{data.cmdbAttachmentOveriew.createdBy}}} on {{{data.cmdbAttachmentOveriew.createdDate}}} (filename: {{{data.cmdbAttachmentOveriew.fileName}}})
+            </p>
         {{else}}
             <p><em>No dedicated system diagram found in CMDB for the config item with name 'overview.png/jpg/jpeg'.</em></p>
         {{/if}}
 
         {{#if data.fullDiagramPngImage}}
-            <img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" />
+            <p><img src="data:image/png;base64,{{{data.fullDiagramPngImage}}}" alt="System Diagram" class="center" /></p>
         {{else}}
             <p><em>Please find the System Diagram of relations in the attached file 'system-diagram.png'.</em></p>
         {{/if}}
@@ -192,8 +194,10 @@
             Only components of type <em>ods</em>, <em>ods-infra</em>, and <em>ods-service</em>
             as defined in <em>BI-IT-DEVSTACK</em> can be installed.</p>
 		{{#if data.componentsDiagramPngImage}}
-            <p>The diagram below displays the system's components and their relations (if any).</p>
-            <img src="data:image/png;base64,{{{data.componentsDiagramPngImage}}}" alt="System Components" class="center"/>
+            <p>
+                The diagram below displays the system's components and their relations (if any).
+                <img src="data:image/png;base64,{{{data.componentsDiagramPngImage}}}" alt="System Components" class="center"/>
+            </p>
         {{/if}}
 
         <table>
@@ -228,10 +232,10 @@
         <h2 id="section_3" class="autonumber">System Modules</h2>
 
         <p>This section lists the modules of the system <em>{{metadata.configItem}}</em>.
-        All information in this section has been obtained from the CMDB, for its endpoint see references chapter.</p>
+            All information in this section has been obtained from the CMDB, for its endpoint see references chapter.</p>
 
         {{#if data.parentCiModulesPngImage}}
-        <img src="data:image/png;base64,{{{data.parentCiModulesPngImage}}}" alt="Module Diagram" class="center" />
+            <p><img src="data:image/png;base64,{{{data.parentCiModulesPngImage}}}" alt="Module Diagram" class="center" /></p>
         {{/if}}
 
         {{#each data.parentCiModules}}
@@ -326,7 +330,7 @@
 
         {{!-- cut BCN Jan WS
         {{#if data.parentCiRelationsPngImage}}
-        <img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" />
+            <p><img src="data:image/png;base64,{{{data.parentCiRelationsPngImage}}}" alt="Relation Diagram" class="center" /></p>
         {{/if}}
 
         {{#each data.parentCiRelations}}
@@ -517,11 +521,12 @@
         {{/each}}
 
         <h3 id="section_4_2" class="autonumber">Databases</h3>
-        This section shows the database projects and databases related to the system '{{metadata.configItem}}'.
+
+        <p>This section shows the database projects and databases related to the system '{{metadata.configItem}}'.</p>
 
         {{#if data.databaseProjects}}
             {{#if data.parentCiDatabaseProjectsPngImage}}
-        <img src="data:image/png;base64,{{{data.parentCiDatabaseProjectsPngImage}}}" alt="Database Projects" class="center" />
+            <p><img src="data:image/png;base64,{{{data.parentCiDatabaseProjectsPngImage}}}" alt="Database Projects" class="center" /></p>
             {{/if}}
 
             {{#each data.databaseProjects}}
@@ -624,11 +629,12 @@
         {{/if}}
 
         <h3 id="section_4_3" class="autonumber">Interfaces / Integrations</h3>
-        This section shows the interfaces, including the information objects transferred and technology used, for the system '{{metadata.configItem}}'.
+
+        <p>This section shows the interfaces, including the information objects transferred and technology used, for the system '{{metadata.configItem}}'.</p>
 
         {{#if data.interfaces}}
             {{#if data.parentCiInterfacesPngImage}}
-        <img src="data:image/png;base64,{{{data.parentCiInterfacesPngImage}}}" alt="Interfaces Diagram" class="center" />
+            <p><img src="data:image/png;base64,{{{data.parentCiInterfacesPngImage}}}" alt="Interfaces Diagram" class="center" /></p>
             {{/if}}
 
             {{#each data.interfaces}}
@@ -733,12 +739,13 @@
         {{/if}}
 
         <h3 id="section_4_4" class="autonumber">Software</h3>
-        This section shows the software used by the system '{{metadata.configItem}}'.
+
+        <p>This section shows the software used by the system '{{metadata.configItem}}'.</p>
 
         {{#if data.software}}
-        {{#if data.parentCiSoftwarePngImage}}
-        <img src="data:image/png;base64,{{{data.parentCiSoftwarePngImage}}}" alt="Software Diagram" class="center" />
-        {{/if}}
+            {{#if data.parentCiSoftwarePngImage}}
+            <p><img src="data:image/png;base64,{{{data.parentCiSoftwarePngImage}}}" alt="Software Diagram" class="center" /></p>
+            {{/if}}
 
         {{#each data.software}}
         <table>

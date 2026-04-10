@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Remove prerequisites section from TCP tests ([#162](https://github.com/opendevstack/ods-document-generation-templates/pull/162))
+- Remove hard-coded prerequisites section from TCP and TCR templates ([#162](https://github.com/opendevstack/ods-document-generation-templates/pull/162))
 
 ## 1.2.13 - 2025-7-10
 - Fixed the document history of the TIR for ods-infra components ([#160](https://github.com/opendevstack/ods-document-generation-templates/pull/160))

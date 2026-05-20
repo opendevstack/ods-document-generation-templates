@@ -224,7 +224,7 @@ li > ul.inner-ul {
   table-layout: fixed !important;
 }
 
-/* .safe-free-text td,
+.safe-free-text td,
 .safe-free-text th {
   white-space: normal !important;
   word-wrap: break-word !important;
@@ -239,7 +239,7 @@ li > ul.inner-ul {
 
 .safe-free-text * {
   max-width: 100% !important;
-} */
+}
 
 @media print {
   body {

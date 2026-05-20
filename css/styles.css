@@ -225,9 +225,9 @@ li > ul.inner-ul {
 
 .safe-free-text td {
   white-space: normal !important;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  /* word-break: break-all !important; */
+  /* word-wrap: break-word !important; */
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
 }
 
 /* .safe-free-text img {

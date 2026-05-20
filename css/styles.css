@@ -219,20 +219,18 @@ li > ul.inner-ul {
 }
 
 .safe-free-text table {
-  width: 100%;
   max-width: 100% !important;
   table-layout: fixed !important;
 }
 
-/* .safe-free-text td,
-.safe-free-text th {
+.safe-free-text td {
   white-space: normal !important;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  word-break: break-word !important;
+  /* word-wrap: break-word !important;
+  overflow-wrap: break-word !important; */
+  word-break: break-all !important;
 }
 
-.safe-free-text img {
+/* .safe-free-text img {
   max-width: 100% !important;
   height: auto !important;
 }

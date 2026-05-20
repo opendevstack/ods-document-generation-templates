@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  font-size: 100%;
+  font-size: 11px;
 }
 
 h1 {
@@ -226,8 +226,9 @@ li > ul.inner-ul {
 .safe-free-text td {
   white-space: normal !important;
   /* word-wrap: break-word !important; */
-  overflow-wrap: anywhere !important;
-  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  /* word-break: normal !important; */
+  line-height: 1.4 !important;
 }
 
 /* .safe-free-text img {

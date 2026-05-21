@@ -218,10 +218,10 @@ li > ul.inner-ul {
   margin-right: 2em;
 }
 
-/* .safe-free-text table {
+.safe-free-text table {
   max-width: 100% !important;
-  table-layout: fixed !important;
-} */
+  /* table-layout: fixed !important; */
+}
 
 .safe-free-text td {
   /* white-space: normal !important; */

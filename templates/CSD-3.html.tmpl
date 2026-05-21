@@ -175,7 +175,7 @@
              {{/if}}
              {{#each data.requirements.operationalrequirements.epics}}
                  <h5><span>{{key}}: {{epicTitle}}</span></h5>
-                 <span>{{{epicDescription}}}</span>
+                 <span class="content-wrappable">{{{epicDescription}}}</span>
                  <table>
                      <thead>
                          <th>No.</th>
@@ -241,7 +241,7 @@
 
                 {{#each data.requirements.functionalrequirements.epics}}
                     <h5 id="section_3_2_1_{{epicIndex}}"><span>3.2.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -312,7 +312,7 @@
 
                 {{#each data.requirements.datarequirements.epics}}
                     <h5 id="section_3_2_2_{{epicIndex}}"><span>3.2.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -381,7 +381,7 @@
 
                 {{#each data.requirements.technicalrequirements.epics}}
                     <h5 id="section_3_2_3_{{epicIndex}}"><span>3.2.3.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -450,7 +450,7 @@
 
                 {{#each data.requirements.maintenancerequirements.epics}}
                     <h5 id="section_3_2_4_{{epicIndex}}"><span>3.2.4.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -520,7 +520,7 @@
 
             {{#each data.requirements.performancerequirements.epics}}
                 <h5 id="section_3_3_1_{{epicIndex}}"><span>3.3.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                <span>{{{epicDescription}}}</span>
+                <span class="content-wrappable">{{{epicDescription}}}</span>
                 <table>
                     <thead>
                         <th>No.</th>
@@ -589,7 +589,7 @@
 
                 {{#each data.requirements.availabilityrequirements.epics}}
                     <h5 id="section_3_3_2_{{epicIndex}}"><span>3.3.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -658,7 +658,7 @@
 
                 {{#each data.requirements.securityrequirements.epics}}
                     <h5 id="section_3_3_3_{{epicIndex}}"><span>3.3.3.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -727,7 +727,7 @@
 
                 {{#each data.requirements.regulatoryrequirements.epics}}
                     <h5 id="section_3_3_4_{{epicIndex}}"><span>3.3.4.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h5>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -796,7 +796,7 @@
 
                 {{#each data.requirements.overarchingrequirements.epics}}
                     <h4 id="section_3_4_{{epicIndex}}"><span>3.4.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -868,7 +868,7 @@
 
                 {{#each data.requirements.interfacerequirements.epics}}
                     <h4 id="section_3_6_{{epicIndex}}"><span>3.6.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -937,7 +937,7 @@
 
                 {{#each data.requirements.environmentrequirements.epics}}
                     <h4 id="section_3_7_{{epicIndex}}"><span>3.7.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -1006,7 +1006,7 @@
 
                 {{#each data.requirements.uncategorized.epics}}
                     <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <div class="safe-free-text"><span>{{{epicDescription}}}</span></div>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -1079,7 +1079,7 @@
 
                 {{#each data.requirements.compatibility.epics}}
                     <h4 id="section_4_1_{{epicIndex}}"><span>4.1.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>
@@ -1148,7 +1148,7 @@
 
                 {{#each data.requirements.proceduralconstraints.epics}}
                     <h4 id="section_4_2_{{epicIndex}}"><span>4.2.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <span>{{{epicDescription}}}</span>
+                    <span class="content-wrappable">{{{epicDescription}}}</span>
                     <table>
                         <thead>
                             <th>No.</th>

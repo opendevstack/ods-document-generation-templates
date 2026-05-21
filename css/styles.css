@@ -218,17 +218,17 @@ li > ul.inner-ul {
   margin-right: 2em;
 }
 
-.safe-free-text table {
-  /* max-width: 100% !important; */
+/* .safe-free-text table {
+  max-width: 100% !important;
   table-layout: fixed !important;
 }
 
 .safe-free-text td {
   white-space: normal !important;
-  /* word-wrap: break-word !important; */
+  word-wrap: break-word !important;
   word-break: break-word !important;
   overflow-wrap: break-word !important;
-}
+} */
 
 @media print {
   body {

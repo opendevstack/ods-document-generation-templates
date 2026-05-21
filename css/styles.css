@@ -218,28 +218,6 @@ li > ul.inner-ul {
   margin-right: 2em;
 }
 
-.safe-free-text table {
-  max-width: 100% !important;
-  table-layout: fixed !important;
-}
-
-.safe-free-text td {
-  height: 2em !important;
-  white-space: normal !important;
-  /* word-wrap: break-word !important; */
-  overflow-wrap: break-word !important;
-  /* word-break: normal !important; */
-}
-
-/* .safe-free-text img {
-  max-width: 100% !important;
-  height: auto !important;
-}
-
-.safe-free-text * {
-  max-width: 100% !important;
-} */
-
 @media print {
   body {
     margin: 0;

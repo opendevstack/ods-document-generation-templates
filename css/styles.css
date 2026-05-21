@@ -219,8 +219,8 @@ li > ul.inner-ul {
 }
 
 .safe-free-text table {
-  max-width: 100% !important;
-  /* table-layout: fixed !important; */
+  /* max-width: 100% !important; */
+  table-layout: fixed !important;
 }
 
 .safe-free-text td {

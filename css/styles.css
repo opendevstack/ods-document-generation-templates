@@ -224,11 +224,10 @@ li > ul.inner-ul {
 }
 
 .safe-free-text td {
-  /* white-space: normal !important; */
+  white-space: normal !important;
   /* word-wrap: break-word !important; */
   word-break: break-word !important;
   overflow-wrap: break-word !important;
-  font-size: inherit !important;
 }
 
 @media print {

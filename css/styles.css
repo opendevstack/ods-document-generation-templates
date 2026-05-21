@@ -171,6 +171,10 @@ td.content-wrappable table th, td.content-wrappable table td {
   white-space: normal;
 }
 
+span.content-wrappable table th, span.content-wrappable table td {
+  white-space: normal;
+}
+
 /* Remove all spacing around .inner-ul-2 elements */
 
 td > ul.inner-ul {
@@ -216,18 +220,6 @@ li > ul.inner-ul {
   font-weight: bold;
   margin-left: 0.5em;
   margin-right: 2em;
-}
-
-/* .safe-free-text table {
-  max-width: 100% !important;
-  table-layout: fixed !important;
-} */
-
-span.safe-free-text td {
-  white-space: normal ;
-  /* word-wrap: break-word !important;
-  word-break: break-word !important;
-  overflow-wrap: break-word !important; */
 }
 
 @media print {

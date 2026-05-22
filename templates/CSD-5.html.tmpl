@@ -1079,7 +1079,12 @@
 
                 {{#each data.requirements.uncategorized.epics}}
                     <h4 id="section_3_8_{{epicIndex}}"><span>3.8.{{epicIndex}}</span>{{key}}: {{epicTitle}}</h4>
-                    <span class="content-wrappable">{{{epicDescription}}}</span>
+                    <table class="no-border">
+                        <tr>
+                            <td class="content-wrappable no-border">{{{epicDescription}}}</td>
+                        </tr>
+                    </table>
+                    <!-- <span class="content-wrappable">{{{epicDescription}}}</span> -->
                     <table>
                         <thead>
                             <th>No.</th>

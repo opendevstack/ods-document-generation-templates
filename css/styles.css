@@ -3,6 +3,10 @@
   line-height: 1.4em;
 }
 
+html {
+  -webkit-text-size-adjust: none;
+}
+
 body {
   margin: 0;
   font-size: 100%;

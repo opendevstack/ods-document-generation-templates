@@ -172,7 +172,10 @@ td.content-wrappable table th, td.content-wrappable table td {
 }
 
 span.content-wrappable table th, span.content-wrappable table td {
-  white-space: normal;
+  /* white-space: normal; */
+  overflow-wrap: anywhere;
+  /* word-wrap: break-word; */
+  word-break: break-all;
 }
 
 /* Remove all spacing around .inner-ul-2 elements */

@@ -168,19 +168,15 @@ table.long-results tr:first-child td {
 }
 
 th.content-wrappable, td.content-wrappable {
-  /* white-space: normal; */
-  overflow-wrap: anywhere;
-  word-break: break-all;
+  white-space: normal;
 }
 
 td.content-wrappable table th, td.content-wrappable table td {
-  /* white-space: normal; */
-  overflow-wrap: anywhere;
-  word-break: break-all;
+  white-space: normal;
 }
 
 span.content-wrappable table th, span.content-wrappable table td {
-  /* white-space: normal; */
+  white-space: normal;
   /* overflow-wrap: anywhere; */
   /* word-wrap: break-word; */
   /* word-break: break-all; */

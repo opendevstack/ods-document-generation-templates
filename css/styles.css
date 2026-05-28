@@ -106,8 +106,8 @@ table {
 
 table, table th, table td {
   border: 1px solid black;
-  /*word-break: break-word;*/
-  /*overflow-wrap: break-word;*/
+  /* word-break: break-word; */
+  /* overflow-wrap: break-word; */
 }
 
 table thead {
@@ -168,6 +168,10 @@ th.content-wrappable, td.content-wrappable {
 }
 
 td.content-wrappable table th, td.content-wrappable table td {
+  white-space: normal;
+}
+
+span.content-wrappable table th, span.content-wrappable table td {
   white-space: normal;
 }
 

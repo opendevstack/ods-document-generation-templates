@@ -3,6 +3,10 @@
 ## Unreleased
 
 
+## 1.2.14 - 2026-06-30
+- Remove hard-coded prerequisites section from TCP and TCR templates ([#162](https://github.com/opendevstack/ods-document-generation-templates/pull/162))
+- Add Test data field to TCP and TCR templates ([#163](https://github.com/opendevstack/ods-document-generation-templates/pull/163))
+
 ## 1.2.13 - 2025-7-10
 - Fixed the document history of the TIR for ods-infra components ([#160](https://github.com/opendevstack/ods-document-generation-templates/pull/160))
 

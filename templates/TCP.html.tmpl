@@ -181,16 +181,13 @@
                         <th class="lean">Target Environment:</th>
                         <td>{{../metadata.buildParameter.targetEnvironmentToken}}</td>
                     </tr>
-                    <tr>
-                        <th class="lean">Prerequisites:</th>
-                        <td>N/A</td>
-                    </tr>
                 </table>
                 <div class="page">
                     <table>
                     <thead>
                         <th>Step</th>
                         <th>Instructions</th>
+                        <th>Test data</th>
                         <th>Expected result</th>
                         <th>Actual result</th>
                     </thead>
@@ -199,6 +196,7 @@
                         <tr>
                             <td>{{orderId}}</td>
                             <td class="content-wrappable">{{{step}}}</td>
+                            <td class="content-wrappable">{{{data}}}</td>
                             <td class="content-wrappable">{{{result}}}</td>
                             <td class="content-wrappable">{{{actualResult}}}</td>
                         </tr>
@@ -250,10 +248,6 @@
                         <th class="lean">Target Environment:</th>
                         <td>{{../metadata.buildParameter.targetEnvironmentToken}}</td>
                     </tr>
-                    <tr>
-                        <th class="lean">Prerequisites:</th>
-                        <td>N/A</td>
-                    </tr>
                 </table>
 
                 <div class="page">
@@ -261,6 +255,7 @@
                     <thead>
                         <th>Step</th>
                         <th>Instructions</th>
+                        <th>Test data</th>
                         <th>Expected result / Evidence</th>
                         <th>Actual result</th>
                     </thead>
@@ -269,6 +264,7 @@
                         <tr>
                             <td>{{orderId}}</td>
                             <td class="content-wrappable">{{{step}}}</td>
+                            <td class="content-wrappable">{{{data}}}</td>
                             <td class="content-wrappable">{{{result}}}</td>
                             <td>{{{../actualResult}}}</td>
                         </tr>

@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Fix empty test data in test step doing parent context traversal ([#166](https://github.com/opendevstack/ods-document-generation-templates/pull/166))
 
 
 ## 1.2.14 - 2026-06-30

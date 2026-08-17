@@ -1,8 +1,10 @@
 # Changelog
 
 ## Unreleased
-- Fix empty test data in test step doing parent context traversal ([#166](https://github.com/opendevstack/ods-document-generation-templates/pull/166))
 
+
+## 1.2.15 - 2026-08-17
+- Fix empty test data in test step doing parent context traversal ([#166](https://github.com/opendevstack/ods-document-generation-templates/pull/166))
 
 ## 1.2.14 - 2026-06-30
 - Remove hard-coded prerequisites section from TCP and TCR templates ([#162](https://github.com/opendevstack/ods-document-generation-templates/pull/162))

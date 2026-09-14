@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Preformat all test data columns. ([#169](https://github.com/opendevstack/ods-document-generation-templates/pull/169))
 - Fix Zephyr test data column formatting and layout. ([#168](https://github.com/opendevstack/ods-document-generation-templates/pull/168))
 
 ## 1.2.15 - 2026-08-17

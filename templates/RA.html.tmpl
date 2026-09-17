@@ -162,10 +162,12 @@
 					<td class="content-wrappable">Description of possible risks or failures associated with the requirement or function. More than one risk or failure may be associated with a requirement or function.<br/>
 					If non-GxP risks are not evaluated, reason for classification as non-GxP is provided.</td>
 				</tr>
+				{{#if data.sections.sec4s2s2.usesPoo}}
 				<tr>
 					<td class="content-wrappable">Prob. of Occurrence</td>
 					<td class="content-wrappable">Probability that the failure will occur.</td>
 				</tr>
+				{{/if}}
 				<tr>
 					<td class="content-wrappable">Severity of Impact</td>
 					<td class="content-wrappable">Possible impact of the failure if it is not detected. See section 4.2.2</td>
@@ -327,7 +329,11 @@
 
 			<h3 id="section_4_2_5"><span>4.2.5</span>Risk Priority Number and Risk Priority</h3>
 			<p>Calculate a risk priority number RPN by multiplying the values of the individual factors:</p>
+			{{#if data.sections.sec4s2s2.usesPoo}}
 			<p>RPN = Value(GxP Relevance) * Value(Prob. of Occurrence) * Value(Severity of Impact) * Value(Prob. of Detection)</p>
+			{{else}}
+			<p>RPN = Value(GxP Relevance) * Value(Severity of Impact) * Value(Prob. of Detection)</p>
+			{{/if}}
 			<p>Assign the risk priority for the risk according to the following table:</p>
 
             {{#if data.sections.sec4s2s2.usesPoo}}
@@ -408,7 +414,9 @@
 				<th class="content-wrappable">Requirements</th>
 				<th class="content-wrappable">GxP (see <a href="#section_4_2_1">4.2.1</a>)</th>
 				<th class="content-wrappable">Description of risks/failures (or reason for GxP = No)</th>
+				{{#if data.sections.sec4s2s2.usesPoo}}
 				<th class="content-wrappable">Prob. Occur.</th>
+				{{/if}}
 				<th class="content-wrappable">Severity Impact</th>
 				<th class="content-wrappable">Prob. Detect.</th>
 				<th class="lean">RPN</th>
@@ -425,7 +433,9 @@
                     </td>
 					<td class="lean">{{gxpRelevance}}</td>
 					<td class="content-wrappable">Summary: {{name}}.<br/>{{{description}}}</td>
+					{{#if @root.data.sections.sec4s2s2.usesPoo}}
 					<td class="content-wrappable">{{probabilityOfOccurrence}}</td>
+					{{/if}}
 					<td class="content-wrappable">{{severityOfImpact}}</td>
 					<td class="content-wrappable">{{probabilityOfDetection}}</td>
 					<td class="content-wrappable">{{riskPriorityNumber}}</td>

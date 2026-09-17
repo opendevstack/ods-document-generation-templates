@@ -325,7 +325,7 @@
 
     <div class="page">
         <h2 id="section_11"><span>11</span>Test Case Failure and Problem Resolution</h2>
-        <p>A test case shall be failed if the observed outcome of a test differs in any way from the expected outcome identified in the test case data. If any step of a test case fails and cannot be resolved, then the entire test case fails. There may be many reasons for failure, some of which may not mean that the system itself has a flaw. It is, however, the Tester's responsibility to fail the test case and indicate in the comments box the failure or problem that occurred, including the test steps related to this discrepancy.</p>
+        <p>A test case shall be failed if the observed outcome of a test differs in any way from the expected outcome identified in the test case data. If any step of a test case fails and cannot be resolved, then the entire test case fails. There may be many reasons for failure, some of which may not mean that the system itself has a flaw. It is, however, the Tester's responsibility to fail the test case and indicate in the comments box the failure or problem that occurred, including the test steps related to this defect.</p>
 
         <p>Reasons for test case failure may include:</p>
         <ul>
@@ -337,14 +337,14 @@
 
         <h3 id="section_11_1"><span>11.1</span> Automated Test Cases</h3>
         <p>
-            All discrepancies occurring during the test execution are automatically recorded in a designated discrepancy log.
+            All defects occurring during the test execution are automatically recorded in a designated defect log.
             {{#if metadata.gxp}}
                 In case of a re-deployment, a rationale must be documented in a manually created C-DIL document. When advancing to the P environment despite failed test cases or exclusions from testing, a rationale including the analyzed risks must be documented in a manually created C-FTR document (Appendix 1).
             {{/if}}
         </p>
         <h3 id="section_11_2"><span>11.2</span> Manual Test Cases</h3>
         <p>Upon failing a test case, the Tester shall always contact the Test Administrator immediately to review the problem. The Test Administrator shall decide how to proceed, since test cases may build upon each other and a failure may cascade through several cases.</p>
-        <p>The Test Administrator will also record all discrepancies that occur during the test execution in a designated discrepancy log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the discrepancy log.</p>
+        <p>The Test Administrator will also record all defects that occur during the test execution in a designated defect log. The Test Administrator is responsible for determining failure resolutions and whether a failure represents an unacceptable flaw in the system. The Test Administrator will document the result of this determination in the defect log.</p>
         {{#if metadata.gxp}}
             <p>The final evaluation of remaining risks and unresolved critical failures will be assessed in the validation summary report.</p>
         {{/if}}
@@ -357,7 +357,7 @@
             <li>Traceability as defined in section 9</li>
             <li>All executed integration test cases</li>
             <li>All executed acceptance test cases</li>
-            <li>Discrepancy log</li>
+            <li>Defect log</li>
         </ul>
         {{#if data.sections.sec12.show}}
         <table class="no-border">

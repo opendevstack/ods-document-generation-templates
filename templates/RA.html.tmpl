@@ -185,8 +185,12 @@
 					<td class="content-wrappable">Categorized risk which is derived from the risk priority number RPN. 1 identifies highest risk priority and 3 lowest risk priority.</td>
 				</tr>
 				<tr>
-					<td class="content-wrappable">Proposed Measures</td>
-					<td class="content-wrappable">Proposed measures (e.g. additional test requirements, design requirements, functional limitations, and organisational or procedural measures) for risk mitigation. This entry is mandatory for priority 1 GxP risks and optional for all other risk priorities</td>
+					<td class="content-wrappable">Risk Controls</td>
+					<td class="content-wrappable">Risk controls (e.g. design requirements, functional limitations, and organisational or procedural measures) for risk mitigation to an acceptable level, and/or justification for acceptance of risk/residual risk. The aim of a risk control is to reduce probability of occurrence or increase probability detection.<br>Risk controls are mandatory for priority 1 GxP risks and optional for all other risk priorities.</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Level of Testing</td>
+					<td class="content-wrappable">The required minimum level of testing (e.g., challenge testing, simple testing, or no testing) based on Risk Priority and Overall System Criticality. This can be based on the expected Risk Priority after implementation of Risk Controls, if justified.</td>
 				</tr>
 				<tr>
 					<td class="content-wrappable">Comments</td>
@@ -310,7 +314,7 @@
             </thead>
 			<tbody>
 				<tr>
-					<td class="lean">Inmediate</td>
+					<td class="lean">Immediate</td>
 					<td class="lean">1</td>
 					<td class="content-wrappable">The failure is detected immediately when it occurs. The user is able to take immediate measures to correct the failure before any impact can occur.</td>
 				</tr>
@@ -421,7 +425,8 @@
 				<th class="content-wrappable">Prob. Detect.</th>
 				<th class="lean">RPN</th>
 				<th class="content-wrappable">Risk Prio.</th>
-				<th class="content-wrappable">Proposed Measures</th>
+				<th class="content-wrappable">Risk Controls</th>
+				<th class="content-wrappable">Level of Testing</th>
 				<th class="content-wrappable">Comments</th>
             </thead>
 			<tbody>
@@ -440,7 +445,8 @@
 					<td class="content-wrappable">{{probabilityOfDetection}}</td>
 					<td class="content-wrappable">{{riskPriorityNumber}}</td>
 					<td class="content-wrappable">{{riskPriority}}</td>
-					<td class="content-wrappable">{{{proposedMeasures}}}</td>
+					<td class="content-wrappable">Mitigations: {{{proposedMeasures}}}</td>
+					<td class="content-wrappable">Tests: {{{proposedMeasures}}}</td>
 					<td class="content-wrappable">{{{riskComment}}}</td>
 				</tr>
 				{{/each}}

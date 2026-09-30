@@ -162,10 +162,12 @@
 					<td class="content-wrappable">Description of possible risks or failures associated with the requirement or function. More than one risk or failure may be associated with a requirement or function.<br/>
 					If non-GxP risks are not evaluated, reason for classification as non-GxP is provided.</td>
 				</tr>
+				{{#if data.sections.sec4s2s2.usesPoo}}
 				<tr>
 					<td class="content-wrappable">Prob. of Occurrence</td>
 					<td class="content-wrappable">Probability that the failure will occur.</td>
 				</tr>
+				{{/if}}
 				<tr>
 					<td class="content-wrappable">Severity of Impact</td>
 					<td class="content-wrappable">Possible impact of the failure if it is not detected. See section 4.2.2</td>
@@ -183,8 +185,12 @@
 					<td class="content-wrappable">Categorized risk which is derived from the risk priority number RPN. 1 identifies highest risk priority and 3 lowest risk priority.</td>
 				</tr>
 				<tr>
-					<td class="content-wrappable">Proposed Measures</td>
-					<td class="content-wrappable">Proposed measures (e.g. additional test requirements, design requirements, functional limitations, and organisational or procedural measures) for risk mitigation. This entry is mandatory for priority 1 GxP risks and optional for all other risk priorities</td>
+					<td class="content-wrappable">Risk Controls</td>
+					<td class="content-wrappable">Risk controls (e.g. design requirements, functional limitations, and organisational or procedural measures) for risk mitigation to an acceptable level, and/or justification for acceptance of risk/residual risk. The aim of a risk control is to reduce probability of occurrence or increase probability detection.<br>Risk controls are mandatory for priority 1 GxP risks and optional for all other risk priorities.</td>
+				</tr>
+				<tr>
+					<td class="content-wrappable">Level of Testing</td>
+					<td class="content-wrappable">Defines the level and scope of testing based on Risk Priority and Overall System Criticality, and may include Acceptance, Integration, Unit or Installation levels.<br>The JIRA test ID is referenced; test description is detailed in Section 5. Details of the test plan are documented in the Test Case Plan associated.</td>
 				</tr>
 				<tr>
 					<td class="content-wrappable">Comments</td>
@@ -308,7 +314,7 @@
             </thead>
 			<tbody>
 				<tr>
-					<td class="lean">Inmediate</td>
+					<td class="lean">Immediate</td>
 					<td class="lean">1</td>
 					<td class="content-wrappable">The failure is detected immediately when it occurs. The user is able to take immediate measures to correct the failure before any impact can occur.</td>
 				</tr>
@@ -327,7 +333,11 @@
 
 			<h3 id="section_4_2_5"><span>4.2.5</span>Risk Priority Number and Risk Priority</h3>
 			<p>Calculate a risk priority number RPN by multiplying the values of the individual factors:</p>
+			{{#if data.sections.sec4s2s2.usesPoo}}
 			<p>RPN = Value(GxP Relevance) * Value(Prob. of Occurrence) * Value(Severity of Impact) * Value(Prob. of Detection)</p>
+			{{else}}
+			<p>RPN = Value(GxP Relevance) * Value(Severity of Impact) * Value(Prob. of Detection)</p>
+			{{/if}}
 			<p>Assign the risk priority for the risk according to the following table:</p>
 
             {{#if data.sections.sec4s2s2.usesPoo}}
@@ -375,7 +385,7 @@
             {{/if}}
             <p>A risk considered as non-GxP and not being evaluated will lead to a RPN = 0 and Risk Priority = 0.</p>
 
-			<h3 id="section_4_2_6"><span>4.2.6</span>Proposed Measure</h3>
+			<h3 id="section_4_2_6"><span>4.2.6</span>Risk Controls</h3>
 			<p>Depending on the risk priority risk mitigating measures must be defined according to the following table. The System Owner must ensure that the defined measures are being implemented.</p>
 			<table id="Proposed Measure" class="no-page-break">
             <thead>
@@ -408,12 +418,15 @@
 				<th class="content-wrappable">Requirements</th>
 				<th class="content-wrappable">GxP (see <a href="#section_4_2_1">4.2.1</a>)</th>
 				<th class="content-wrappable">Description of risks/failures (or reason for GxP = No)</th>
+				{{#if data.sections.sec4s2s2.usesPoo}}
 				<th class="content-wrappable">Prob. Occur.</th>
+				{{/if}}
 				<th class="content-wrappable">Severity Impact</th>
 				<th class="content-wrappable">Prob. Detect.</th>
 				<th class="lean">RPN</th>
 				<th class="content-wrappable">Risk Prio.</th>
-				<th class="content-wrappable">Proposed Measures</th>
+				<th class="content-wrappable">Risk Controls</th>
+				<th class="content-wrappable">Level of Testing</th>
 				<th class="content-wrappable">Comments</th>
             </thead>
 			<tbody>
@@ -425,12 +438,15 @@
                     </td>
 					<td class="lean">{{gxpRelevance}}</td>
 					<td class="content-wrappable">Summary: {{name}}.<br/>{{{description}}}</td>
+					{{#if @root.data.sections.sec4s2s2.usesPoo}}
 					<td class="content-wrappable">{{probabilityOfOccurrence}}</td>
+					{{/if}}
 					<td class="content-wrappable">{{severityOfImpact}}</td>
 					<td class="content-wrappable">{{probabilityOfDetection}}</td>
 					<td class="content-wrappable">{{riskPriorityNumber}}</td>
 					<td class="content-wrappable">{{riskPriority}}</td>
-					<td class="content-wrappable">{{{proposedMeasures}}}</td>
+					<td class="content-wrappable">{{{mitigations}}}</td>
+					<td class="content-wrappable">{{{tests}}}</td>
 					<td class="content-wrappable">{{{riskComment}}}</td>
 				</tr>
 				{{/each}}

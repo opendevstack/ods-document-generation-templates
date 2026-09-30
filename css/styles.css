@@ -96,6 +96,13 @@ pre {
   word-wrap: break-word;
 }
 
+pre.content-overflow {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

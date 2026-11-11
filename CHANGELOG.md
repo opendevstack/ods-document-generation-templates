@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-
+- RA 4.2.6 chapter update to match with leva document content. ([#175](https://github.com/opendevstack/ods-document-generation-templates/pull/175))
 
 ## 1.2.16 - 2026-09-30
 - DTR, IVR, IVP documents updated according to new leva specifications. ([#173](https://github.com/opendevstack/ods-document-generation-templates/pull/173))

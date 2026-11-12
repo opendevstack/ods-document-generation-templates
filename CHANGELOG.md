@@ -1,9 +1,6 @@
 # Changelog
 
 ## Unreleased
-- RA 4.2.6 chapter update accoring to new leva document updates. ([#172](https://github.com/opendevstack/ods-document-generation-templates/pull/172))
-- Update templates according to new leva document updates. ([#171](https://github.com/opendevstack/ods-document-generation-templates/pull/171))
-- Hide Probability of Occurrence from the risk assessment when it is disabled. ([#170](https://github.com/opendevstack/ods-document-generation-templates/pull/170))
 - Preformat all test data columns. ([#169](https://github.com/opendevstack/ods-document-generation-templates/pull/169))
 - Fix Zephyr test data column formatting and layout. ([#168](https://github.com/opendevstack/ods-document-generation-templates/pull/168))
 

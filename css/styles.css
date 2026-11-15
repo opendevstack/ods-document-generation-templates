@@ -100,7 +100,6 @@ pre.content-overflow {
     white-space: pre-wrap;
     word-wrap: break-word;
     word-break: break-all;
-    overflow: auto;
 }
 
 table {

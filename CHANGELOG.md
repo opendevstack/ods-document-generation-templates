@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Remove scroll bar from TCR document table cells. ([#176](https://github.com/opendevstack/ods-document-generation-templates/pull/176))
 - RA 4.2.6 chapter update to match with leva document content. ([#175](https://github.com/opendevstack/ods-document-generation-templates/pull/175))
 
 ## 1.2.16 - 2026-09-30
